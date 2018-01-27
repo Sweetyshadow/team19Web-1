@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         #'DIRS': [],
-	    'DIRS':['TeamStyle19_front/dist'],
+	    'DIRS':['front/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,6 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"TeamStyle19_front/dist/static"),
+    os.path.join(BASE_DIR,"front/dist/static"),
     '/var/www/static/',
 ]
