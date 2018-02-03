@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail of group {{ teaminfo.team_name }}</title>
+</head>
+<body>
+    <a>team name: {{ teaminfo.team_name }}</a>
+    <a>leader: {{ teaminfo.leader }}</a>
+    <ul>
+        {% for studentinfo in teaminfo.studentinfo_set.all %}
+            <li>{{ studentinfo.student_nickname }}</li>
+        {% endfor %}
+    </ul>
+    <a>invite code: {{ teaminfo.invite_code }}</a>
+    <a>history: {{ teaminfo.history }}</a>
+    <a>score: {{ teaminfo.score }}</a>
+    <a>codes: {{ teaminfo.codes }}</a>
+</body>
+</html>

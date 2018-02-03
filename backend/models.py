@@ -1,12 +1,38 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models
 
 # Create your models here.
-class Book(models.Model):
-    book_name = models.CharField(max_length=64)
-    add_time = models.DateTimeField(auto_now_add=True)
 
-    def __unicode__(self):
-        return self.book_name
+
+class TeamInfo(models.Model):
+    team_name = models.CharField(max_length=30, null=True)
+    leader = models.CharField(max_length=50, null=True)
+    invite_code = models.CharField(max_length=20, null=True)
+    codes = models.TextField(null=True)
+    history = models.TextField(null=True)
+    score = models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.team_name
+
+
+class StudentInfo(models.Model):
+    team_name = models.ForeignKey(TeamInfo, on_delete=models.CASCADE, null=True)
+    student_id = models.CharField(max_length=20, null=True)
+    student_nickname = models.CharField(max_length=50, null=True)
+    password = models.CharField(max_length=30, default='000', null=True)
+    thu_email = models.CharField(max_length=20, null=True)
+    profile_photo = models.ImageField(null=True)
+
+    def __str__(self):
+        return self.student_nickname
+
+
+class RuleFile(models.Model):
+    title = models.CharField('标题', max_length=20)
+    desc = models.CharField('描述', max_length=50)
+    pub_date = models.DateField('date published')
+    address = models.FileField(null=True)
+
+    def __str__(self):
+        return self.title
