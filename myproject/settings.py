@@ -25,7 +25,7 @@ SECRET_KEY = 'qt@*zym_=ye308vc^j=^bq2=d#+ol=zzszxle*lcce=3a_o7l*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         #'DIRS': [],
-	    'DIRS':['front/dist'],
+	'DIRS':['TeamStyle19_front/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,6 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"front/dist/static"),
+    os.path.join(BASE_DIR,"TeamStyle19_front/dist/static"),
     '/var/www/static/',
 ]

@@ -1,0 +1,1016 @@
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Jan 28 23:05:20 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:39817 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x165c650
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x165c650 pid: 5737 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 5737)
+spawned uWSGI worker 1 (pid: 5739, cores: 1)
+spawned uWSGI worker 2 (pid: 5740, cores: 1)
+spawned uWSGI worker 3 (pid: 5741, cores: 1)
+spawned uWSGI worker 4 (pid: 5742, cores: 1)
+spawned uWSGI http 1 (pid: 5743)
+[pid: 5741|app: 0|req: 1/1] 223.72.80.60 () {38 vars in 653 bytes} [Sun Jan 28 15:05:32 2018] GET / => generated 472 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5739|app: 0|req: 1/2] 223.72.80.60 () {38 vars in 654 bytes} [Sun Jan 28 15:05:33 2018] GET / => generated 472 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5740|app: 0|req: 1/3] 223.72.80.60 () {38 vars in 653 bytes} [Sun Jan 28 15:05:33 2018] GET / => generated 472 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5739|app: 0|req: 2/4] 223.72.80.60 () {38 vars in 654 bytes} [Sun Jan 28 15:05:33 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5742|app: 0|req: 1/5] 223.72.80.60 () {36 vars in 623 bytes} [Sun Jan 28 15:05:38 2018] GET / => generated 472 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Sun Jan 28 15:06:11 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:06:11 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:06:11 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:06:11 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Jan 28 23:06:22 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:45384 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x2431650
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x2431650 pid: 5797 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 5797)
+spawned uWSGI worker 1 (pid: 5799, cores: 1)
+spawned uWSGI worker 2 (pid: 5800, cores: 1)
+spawned uWSGI worker 3 (pid: 5801, cores: 1)
+spawned uWSGI worker 4 (pid: 5802, cores: 1)
+spawned uWSGI http 1 (pid: 5803)
+[pid: 5802|app: 0|req: 1/1] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:06:24 2018] GET / => generated 472 bytes in 22 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Jan 28 23:06:30 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (:8002).
+bind(): Address already in use [core/socket.c line 769]
+[pid: 5799|app: 0|req: 1/2] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:06:59 2018] GET / => generated 472 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5802|app: 0|req: 2/3] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:00 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5801|app: 0|req: 1/4] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:00 2018] GET / => generated 472 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5799|app: 0|req: 2/5] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:01 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5800|app: 0|req: 1/6] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:01 2018] GET / => generated 472 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5799|app: 0|req: 3/7] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:01 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Gracefully killing worker 4 (pid: 5802)...
+Gracefully killing worker 3 (pid: 5801)...
+gateway "uWSGI http 1" has been buried (pid: 5803)
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 5799)...
+Gracefully killing worker 2 (pid: 5800)...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/ubuntu/team19/vue-django-test
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (127.0.0.1:45384)
+running /usr/local/bin/uwsgi
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Jan 28 15:07:09 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 5
+uwsgi socket 0 bound to TCP address 127.0.0.1:44126 (port auto-assigned) fd 4
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7a74c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7a74c0 pid: 5797 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 5797)
+spawned uWSGI worker 1 (pid: 5847, cores: 1)
+spawned uWSGI worker 2 (pid: 5848, cores: 1)
+spawned uWSGI worker 3 (pid: 5849, cores: 1)
+spawned uWSGI worker 4 (pid: 5850, cores: 1)
+spawned uWSGI http 1 (pid: 5851)
+[pid: 5850|app: 0|req: 1/1] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:10 2018] GET / => generated 472 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5848|app: 0|req: 1/2] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:11 2018] GET / => generated 472 bytes in 22 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5848|app: 0|req: 2/3] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:29 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5849|app: 0|req: 1/4] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:30 2018] GET / => generated 472 bytes in 18 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5848|app: 0|req: 3/5] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:30 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5850|app: 0|req: 2/6] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:07:30 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5848|app: 0|req: 4/7] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:08:04 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5849|app: 0|req: 2/8] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:08:05 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5850|app: 0|req: 3/9] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:08:05 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5847|app: 0|req: 1/10] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:08:05 2018] GET / => generated 472 bytes in 21 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 5848|app: 0|req: 5/11] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:08:06 2018] GET / => generated 472 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Sun Jan 28 15:09:11 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:09:11 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:09:11 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:09:11 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Sun Jan 28 23:09:31 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:37602 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1c70660
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1c70660 pid: 6193 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 6193)
+spawned uWSGI worker 1 (pid: 6196, cores: 1)
+spawned uWSGI worker 2 (pid: 6197, cores: 1)
+spawned uWSGI worker 3 (pid: 6198, cores: 1)
+spawned uWSGI worker 4 (pid: 6199, cores: 1)
+spawned uWSGI http 1 (pid: 6200)
+[pid: 6199|app: 0|req: 1/1] 223.72.80.60 () {38 vars in 655 bytes} [Sun Jan 28 15:09:43 2018] GET / => generated 472 bytes in 27 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Sun Jan 28 15:10:12 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:10:12 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:10:12 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sun Jan 28 15:10:12 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Wed Jan 31 15:09:38 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (:8002).
+bind(): Address already in use [core/socket.c line 769]
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 09:30:15 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:44963 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x11573a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x11573a0 pid: 5311 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 5311)
+spawned uWSGI worker 1 (pid: 5313, cores: 1)
+spawned uWSGI worker 2 (pid: 5314, cores: 1)
+spawned uWSGI worker 3 (pid: 5315, cores: 1)
+spawned uWSGI worker 4 (pid: 5316, cores: 1)
+spawned uWSGI http 1 (pid: 5317)
+[pid: 5316|app: 0|req: 1/1] 223.10.223.243 () {36 vars in 634 bytes} [Fri Feb  2 01:41:52 2018] GET /admin => generated 0 bytes in 782 msecs (HTTP/1.1 301) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 5313|app: 0|req: 1/2] 223.10.223.243 () {36 vars in 638 bytes} [Fri Feb  2 01:41:53 2018] GET /admin/ => generated 0 bytes in 147 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 5316|app: 0|req: 2/3] 223.10.223.243 () {36 vars in 675 bytes} [Fri Feb  2 01:41:53 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 749 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 5313|app: 0|req: 2/4] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 01:41:54 2018] GET /static/admin/css/base.css => generated 3857 bytes in 27 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+[pid: 5315|app: 0|req: 1/5] 223.10.223.243 () {38 vars in 733 bytes} [Fri Feb  2 01:41:54 2018] GET /static/admin/css/login.css => generated 3860 bytes in 36 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 5316|app: 0|req: 3/6] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 01:41:54 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 7 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 5316|app: 0|req: 4/7] 123.207.140.186 () {28 vars in 306 bytes} [Fri Feb  2 01:59:35 2018] GET / => generated 458 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Fri Feb  2 02:26:43 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:26:43 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:26:43 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:26:43 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 10:33:03 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:38866 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xe993c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xe993c0 pid: 8941 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 8941)
+spawned uWSGI worker 1 (pid: 8943, cores: 1)
+spawned uWSGI worker 2 (pid: 8944, cores: 1)
+spawned uWSGI worker 3 (pid: 8945, cores: 1)
+spawned uWSGI worker 4 (pid: 8946, cores: 1)
+spawned uWSGI http 1 (pid: 8947)
+Not Found: /api/auth
+[pid: 8945|app: 0|req: 1/1] 223.10.223.243 () {40 vars in 742 bytes} [Fri Feb  2 02:33:47 2018] GET /api/auth?name=hj => generated 2082 bytes in 17 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Fri Feb  2 02:35:01 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:35:01 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:35:01 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:35:01 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 10:36:01 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:42440 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x12123c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+Traceback (most recent call last):
+  File "./myproject/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/django/conf/__init__.py", line 56, in __getattr__
+    self._setup(name)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/django/conf/__init__.py", line 43, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/home/ubuntu/.local/lib/python3.5/site-packages/django/conf/__init__.py", line 106, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "./myproject/settings.py", line 62
+    'APP_DIRS': True,
+             ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9105)
+spawned uWSGI worker 1 (pid: 9107, cores: 1)
+spawned uWSGI worker 2 (pid: 9108, cores: 1)
+spawned uWSGI worker 3 (pid: 9109, cores: 1)
+spawned uWSGI worker 4 (pid: 9110, cores: 1)
+spawned uWSGI http 1 (pid: 9111)
+--- no python application found, check your startup logs for errors ---
+[pid: 9109|app: -1|req: -1/1] 223.10.223.243 () {40 vars in 746 bytes} [Fri Feb  2 10:36:06 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 9110|app: -1|req: -1/2] 223.10.223.243 () {40 vars in 746 bytes} [Fri Feb  2 10:36:06 2018] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+Fri Feb  2 10:37:00 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 10:37:00 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 10:37:00 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 10:37:00 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 10:37:18 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:44075 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x20853c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x20853c0 pid: 9175 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9175)
+spawned uWSGI worker 1 (pid: 9178, cores: 1)
+spawned uWSGI worker 2 (pid: 9179, cores: 1)
+spawned uWSGI worker 3 (pid: 9180, cores: 1)
+spawned uWSGI worker 4 (pid: 9181, cores: 1)
+spawned uWSGI http 1 (pid: 9182)
+[pid: 9180|app: 0|req: 1/1] 223.10.223.243 () {40 vars in 746 bytes} [Fri Feb  2 02:37:21 2018] GET / => generated 540 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 9178|app: -1|req: -1/2] 223.10.223.243 () {38 vars in 759 bytes} [Fri Feb  2 02:37:21 2018] GET /static/css/app.47f0784009d369f77c3dd96435b22fa9.css => generated 553 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 110 bytes (0 switches on core 0)
+[pid: 9179|app: -1|req: -1/3] 223.10.223.243 () {38 vars in 716 bytes} [Fri Feb  2 02:37:21 2018] GET /static/js/app.b494d80d3a1b35fdf082.js => generated 13450 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 9179|app: -1|req: -1/4] 223.10.223.243 () {38 vars in 726 bytes} [Fri Feb  2 02:37:21 2018] GET /static/js/manifest.186eb9c608ce3a89ddc1.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 9179|app: -1|req: -1/5] 223.10.223.243 () {38 vars in 722 bytes} [Fri Feb  2 02:37:21 2018] GET /static/js/vendor.ec0176d6a863c9d63f14.js => generated 145004 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 9178|app: -1|req: -1/6] 223.10.223.243 () {34 vars in 672 bytes} [Fri Feb  2 02:37:22 2018] GET /static/js/manifest.186eb9c608ce3a89ddc1.js.map => generated 14245 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 9178|app: -1|req: -1/7] 223.10.223.243 () {34 vars in 668 bytes} [Fri Feb  2 02:37:22 2018] GET /static/js/vendor.ec0176d6a863c9d63f14.js.map => generated 1143295 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 90 bytes (0 switches on core 0)
+[pid: 9178|app: -1|req: -1/8] 223.10.223.243 () {34 vars in 662 bytes} [Fri Feb  2 02:37:22 2018] GET /static/js/app.b494d80d3a1b35fdf082.js.map => generated 72399 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 9178|app: 0|req: 1/9] 223.10.223.243 () {38 vars in 714 bytes} [Fri Feb  2 02:37:27 2018] GET / => generated 540 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 9178|app: 0|req: 2/10] 223.10.223.243 () {40 vars in 759 bytes} [Fri Feb  2 02:38:08 2018] GET /? => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Forbidden (CSRF token missing or incorrect.): /
+[pid: 9181|app: 0|req: 1/11] 223.10.223.243 () {46 vars in 819 bytes} [Fri Feb  2 02:38:08 2018] POST / => generated 2513 bytes in 86 msecs (HTTP/1.1 403) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 9178|app: 0|req: 3/12] 223.10.223.243 () {38 vars in 727 bytes} [Fri Feb  2 02:39:33 2018] GET /admin/ => generated 0 bytes in 63 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 9181|app: 0|req: 2/13] 223.10.223.243 () {38 vars in 764 bytes} [Fri Feb  2 02:39:34 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 614 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 9178|app: 0|req: 4/14] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 02:39:34 2018] GET /static/admin/css/base.css => generated 3857 bytes in 22 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+[pid: 9179|app: 0|req: 1/15] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 02:39:34 2018] GET /static/admin/css/login.css => generated 3860 bytes in 36 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 9178|app: 0|req: 5/16] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 02:39:34 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 7 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 9178|app: 0|req: 6/17] 222.184.174.223 () {36 vars in 632 bytes} [Fri Feb  2 02:42:40 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 9180|app: -1|req: -1/18] 222.184.174.223 () {36 vars in 676 bytes} [Fri Feb  2 02:42:40 2018] GET /static/css/app.47f0784009d369f77c3dd96435b22fa9.css => generated 553 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 110 bytes (0 switches on core 0)
+[pid: 9181|app: -1|req: -1/19] 222.184.174.223 () {36 vars in 643 bytes} [Fri Feb  2 02:42:40 2018] GET /static/js/manifest.186eb9c608ce3a89ddc1.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 9179|app: -1|req: -1/20] 222.184.174.223 () {36 vars in 639 bytes} [Fri Feb  2 02:42:40 2018] GET /static/js/vendor.ec0176d6a863c9d63f14.js => generated 145004 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 9179|app: -1|req: -1/21] 222.184.174.223 () {36 vars in 633 bytes} [Fri Feb  2 02:42:40 2018] GET /static/js/app.b494d80d3a1b35fdf082.js => generated 13450 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 9178|app: -1|req: -1/22] 222.184.174.223 () {32 vars in 585 bytes} [Fri Feb  2 02:42:46 2018] GET /static/js/vendor.ec0176d6a863c9d63f14.js.map => generated 1143295 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 90 bytes (0 switches on core 0)
+[pid: 9178|app: -1|req: -1/23] 222.184.174.223 () {32 vars in 589 bytes} [Fri Feb  2 02:42:46 2018] GET /static/js/manifest.186eb9c608ce3a89ddc1.js.map => generated 14245 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 9179|app: -1|req: -1/24] 222.184.174.223 () {32 vars in 579 bytes} [Fri Feb  2 02:42:46 2018] GET /static/js/app.b494d80d3a1b35fdf082.js.map => generated 72399 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 9181|app: 0|req: 3/25] 222.184.174.223 () {38 vars in 628 bytes} [Fri Feb  2 02:43:27 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 9178|app: 0|req: 7/26] 222.184.174.223 () {38 vars in 677 bytes} [Fri Feb  2 02:43:27 2018] GET /? => generated 540 bytes in 3 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Forbidden (CSRF cookie not set.): /
+[pid: 9180|app: 0|req: 2/27] 222.184.174.223 () {44 vars in 737 bytes} [Fri Feb  2 02:43:33 2018] POST / => generated 2868 bytes in 4 msecs (HTTP/1.1 403) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 9178|app: 0|req: 8/28] 222.184.174.223 () {40 vars in 708 bytes} [Fri Feb  2 02:50:54 2018] GET /? => generated 540 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 9179|app: -1|req: -1/29] 222.184.174.223 () {38 vars in 732 bytes} [Fri Feb  2 02:50:54 2018] GET /static/css/app.47f0784009d369f77c3dd96435b22fa9.css => generated 0 bytes in 5 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 9180|app: -1|req: -1/30] 222.184.174.223 () {38 vars in 695 bytes} [Fri Feb  2 02:50:54 2018] GET /static/js/vendor.ec0176d6a863c9d63f14.js => generated 0 bytes in 5 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 9181|app: -1|req: -1/31] 222.184.174.223 () {38 vars in 699 bytes} [Fri Feb  2 02:50:54 2018] GET /static/js/manifest.186eb9c608ce3a89ddc1.js => generated 0 bytes in 5 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 9178|app: -1|req: -1/32] 222.184.174.223 () {38 vars in 689 bytes} [Fri Feb  2 02:50:54 2018] GET /static/js/app.b494d80d3a1b35fdf082.js => generated 0 bytes in 5 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 9181|app: -1|req: -1/33] 222.184.174.223 () {34 vars in 644 bytes} [Fri Feb  2 02:50:55 2018] GET /static/js/manifest.186eb9c608ce3a89ddc1.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 9179|app: -1|req: -1/34] 222.184.174.223 () {34 vars in 640 bytes} [Fri Feb  2 02:50:55 2018] GET /static/js/vendor.ec0176d6a863c9d63f14.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 9181|app: -1|req: -1/35] 222.184.174.223 () {34 vars in 634 bytes} [Fri Feb  2 02:50:55 2018] GET /static/js/app.b494d80d3a1b35fdf082.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+Fri Feb  2 02:52:34 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:52:34 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:52:34 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 02:52:34 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 10:53:48 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:34887 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x14b43c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x14b43c0 pid: 10358 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10358)
+spawned uWSGI worker 1 (pid: 10362, cores: 1)
+spawned uWSGI worker 2 (pid: 10363, cores: 1)
+spawned uWSGI worker 3 (pid: 10364, cores: 1)
+spawned uWSGI worker 4 (pid: 10365, cores: 1)
+spawned uWSGI http 1 (pid: 10366)
+[pid: 10363|app: 0|req: 1/1] 223.10.223.243 () {40 vars in 746 bytes} [Fri Feb  2 02:53:51 2018] GET / => generated 540 bytes in 112 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: -1|req: -1/2] 223.10.223.243 () {38 vars in 759 bytes} [Fri Feb  2 02:53:51 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 1284 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/3] 223.10.223.243 () {38 vars in 726 bytes} [Fri Feb  2 02:53:51 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/4] 223.10.223.243 () {38 vars in 722 bytes} [Fri Feb  2 02:53:51 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/5] 223.10.223.243 () {38 vars in 716 bytes} [Fri Feb  2 02:53:51 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/6] 223.10.223.243 () {34 vars in 672 bytes} [Fri Feb  2 02:53:51 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 14245 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/7] 223.10.223.243 () {34 vars in 668 bytes} [Fri Feb  2 02:53:51 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 1143189 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 90 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/8] 223.10.223.243 () {34 vars in 662 bytes} [Fri Feb  2 02:53:51 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 69592 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 1/9] 223.10.223.243 () {38 vars in 713 bytes} [Fri Feb  2 02:53:55 2018] GET / => generated 540 bytes in 23 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 2/10] 223.10.223.243 () {40 vars in 760 bytes} [Fri Feb  2 02:54:13 2018] GET /? => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10363|app: -1|req: -1/11] 223.10.223.243 () {40 vars in 782 bytes} [Fri Feb  2 02:54:15 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/12] 223.10.223.243 () {40 vars in 778 bytes} [Fri Feb  2 02:54:15 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/13] 223.10.223.243 () {40 vars in 772 bytes} [Fri Feb  2 02:54:15 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/14] 223.10.223.243 () {36 vars in 727 bytes} [Fri Feb  2 02:54:15 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/15] 223.10.223.243 () {36 vars in 717 bytes} [Fri Feb  2 02:54:15 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/16] 223.10.223.243 () {36 vars in 723 bytes} [Fri Feb  2 02:54:15 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 3/17] 223.10.223.243 () {40 vars in 711 bytes} [Fri Feb  2 02:54:25 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10363|app: 0|req: 2/18] 222.184.174.223 () {36 vars in 632 bytes} [Fri Feb  2 02:54:48 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10365|app: -1|req: -1/19] 222.184.174.223 () {36 vars in 639 bytes} [Fri Feb  2 02:54:48 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/20] 222.184.174.223 () {36 vars in 676 bytes} [Fri Feb  2 02:54:48 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 1284 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/21] 222.184.174.223 () {36 vars in 643 bytes} [Fri Feb  2 02:54:48 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/22] 222.184.174.223 () {36 vars in 633 bytes} [Fri Feb  2 02:54:48 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 4/23] 223.10.223.243 () {38 vars in 727 bytes} [Fri Feb  2 02:54:54 2018] GET /admin/ => generated 0 bytes in 17 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 10363|app: 0|req: 3/24] 223.10.223.243 () {38 vars in 764 bytes} [Fri Feb  2 02:54:54 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 108 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 10362|app: 0|req: 5/25] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 02:54:54 2018] GET /static/admin/css/base.css => generated 3857 bytes in 14 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+[pid: 10363|app: 0|req: 4/26] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 02:54:54 2018] GET /static/admin/css/login.css => generated 3860 bytes in 16 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 10364|app: 0|req: 1/27] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 02:54:54 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 23 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 6/28] 222.184.174.223 () {38 vars in 627 bytes} [Fri Feb  2 02:55:05 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 7/29] 222.184.174.223 () {38 vars in 676 bytes} [Fri Feb  2 02:55:05 2018] GET /? => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: -1|req: -1/30] 222.184.174.223 () {38 vars in 731 bytes} [Fri Feb  2 02:55:10 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/31] 222.184.174.223 () {38 vars in 698 bytes} [Fri Feb  2 02:55:10 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/32] 222.184.174.223 () {38 vars in 694 bytes} [Fri Feb  2 02:55:10 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/33] 222.184.174.223 () {38 vars in 688 bytes} [Fri Feb  2 02:55:10 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 8/34] 222.184.174.223 () {38 vars in 629 bytes} [Fri Feb  2 02:55:18 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 9/35] 222.184.174.223 () {38 vars in 629 bytes} [Fri Feb  2 02:55:38 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 10/36] 222.184.174.223 () {36 vars in 632 bytes} [Fri Feb  2 02:55:54 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10365|app: -1|req: -1/37] 222.184.174.223 () {38 vars in 731 bytes} [Fri Feb  2 02:55:54 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/38] 222.184.174.223 () {38 vars in 698 bytes} [Fri Feb  2 02:55:54 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/39] 222.184.174.223 () {38 vars in 694 bytes} [Fri Feb  2 02:55:54 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/40] 222.184.174.223 () {38 vars in 688 bytes} [Fri Feb  2 02:55:54 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/41] 222.184.174.223 () {38 vars in 698 bytes} [Fri Feb  2 02:55:54 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/42] 222.184.174.223 () {38 vars in 694 bytes} [Fri Feb  2 02:55:54 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/43] 222.184.174.223 () {38 vars in 688 bytes} [Fri Feb  2 02:55:54 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: 0|req: 5/44] 222.184.174.223 () {38 vars in 628 bytes} [Fri Feb  2 02:56:01 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10365|app: 0|req: 1/45] 222.184.174.223 () {38 vars in 677 bytes} [Fri Feb  2 02:56:01 2018] GET /? => generated 540 bytes in 29 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 11/46] 222.184.174.223 () {36 vars in 632 bytes} [Fri Feb  2 02:56:54 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10364|app: -1|req: -1/47] 222.184.174.223 () {38 vars in 731 bytes} [Fri Feb  2 02:56:54 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/48] 222.184.174.223 () {38 vars in 688 bytes} [Fri Feb  2 02:56:54 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/49] 222.184.174.223 () {38 vars in 694 bytes} [Fri Feb  2 02:56:54 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/50] 222.184.174.223 () {38 vars in 698 bytes} [Fri Feb  2 02:56:54 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/51] 222.184.174.223 () {32 vars in 589 bytes} [Fri Feb  2 02:56:54 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 14245 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/52] 222.184.174.223 () {32 vars in 585 bytes} [Fri Feb  2 02:56:54 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 1143189 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 90 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/53] 222.184.174.223 () {32 vars in 579 bytes} [Fri Feb  2 02:56:54 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 69592 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 12/54] 222.184.174.223 () {38 vars in 663 bytes} [Fri Feb  2 02:57:06 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 13/55] 222.184.174.223 () {38 vars in 663 bytes} [Fri Feb  2 02:57:11 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 14/56] 222.184.174.223 () {36 vars in 632 bytes} [Fri Feb  2 02:57:25 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10365|app: -1|req: -1/57] 222.184.174.223 () {38 vars in 731 bytes} [Fri Feb  2 02:57:25 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/58] 222.184.174.223 () {38 vars in 698 bytes} [Fri Feb  2 02:57:26 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/59] 222.184.174.223 () {38 vars in 694 bytes} [Fri Feb  2 02:57:26 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/60] 222.184.174.223 () {38 vars in 688 bytes} [Fri Feb  2 02:57:26 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 15/61] 222.184.174.223 () {38 vars in 677 bytes} [Fri Feb  2 02:57:40 2018] GET /? => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: -1|req: -1/62] 222.184.174.223 () {38 vars in 732 bytes} [Fri Feb  2 02:57:41 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/63] 222.184.174.223 () {38 vars in 699 bytes} [Fri Feb  2 02:57:41 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/64] 222.184.174.223 () {38 vars in 695 bytes} [Fri Feb  2 02:57:41 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: -1|req: -1/65] 222.184.174.223 () {38 vars in 689 bytes} [Fri Feb  2 02:57:41 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/66] 222.184.174.223 () {34 vars in 644 bytes} [Fri Feb  2 02:57:42 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/67] 222.184.174.223 () {34 vars in 640 bytes} [Fri Feb  2 02:57:42 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/68] 222.184.174.223 () {34 vars in 634 bytes} [Fri Feb  2 02:57:42 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 16/69] 222.184.174.223 () {38 vars in 627 bytes} [Fri Feb  2 02:58:30 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 17/70] 222.184.174.223 () {38 vars in 628 bytes} [Fri Feb  2 02:58:55 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 18/71] 222.184.174.223 () {36 vars in 631 bytes} [Fri Feb  2 02:59:04 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10365|app: -1|req: -1/72] 222.184.174.223 () {38 vars in 730 bytes} [Fri Feb  2 02:59:04 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/73] 222.184.174.223 () {38 vars in 697 bytes} [Fri Feb  2 02:59:04 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/74] 222.184.174.223 () {38 vars in 693 bytes} [Fri Feb  2 02:59:04 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/75] 222.184.174.223 () {38 vars in 687 bytes} [Fri Feb  2 02:59:04 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/76] 222.184.174.223 () {38 vars in 693 bytes} [Fri Feb  2 02:59:05 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/77] 222.184.174.223 () {38 vars in 730 bytes} [Fri Feb  2 02:59:05 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/78] 222.184.174.223 () {38 vars in 697 bytes} [Fri Feb  2 02:59:05 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/79] 222.184.174.223 () {38 vars in 687 bytes} [Fri Feb  2 02:59:05 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/80] 222.184.174.223 () {34 vars in 639 bytes} [Fri Feb  2 02:59:05 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/81] 222.184.174.223 () {34 vars in 633 bytes} [Fri Feb  2 02:59:05 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/82] 222.184.174.223 () {34 vars in 643 bytes} [Fri Feb  2 02:59:05 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: 0|req: 2/83] 222.184.174.223 () {38 vars in 627 bytes} [Fri Feb  2 02:59:08 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10364|app: 0|req: 2/84] 222.184.174.223 () {38 vars in 676 bytes} [Fri Feb  2 02:59:08 2018] GET /? => generated 540 bytes in 13 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 10:59:32 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (:8002).
+bind(): Address already in use [core/socket.c line 769]
+[pid: 10362|app: 0|req: 19/85] 223.10.223.243 () {40 vars in 793 bytes} [Fri Feb  2 02:59:42 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 22 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+[pid: 10364|app: 0|req: 3/87] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 02:59:43 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 17 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10363|app: 0|req: 6/87] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 02:59:43 2018] GET /static/admin/css/base.css => generated 3857 bytes in 24 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+[pid: 10365|app: 0|req: 3/88] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 02:59:43 2018] GET /static/admin/css/login.css => generated 3860 bytes in 21 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 20/89] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 02:59:43 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 18 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+[pid: 10364|app: 0|req: 4/90] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 02:59:43 2018] GET /static/admin/css/login.css => generated 3860 bytes in 26 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10365|app: 0|req: 4/91] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 02:59:43 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 25 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+[pid: 10363|app: 0|req: 7/92] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 02:59:43 2018] GET /static/admin/css/base.css => generated 3857 bytes in 29 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 21/93] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 02:59:44 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 24 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+[pid: 10365|app: 0|req: 5/95] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 02:59:44 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10363|app: 0|req: 8/95] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 02:59:44 2018] GET /static/admin/css/login.css => generated 3860 bytes in 16 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10364|app: 0|req: 5/96] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 02:59:44 2018] GET /static/admin/css/base.css => generated 3857 bytes in 15 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 22/97] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:00:11 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 18 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+[pid: 10363|app: 0|req: 9/98] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:00:11 2018] GET /static/admin/css/base.css => generated 3857 bytes in 19 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10364|app: 0|req: 6/99] 223.10.223.243 () {38 vars in 743 bytes} [Fri Feb  2 03:00:11 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 13 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10365|app: 0|req: 6/100] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:00:11 2018] GET /static/admin/css/login.css => generated 3860 bytes in 18 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10362|app: 0|req: 23/101] 222.184.174.223 () {36 vars in 632 bytes} [Fri Feb  2 03:01:17 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10365|app: -1|req: -1/102] 222.184.174.223 () {38 vars in 731 bytes} [Fri Feb  2 03:01:17 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/103] 222.184.174.223 () {38 vars in 694 bytes} [Fri Feb  2 03:01:17 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/104] 222.184.174.223 () {38 vars in 698 bytes} [Fri Feb  2 03:01:17 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10364|app: -1|req: -1/105] 222.184.174.223 () {38 vars in 688 bytes} [Fri Feb  2 03:01:17 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10362|app: 0|req: 24/106] 222.184.174.223 () {36 vars in 632 bytes} [Fri Feb  2 03:02:02 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10365|app: -1|req: -1/107] 222.184.174.223 () {38 vars in 731 bytes} [Fri Feb  2 03:02:02 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/108] 222.184.174.223 () {38 vars in 694 bytes} [Fri Feb  2 03:02:02 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10365|app: -1|req: -1/109] 222.184.174.223 () {38 vars in 698 bytes} [Fri Feb  2 03:02:02 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/110] 222.184.174.223 () {38 vars in 688 bytes} [Fri Feb  2 03:02:02 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/111] 222.184.174.223 () {34 vars in 640 bytes} [Fri Feb  2 03:02:02 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/112] 222.184.174.223 () {34 vars in 644 bytes} [Fri Feb  2 03:02:02 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10363|app: -1|req: -1/113] 222.184.174.223 () {34 vars in 634 bytes} [Fri Feb  2 03:02:02 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+DAMN ! worker 1 (pid: 10362) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 1 (new pid: 10879)
+DAMN ! worker 2 (pid: 10363) died, killed by signal 9 :( trying respawn ...
+Respawned uWSGI worker 2 (new pid: 10892)
+Fri Feb  2 03:02:32 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:02:32 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:02:32 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:02:32 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 11:02:49 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:38948 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1a883c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1a883c0 pid: 10905 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10905)
+spawned uWSGI worker 1 (pid: 10907, cores: 1)
+spawned uWSGI worker 2 (pid: 10908, cores: 1)
+spawned uWSGI worker 3 (pid: 10909, cores: 1)
+spawned uWSGI worker 4 (pid: 10910, cores: 1)
+spawned uWSGI http 1 (pid: 10911)
+[pid: 10909|app: 0|req: 1/1] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:52 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 60 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+[pid: 10910|app: 0|req: 1/3] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:52 2018] GET /static/admin/css/base.css => generated 3857 bytes in 65 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 1/3] 223.10.223.243 () {38 vars in 743 bytes} [Fri Feb  2 03:02:52 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 66 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 1/4] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:52 2018] GET /static/admin/css/login.css => generated 3860 bytes in 57 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 2/5] 222.184.174.223 () {38 vars in 628 bytes} [Fri Feb  2 03:02:53 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 3/6] 222.184.174.223 () {38 vars in 677 bytes} [Fri Feb  2 03:02:53 2018] GET /? => generated 540 bytes in 0 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 2/7] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:54 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 44 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+[pid: 10907|app: 0|req: 2/8] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:54 2018] GET /static/admin/css/base.css => generated 3857 bytes in 16 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 10908|app: 0|req: 2/9] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:54 2018] GET /static/admin/css/login.css => generated 3860 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 4/10] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:54 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 9 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 3/11] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:54 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 18 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+[pid: 10907|app: 0|req: 3/13] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/base.css => generated 3857 bytes in 18 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 5/13] 223.10.223.243 () {38 vars in 733 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/login.css => generated 3860 bytes in 16 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 3/14] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 12 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 4/15] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:55 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 15 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+[pid: 10907|app: 0|req: 4/16] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/login.css => generated 3860 bytes in 18 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 6/17] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/base.css => generated 3857 bytes in 17 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 4/18] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 15 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 5/19] 223.10.223.243 () {40 vars in 794 bytes} [Fri Feb  2 03:02:55 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 20 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 10907|app: 0|req: 5/20] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 6 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/login.css
+[pid: 10908|app: 0|req: 5/21] 223.10.223.243 () {38 vars in 733 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/login.css => generated 3860 bytes in 9 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 6/22] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/base.css => generated 3857 bytes in 13 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 6/23] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:55 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 46 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+[pid: 10909|app: 0|req: 7/24] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 15 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+[pid: 10910|app: 0|req: 7/26] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/login.css => generated 3860 bytes in 22 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 6/26] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:55 2018] GET /static/admin/css/base.css => generated 3857 bytes in 21 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 7/27] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:55 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 22 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+[pid: 10908|app: 0|req: 7/29] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 18 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 8/29] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/login.css => generated 3860 bytes in 17 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 8/30] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/base.css => generated 3857 bytes in 21 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 8/31] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:56 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 20 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/login.css
+[pid: 10908|app: 0|req: 8/33] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/base.css => generated 3857 bytes in 13 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 9/33] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/login.css => generated 3860 bytes in 9 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/admin/css/responsive.css
+[pid: 10910|app: 0|req: 9/34] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 17 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 9/35] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:56 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 21 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/login.css
+[pid: 10909|app: 0|req: 10/36] 223.10.223.243 () {38 vars in 731 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/base.css => generated 3857 bytes in 20 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 9/38] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 18 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 10/38] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:56 2018] GET /static/admin/css/login.css => generated 3860 bytes in 22 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 10/39] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:02:57 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 17 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/base.css
+[pid: 10909|app: 0|req: 11/40] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:02:57 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 13 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 10/41] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:02:57 2018] GET /static/admin/css/login.css => generated 3860 bytes in 14 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 11/42] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:02:57 2018] GET /static/admin/css/base.css => generated 3857 bytes in 15 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: -1|req: -1/43] 222.184.174.223 () {38 vars in 695 bytes} [Fri Feb  2 03:03:11 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/44] 222.184.174.223 () {38 vars in 732 bytes} [Fri Feb  2 03:03:11 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/45] 222.184.174.223 () {38 vars in 699 bytes} [Fri Feb  2 03:03:11 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/46] 222.184.174.223 () {38 vars in 689 bytes} [Fri Feb  2 03:03:11 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/47] 222.184.174.223 () {34 vars in 638 bytes} [Fri Feb  2 03:03:12 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/48] 222.184.174.223 () {34 vars in 642 bytes} [Fri Feb  2 03:03:12 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/49] 222.184.174.223 () {34 vars in 632 bytes} [Fri Feb  2 03:03:12 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10907|app: 0|req: 11/50] 223.10.223.243 () {38 vars in 715 bytes} [Fri Feb  2 03:03:26 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10909|app: -1|req: -1/51] 223.10.223.243 () {40 vars in 814 bytes} [Fri Feb  2 03:03:26 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10909|app: -1|req: -1/52] 223.10.223.243 () {40 vars in 777 bytes} [Fri Feb  2 03:03:26 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10909|app: -1|req: -1/53] 223.10.223.243 () {40 vars in 779 bytes} [Fri Feb  2 03:03:26 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/54] 223.10.223.243 () {40 vars in 771 bytes} [Fri Feb  2 03:03:26 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10909|app: -1|req: -1/55] 223.10.223.243 () {36 vars in 727 bytes} [Fri Feb  2 03:03:27 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/56] 223.10.223.243 () {36 vars in 723 bytes} [Fri Feb  2 03:03:27 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10910|app: -1|req: -1/57] 223.10.223.243 () {36 vars in 717 bytes} [Fri Feb  2 03:03:27 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 10909|app: 0|req: 12/58] 223.10.223.243 () {38 vars in 715 bytes} [Fri Feb  2 03:03:30 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 11/59] 223.10.223.243 () {38 vars in 715 bytes} [Fri Feb  2 03:03:33 2018] GET / => generated 540 bytes in 12 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 12/60] 223.10.223.243 () {40 vars in 760 bytes} [Fri Feb  2 03:03:40 2018] GET /? => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 12/61] 223.10.223.243 () {40 vars in 712 bytes} [Fri Feb  2 03:03:46 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 13/62] 223.10.223.243 () {38 vars in 727 bytes} [Fri Feb  2 03:04:15 2018] GET /admin/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 13/63] 223.10.223.243 () {38 vars in 763 bytes} [Fri Feb  2 03:04:15 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 42 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Not Found: /static/admin/css/base.css
+Not Found: /static/admin/css/login.css
+Not Found: /static/admin/css/responsive.css
+[pid: 10909|app: 0|req: 14/64] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:04:15 2018] GET /static/admin/css/responsive.css => generated 3875 bytes in 21 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10908|app: 0|req: 12/65] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:04:15 2018] GET /static/admin/css/login.css => generated 3860 bytes in 26 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 13/66] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:04:15 2018] GET /static/admin/css/base.css => generated 3857 bytes in 27 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 14/67] 223.10.223.243 () {40 vars in 795 bytes} [Fri Feb  2 03:11:25 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 13 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 10910|app: -1|req: -1/68] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:11:25 2018] GET /static/admin/css/login.css => generated 1203 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 10909|app: -1|req: -1/69] 223.10.223.243 () {38 vars in 732 bytes} [Fri Feb  2 03:11:25 2018] GET /static/admin/css/base.css => generated 16106 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 112 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/70] 223.10.223.243 () {38 vars in 744 bytes} [Fri Feb  2 03:11:25 2018] GET /static/admin/css/responsive.css => generated 17894 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 112 bytes (0 switches on core 0)
+[pid: 10909|app: -1|req: -1/71] 223.10.223.243 () {38 vars in 734 bytes} [Fri Feb  2 03:11:26 2018] GET /static/admin/css/fonts.css => generated 423 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 110 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/72] 223.10.223.243 () {40 vars in 802 bytes} [Fri Feb  2 03:11:26 2018] GET /static/admin/fonts/Roboto-Regular-webfont.woff => generated 80304 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10910|app: -1|req: -1/73] 223.10.223.243 () {40 vars in 798 bytes} [Fri Feb  2 03:11:26 2018] GET /static/admin/fonts/Roboto-Light-webfont.woff => generated 81348 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10907|app: 0|req: 15/74] 61.129.7.217 () {40 vars in 1079 bytes} [Fri Feb  2 03:14:02 2018] GET /?nsukey=pXSiQpEo%2BKhxD3ZlqfJSrBMD3IOlfoqLTgMJmJQ44WUp5nH6WYVL2NCUTdwJ9NQJRautVV6MxoHxInEy0o7xAvVEHVRLZwIc1yitcCH5gp1qBNG6pHX8EcpNWYjQmIktEPUF%2BNtiFlQ6onO7Q7RfA0aZf4ElHIyJLdx8fa4wJUXtGbmUN7DT6aXut0gmCeBqDF3Nv4KJul4hSpcffgiX0Q%3D%3D => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 15/75] 61.129.6.151 () {38 vars in 1175 bytes} [Fri Feb  2 03:14:02 2018] GET /?nsukey=pXSiQpEo%2BKhxD3ZlqfJSrBMD3IOlfoqLTgMJmJQ44WUp5nH6WYVL2NCUTdwJ9NQJRautVV6MxoHxInEy0o7xAvVEHVRLZwIc1yitcCH5gp1qBNG6pHX8EcpNWYjQmIktEPUF%2BNtiFlQ6onO7Q7RfA0aZf4ElHIyJLdx8fa4wJUXtGbmUN7DT6aXut0gmCeBqDF3Nv4KJul4hSpcffgiX0Q%3D%3D => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10910|app: -1|req: -1/76] 61.129.6.151 () {38 vars in 876 bytes} [Fri Feb  2 03:14:02 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/77] 61.129.7.217 () {38 vars in 882 bytes} [Fri Feb  2 03:14:02 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/78] 61.151.178.175 () {38 vars in 887 bytes} [Fri Feb  2 03:14:02 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10910|app: -1|req: -1/79] 61.129.6.75 () {38 vars in 918 bytes} [Fri Feb  2 03:14:02 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 1284 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 10910|app: 0|req: 14/80] 117.136.68.192 () {36 vars in 1239 bytes} [Fri Feb  2 03:14:04 2018] GET /?nsukey=pXSiQpEo%2BKhxD3ZlqfJSrBMD3IOlfoqLTgMJmJQ44WUp5nH6WYVL2NCUTdwJ9NQJRautVV6MxoHxInEy0o7xAvVEHVRLZwIc1yitcCH5gp1qBNG6pHX8EcpNWYjQmIktEPUF%2BNtiFlQ6onO7Q7RfA0aZf4ElHIyJLdx8fa4wJUXtGbmUN7DT6aXut0gmCeBqDF3Nv4KJul4hSpcffgiX0Q%3D%3D => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10908|app: -1|req: -1/81] 117.136.68.192 () {36 vars in 1038 bytes} [Fri Feb  2 03:14:04 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 1284 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/82] 117.136.68.192 () {36 vars in 1001 bytes} [Fri Feb  2 03:14:04 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/83] 117.136.68.192 () {36 vars in 1005 bytes} [Fri Feb  2 03:14:04 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/84] 117.136.68.192 () {36 vars in 995 bytes} [Fri Feb  2 03:14:04 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10907|app: 0|req: 16/85] 117.136.68.192 () {36 vars in 1159 bytes} [Fri Feb  2 03:14:19 2018] GET /?nsukey=pXSiQpEo%2BKhxD3ZlqfJSrBMD3IOlfoqLTgMJmJQ44WUp5nH6WYVL2NCUTdwJ9NQJRautVV6MxoHxInEy0o7xAvVEHVRLZwIc1yitcCH5gp1qBNG6pHX8EcpNWYjQmIktEPUF%2BNtiFlQ6onO7Q7RfA0aZf4ElHIyJLdx8fa4wJUXtGbmUN7DT6aXut0gmCeBqDF3Nv4KJul4hSpcffgiX0Q%3D%3D => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10908|app: -1|req: -1/86] 117.136.68.192 () {38 vars in 1011 bytes} [Fri Feb  2 03:14:19 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 1284 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 10908|app: -1|req: -1/87] 117.136.68.192 () {38 vars in 978 bytes} [Fri Feb  2 03:14:19 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10910|app: -1|req: -1/88] 117.136.68.192 () {38 vars in 974 bytes} [Fri Feb  2 03:14:19 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/89] 117.136.68.192 () {38 vars in 968 bytes} [Fri Feb  2 03:14:19 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+Not Found: /favicon.ico
+[pid: 10907|app: 0|req: 17/90] 117.136.68.192 () {36 vars in 640 bytes} [Fri Feb  2 03:14:20 2018] GET /favicon.ico => generated 2083 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 15/91] 117.136.68.192 () {38 vars in 1190 bytes} [Fri Feb  2 03:14:28 2018] GET /?nsukey=pXSiQpEo%2BKhxD3ZlqfJSrBMD3IOlfoqLTgMJmJQ44WUp5nH6WYVL2NCUTdwJ9NQJRautVV6MxoHxInEy0o7xAvVEHVRLZwIc1yitcCH5gp1qBNG6pHX8EcpNWYjQmIktEPUF%2BNtiFlQ6onO7Q7RfA0aZf4ElHIyJLdx8fa4wJUXtGbmUN7DT6aXut0gmCeBqDF3Nv4KJul4hSpcffgiX0Q%3D%3D => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 18/92] 117.136.68.192 () {36 vars in 696 bytes} [Fri Feb  2 03:14:53 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 19/93] 120.204.17.69 () {32 vars in 609 bytes} [Fri Feb  2 03:14:59 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10907|app: -1|req: -1/94] 120.204.17.69 () {34 vars in 665 bytes} [Fri Feb  2 03:15:00 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/95] 120.204.17.69 () {34 vars in 728 bytes} [Fri Feb  2 03:15:01 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10907|app: 0|req: 20/96] 120.204.17.71 () {32 vars in 1000 bytes} [Fri Feb  2 03:15:01 2018] GET /?nsukey=pXSiQpEo%2BKhxD3ZlqfJSrBMD3IOlfoqLTgMJmJQ44WUp5nH6WYVL2NCUTdwJ9NQJRautVV6MxoHxInEy0o7xAvVEHVRLZwIc1yitcCH5gp1qBNG6pHX8EcpNWYjQmIktEPUF%2BNtiFlQ6onO7Q7RfA0aZf4ElHIyJLdx8fa4wJUXtGbmUN7DT6aXut0gmCeBqDF3Nv4KJul4hSpcffgiX0Q%3D%3D => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10910|app: -1|req: -1/97] 120.204.17.69 () {34 vars in 658 bytes} [Fri Feb  2 03:15:02 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/98] 120.204.17.71 () {34 vars in 970 bytes} [Fri Feb  2 03:15:02 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10909|app: -1|req: -1/99] 120.204.17.71 () {34 vars in 893 bytes} [Fri Feb  2 03:15:02 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10907|app: -1|req: -1/100] 120.204.17.71 () {34 vars in 890 bytes} [Fri Feb  2 03:15:03 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10907|app: 0|req: 21/101] 120.204.17.67 () {32 vars in 1000 bytes} [Fri Feb  2 03:15:04 2018] GET /?nsukey=pXSiQpEo%2BKhxD3ZlqfJSrBMD3IOlfoqLTgMJmJQ44WUp5nH6WYVL2NCUTdwJ9NQJRautVV6MxoHxInEy0o7xAvVEHVRLZwIc1yitcCH5gp1qBNG6pHX8EcpNWYjQmIktEPUF%2BNtiFlQ6onO7Q7RfA0aZf4ElHIyJLdx8fa4wJUXtGbmUN7DT6aXut0gmCeBqDF3Nv4KJul4hSpcffgiX0Q%3D%3D => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10910|app: -1|req: -1/102] 120.204.17.67 () {34 vars in 970 bytes} [Fri Feb  2 03:15:05 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 1485 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 10910|app: -1|req: -1/103] 120.204.17.67 () {34 vars in 895 bytes} [Fri Feb  2 03:15:05 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 144998 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 10910|app: 0|req: 16/104] 117.136.68.192 () {36 vars in 696 bytes} [Fri Feb  2 03:15:05 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10908|app: -1|req: -1/105] 120.204.17.67 () {34 vars in 955 bytes} [Fri Feb  2 03:15:06 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 8791 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+Not Found: /index
+[pid: 10908|app: 0|req: 13/106] 223.10.223.243 () {38 vars in 725 bytes} [Fri Feb  2 03:15:09 2018] GET /index => generated 2065 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 10909|app: 0|req: 16/107] 117.136.68.192 () {38 vars in 741 bytes} [Fri Feb  2 03:15:14 2018] GET /? => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 22/108] 117.136.68.192 () {40 vars in 731 bytes} [Fri Feb  2 03:15:14 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10910|app: 0|req: 17/109] 117.136.68.192 () {40 vars in 732 bytes} [Fri Feb  2 03:15:22 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 10907|app: 0|req: 23/110] 223.10.223.243 () {38 vars in 764 bytes} [Fri Feb  2 03:16:12 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 19 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+Fri Feb  2 03:21:15 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:21:15 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:21:15 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:21:15 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 11:21:30 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:44621 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x8d13c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x8d13c0 pid: 11969 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 11969)
+spawned uWSGI worker 1 (pid: 11971, cores: 1)
+spawned uWSGI worker 2 (pid: 11972, cores: 1)
+spawned uWSGI worker 3 (pid: 11973, cores: 1)
+spawned uWSGI worker 4 (pid: 11974, cores: 1)
+spawned uWSGI http 1 (pid: 11975)
+[pid: 11972|app: 0|req: 1/1] 223.10.223.243 () {40 vars in 755 bytes} [Fri Feb  2 03:21:34 2018] GET /index => generated 540 bytes in 27 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 11973|app: -1|req: -1/2] 223.10.223.243 () {40 vars in 786 bytes} [Fri Feb  2 03:21:34 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11973|app: -1|req: -1/3] 223.10.223.243 () {40 vars in 819 bytes} [Fri Feb  2 03:21:34 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11974|app: -1|req: -1/4] 223.10.223.243 () {40 vars in 782 bytes} [Fri Feb  2 03:21:34 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11971|app: -1|req: -1/5] 223.10.223.243 () {40 vars in 776 bytes} [Fri Feb  2 03:21:34 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11974|app: -1|req: -1/6] 223.10.223.243 () {36 vars in 727 bytes} [Fri Feb  2 03:21:34 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11971|app: -1|req: -1/7] 223.10.223.243 () {36 vars in 723 bytes} [Fri Feb  2 03:21:34 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11971|app: -1|req: -1/8] 223.10.223.243 () {36 vars in 717 bytes} [Fri Feb  2 03:21:34 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11973|app: 0|req: 1/9] 223.10.223.243 () {38 vars in 725 bytes} [Fri Feb  2 03:21:39 2018] GET /index => generated 540 bytes in 17 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 11971|app: 0|req: 1/10] 223.10.223.243 () {38 vars in 727 bytes} [Fri Feb  2 03:21:48 2018] GET /admin/ => generated 0 bytes in 21 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 11973|app: 0|req: 2/11] 223.10.223.243 () {38 vars in 764 bytes} [Fri Feb  2 03:21:48 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 40 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 11971|app: -1|req: -1/12] 223.10.223.243 () {40 vars in 787 bytes} [Fri Feb  2 03:21:48 2018] GET /static/admin/css/base.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11974|app: -1|req: -1/13] 223.10.223.243 () {40 vars in 788 bytes} [Fri Feb  2 03:21:48 2018] GET /static/admin/css/login.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11972|app: -1|req: -1/14] 223.10.223.243 () {40 vars in 799 bytes} [Fri Feb  2 03:21:48 2018] GET /static/admin/css/responsive.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11971|app: 0|req: 2/15] 223.10.223.243 () {38 vars in 727 bytes} [Fri Feb  2 03:21:49 2018] GET /admin/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 11972|app: 0|req: 2/16] 223.10.223.243 () {38 vars in 764 bytes} [Fri Feb  2 03:21:49 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 45 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 11973|app: -1|req: -1/17] 223.10.223.243 () {40 vars in 788 bytes} [Fri Feb  2 03:21:49 2018] GET /static/admin/css/fonts.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11974|app: -1|req: -1/18] 223.10.223.243 () {42 vars in 857 bytes} [Fri Feb  2 03:21:49 2018] GET /static/admin/fonts/Roboto-Regular-webfont.woff => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11971|app: -1|req: -1/19] 223.10.223.243 () {42 vars in 852 bytes} [Fri Feb  2 03:21:49 2018] GET /static/admin/fonts/Roboto-Light-webfont.woff => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 11971|app: 0|req: 3/20] 223.10.223.243 () {38 vars in 727 bytes} [Fri Feb  2 03:21:58 2018] GET /admin/ => generated 0 bytes in 1 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 0)
+[pid: 11973|app: 0|req: 3/21] 223.10.223.243 () {38 vars in 764 bytes} [Fri Feb  2 03:21:58 2018] GET /admin/login/?next=/admin/ => generated 1855 bytes in 22 msecs (HTTP/1.1 200) 7 headers in 381 bytes (1 switches on core 0)
+[pid: 11971|app: 0|req: 4/22] 223.10.223.243 () {38 vars in 715 bytes} [Fri Feb  2 03:21:59 2018] GET / => generated 540 bytes in 13 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 11973|app: 0|req: 4/23] 223.10.223.243 () {38 vars in 725 bytes} [Fri Feb  2 03:22:08 2018] GET /index => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Not Found: /how
+[pid: 11974|app: 0|req: 1/24] 223.10.223.243 () {38 vars in 721 bytes} [Fri Feb  2 03:22:14 2018] GET /how => generated 2166 bytes in 18 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Fri Feb  2 03:24:13 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:24:13 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:24:13 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Fri Feb  2 03:24:13 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[uWSGI] getting INI configuration from myproject_uwsgi.ini
+[uwsgi-static] added mapping for /static => TeamStyle19_front/dist/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Feb  2 11:24:21 2018] ***
+compiled with version: 5.4.0 20160609 on 28 January 2018 10:35:01
+os: Linux-4.4.0-91-generic #114-Ubuntu SMP Tue Aug 8 11:56:56 UTC 2017
+nodename: VM-0-3-ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /home/ubuntu/team19/vue-django-test
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/ubuntu/team19/vue-django-test
+your processes number limit is 3306
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+building mime-types dictionary from file /etc/mime.types...552 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8002 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:40674 (port auto-assigned) fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xe853c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 363840 bytes (355 KB) for 4 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xe853c0 pid: 12140 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 12140)
+spawned uWSGI worker 1 (pid: 12143, cores: 1)
+spawned uWSGI worker 2 (pid: 12144, cores: 1)
+spawned uWSGI worker 3 (pid: 12145, cores: 1)
+spawned uWSGI worker 4 (pid: 12146, cores: 1)
+spawned uWSGI http 1 (pid: 12147)
+Not Found: /how
+[pid: 12145|app: 0|req: 1/1] 223.10.223.243 () {40 vars in 752 bytes} [Fri Feb  2 03:24:25 2018] GET /how => generated 2167 bytes in 21 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 1/2] 223.10.223.243 () {38 vars in 725 bytes} [Fri Feb  2 03:24:30 2018] GET /index => generated 0 bytes in 8 msecs (HTTP/1.1 301) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 12144|app: 0|req: 1/3] 223.10.223.243 () {38 vars in 726 bytes} [Fri Feb  2 03:24:30 2018] GET /index/ => generated 540 bytes in 20 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: -1|req: -1/4] 223.10.223.243 () {40 vars in 820 bytes} [Fri Feb  2 03:24:30 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12146|app: -1|req: -1/5] 223.10.223.243 () {40 vars in 787 bytes} [Fri Feb  2 03:24:30 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12145|app: -1|req: -1/6] 223.10.223.243 () {40 vars in 783 bytes} [Fri Feb  2 03:24:30 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12145|app: -1|req: -1/7] 223.10.223.243 () {40 vars in 777 bytes} [Fri Feb  2 03:24:31 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12146|app: 0|req: 1/8] 223.10.223.243 () {38 vars in 726 bytes} [Fri Feb  2 03:24:36 2018] GET /index/ => generated 540 bytes in 19 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Not Found: /inde
+[pid: 12143|app: 0|req: 2/9] 223.10.223.243 () {38 vars in 723 bytes} [Fri Feb  2 03:24:39 2018] GET /inde => generated 2170 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /api/auth
+[pid: 12143|app: 0|req: 3/10] 101.226.64.174 () {34 vars in 610 bytes} [Fri Feb  2 04:52:57 2018] GET /api/auth?name%3Dhj => generated 2192 bytes in 5 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 4/11] 101.226.68.215 () {34 vars in 585 bytes} [Fri Feb  2 05:43:30 2018] GET /index => generated 0 bytes in 0 msecs (HTTP/1.1 301) 3 headers in 112 bytes (1 switches on core 0)
+[pid: 12146|app: 0|req: 2/12] 101.226.68.215 () {36 vars in 636 bytes} [Fri Feb  2 05:43:30 2018] GET /index/ => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: -1|req: -1/13] 183.57.53.177 () {34 vars in 655 bytes} [Fri Feb  2 06:07:14 2018] GET /static/js/app.5caef33420ae86290d1d.js.map => generated 69592 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 88 bytes (0 switches on core 0)
+[pid: 12143|app: -1|req: -1/14] 101.226.64.174 () {34 vars in 663 bytes} [Fri Feb  2 06:24:18 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js.map => generated 1143189 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 2 headers in 90 bytes (0 switches on core 0)
+[pid: 12143|app: 0|req: 5/15] 117.136.68.192 () {38 vars in 741 bytes} [Fri Feb  2 08:19:56 2018] GET /? => generated 540 bytes in 11 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 6/16] 183.57.53.177 () {34 vars in 574 bytes} [Fri Feb  2 11:13:11 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 7/17] 222.184.175.97 () {36 vars in 631 bytes} [Sat Feb  3 09:57:03 2018] GET / => generated 540 bytes in 604 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12145|app: -1|req: -1/18] 222.184.175.97 () {38 vars in 697 bytes} [Sat Feb  3 09:57:03 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12145|app: -1|req: -1/20] 222.184.175.97 () {38 vars in 692 bytes} [Sat Feb  3 09:57:04 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12146|app: -1|req: -1/19] 222.184.175.97 () {38 vars in 729 bytes} [Sat Feb  3 09:57:03 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12144|app: -1|req: -1/21] 222.184.175.97 () {38 vars in 687 bytes} [Sat Feb  3 09:57:03 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 109 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12146|app: 0|req: 3/22] 222.184.175.97 () {36 vars in 631 bytes} [Sat Feb  3 09:57:12 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 8/23] 222.184.175.97 () {36 vars in 631 bytes} [Sat Feb  3 10:33:27 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12144|app: 0|req: 2/24] 222.184.175.97 () {36 vars in 631 bytes} [Sat Feb  3 10:33:31 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 9/25] 222.184.175.97 () {36 vars in 631 bytes} [Sat Feb  3 10:39:39 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12144|app: 0|req: 3/26] 222.184.175.97 () {36 vars in 631 bytes} [Sat Feb  3 10:39:43 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 10/27] 223.10.222.92 () {38 vars in 714 bytes} [Sat Feb  3 13:36:46 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12145|app: -1|req: -1/28] 223.10.222.92 () {40 vars in 813 bytes} [Sat Feb  3 13:36:46 2018] GET /static/css/app.d55721108fd8a38a84a2bf4cbf8fca87.css => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12146|app: -1|req: -1/29] 223.10.222.92 () {40 vars in 780 bytes} [Sat Feb  3 13:36:46 2018] GET /static/js/manifest.411eaa74af89d0a1a4dc.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12144|app: -1|req: -1/30] 223.10.222.92 () {40 vars in 776 bytes} [Sat Feb  3 13:36:46 2018] GET /static/js/vendor.0967b28dc67f3e0bab3d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+[pid: 12144|app: -1|req: -1/31] 223.10.222.92 () {40 vars in 769 bytes} [Sat Feb  3 13:36:46 2018] GET /static/js/app.5caef33420ae86290d1d.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 0)
+Not Found: /favicon.ico
+[pid: 12146|app: 0|req: 4/32] 223.10.222.92 () {38 vars in 699 bytes} [Sat Feb  3 13:36:47 2018] GET /favicon.ico => generated 2191 bytes in 559 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 11/33] 223.10.222.92 () {38 vars in 714 bytes} [Sat Feb  3 13:36:50 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12145|app: 0|req: 2/34] 223.10.222.92 () {38 vars in 714 bytes} [Sat Feb  3 13:36:54 2018] GET / => generated 540 bytes in 717 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12143|app: 0|req: 12/35] 223.10.222.92 () {40 vars in 759 bytes} [Sat Feb  3 13:36:58 2018] GET /? => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+[pid: 12146|app: 0|req: 5/36] 223.10.222.92 () {40 vars in 711 bytes} [Sat Feb  3 13:37:03 2018] GET / => generated 540 bytes in 1 msecs (HTTP/1.1 200) 3 headers in 109 bytes (1 switches on core 0)
+Sat Feb  3 14:06:11 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Feb  3 14:06:11 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Feb  3 14:06:11 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Sat Feb  3 14:06:11 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
