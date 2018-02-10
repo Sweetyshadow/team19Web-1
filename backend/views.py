@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from django.db import models
 from .models import TeamInfo, StudentInfo, RuleFile
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -29,11 +30,12 @@ class StudentDetail(generic.DetailView):
 class RuleFileView(generic.DetailView):
     model = RuleFile
     template_name = 'backend/RuleFile.html'
-
+    
+@csrf_exempt
 def StudentProcess(request):
     if request.method == 'POST':
         #the_name = request.body.name
-        return JsonResponse({'body':str(request.body),'POST':str(request.POST)})
+        return JsonResponse({'body':(request.body),'POST':str(request.POST)})
     elif request.method == 'GET':
         students = StudentInfo.objects.all()
         return JsonResponse({'success':str(request.method),'message':str(request.GET)})
