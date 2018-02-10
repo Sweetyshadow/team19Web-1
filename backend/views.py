@@ -30,32 +30,16 @@ class StudentDetail(generic.DetailView):
 class RuleFileView(generic.DetailView):
     model = RuleFile
     template_name = 'backend/RuleFile.html'
-    
+
 @csrf_exempt
 def StudentProcess(request):
     if request.method == 'POST':
-        #the_name = request.body.name
-        return JsonResponse({'body':(request.body),'POST':str(request.POST)})
-    elif request.method == 'GET':
         students = StudentInfo.objects.all()
-        return JsonResponse({'success':str(request.method),'message':str(request.GET)})
-    else :
-        return JsonResponse({'body':str(request.body),'request':str(request),'method':str(request.method)})
-
-def TeamProcess(request):
-    return JsonResponse({'body':request.body,'request':request})
-    '''if request.method == 'POST':
-        if request.body['invitecode']:
-            teams = TeamInfo.objects.all()
-            for '''
-
-
-'''        students = StudentInfo.objects.all()
         success = True
         message = ""
-        the_name = request.body['name']
-        the_pwd = request.body['pwd']
-        the_email = request.body['email']
+        the_name = request.POST['name']
+        the_pwd = request.POST['pwd']
+        the_email = request.POST['email']
         for s in students:
             if s.student_nickname == the_name:
                 success = False
@@ -69,4 +53,17 @@ def TeamProcess(request):
             )
             new_student.save()
             message += "success!"
-        return JsonResponse({'success':success,'message':message})'''
+        return JsonResponse({'success':success,'message':message})
+    elif request.method == 'GET':
+        students = StudentInfo.objects.all()
+        return JsonResponse({'success':str(request.method),'message':str(request.GET)})
+
+def TeamProcess(request):
+    return JsonResponse({'body':request.body,'request':request})
+    '''if request.method == 'POST':
+        if request.body['invitecode']:
+            teams = TeamInfo.objects.all()
+            for '''
+
+
+'''        '''
