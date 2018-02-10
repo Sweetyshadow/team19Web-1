@@ -47,4 +47,4 @@ def StudentProcess(request):
             message += "success!"
         return JsonResponse({'success':success,'message':message})
     elif request.method == 'GET':
-        return JsonResponse({'success':True,'message':request})
+        return JsonResponse({'success':True,'message':str(request)})
