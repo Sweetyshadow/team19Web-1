@@ -42,6 +42,7 @@ def StudentProcess(request):
             if s.student_nickname == the_name:
                 success = False
                 message += "the name exist!"
+            break
         if success == True:
             message += "success!"
         return JsonResponse({'success':success,'message':message})
