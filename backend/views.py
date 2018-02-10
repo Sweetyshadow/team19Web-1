@@ -32,12 +32,12 @@ class RuleFileView(generic.DetailView):
 
 def StudentProcess(request):
     if request.method == 'POST':
-        return JsonResponse({'body':request.body,'request':request})
+        return JsonResponse({'body':str(request.body),'request':str(request)})
     elif request.method == 'GET':
         students = StudentInfo.objects.all()
         return JsonResponse({'success':str(request.method),'message':str(request.GET)})
     else :
-        return JsonResponse({'body':request.body,'request':request,'method':request.method})
+        return JsonResponse({'body':str(request.body),'request':str(request),'method':str(request.method)})
 
 def TeamProcess(request):
     return JsonResponse({'body':request.body,'request':request})
