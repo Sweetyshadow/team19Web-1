@@ -32,6 +32,8 @@ class RuleFileView(generic.DetailView):
 
 def StudentProcess(request):
     if request.method == 'POST':
+        return JsonResponse({'body':request.body,'request':request})
+
 '''        students = StudentInfo.objects.all()
         success = True
         message = ""
@@ -52,7 +54,6 @@ def StudentProcess(request):
             new_student.save()
             message += "success!"
         return JsonResponse({'success':success,'message':message})'''
-        return JsonResponse({'body':request.body,'request':request})
     elif request.method == 'GET':
         students = StudentInfo.objects.all()
         return JsonResponse({'success':str(request.method),'message':str(request.GET)})
