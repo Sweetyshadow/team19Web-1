@@ -45,8 +45,8 @@ def StudentProcess(request):
             break
         if success == True:
             new_student = StudentInfo.objects.create(
-                student_nickname = the_name
-                password = the_pwd
+                student_nickname = the_name,
+                password = the_pwd,
                 thu_email = the_email
             )
             new_student.save()
