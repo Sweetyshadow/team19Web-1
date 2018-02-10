@@ -36,6 +36,8 @@ def StudentProcess(request):
     elif request.method == 'GET':
         students = StudentInfo.objects.all()
         return JsonResponse({'success':str(request.method),'message':str(request.GET)})
+    else :
+        return JsonResponse({'body':request.body,'request':request,'method':request.method})
 
 def TeamProcess(request):
     return JsonResponse({'body':request.body,'request':request})
