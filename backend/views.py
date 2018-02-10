@@ -32,8 +32,8 @@ class RuleFileView(generic.DetailView):
 
 def StudentProcess(request):
     if request.method == 'POST':
-        the_name = request.body.name
-        return JsonResponse({'body':str(request.body),'name':the_name})
+        #the_name = request.body.name
+        return JsonResponse({'body':str(request.body),'POST':str(request.POST)})
     elif request.method == 'GET':
         students = StudentInfo.objects.all()
         return JsonResponse({'success':str(request.method),'message':str(request.GET)})
