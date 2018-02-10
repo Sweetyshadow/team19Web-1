@@ -37,11 +37,11 @@ def StudentProcess(request):
         students = StudentInfo.objects.all()
         return JsonResponse({'success':str(request.method),'message':str(request.GET)})
 
-def TeamProcess(request):
+'''def TeamProcess(request):
     if request.method == 'POST':
         if request.body['invitecode']:
             teams = TeamInfo.objects.all()
-            for 
+            for '''
 
 
 '''        students = StudentInfo.objects.all()
