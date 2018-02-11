@@ -86,7 +86,7 @@ def StudentLogin(request):
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
 
-
+@csrf_exempt
 def TeamAdd(request):
     if request.method == 'POST':
         if request.POST['invitecode']:#创建队伍
@@ -112,6 +112,7 @@ def TeamAdd(request):
     elif request.method == 'GET':
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
+@csrf_exempt
 def TeamJoin(request):
     if request.method == 'POST':
         invitecode = request.POST['invitecode']
