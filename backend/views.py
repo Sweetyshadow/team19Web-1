@@ -77,8 +77,11 @@ def StudentLogin(request):
             else:
                 message += "wrong password!"
         else:
-            message += "the user doesn't exist!"        
-        return JsonResponse({'success':success,'id':str(one.id),'message':message})
+            message += "the user doesn't exist!"    
+        if success == True:
+            return JsonResponse({'success':success,'id':str(one.id),'message':message})            
+        else:
+            return JsonResponse({'success':success,'post':str(request.POST),'message':message})
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
