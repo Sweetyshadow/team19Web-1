@@ -200,7 +200,7 @@ def MyTeam(request):
         the_id = request['userid']
         the_student = StudentInfo.objects.get(id = userid)
         if the_student.team_name :
-            the_team = TeamInfo.objects.get(team_name = the_student.team_name)
+            the_team = TeamInfo.objects.get(team_name = str(the_student.team_name))
             success = True
             response = {}
             response['success'] = success
