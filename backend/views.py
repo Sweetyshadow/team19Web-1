@@ -154,36 +154,37 @@ def TeamJoin(request):
         if the_student.team_name :
             message += " you've already have a team!"
             return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name})
-        the_team = TeamInfo.objects.get(invite_code = invitecode)
-        the_scale = the_team.member_num
-        if the_scale < 4:
-            success = True
-            the_student.team_name = the_team.team_name
-            the_student.save()
-            if the_scale == 1:
-                the_team.member1 = the_student.student_nickname
-                the_team.member_num += 1
-                the_team.save()
-            elif the_scale == 2:
-                the_team.member2 = the_student.student_nickname
-                the_team.member_num += 1
-                the_team.save()
-            else :
-                the_team.member3 = the_student.student_nickname
-                the_team.member_num += 1
-                the_team.save()
-            response['teamname'] = the_team.team_name
-            response['leader'] = the_team.leader 
-            response['scale'] = the_team.member_num
-            response['member1'] = the_team.member1
-            response['member2'] = the_team.member2
-            response['member3'] = the_team.member3                
-            response['success'] = success
-            return JsonResponse(response)
-        else:
-            message += "the team is full!"
-            member_num = 4
-            return JsonResponse({'success':success,'message':message})
+        else :
+            the_team = TeamInfo.objects.get(invite_code = invitecode)
+            the_scale = the_team.member_num
+            if the_scale < 4:
+                success = True
+                the_student.team_name = the_team.team_name
+                the_student.save()
+                if the_scale == 1:
+                    the_team.member1 = the_student.student_nickname
+                    the_team.member_num += 1
+                    the_team.save()
+                elif the_scale == 2:
+                    the_team.member2 = the_student.student_nickname
+                    the_team.member_num += 1
+                    the_team.save()
+                else :
+                    the_team.member3 = the_student.student_nickname
+                    the_team.member_num += 1
+                    the_team.save()
+                response['teamname'] = the_team.team_name
+                response['leader'] = the_team.leader 
+                response['scale'] = the_team.member_num
+                response['member1'] = the_team.member1
+                response['member2'] = the_team.member2
+                response['member3'] = the_team.member3                
+                response['success'] = success
+                return JsonResponse(response)
+            else:
+                message += "the team is full!"
+                member_num = 4
+                return JsonResponse({'success':success,'message':message})
         #except:
         #    message += "the team doesn't exist!"
         #    return JsonResponse({'success':success,'message':message})
