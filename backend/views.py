@@ -160,7 +160,7 @@ def TeamJoin(request):
             the_scale = the_team.member_num
             if the_scale < 4:
                 success = True
-                the_student.team_name = the_team.team_name
+                the_student.team_name = the_team
                 the_student.save()
                 if the_scale == 1:
                     the_team.member1 = the_student.student_nickname
