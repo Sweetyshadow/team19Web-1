@@ -55,10 +55,10 @@ def StudentProcess(request):
             message += "success!"
         return JsonResponse({'success':success,'message':message})
     elif request.method == 'GET':
-        students = StudentInfo.objects.all()
-        success = False
-        flag = False
-        message = ""        
+        #students = StudentInfo.objects.all()
+        #success = False
+        #flag = False
+        #message = ""        
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
         '''the_name = request.GET['name']
