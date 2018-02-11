@@ -5,11 +5,11 @@ from django.db import models
 
 
 class TeamInfo(models.Model):
-    team_name = models.CharField(max_length=30, default = 'null',null=True)
-    leader = models.CharField(max_length=50, default = 'null',null=True)
-    member1 = models.CharField(max_length=50, default = 'null',null=True)
-    member2 = models.CharField(max_length=50, default = 'null',null=True)
-    member3 = models.CharField(max_length=50, default = 'null',null=True)
+    team_name = models.CharField(max_length=30, null=True)
+    leader = models.CharField(max_length=50, null=True)
+    member1 = models.CharField(max_length=50, null=True)
+    member2 = models.CharField(max_length=50, null=True)
+    member3 = models.CharField(max_length=50, null=True)
     member_num = models.IntegerField(default = 1)
     invite_code = models.CharField(max_length=20, null=True)
     codes = models.TextField(null=True)
