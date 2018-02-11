@@ -7,6 +7,9 @@ from django.db import models
 class TeamInfo(models.Model):
     team_name = models.CharField(max_length=30, null=True)
     leader = models.CharField(max_length=50, null=True)
+    member1 = models.CharField(max_length=50, null=True)
+    member2 = models.CharField(max_length=50, null=True)
+    member3 = models.CharField(max_length=50, null=True)
     invite_code = models.CharField(max_length=20, null=True)
     codes = models.TextField(null=True)
     history = models.TextField(null=True)
@@ -18,6 +21,7 @@ class TeamInfo(models.Model):
 
 class StudentInfo(models.Model):
     team_name = models.ForeignKey(TeamInfo, on_delete=models.CASCADE, null=True)
+    is_leader = models.BooleanField(default=False)
     student_id = models.CharField(max_length=20, null=True)
     student_nickname = models.CharField(max_length=50, null=True)
     password = models.CharField(max_length=30, default='000', null=True)

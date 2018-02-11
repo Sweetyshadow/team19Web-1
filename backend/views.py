@@ -85,6 +85,25 @@ def StudentLogin(request):
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
+@csrf_exempt
+def StudentLeader(request):
+    success = False
+    message = ""
+    if request.method == 'POST':
+        the_id = request['userid']
+        try:
+            the_student = StudentInfo.objects.get(id = the_id)
+            isleader = the_student.is_leader()
+            success = True
+            return JsonResponse({'success':success,'message':message,'isleader':isleader})
+        except:
+            message += "the student doesn't exist!"
+            return JsonResponse({'success':success,'message':message})
+        else:
+            return JsonResponse({'success':success,'message':message})
+    else :
+        return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+
 
 @csrf_exempt
 def TeamAdd(request):
@@ -129,7 +148,8 @@ def TeamJoin(request):
                 response['success'] = success
                 return JsonResponse(response)
         except:
-            return JsonResponse({'success':success})
+            message += "the team doesn't exist!"
+            return JsonResponse({'success':success,'message':message})
         else:
             return JsonResponse({'success':success})
     elif request.method == 'GET':

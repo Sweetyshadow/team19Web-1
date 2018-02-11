@@ -11,4 +11,5 @@ urlpatterns = [
     path('RuleFile_id=<int:pk>', views.RuleFileView.as_view(), name='RuleFile'),
     path('students/reg/',views.StudentReg),
     path('students/login/',views.StudentLogin),
+    path('students/leader/',views.StudentLeader)
 ]
