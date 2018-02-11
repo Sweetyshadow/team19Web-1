@@ -120,7 +120,7 @@ def TeamAdd(request):
                     success = False
                     message += "team name exist!"
                     break
-            if the_student.teamname != NULL:
+            if the_student.team_name != NULL:
                 success = False
                 message += " you've already have a team!"
             if success == True:
@@ -151,7 +151,7 @@ def TeamJoin(request):
         response = {}
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
-        if the_student.teamname != NULL:
+        if the_student.team_name != NULL:
             message += " you've already have a team!"
             return JsonResponse({'success':success,'message':message})
         try:
@@ -206,7 +206,7 @@ def MyTeam(request):
             success = True
             response = {}
             response['success'] = success
-            response['teamname'] = the_team.teamname
+            response['teamname'] = the_team.team_name
             response['scale'] = the_team.member_num
             response['leader'] = the_team.leader
             response['member1'] = the_team.member1
