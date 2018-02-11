@@ -232,6 +232,6 @@ def AllTeam(request):
                 'member2':team.member2,
                 'member3':team.member3
                 })
-        response JsonResponse(response)
+        return JsonResponse(response)
 
 
