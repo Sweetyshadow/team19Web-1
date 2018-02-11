@@ -121,7 +121,7 @@ def TeamJoin(request):
         message = ""
         if the_team:
             success = True
-            return HttpResponse(render(request,locals()))
+            return HttpResponse(locals())
     elif request.method == 'GET':
         return HttpResponse(locals())
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
