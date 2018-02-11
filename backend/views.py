@@ -32,7 +32,7 @@ class RuleFileView(generic.DetailView):
     template_name = 'backend/RuleFile.html'
 
 @csrf_exempt
-def StudentProcess(request):
+def StudentReg(request):
     if request.method == 'POST':
         students = StudentInfo.objects.all()
         success = True
@@ -54,15 +54,18 @@ def StudentProcess(request):
             new_student.save()
             message += "success!"
         return JsonResponse({'success':success,'message':message})
-    elif request.method == 'GET':
-        #students = StudentInfo.objects.all()
-        #success = False
-        #flag = False
-        #message = ""        
+    elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
-        '''the_name = request.GET['name']
-        the_pwd = request.GET['pwd']
+@csrf_exempt
+def StudentLogin(request):
+    if request.method == 'POST':
+        students = StudentInfo.objects.all()
+        success = False
+        flag = False
+        message = ""        
+        the_name = request.POST['name']
+        the_pwd = request.POST['pwd']
         for s in students:
             if the_name == s.student_nickname:
                 one = s
@@ -74,7 +77,12 @@ def StudentProcess(request):
             else:
                 message += "wrong password!"
         else:
-            message += "the user doesn't exist!"'''
+            message += "the user doesn't exist!"        
+        return JsonResponse({'success':success,'post':str(request.POST),'message':message})
+    elif request.method == 'GET':      
+        return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+
+
 
 def TeamProcess(request):
     if request.method == 'POST':
