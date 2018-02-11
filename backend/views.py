@@ -125,7 +125,7 @@ def TeamJoin(request):
                 success = True
                 response['teamname'] = the_team.team_name
                 response['invitecode'] = the_team.invite_code
-                response['leader'] = the_team.leader
+                response['leader'] = StudentInfo.objects.get(id = the_team.leader).student_nickname 
                 response['success'] = success
                 return JsonResponse(response)
         except:
