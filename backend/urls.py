@@ -9,5 +9,5 @@ urlpatterns = [
     path('user_id=<int:pk>/', views.StudentDetail.as_view(), name='StudentDetail'),
     path('RuleFile_id=<int:pk>', views.RuleFileView.as_view(), name='RuleFile'),
     path('students/reg',views.StudentReg),
-    psth('students/login',views.StudentLogin)
+    path('students/login',views.StudentLogin)
 ]
