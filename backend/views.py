@@ -87,7 +87,7 @@ def StudentLogin(request):
 
 
 
-def TeamProcess(request):
+def TeamAdd(request):
     if request.method == 'POST':
         if request.POST['invitecode']:#创建队伍
             teams = TeamInfo.objects.all()
@@ -108,5 +108,23 @@ def TeamProcess(request):
                     invite_code = invite_code
                     )
                 new_team.save()
-        return JsonResponse({'success':success,'message':message,'team':the_nameu})
+        return JsonResponse({'success':success,'message':message,'team':the_name})
+    elif request.method == 'GET':
+        return JsonResponse({'success':success,'message':message,'team':the_name})
+
+def TeamJoin(request):
+    if request.method == 'POST':
+        invitecode = request.POST['invitecode']
+        the_team = TeamInfo.objects.get(invite_code = invitecode)
+        success = False
+        message = ""
+        if the_team:
+            success = True
+            return HttpResponse(render(request,locals()))
+    elif request.method == 'GET':
+        return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+
+
+
+
 
