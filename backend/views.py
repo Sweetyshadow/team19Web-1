@@ -126,11 +126,11 @@ def TeamJoin(request):
                 response['teamname'] = the_team.team_name
                 response['invitecode'] = the_team.invite_code
                 response['leader'] = the_team.leader
-                return HttpResponse(dict({'success':success}.items() + response.items()))
+                return JsonResponse(dict({'success':success}.items() + response.items()))
         except:
-            return HttpResponse({'success':success})
+            return JsonResponse({'success':success})
         else:
-            return HttpResponse({'success':success})
+            return JsonResponse({'success':success})
     elif request.method == 'GET':
         return HttpResponse(locals())
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
