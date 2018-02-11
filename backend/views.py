@@ -127,6 +127,8 @@ def TeamJoin(request):
                 response['invitecode'] = the_team.invite_code
                 response['leader'] = the_team.leader
                 return HttpResponse(dict({'success':success}.items() + response.items()))
+        except:
+            return HttpResponse({'success':success})
         else:
             return HttpResponse({'success':success})
     elif request.method == 'GET':
