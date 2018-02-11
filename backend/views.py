@@ -123,7 +123,7 @@ def TeamJoin(request):
             success = True
             return HttpResponse(render(request,locals()))
     elif request.method == 'GET':
-        return HttpResponse(render(request,locals()))
+        return locals()
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
 
