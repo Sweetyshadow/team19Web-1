@@ -126,7 +126,8 @@ def TeamJoin(request):
                 response['teamname'] = the_team.team_name
                 response['invitecode'] = the_team.invite_code
                 response['leader'] = the_team.leader
-                return JsonResponse(dict({'success':success}.items() + response.items()))
+                response['success'] = success
+                return JsonResponse(response)
         except:
             return JsonResponse({'success':success})
         else:
