@@ -99,8 +99,6 @@ def StudentLeader(request):
         except:
             message += "the student doesn't exist!"
             return JsonResponse({'success':success,'message':message})
-        else:
-            return JsonResponse({'success':success,'message':message})
     else :
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
@@ -112,21 +110,27 @@ def TeamAdd(request):
             teams = TeamInfo.objects.all()
             success = True
             message = ""
+            the_leader = request.POST['userid']
+            invite_code = request.POST['invitecode']
             the_name = request.POST['teamname']
+            the_student = StudentInfo.objects.get(id = the_leader)
             for t in teams:
                 if t.team_name == the_name:
                     success = False
                     message += "team name exist!"
                     break
+            if the_student.teamname != null:
+                success = False
+                message += " you've already have a team!"
             if success == True:
-                the_leader = request.POST['userid']
-                invite_code = request.POST['invitecode']
-                new_team = TeamInfo.objects.create(
+               new_team = TeamInfo.objects.create(
                     team_name = the_name,
                     leader = the_leader,
                     invite_code = invite_code
                     )
                 new_team.save()
+                the_student.team_name = the_name
+                the_student.save()
         return JsonResponse({'success':success,'message':message,'team':the_name})
     elif request.method == 'GET':
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
@@ -138,6 +142,11 @@ def TeamJoin(request):
         success = False
         message = ""
         response = {}
+        the_id = request.POST['userid']
+        the_student = StudentInfo.objects.get(id = the_id)
+        if the_student.teamname != null:
+            message += " you've already have a team!"
+            return JsonResponse({'success':success,'message':message})
         try:
             the_team = TeamInfo.objects.get(invite_code = invitecode)
             if the_team:
@@ -146,16 +155,29 @@ def TeamJoin(request):
                 response['invitecode'] = the_team.invite_code
                 response['leader'] = StudentInfo.objects.get(id = the_team.leader).student_nickname 
                 response['success'] = success
+                the_student.team_name = the_team.team_name
+                the_student.save()
                 return JsonResponse(response)
         except:
             message += "the team doesn't exist!"
             return JsonResponse({'success':success,'message':message})
-        else:
-            return JsonResponse({'success':success})
     elif request.method == 'GET':
         return HttpResponse(locals())
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
+@csrf_exempt
+def MyTeam(request):
+    if request.method == 'POST':
+        the_id = request['userid']
+        try:
+            the_team_name = StudentInfo.objects.get(id = the_id).teamname
+            response = {}
+            response['isleader'] = the_student.isleader
+
+        except:
+            return JsonResponse({'message':"the student doesn't exist!"})
+    elif request.method == 'GET':
+        return HttpResponse(locals())
 
 
 
