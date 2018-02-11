@@ -120,7 +120,7 @@ def TeamAdd(request):
                     success = False
                     message += "team name exist!"
                     break
-            if the_student.team_name != null:
+            if the_student.team_name != 'null':
                 success = False
                 message += " you've already have a team!"
             if success == True:
@@ -151,20 +151,20 @@ def TeamJoin(request):
         response = {}
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
-        if the_student.team_name != null:
+        if the_student.team_name != 'null':
             message += " you've already have a team!"
             return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name})
         try:
             the_team = TeamInfo.objects.get(invite_code = invitecode)
-            if the_team.member3 == null:
+            if the_team.member3 == 'null':
                 success = True
                 the_student.team_name = the_team.team_name
                 the_student.save()
-                if the_team.member1 == null:
+                if the_team.member1 == 'null':
                     the_team.member1 = the_student.student_nickname
                     the_team.member_num += 1
                     the_team.save()
-                elif the_team.member2 == null:
+                elif the_team.member2 == 'null':
                     the_team.member2 = the_student.student_nickname
                     the_team.member_num += 1
                     the_team.save()
@@ -198,7 +198,7 @@ def MyTeam(request):
     if request.method == 'POST':
         the_id = request['userid']
         the_student = StudentInfo.objects.get(id = userid)
-        if the_student.team_name == null:
+        if the_student.team_name == 'null':
             message += "You haven't joined a team!"
             return JsonResponse({'success':success,'message':message})
         else :

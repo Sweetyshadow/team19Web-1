@@ -5,11 +5,11 @@ from django.db import models
 
 
 class TeamInfo(models.Model):
-    team_name = models.CharField(max_length=30, null=True)
-    leader = models.CharField(max_length=50, null=True)
-    member1 = models.CharField(max_length=50, null=True)
-    member2 = models.CharField(max_length=50, null=True)
-    member3 = models.CharField(max_length=50, null=True)
+    team_name = models.CharField(max_length=30, default = 'null',null=True)
+    leader = models.CharField(max_length=50, default = 'null',null=True)
+    member1 = models.CharField(max_length=50, default = 'null',null=True)
+    member2 = models.CharField(max_length=50, default = 'null',null=True)
+    member3 = models.CharField(max_length=50, default = 'null',null=True)
     member_num = models.IntegerField(default = 1)
     invite_code = models.CharField(max_length=20, null=True)
     codes = models.TextField(null=True)
@@ -21,7 +21,7 @@ class TeamInfo(models.Model):
 
 
 class StudentInfo(models.Model):
-    team_name = models.ForeignKey(TeamInfo, on_delete=models.CASCADE, null=True)
+    team_name = models.ForeignKey(TeamInfo, on_delete=models.CASCADE, default = 'null',null=True)
     is_leader = models.BooleanField(default=False)
     student_id = models.CharField(max_length=20, null=True)
     student_nickname = models.CharField(max_length=50, null=True)
