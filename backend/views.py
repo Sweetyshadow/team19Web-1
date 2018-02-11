@@ -192,7 +192,7 @@ def TeamJoin(request):
         return HttpResponse(locals())
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
-@csrf_exempt
+'''@csrf_exempt
 def MyTeam(request):
     success = False
     message = ""
@@ -216,7 +216,7 @@ def MyTeam(request):
             return JsonResponse({'success':success,'message':message})            
     elif request.method == 'GET':
         return HttpResponse(locals())
-
+'''
 @csrf_exempt
 def AllTeam(request):
     if request.method == 'POST':
