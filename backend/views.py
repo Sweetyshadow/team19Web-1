@@ -116,14 +116,19 @@ def TeamAdd(request):
 def TeamJoin(request):
     if request.method == 'POST':
         invitecode = request.POST['invitecode']
-        the_team = TeamInfo.objects.get(invite_code = invitecode)
         success = False
         message = ""
-        if the_team:
-            success = True
-            return HttpResponse(the_team)
+        response = {}
+        try:
+            the_team = TeamInfo.objects.get(invite_code = invitecode)
+            if the_team:
+                success = True
+                response['teamname'] = the_team.team_name
+                response['invitecode'] = the_team.invite_code
+                response['leader'] = the_team.leader
+                return HttpResponse(dict({'success':success}.items() + response.items()))
         else:
-            return HttpResponse(locals())
+            return HttpResponse({'success':success})
     elif request.method == 'GET':
         return HttpResponse(locals())
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
