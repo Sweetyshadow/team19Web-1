@@ -131,7 +131,8 @@ def TeamAdd(request):
                     )
                new_team.member_num = 1
                new_team.save()
-               the_student.team_name = the_name
+               the_student.team_name = new_team
+               the_student.is_leader = True
                the_student.save()
                response['success'] = success
                response['teamname'] = the_name
@@ -200,7 +201,7 @@ def MyTeam(request):
         the_id = request['userid']
         the_student = StudentInfo.objects.get(id = userid)
         if the_student.team_name :
-            the_team = TeamInfo.objects.get(team_name = str(the_student.team_name))
+            the_team = TeamInfo.objects.get(team_name = the_student.team_name)
             success = True
             response = {}
             response['success'] = success
