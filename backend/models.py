@@ -10,6 +10,7 @@ class TeamInfo(models.Model):
     member1 = models.CharField(max_length=50, null=True)
     member2 = models.CharField(max_length=50, null=True)
     member3 = models.CharField(max_length=50, null=True)
+    member_num = models.IntegerField(default = 1)
     invite_code = models.CharField(max_length=20, null=True)
     codes = models.TextField(null=True)
     history = models.TextField(null=True)
