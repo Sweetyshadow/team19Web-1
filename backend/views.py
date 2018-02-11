@@ -73,7 +73,7 @@ def StudentProcess(request):
                 message += "wrong password!"
         else:
             message += "the user doesn't exist!"'''
-        return JsonResponse({'success':str(request.body),'message':str(request.POST)})
+        return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
 def TeamProcess(request):
     if request.method == 'POST':
