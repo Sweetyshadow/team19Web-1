@@ -153,7 +153,7 @@ def TeamJoin(request):
         the_student = StudentInfo.objects.get(id = the_id)
         if the_student.team_name != 'NULL':
             message += " you've already have a team!"
-            return JsonResponse({'success':success,'message':message})
+            return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name})
         try:
             the_team = TeamInfo.objects.get(invite_code = invitecode)
             if the_team.member3 == 'NULL':
