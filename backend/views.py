@@ -200,10 +200,6 @@ def MyTeam(request):
         the_id = request['userid']
         the_student = StudentInfo.objects.get(id = userid)
         if the_student.team_name :
-        else :
-            message += "You haven't joined a team!"
-            return JsonResponse({'success':success,'message':message})
-        else :
             the_team = TeamInfo.objects.get(team_name = the_student.team_name)
             success = True
             response = {}
@@ -215,6 +211,9 @@ def MyTeam(request):
             response['member2'] = the_team.member2
             response['member3'] = the_team.member3
             return JsonResponse(response)
+        else :
+            message += "You haven't joined a team!"
+            return JsonResponse({'success':success,'message':message})            
     elif request.method == 'GET':
         return HttpResponse(locals())
 
