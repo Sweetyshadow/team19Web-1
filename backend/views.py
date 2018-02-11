@@ -110,7 +110,7 @@ def TeamAdd(request):
                 new_team.save()
         return JsonResponse({'success':success,'message':message,'team':the_name})
     elif request.method == 'GET':
-        return JsonResponse({'success':success,'message':message,'team':the_name})
+        return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
 def TeamJoin(request):
     if request.method == 'POST':
