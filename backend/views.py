@@ -44,7 +44,7 @@ def StudentProcess(request):
             if s.student_nickname == the_name:
                 success = False
                 message += "the name exist!"
-            break
+                break
         if success == True:
             new_student = StudentInfo.objects.create(
                 student_nickname = the_name,
@@ -59,8 +59,8 @@ def StudentProcess(request):
         success = False
         flag = False
         message = ""
-        the_name = request.POST['name']
-        the_pwd = request.POST['pwd']
+        the_name = request.GET['name']
+        the_pwd = request.GET['pwd']
         for s in students:
             if the_name == s.student_nickname:
                 one = s
@@ -73,14 +73,28 @@ def StudentProcess(request):
                 message += "wrong password!"
         else:
             message += "the user doesn't exist!"
-        return JsonResponse({'success':str(request.method),'message':str(request.GET)})
+        return JsonResponse({'success':str(request.method),'message':str(request.GET),'userid':the_name})
 
 def TeamProcess(request):
-    return JsonResponse({'body':request.body,'request':request})
-    '''if request.method == 'POST':
-        if request.body['invitecode']:
+    if request.method == 'POST':
+        if request.POST['invitecode']:#创建队伍
             teams = TeamInfo.objects.all()
-            for '''
+            success = True
+            message = ""
+            the_name = request.POST['teamname']
+            for t in teams:
+                if t.team_name == the_name:
+                    success = False
+                    message += "team name exist!"
+                    break
+            if success == True:
+                the_leader = request.POST['userid']
+                invite_code = request.POST['invitecode']
+                new_team = TeamInfo.objects.create(
+                    team_name = the_name,
+                    leader = the_leader,
+                    invite_code = invite_code
+                    )
+                new_team.save()
+        return JsonResponse({'success':success,'message':message,'team':the_nameu})
 
-
-'''        '''
