@@ -119,7 +119,11 @@ def TeamAdd(request):
                 if t.team_name == the_name:
                     success = False
                     message += "team name exist!"
-                    break
+                    return JsonResponse({'success':success,'message':message})
+                if t.invite_code == invitecode:
+                    success = False
+                    message += "invite code exist!"
+                    return JsonResponse({'success':success,'message':message})
             if the_student.team_name :
                 success = False
                 message += " you've already have a team!"
