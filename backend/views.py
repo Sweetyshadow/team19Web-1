@@ -58,7 +58,9 @@ def StudentProcess(request):
         students = StudentInfo.objects.all()
         success = False
         flag = False
-        message = ""
+        message = ""        
+        return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+
         '''the_name = request.GET['name']
         the_pwd = request.GET['pwd']
         for s in students:
@@ -73,7 +75,6 @@ def StudentProcess(request):
                 message += "wrong password!"
         else:
             message += "the user doesn't exist!"'''
-        return JsonResponse({'success':(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
 def TeamProcess(request):
     if request.method == 'POST':
