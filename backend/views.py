@@ -59,7 +59,7 @@ def StudentProcess(request):
         success = False
         flag = False
         message = ""
-        the_name = request.GET['name']
+        '''the_name = request.GET['name']
         the_pwd = request.GET['pwd']
         for s in students:
             if the_name == s.student_nickname:
@@ -72,8 +72,8 @@ def StudentProcess(request):
             else:
                 message += "wrong password!"
         else:
-            message += "the user doesn't exist!"
-        return JsonResponse({'success':str(request.method),'message':str(request.GET),'userid':the_name})
+            message += "the user doesn't exist!"'''
+        return JsonResponse({'success':str(request.method),'message':str(request.GET)})
 
 def TeamProcess(request):
     if request.method == 'POST':
