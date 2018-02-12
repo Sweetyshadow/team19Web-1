@@ -91,14 +91,13 @@ def StudentLeader(request):
     message = ""
     if request.method == 'POST':
         the_id = request.POST['userid']
-        try:
-            the_student = StudentInfo.objects.get(id = the_id)
-            isleader = the_student.is_leader()
-            success = True
-            return JsonResponse({'success':success,'message':message,'isleader':isleader})
-        except:
-            message += "the student doesn't exist!"
-            return JsonResponse({'success':success,'message':message})
+        the_student = StudentInfo.objects.get(id = the_id)
+        isleader = the_student.is_leader()
+        success = True
+        return JsonResponse({'success':success,'message':message,'isleader':isleader})
+        #except:
+        #    message += "the student doesn't exist!"
+        #    return JsonResponse({'success':success,'message':message})
     else :
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
