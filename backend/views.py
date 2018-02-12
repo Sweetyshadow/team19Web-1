@@ -160,7 +160,7 @@ def TeamJoin(request):
             message += " you've already have a team!"
             return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name})
         else :
-            the_team = TeamInfo.objects.get(invite_code = invite_code)
+            the_team = TeamInfo.objects.get(id = request.POST['teamid'])
             the_scale = the_team.member_num
             if the_scale < 4:
                 success = True
@@ -209,6 +209,7 @@ def MyTeam(request):
             success = True
             response = {}
             response['success'] = success
+            response['teamid'] = the_team.id
             response['teamname'] = the_team.team_name
             response['scale'] = the_team.member_num
             response['leader'] = the_team.leader
