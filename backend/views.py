@@ -158,7 +158,7 @@ def TeamJoin(request):
         the_student = StudentInfo.objects.get(id = the_id)
         if the_student.team_name :
             message += " you've already have a team!"
-            return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name})
+            return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name.team_name})
         else :
             the_team = TeamInfo.objects.get(id = request.POST['teamid'])
             the_scale = the_team.member_num
