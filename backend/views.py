@@ -201,7 +201,9 @@ def TeamJoin(request):
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
 @csrf_exempt
-def TeamExit:
+def TeamExit(request):
+    return JsonResponse({'response':request.body})
+
 @csrf_exempt
 def MyTeam(request):
     success = False
