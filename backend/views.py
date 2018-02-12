@@ -231,6 +231,7 @@ def AllTeam(request):
         teams = TeamInfo.objects.all()
         for team in teams:
             response.append({
+                'teamid':team.id,
                 'teamname':team.team_name,
                 'scale':team.member_num,
                 'leader':team.leader,
