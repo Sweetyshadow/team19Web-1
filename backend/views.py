@@ -90,7 +90,7 @@ def StudentLeader(request):
     success = False
     message = ""
     if request.method == 'POST':
-        the_id = request['userid']
+        the_id = request.POST['userid']
         try:
             the_student = StudentInfo.objects.get(id = the_id)
             isleader = the_student.is_leader()
@@ -161,6 +161,9 @@ def TeamJoin(request):
             return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name.team_name})
         else :
             the_team = TeamInfo.objects.get(id = request.POST['teamid'])
+            if the_team.invite_code != invite_code:
+                message = "the wrong invite code !"
+                return JsonResponse({'success':success,'message':message})
             the_scale = the_team.member_num
             if the_scale < 4:
                 success = True
@@ -197,6 +200,8 @@ def TeamJoin(request):
         return HttpResponse(locals())
         #return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
+@csrf_exempt
+def TeamExit:
 @csrf_exempt
 def MyTeam(request):
     success = False
