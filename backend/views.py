@@ -150,7 +150,7 @@ def TeamAdd(request):
 @csrf_exempt
 def TeamJoin(request):
     if request.method == 'POST':
-        invitecode = request.POST['invitecode']
+        invite_code = request.POST['invitecode']
         success = False
         message = ""
         response = {}
@@ -160,7 +160,7 @@ def TeamJoin(request):
             message += " you've already have a team!"
             return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name})
         else :
-            the_team = TeamInfo.objects.get(invite_code = invitecode)
+            the_team = TeamInfo.objects.get(invite_code = invite_code)
             the_scale = the_team.member_num
             if the_scale < 4:
                 success = True
@@ -238,6 +238,6 @@ def AllTeam(request):
                 'member2':team.member2,
                 'member3':team.member3
                 })
-        return JsonResponse(response)
+        return JsonResponse(response, safe = False)
 
 
