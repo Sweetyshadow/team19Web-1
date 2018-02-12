@@ -92,7 +92,7 @@ def StudentLeader(request):
     if request.method == 'POST':
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
-        isleader = the_student.is_leader()
+        isleader = the_student.is_leader
         success = True
         return JsonResponse({'success':success,'message':message,'isleader':isleader})
         #except:
