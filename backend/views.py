@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 from django.views import generic
-from django.db import models
+from django.db import models,connection
 from .models import TeamInfo, StudentInfo, RuleFile
 from django.views.decorators.csrf import csrf_exempt
 
@@ -204,6 +204,7 @@ def TeamJoin(request):
 
 @csrf_exempt
 def TeamExit(request):
+    cursor = connection.cursor()
     if request.method == 'POST':
         the_student = StudentInfo.objects.get(id = request.POST['userid'])
         the_team = TeamInfo.objects.get(team_name = the_student.team_name.team_name)
@@ -215,21 +216,29 @@ def TeamExit(request):
                     the_team.member2 = the_team.member3
                 else:
                     del the_team.member2
+                    cursor.excute("update backend_teaminfo set member2 = null where team_name = " + the_team.team_name)
             else :
                 del the_team.member1
+                cursor.excute("update backend_teaminfo set member1 = null where team_name = " + the_team.team_name)
+
         elif the_team.member2 == the_name:
             if the_team.member3:
                 the_team.member2 = the_team.member3
             else :
                 del the_team.member2
+                cursor.excute("update backend_teaminfo set member2 = null where team_name = " + the_team.team_name)
+
         elif the_team.member3 == the_name:
             del the_team.member3
+            cursor.excute("update backend_teaminfo set member3 = null where team_name = " + the_team.team_name)
         else:
             message = "the student is not in the team!"
             success = False
             return JsonResponse({'success':success,'message':message})
         the_team.member_num -= 1
         the_team.save()
+        cursor.excute("update backend_studentinfo set team_name = null where id = " + request.POST['userid'])
+        cursor.close()
         response = {}
         response['teamname'] = the_team.team_name
         response['teamid'] = the_team.id
@@ -240,7 +249,7 @@ def TeamExit(request):
         response['member3'] = the_team.member3        
         return JsonResponse(response)
     else :
-        return JsonResponse({'response':str(request.body)   })
+        return JsonResponse({'response':str(request.body)})
 
 @csrf_exempt
 def MyTeam(request):
