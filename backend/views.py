@@ -216,28 +216,28 @@ def TeamExit(request):
                     the_team.member2 = the_team.member3
                 else:
                     del the_team.member2
-                    cursor.excute("update backend_teaminfo set member2 = null where team_name = " + the_team.team_name)
+                    cursor.execute("update backend_teaminfo set member2 = null where team_name = " + the_team.team_name)
             else :
                 del the_team.member1
-                cursor.excute("update backend_teaminfo set member1 = null where team_name = " + the_team.team_name)
+                cursor.execute("update backend_teaminfo set member1 = null where team_name = " + the_team.team_name)
 
         elif the_team.member2 == the_name:
             if the_team.member3:
                 the_team.member2 = the_team.member3
             else :
                 del the_team.member2
-                cursor.excute("update backend_teaminfo set member2 = null where team_name = " + the_team.team_name)
+                cursor.execute("update backend_teaminfo set member2 = null where team_name = " + the_team.team_name)
 
         elif the_team.member3 == the_name:
             del the_team.member3
-            cursor.excute("update backend_teaminfo set member3 = null where team_name = " + the_team.team_name)
+            cursor.execute("update backend_teaminfo set member3 = null where team_name = " + the_team.team_name)
         else:
             message = "the student is not in the team!"
             success = False
             return JsonResponse({'success':success,'message':message})
         the_team.member_num -= 1
         the_team.save()
-        cursor.excute("update backend_studentinfo set team_name = null where id = " + request.POST['userid'])
+        cursor.execute("update backend_studentinfo set team_name = null where id = " + request.POST['userid'])
         cursor.close()
         response = {}
         response['teamname'] = the_team.team_name
