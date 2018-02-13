@@ -93,8 +93,9 @@ def StudentLeader(request):
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
         isleader = the_student.is_leader
+        the_name = the_student.student_nickname
         success = True
-        return JsonResponse({'success':success,'message':message,'isleader':isleader})
+        return JsonResponse({'success':success,'message':message,'name':the_name,'isleader':isleader})
         #except:
         #    message += "the student doesn't exist!"
         #    return JsonResponse({'success':success,'message':message})
