@@ -139,6 +139,7 @@ def TeamAdd(request):
                the_student.save()
                response['success'] = success
                response['teamname'] = the_name
+               response['teamid'] = new_team.id
                response['leader'] = the_student.student_nickname
                response['scale'] = new_team.member_num
                return JsonResponse(response)
@@ -181,6 +182,7 @@ def TeamJoin(request):
                     the_team.member_num += 1
                     the_team.save()
                 response['teamname'] = the_team.team_name
+                response['teamid'] = the_team.id
                 response['leader'] = the_team.leader 
                 response['scale'] = the_team.member_num
                 response['member1'] = the_team.member1
@@ -201,7 +203,43 @@ def TeamJoin(request):
 
 @csrf_exempt
 def TeamExit(request):
-    return JsonResponse({'response':request.body})
+    if request.method == 'POST':
+        the_student = StudentInfo.objects.get(id = request.POST['userid'])
+        the_team = TeamInfo.objects.get(team_name = the_student.team_name.team_name)
+        the_name = the_student.student_nickname
+        if the_team.member1 == the_name:
+            if the_team.member2 :
+                the_team.member1 = the_team.member2
+                if the_team.member3:
+                    the_team.member2 = the_team.member3
+                else:
+                    del the_team.member2
+            else :
+                del the_team.member1
+        elif the_team.member2 == the_name:
+            if the_team.member3:
+                the_team.member2 = the_team.member3
+            else :
+                del the_team.member2
+        else if the_team.member3 == the_name:
+            del the_team.member3
+        else:
+            message = "the student is not in the team!"
+            success = False
+            return JsonResponse({'success':success,'message':message})
+        the_team.member_num -= 1
+        the_team.save()
+        response = {}
+        response['teamname'] = the_team.team_name
+        response['teamid'] = the_team.id
+        response['leader'] = the_team.leader 
+        response['scale'] = the_team.member_num
+        response['member1'] = the_team.member1
+        response['member2'] = the_team.member2
+        response['member3'] = the_team.member3        
+
+    else :
+        return JsonResponse({'response':request.body})
 
 @csrf_exempt
 def MyTeam(request):
