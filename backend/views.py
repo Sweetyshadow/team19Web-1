@@ -240,7 +240,7 @@ def TeamExit(request):
         response['member3'] = the_team.member3        
 
     else :
-        return JsonResponse({'response':str(request.body)})
+        return JsonResponse({'response':str(request.body)   })
 
 @csrf_exempt
 def MyTeam(request):
@@ -287,8 +287,9 @@ def AllTeam(request):
                 })
         return JsonResponse(response, safe = False)
 
-@csrf_exempt
+'''@csrf_exempt
 def UploadHeadpic(request):
-    if request
-
+    if request.method == 'POST':
+        myfile = request.FILES.get("myfile",None)
+'''
 
