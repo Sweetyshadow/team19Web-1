@@ -222,7 +222,7 @@ def TeamExit(request):
                 the_team.member2 = the_team.member3
             else :
                 del the_team.member2
-        else if the_team.member3 == the_name:
+        elif the_team.member3 == the_name:
             del the_team.member3
         else:
             message = "the student is not in the team!"
