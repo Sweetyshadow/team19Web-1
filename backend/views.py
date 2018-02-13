@@ -237,7 +237,7 @@ def TeamExit(request):
             return JsonResponse({'success':success,'message':message})
         the_team.member_num -= 1
         the_team.save()
-        cursor.execute("update backend_studentinfo set team_name = null where id = " + request.POST['userid'])
+        cursor.execute("update backend_studentinfo set team_name_id = null where id = " + request.POST['userid'])
         cursor.close()
         response = {}
         response['teamname'] = the_team.team_name
