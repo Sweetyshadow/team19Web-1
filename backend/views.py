@@ -216,21 +216,21 @@ def TeamExit(request):
                     the_team.member2 = the_team.member3
                 else:
                     del the_team.member2
-                    cursor.execute("update backend_teaminfo set member2 = null where id = " + the_team.id)
+                    cursor.execute("update backend_teaminfo set member2 = null where id = " + str(the_team.id))
             else :
                 del the_team.member1
-                cursor.execute("update backend_teaminfo set member1 = null where id = " + the_team.id)
+                cursor.execute("update backend_teaminfo set member1 = null where id = " + str(the_team.id))
 
         elif the_team.member2 == the_name:
             if the_team.member3:
                 the_team.member2 = the_team.member3
             else :
                 del the_team.member2
-                cursor.execute("update backend_teaminfo set member2 = null where id = " + the_team.id)
+                cursor.execute("update backend_teaminfo set member2 = null where id = " + str(the_team.id))
 
         elif the_team.member3 == the_name:
             del the_team.member3
-            cursor.execute("update backend_teaminfo set member3 = null where id = " + the_team.id)
+            cursor.execute("update backend_teaminfo set member3 = null where id = " + str(the_team.id))
         else:
             message = "the student is not in the team!"
             success = False
