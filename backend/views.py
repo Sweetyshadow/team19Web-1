@@ -238,7 +238,7 @@ def TeamExit(request):
         response['member1'] = the_team.member1
         response['member2'] = the_team.member2
         response['member3'] = the_team.member3        
-
+        return JsonResponse(response)
     else :
         return JsonResponse({'response':str(request.body)   })
 
