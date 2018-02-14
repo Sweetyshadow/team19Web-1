@@ -15,5 +15,6 @@ urlpatterns = [
     path('students/reg/',views.StudentReg),
     path('students/login/',views.StudentLogin),
     path('students/leader/',views.StudentLeader),
+    path('students/modify/',views.ModifyPwd),
     #path('upload/headpic/',views.UploadHeadpic)
 ]

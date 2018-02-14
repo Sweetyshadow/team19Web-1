@@ -85,6 +85,7 @@ def StudentLogin(request):
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
+
 @csrf_exempt
 def StudentLeader(request):
     success = False
@@ -101,6 +102,29 @@ def StudentLeader(request):
         #    return JsonResponse({'success':success,'message':message})
     else :
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+
+@csrf_exempt
+def ModifyPwd(request):
+    success = False
+    if request.method == 'POST':
+        the_id = request.POST['id']
+        old_pwd = request.POST['oldpwd']
+        the_student = StudentInfo.objects.get(id = the_id)
+        if the_student:
+            if the_student.password == old_pwd:
+                new_pwd = request.POST['newpwd']
+                the_student.password = new_pwd
+                the_student.save()
+                success = True
+                return JsonResponse({'userid':the_id,'password':the_student.password})
+            else :
+                message = "The old password is wrong!"
+                return JsonResponse({'success':success,'message':message})
+        else :
+            message = "The student doesn't exist！"
+            return JsonResponse({'success':success,'message':message})
+    else :
+        return JsonResponse({'response':str(request.body)})
 
 
 @csrf_exempt
