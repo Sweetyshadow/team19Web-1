@@ -6,6 +6,8 @@ from django.db import models,connection
 from .models import TeamInfo, StudentInfo, RuleFile
 from django.views.decorators.csrf import csrf_exempt
 
+import re
+
 # Create your views here.
 
 
@@ -332,14 +334,16 @@ def UploadFile(request):
         if not myfile:
             return JsonResponse({'success':False,'message':'no file found!'})
         else :
-            destination = open('/home/ubuntu/team19/user/file' + str(myfile.name),'wb+')
+            url = '/home/ubuntu/team19/user/file' + str(myfile,name)
+            destination = open(url,'wb+')
             for chunk in myfile.chunks():
                 destination.write(chunk)
-            if request.POST['headpic'] == True: #|| request.POST['headpic'] == 'true':
-                the_student  = StudentInfo.objects.get(id = request.POST['userid'])
+            if request.POST['headpic'] == True: 
+                the_id = request.POST['userid']
+                the_student  = StudentInfo.objects.get(id = the_id)
                 if the_student:
-                    the_student.profile_photo = destination
-                    the_student.save()
+                    cursor = connection.cursor()
+                    cursor.execute("update backend_studentinfo set profile_photo = " + url + " where id = " + the_id)
                 else :
                     return JsonResponse({'success':False,'message':"the user does not exist!"})              
             destination.close()
@@ -349,3 +353,13 @@ def UploadFile(request):
         image = s.profile_photo
         response = {''}
         return HttpResponse(image,content_type = "image/png")
+
+@csrf_exempt
+def GetHeadpic(request):
+    if request.method == 'POST':
+        the_id = request.POST['userid']
+        image = StudentInfo.objects.get(id = the_id).profile_photo
+        end = re.findall('.(d+)',str(image.name))  
+        return HttpResponse(image,content_type = "image/" + end[0])
+    elif request.method == 'GET':
+        return HttpResponse(locals())

@@ -16,6 +16,6 @@ urlpatterns = [
     path('students/login/',views.StudentLogin),
     path('students/leader/',views.StudentLeader),
     path('students/modify/',views.ModifyPwd),
-    #path('upload/headpic/',views.UploadHeadpic)
+    path('students/headpic/',views.GetHeadpic),
     path('upload/file/',views.UploadFile),
 ]
