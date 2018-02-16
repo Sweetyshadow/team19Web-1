@@ -334,7 +334,7 @@ def UploadFile(request):
         if not myfile:
             return JsonResponse({'success':False,'message':'no file found!'})
         else :
-            url = '/home/ubuntu/team19/user/file' + str(myfile,name)
+            url = '/home/ubuntu/team19/user/file' + str(myfile.name)
             destination = open(url,'wb+')
             for chunk in myfile.chunks():
                 destination.write(chunk)
