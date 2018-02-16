@@ -345,4 +345,6 @@ def UploadFile(request):
             destination.close()
             return JsonResponse({'success':True,'message':'Upload!','post':str(request.POST)})
     elif request.method == 'GET':
-        return HttpResponse(locals())
+        s = StudentInfo.objects.get(id = 10)
+        image = s.profile_photo
+        return HttpResponse(JsonResponse({'pic':image}))
