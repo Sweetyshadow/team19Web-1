@@ -134,4 +134,4 @@ STATICFILES_DIRS = [
     #'/var/www/static/',
 ]
 
-MEDIA_ROOT = '/home/ubuntu/team19/vue-django-test/media/'
+MEDIA_ROOT = '/home/ubuntu/team19/user/'
