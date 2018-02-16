@@ -363,7 +363,7 @@ def GetHeadpic(request):
         the_id = request.POST['userid']
         image = StudentInfo.objects.get(id = the_id).profile_photo
         f = open(image.name,'rb').read()
-        response = b64encode(response) 
+        response = b64encode(f) 
         return HttpResponse(response)
         #return JsonResponse({'url':image.name})
     elif request.method == 'GET':
