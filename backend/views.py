@@ -347,4 +347,5 @@ def UploadFile(request):
     elif request.method == 'GET':
         s = StudentInfo.objects.get(id = 10)
         image = s.profile_photo
-        return HttpResponse(JsonResponse({'pic':image}))
+        response = {''}
+        return HttpResponse(image,content_type = "image/png")
