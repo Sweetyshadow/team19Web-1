@@ -325,4 +325,17 @@ def UploadHeadpic(request):
     if request.method == 'POST':
         myfile = request.FILES.get("myfile",None)
 '''
-
+@csrf_exempt
+def UploadFile(request):
+    if request.method == 'POST':
+        myfile = request.FILES['file']
+        if not myfile:
+            return JsonResponse({'success':False,'message':'no file found!'})
+        else :
+            destination = open('/team19/vue-django-test/user/file' + str(myfile.name),'wb+')
+            for chunk in myfile.chunks():
+                destination.write(chunk)
+            destination.close()
+            return JsonResponse({'success':True,'message':'Upload!'})
+    elif request.method == 'GET':
+        return HttpResponse(locals())
