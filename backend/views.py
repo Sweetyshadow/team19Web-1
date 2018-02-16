@@ -335,7 +335,14 @@ def UploadFile(request):
             destination = open('/home/ubuntu/team19/user/file' + str(myfile.name),'wb+')
             for chunk in myfile.chunks():
                 destination.write(chunk)
+            if request.POST['headpic'] == True || request.POST['headpic'] == 'true':
+                the_student  = StudentInfo.objects.get(id = request.POST['userid'])
+                if the_student:
+                    the_student.profile_photo = destination
+                    the_student.save()
+                else :
+                    return JsonResponse({'success':False,'message':"the user does not exist!"})              
             destination.close()
-            return JsonResponse({'success':True,'message':'Upload!','post':str(request.POST),'header':str(request.headers)})
+            return JsonResponse({'success':True,'message':'Upload!','post':str(request.POST)})
     elif request.method == 'GET':
         return HttpResponse(locals())
