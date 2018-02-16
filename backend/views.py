@@ -338,7 +338,7 @@ def UploadFile(request):
             destination = open(url,'wb+')
             for chunk in myfile.chunks():
                 destination.write(chunk)
-            if request.POST['headpic'] == True: 
+            if request.POST['headpic'] == 'true': 
                 the_id = request.POST['userid']
                 the_student  = StudentInfo.objects.get(id = the_id)
                 if the_student:
