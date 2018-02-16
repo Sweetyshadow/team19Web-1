@@ -334,7 +334,7 @@ def UploadFile(request):
         if not myfile:
             return JsonResponse({'success':False,'message':'no file found!'})
         else :
-            url = '/home/ubuntu/team19/user/file' + str(myfile.name)
+            url = '/home/ubuntu/team19/user/file/' + str(myfile.name)
             destination = open(url,'wb+')
             for chunk in myfile.chunks():
                 destination.write(chunk)
@@ -351,7 +351,7 @@ def UploadFile(request):
     elif request.method == 'GET':
         s = StudentInfo.objects.get(id = 10)
         image = s.profile_photo
-        end = re.findall(r'.(\d+)',str(image.name))
+        end = re.findall(r'\.(\w+)',str(image.name))
         return HttpResponse(image,content_type = "image/" + end[0])
 
 @csrf_exempt
@@ -359,7 +359,7 @@ def GetHeadpic(request):
     if request.method == 'POST':
         the_id = request.POST['userid']
         image = StudentInfo.objects.get(id = the_id).profile_photo
-        end = re.findall(r'.(\d+)',str(image.name))  
+        end = re.findall(r'\.(\w+)',str(image.name))  
         return HttpResponse(image,content_type = "image/" + end[0])
     elif request.method == 'GET':
         return HttpResponse(locals())
