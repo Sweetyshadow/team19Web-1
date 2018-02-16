@@ -336,6 +336,6 @@ def UploadFile(request):
             for chunk in myfile.chunks():
                 destination.write(chunk)
             destination.close()
-            return JsonResponse({'success':True,'message':'Upload!','post':str(request.POST)})
+            return JsonResponse({'success':True,'message':'Upload!','post':str(request.POST),'header':str(request.headers)})
     elif request.method == 'GET':
         return HttpResponse(locals())
