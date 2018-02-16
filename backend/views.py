@@ -335,7 +335,7 @@ def UploadFile(request):
             destination = open('/home/ubuntu/team19/user/file' + str(myfile.name),'wb+')
             for chunk in myfile.chunks():
                 destination.write(chunk)
-            if request.POST['headpic'] == True || request.POST['headpic'] == 'true':
+            if request.POST['headpic'] == True #|| request.POST['headpic'] == 'true':
                 the_student  = StudentInfo.objects.get(id = request.POST['userid'])
                 if the_student:
                     the_student.profile_photo = destination
