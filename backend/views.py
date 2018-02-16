@@ -345,6 +345,7 @@ def UploadFile(request):
                     cursor = connection.cursor()
                     cursor.execute("update backend_studentinfo set profile_photo = \'" + url + "\' where id = " + the_id)
                     cursor.close()
+                    return JsonResponse({'success':'aaaaaa!'})
                 else :
                     return JsonResponse({'success':False,'message':"the user does not exist!"})              
             destination.close()
