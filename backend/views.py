@@ -351,8 +351,8 @@ def UploadFile(request):
     elif request.method == 'GET':
         s = StudentInfo.objects.get(id = 10)
         image = s.profile_photo
-        response = {''}
-        return HttpResponse(image,content_type = "image/png")
+        end = re.findall(r'.(\d+)',str(image.name))
+        return HttpResponse(image,content_type = "image/" + end[0])
 
 @csrf_exempt
 def GetHeadpic(request):
