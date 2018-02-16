@@ -6,6 +6,7 @@ from django.db import models,connection
 from .models import TeamInfo, StudentInfo, RuleFile
 from django.views.decorators.csrf import csrf_exempt
 
+from base64 import b64encode
 import re
 
 # Create your views here.
