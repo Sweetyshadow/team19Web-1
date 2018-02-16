@@ -359,7 +359,7 @@ def GetHeadpic(request):
     if request.method == 'POST':
         the_id = request.POST['userid']
         image = StudentInfo.objects.get(id = the_id).profile_photo
-        end = re.findall('.(d+)',str(image.name))  
+        end = re.findall(r'.(\d+)',str(image.name))  
         return HttpResponse(image,content_type = "image/" + end[0])
     elif request.method == 'GET':
         return HttpResponse(locals())
