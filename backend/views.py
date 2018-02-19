@@ -43,11 +43,15 @@ def StudentReg(request):
         the_name = request.POST['name']
         the_pwd = request.POST['pwd']
         the_email = request.POST['email']
-        for s in students:
+        '''for s in students:
             if s.student_nickname == the_name:
                 success = False
                 message += "the name exist!"
-                break
+                break'''
+        the_student = StudentInfo.objects.get(student_nickname = the_name)
+        if the_student:
+            success = False
+            message += "the name exist!"
         if success == True:
             new_student = StudentInfo.objects.create(
                 student_nickname = the_name,
@@ -69,7 +73,7 @@ def StudentLogin(request):
         message = ""        
         the_name = request.POST['name']
         the_pwd = request.POST['pwd']
-        for s in students:
+        '''for s in students:
             if the_name == s.student_nickname:
                 one = s
                 flag = True
@@ -80,7 +84,16 @@ def StudentLogin(request):
             else:
                 message += "wrong password!"
         else:
-            message += "the user doesn't exist!"    
+            message += "the user doesn't exist!"'''
+        the_student = StudentInfo.objects.get(student_nickname = the_name)
+        if the_student:
+            if the_student.password == the_pwd:
+                success = True
+            else :
+                message += "wrong password!"
+        else :
+            message += "the user does not exist!"
+
         if success == True:
             return JsonResponse({'success':success,'id':str(one.id),'message':message})            
         else:
@@ -343,9 +356,11 @@ def UploadFile(request):
                 the_id = request.POST['userid']
                 the_student  = StudentInfo.objects.get(id = the_id)
                 if the_student:
-                    cursor = connection.cursor()
+                    '''cursor = connection.cursor()
                     cursor.execute("update backend_studentinfo set profile_photo = \'" + url + "\' where id = " + the_id)
-                    cursor.close()
+                    cursor.close()'''
+                    the_student.profile_photo = '\'' + url + '\''
+                    the_student.save()
                     return JsonResponse({'success':'aaaaaa!'})
                 else :
                     return JsonResponse({'success':False,'message':"the user does not exist!"})              
