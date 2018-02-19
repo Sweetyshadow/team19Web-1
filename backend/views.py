@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from django.db import models,connection
 from .models import TeamInfo, StudentInfo, RuleFile
+from .forms import StudentRegForm, StudentLoginForm
 from django.views.decorators.csrf import csrf_exempt
 
 from base64 import b64encode
@@ -40,33 +41,38 @@ def StudentReg(request):
         students = StudentInfo.objects.all()
         success = True
         message = ""
-        the_name = request.POST['name']
-        the_pwd = request.POST['pwd']
-        the_email = request.POST['email']
+        form = StudentRegForm(request.POST)
+        if form.is_valid():
+            the_name = form.cleaned_data['name']
+            the_pwd = form.cleaned_data['pwd']
+            the_email = form.cleaned_data['email']
         '''for s in students:
             if s.student_nickname == the_name:
                 success = False
                 message += "the name exist!"
                 break'''
-        try:
-            the_student = StudentInfo.objects.get(student_nickname = the_name)
-            if the_student:
-                success = False
-                message += "the name exist!"
-        except:
-            success = True
-        if success == True:
-            new_student = StudentInfo.objects.create(
-                student_nickname = the_name,
-                password = the_pwd,
-                thu_email = the_email
-            )
-            new_student.save()
-            message += "success!"
+            try:
+                the_student = StudentInfo.objects.get(student_nickname = the_name)
+                if the_student:
+                    success = False
+                    message += "the name exist!"
+            except:
+                success = True
+            if success == True:
+                new_student = StudentInfo.objects.create(
+                    student_nickname = the_name,
+                    password = the_pwd,
+                    thu_email = the_email
+                )
+                new_student.save()
+                message += "success!"
+        else :
+            success = False
+            message += "the form is not valid!"
         return JsonResponse({'success':success,'message':message})
+
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
-
 @csrf_exempt
 def StudentLogin(request):
     if request.method == 'POST':
