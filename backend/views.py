@@ -46,11 +46,6 @@ def StudentReg(request):
             the_name = form.cleaned_data['name']
             the_pwd = form.cleaned_data['pwd']
             the_email = form.cleaned_data['email']
-        '''for s in students:
-            if s.student_nickname == the_name:
-                success = False
-                message += "the name exist!"
-                break'''
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)
                 if the_student:
