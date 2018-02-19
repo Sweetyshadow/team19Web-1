@@ -63,7 +63,7 @@ def StudentReg(request):
                 message += "success!"
         else :
             success = False
-            message += str(form.errors())
+            message = str(form.errors)
         return JsonResponse({'success':success,'message':message})
 
     elif request.method == 'GET':      
