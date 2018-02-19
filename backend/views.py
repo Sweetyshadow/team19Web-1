@@ -48,10 +48,13 @@ def StudentReg(request):
                 success = False
                 message += "the name exist!"
                 break'''
-        the_student = StudentInfo.objects.get(student_nickname = the_name)
-        if the_student:
-            success = False
-            message += "the name exist!"
+        try:
+            the_student = StudentInfo.objects.get(student_nickname = the_name)
+            if the_student:
+                success = False
+                message += "the name exist!"
+        except:
+            continue
         if success == True:
             new_student = StudentInfo.objects.create(
                 student_nickname = the_name,
@@ -85,13 +88,13 @@ def StudentLogin(request):
                 message += "wrong password!"
         else:
             message += "the user doesn't exist!"'''
-        the_student = StudentInfo.objects.get(student_nickname = the_name)
-        if the_student:
+        try:
+            the_student = StudentInfo.objects.get(student_nickname = the_name)
             if the_student.password == the_pwd:
                 success = True
             else :
                 message += "wrong password!"
-        else :
+        except:
             message += "the user does not exist!"
 
         if success == True:
