@@ -54,7 +54,7 @@ def StudentReg(request):
                 success = False
                 message += "the name exist!"
         except:
-            continue
+            success = True
         if success == True:
             new_student = StudentInfo.objects.create(
                 student_nickname = the_name,
