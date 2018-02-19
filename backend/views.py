@@ -63,7 +63,7 @@ def StudentReg(request):
                 message += "success!"
         else :
             success = False
-            message = str(form.errors)
+            message = form.errors
         return JsonResponse({'success':success,'message':message})
 
     elif request.method == 'GET':      
@@ -74,34 +74,26 @@ def StudentLogin(request):
         students = StudentInfo.objects.all()
         success = False
         flag = False
-        message = ""        
-        the_name = request.POST['name']
-        the_pwd = request.POST['pwd']
-        '''for s in students:
-            if the_name == s.student_nickname:
-                one = s
-                flag = True
-                break
-        if flag == True:
-            if one.password == the_pwd:
-                success = True
-            else:
-                message += "wrong password!"
-        else:
-            message += "the user doesn't exist!"'''
-        try:
-            the_student = StudentInfo.objects.get(student_nickname = the_name)
-            if the_student.password == the_pwd:
-                success = True
-            else :
-                message += "wrong password!"
-        except:
-            message += "the user does not exist!"
+        message = ""
+        form = StudentLoginForm(request.POST)
+        if form.is_valid():
+            the_name = request.POST['name']
+            the_pwd = request.POST['pwd']
+            try:
+                the_student = StudentInfo.objects.get(student_nickname = the_name)
+                if the_student.password == the_pwd:
+                    success = True
+                else :
+                    message += "wrong password!"
+            except:
+                message += "the user does not exist!"
 
-        if success == True:
-            return JsonResponse({'success':success,'id':str(the_student.id),'message':message})            
+            if success == True:
+                return JsonResponse({'success':success,'id':str(the_student.id),'message':message})            
+            else:
+                return JsonResponse({'success':success,'post':str(request.POST),'message':message})
         else:
-            return JsonResponse({'success':success,'post':str(request.POST),'message':message})
+            return JsonResponse({'success':False,'message':form.errors})
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 
