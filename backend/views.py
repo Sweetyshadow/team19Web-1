@@ -42,7 +42,7 @@ def StudentReg(request):
         success = True
         message = ""
         form = StudentRegForm(request.POST)
-        return JsonResponse({'response':str(form)})
+        return JsonResponse({'response':str(form),'success':form.is_valid()})
         if form.is_valid():
             the_name = form.cleaned_data['name']
             the_pwd = form.cleaned_data['pwd']
