@@ -57,7 +57,7 @@ def StudentReg(request):
             except:
                 success = True
             if success == True:
-                the_salt = binascii.hexlify(os.urandom(4)).decode(),
+                the_salt = binascii.hexlify(os.urandom(4)).decode()
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
                     salt = the_salt,
