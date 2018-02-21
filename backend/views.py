@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from base64 import b64encode
 import re
+import hashlib
 
 # Create your views here.
 
@@ -68,6 +69,7 @@ def StudentReg(request):
 
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+
 @csrf_exempt
 def StudentLogin(request):
     if request.method == 'POST':
@@ -77,8 +79,8 @@ def StudentLogin(request):
         message = ""
         form = StudentLoginForm(request.POST)
         if form.is_valid():
-            the_name = request.POST['name']
-            the_pwd = request.POST['pwd']
+            the_name = form.cleaned_data['name']
+            the_pwd = hashlib.sha224(form.cleaned_data['pwd']).hexdigest()
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)
                 if the_student.password == the_pwd:
@@ -109,9 +111,6 @@ def StudentLeader(request):
         the_name = the_student.student_nickname
         success = True
         return JsonResponse({'success':success,'message':message,'name':the_name,'isleader':isleader})
-        #except:
-        #    message += "the student doesn't exist!"
-        #    return JsonResponse({'success':success,'message':message})
     else :
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
 

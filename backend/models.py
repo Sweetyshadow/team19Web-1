@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-
+import hashlib
 # Create your models here.
 
 
@@ -31,6 +31,10 @@ class StudentInfo(models.Model):
 
     def __str__(self):
         return self.student_nickname
+
+    def save(self,*args,**kwargs):
+        self.password = hashlib.sha224(self.password).hexdigest()
+        super(StudentInfo,self).save(*args,**kwargs)
 
 
 class RuleFile(models.Model):
