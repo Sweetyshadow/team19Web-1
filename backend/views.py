@@ -228,7 +228,7 @@ def TeamJoin(request):
                     the_team.member3 = the_student.student_nickname
                     the_team.member_num += 1
                     the_team.save()
-                return JsonResponse(response)
+                #return JsonResponse(response)
                 response['teamname'] = the_team.team_name
                 response['teamid'] = the_team.id
                 response['leader'] = the_team.leader 
