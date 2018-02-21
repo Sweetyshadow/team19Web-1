@@ -317,7 +317,7 @@ def MyTeam(request):
             response['member1'] = the_team.member1
             response['member2'] = the_team.member2
             response['member3'] = the_team.member3
-            if the_student.isleader():
+            if the_student.is_leader:
                 response['invitecode'] = the_team.invite_code
             return JsonResponse(response)
         else :
