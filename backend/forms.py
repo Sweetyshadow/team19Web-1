@@ -9,4 +9,11 @@ class StudentLoginForm(forms.Form):
 	name = forms.CharField(label='name', max_length = 20)
 	pwd = forms.CharField(label='pwd', max_length = 20, min_length = 8)
 
+
+class PasswordModifyForm(forms.Form):
+	id = forms.PositiveIntegerField()
+	oldpwd = forms.CharField(label='pwd',max_length = 20, min_length = 8)
+	newpwd = forms.CharField(label='pwd',max_length = 20, min_length = 8)
+    # TODO: Define form fields here
     
+

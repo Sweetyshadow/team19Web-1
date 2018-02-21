@@ -4,12 +4,14 @@ from django.urls import reverse
 from django.views import generic
 from django.db import models,connection
 from .models import TeamInfo, StudentInfo, RuleFile
-from .forms import StudentRegForm, StudentLoginForm
+from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm
 from django.views.decorators.csrf import csrf_exempt
 
 from base64 import b64encode
 import re
 import hashlib
+import os
+import binascii
 
 # Create your views here.
 
@@ -45,7 +47,7 @@ def StudentReg(request):
         form = StudentRegForm(request.POST)
         if form.is_valid():
             the_name = form.cleaned_data['name']
-            the_pwd = hashlib.sha224(form.cleaned_data['pwd'].encode('utf-8')).hexdigest()
+            the_pwd = form.cleaned_data['pwd']
             the_email = form.cleaned_data['email']
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)
@@ -57,7 +59,8 @@ def StudentReg(request):
             if success == True:
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
-                    password = the_pwd,
+                    salt = binascii.hexlify(os.urandom(4)).decode(),
+                    password = hashlib.sha224((the_pwd + self.salt).encode('utf-8')).hexdigest(),
                     thu_email = the_email
                 )
                 new_student.save()
@@ -80,9 +83,9 @@ def StudentLogin(request):
         form = StudentLoginForm(request.POST)
         if form.is_valid():
             the_name = form.cleaned_data['name']
-            the_pwd = hashlib.sha224(form.cleaned_data['pwd'].encode('utf-8')).hexdigest()
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)
+                the_pwd = hashlib.sha224((form.cleaned_data['pwd'] + the_student.salt).encode('utf-8')).hexdigest()
                 if the_student.password == the_pwd:
                     success = True
                 else :
@@ -118,22 +121,26 @@ def StudentLeader(request):
 def ModifyPwd(request):
     success = False
     if request.method == 'POST':
-        the_id = request.POST['id']
-        old_pwd = request.POST['oldpwd']
-        the_student = StudentInfo.objects.get(id = the_id)
-        if the_student:
-            if the_student.password == old_pwd:
-                new_pwd = request.POST['newpwd']
-                the_student.password = new_pwd
-                the_student.save()
-                success = True
-                return JsonResponse({'userid':the_id,'password':the_student.password})
+        form = PasswordModifyForm(request.POST)
+        if form.is_valid():
+            the_id = form.cleaned_data['id']
+            old_pwd = hashlib.sha224(form.cleaned_data['oldpwd'])
+            the_student = StudentInfo.objects.get(id = the_id)
+            if the_student:
+                if the_student.password == old_pwd:
+                    new_pwd = request.POST['newpwd']
+                    the_student.password = new_pwd
+                    the_student.save()
+                    success = True
+                    return JsonResponse({'userid':the_id,'password':the_student.password})
+                else :
+                    message = "The old password is wrong!"
+                    return JsonResponse({'success':success,'message':message})
             else :
-                message = "The old password is wrong!"
+                message = "The student doesn't exist！"
                 return JsonResponse({'success':success,'message':message})
-        else :
-            message = "The student doesn't exist！"
-            return JsonResponse({'success':success,'message':message})
+        else:
+            return JsonResponse({'success':success,'message':form.errors})
     else :
         return JsonResponse({'response':str(request.body)})
 
