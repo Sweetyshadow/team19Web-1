@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from django.db import models,connection
 from .models import TeamInfo, StudentInfo, RuleFile
-from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm
+from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm, TeamAddForm
 from django.views.decorators.csrf import csrf_exempt
 
 from base64 import b64encode
@@ -130,7 +130,7 @@ def ModifyPwd(request):
                 old_pwd = hashlib.sha224((form.cleaned_data['oldpwd'] + the_student.salt).encode('utf-8')).hexdigest()
                 if the_student.password == old_pwd:
                     new_pwd = form.cleaned_data['newpwd']
-                    the_student.password = hashlib.sha224((new_pwd + the_student.salt)).encode('utf-8').hexdigest()
+                    the_student.password = hashlib.sha224((new_pwd + the_student.salt).encode('utf-8')).hexdigest()
                     the_student.save()
                     success = True
                     return JsonResponse({'userid':the_id,'password':the_student.password})
@@ -149,14 +149,15 @@ def ModifyPwd(request):
 @csrf_exempt
 def TeamAdd(request):
     if request.method == 'POST':
-        if request.POST['invitecode']:#创建队伍
+        form = TeamAddForm(request.POST)
+        if form.is_valid():#创建队伍
             teams = TeamInfo.objects.all()
             success = True
             message = ""
             response = {}
-            the_leader = request.POST['userid']
-            invite_code = request.POST['invitecode']
-            the_name = request.POST['teamname']
+            the_leader = form.cleaned_data['userid']
+            invite_code = forms.cleaned_data['invitecode']
+            the_name = form.cleaned_data['teamname']
             the_student = StudentInfo.objects.get(id = the_leader)
             for t in teams:
                 if t.team_name == the_name:
@@ -187,6 +188,8 @@ def TeamAdd(request):
                response['leader'] = the_student.student_nickname
                response['scale'] = new_team.member_num
                return JsonResponse(response)
+        else :
+            return JsonResponse({'success':False,'message':form.errors})
         return JsonResponse({'success':success,'message':message,'team':the_name})
     elif request.method == 'GET':
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
