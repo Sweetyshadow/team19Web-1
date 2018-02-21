@@ -27,7 +27,7 @@ class StudentInfo(models.Model):
     student_nickname = models.CharField(max_length=50, null=True)
     password = models.CharField(max_length=100, default='000', null=True)
     salt = models.CharField(max_length = 8, null = True)
-    thu_email = models.CharField(max_length=20, null=True)
+    thu_email = models.CharField(max_length=50, null=True)
     profile_photo = models.ImageField(null=True)
 
     def __str__(self):
