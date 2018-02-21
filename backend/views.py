@@ -80,7 +80,7 @@ def StudentLogin(request):
         form = StudentLoginForm(request.POST)
         if form.is_valid():
             the_name = form.cleaned_data['name']
-            the_pwd = hashlib.sha224(form.cleaned_data['pwd']).hexdigest()
+            the_pwd = hashlib.sha224(form.cleaned_data['pwd'].encode('utf-8')).hexdigest()
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)
                 if the_student.password == the_pwd:
