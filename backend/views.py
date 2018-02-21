@@ -45,7 +45,7 @@ def StudentReg(request):
         form = StudentRegForm(request.POST)
         if form.is_valid():
             the_name = form.cleaned_data['name']
-            the_pwd = form.cleaned_data['pwd']
+            the_pwd = hashlib.sha224(form.cleaned_data['pwd'].encode('utf-8')).hexdigest()
             the_email = form.cleaned_data['email']
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)

@@ -32,9 +32,6 @@ class StudentInfo(models.Model):
     def __str__(self):
         return self.student_nickname
 
-    def save(self,*args,**kwargs):
-        self.password = hashlib.sha224(self.password.encode('utf-8')).hexdigest()
-        super(StudentInfo,self).save(*args,**kwargs)
 
 
 class RuleFile(models.Model):
