@@ -86,7 +86,7 @@ def StudentLogin(request):
                 if the_student.password == the_pwd:
                     success = True
                 else :
-                    message += "wrong password!"
+                    message += "wrong password!" + the_student.password + the_pwd
             except:
                 message += "the user does not exist!"
 
