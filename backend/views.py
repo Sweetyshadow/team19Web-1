@@ -60,7 +60,7 @@ def StudentReg(request):
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
                     salt = binascii.hexlify(os.urandom(4)).decode(),
-                    password = hashlib.sha224((the_pwd + self.salt).encode('utf-8')).hexdigest(),
+                    password = hashlib.sha224((the_pwd + salt).encode('utf-8')).hexdigest(),
                     thu_email = the_email
                 )
                 new_student.save()
