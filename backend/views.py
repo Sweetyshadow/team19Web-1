@@ -228,10 +228,12 @@ def TeamJoin(request):
                     the_team.member3 = the_student.student_nickname
                     the_team.member_num += 1
                     the_team.save()
+                return JsonResponse(response)
                 response['teamname'] = the_team.team_name
                 response['teamid'] = the_team.id
                 response['leader'] = the_team.leader 
                 response['scale'] = the_team.member_num
+                return JsonResponse(response)
                 response['member1'] = the_team.member1
                 response['member2'] = the_team.member2
                 response['member3'] = the_team.member3                
@@ -316,6 +318,8 @@ def MyTeam(request):
             response['member1'] = the_team.member1
             response['member2'] = the_team.member2
             response['member3'] = the_team.member3
+            if the_student.isleader():
+                response['invitecode'] = the_team.invite_code
             return JsonResponse(response)
         else :
             message += "You haven't joined a team!"
