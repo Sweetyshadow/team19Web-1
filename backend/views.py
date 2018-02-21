@@ -58,7 +58,7 @@ def StudentReg(request):
                 success = True
             if success == True:
                 the_salt = binascii.hexlify(os.urandom(4)).decode(),
-                return JsonResponse({'message':str(the_salt)})
+                return JsonResponse({'message':the_salt[0]})
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
                     salt = the_salt,
