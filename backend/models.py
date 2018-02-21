@@ -12,6 +12,7 @@ class TeamInfo(models.Model):
     member3 = models.CharField(max_length=50, null=True)
     member_num = models.IntegerField(default = 1)
     invite_code = models.CharField(max_length=20, null=True)
+    battle_code = models.FileField(null = True)
     codes = models.TextField(null=True)
     history = models.TextField(null=True)
     score = models.IntegerField(null=True)

@@ -357,13 +357,15 @@ def UploadFile(request):
         if not myfile:
             return JsonResponse({'success':False,'message':'no file found!'})
         else :
-            url = '/home/ubuntu/team19/user/' + str(myfile.name)
+            the_id = request.POST['userid']
+            the_student  = StudentInfo.objects.get(id = the_id)
+            os.system('mkdir /home/ubuntu/team19/user/' + the_student.student_nickname)
+            url = '/home/ubuntu/team19/user/' + the_student.student_nickname + '/' + str(myfile.name)
             destination = open(url,'wb+')
             for chunk in myfile.chunks():
                 destination.write(chunk)
-            if request.POST['headpic'] == 'true': 
-                the_id = request.POST['userid']
-                the_student  = StudentInfo.objects.get(id = the_id)
+            destination.close()
+            if request.POST['headpic'] == 'true':                
                 if the_student:
                     '''cursor = connection.cursor()
                     cursor.execute("update backend_studentinfo set profile_photo = \'" + url + "\' where id = " + the_id)
@@ -372,8 +374,21 @@ def UploadFile(request):
                     the_student.save()
                     return JsonResponse({'success':'aaaaaa!'})
                 else :
-                    return JsonResponse({'success':False,'message':"the user does not exist!"})              
-            destination.close()
+                    return JsonResponse({'success':False,'message':"the user does not exist!"})  
+            else:
+                if the_student:
+                    if the_student.team_name:
+                        the_team = TeamInfo.objects.get(team_name = the_student.team_name)
+                        the_team.battle_code = '\'' + url + '\''
+                        the_team.save()
+                        the_student.save()
+                        return JsonResponse({'success':'bbbbbb!'})
+                    else:
+                        return JsonResponse({'success':False,'message':"the user does not have a team!"})
+                else:
+                    return JsonResponse({'success':False,'message':"the user does not exist!"})
+
+
             return JsonResponse({'success':True,'message':'Upload!','post':str(request.POST)})
     elif request.method == 'GET':
         s = StudentInfo.objects.get(id = 10)
