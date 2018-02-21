@@ -253,7 +253,7 @@ def TeamJoin(request):
 def TeamExit(request):
     cursor = connection.cursor()
     if request.method == 'POST':
-        the_student = StudentInfo.objects.get(id = request.POST['userid'])
+        the_student = StudentInfo.objects.get(student_nickname = request.POST['name'])
         the_team = TeamInfo.objects.get(team_name = the_student.team_name.team_name)
         the_name = the_student.student_nickname
         if the_team.member1 == the_name:
@@ -284,7 +284,7 @@ def TeamExit(request):
             return JsonResponse({'success':success,'message':message})
         the_team.member_num -= 1
         the_team.save()
-        cursor.execute("update backend_studentinfo set team_name_id = null where id = " + request.POST['userid'])
+        cursor.execute("update backend_studentinfo set team_name_id = null where id = " + the_student.id)
         cursor.close()
         response = {}
         response['teamname'] = the_team.team_name
