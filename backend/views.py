@@ -235,7 +235,6 @@ def TeamJoin(request):
                 response['scale'] = the_team.member_num
                 response['member1'] = the_team.member1
                 response['member2'] = the_team.member2
-                return JsonResponse(response)
                 response['member3'] = the_team.member3                
                 response['success'] = success
                 return JsonResponse(response)
