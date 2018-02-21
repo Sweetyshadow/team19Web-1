@@ -125,12 +125,12 @@ def ModifyPwd(request):
         form = PasswordModifyForm(request.POST)
         if form.is_valid():
             the_id = form.cleaned_data['id']
-            old_pwd = hashlib.sha224(form.cleaned_data['oldpwd'])
             the_student = StudentInfo.objects.get(id = the_id)
             if the_student:
+                old_pwd = hashlib.sha224((form.cleaned_data['oldpwd'] + the_student.salt).encode('utf-8')).hexdigest()
                 if the_student.password == old_pwd:
-                    new_pwd = request.POST['newpwd']
-                    the_student.password = new_pwd
+                    new_pwd = form.cleaned_data['newpwd']
+                    the_student.password = hashlib.sha224((new_pwd + the_student.salt)).encode('utf-8').hexdigest()
                     the_student.save()
                     success = True
                     return JsonResponse({'userid':the_id,'password':the_student.password})
