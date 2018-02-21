@@ -156,7 +156,7 @@ def TeamAdd(request):
             message = ""
             response = {}
             the_leader = form.cleaned_data['userid']
-            invite_code = forms.cleaned_data['invitecode']
+            invite_code = form.cleaned_data['invitecode']
             the_name = form.cleaned_data['teamname']
             the_student = StudentInfo.objects.get(id = the_leader)
             for t in teams:
