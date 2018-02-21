@@ -25,7 +25,7 @@ class StudentInfo(models.Model):
     is_leader = models.BooleanField(default=False)
     student_id = models.CharField(max_length=20, null=True)
     student_nickname = models.CharField(max_length=50, null=True)
-    password = models.CharField(max_length=30, default='000', null=True)
+    password = models.CharField(max_length=100, default='000', null=True)
     thu_email = models.CharField(max_length=20, null=True)
     profile_photo = models.ImageField(null=True)
 
