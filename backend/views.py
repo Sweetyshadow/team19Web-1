@@ -57,10 +57,11 @@ def StudentReg(request):
             except:
                 success = True
             if success == True:
+                the_salt = binascii.hexlify(os.urandom(4)).decode(),
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
-                    salt = binascii.hexlify(os.urandom(4)).decode(),
-                    password = hashlib.sha224((the_pwd + salt).encode('utf-8')).hexdigest(),
+                    salt = the_salt,
+                    password = hashlib.sha224((the_pwd + the_salt).encode('utf-8')).hexdigest(),
                     thu_email = the_email
                 )
                 new_student.save()
