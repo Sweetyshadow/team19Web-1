@@ -304,7 +304,7 @@ def MyTeam(request):
     message = ""
     if request.method == 'POST':
         the_id = request.POST['userid']
-        the_student = StudentInfo.objects.get(id = userid)
+        the_student = StudentInfo.objects.get(id = the_id)
         if the_student.team_name :
             the_team = TeamInfo.objects.get(team_name = the_student.team_name)
             success = True
