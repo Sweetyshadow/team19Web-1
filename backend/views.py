@@ -411,7 +411,13 @@ def GetHeadpic(request):
 @csrf_exempt
 def GetFile(request):
     if request.method == 'POST':
-        file_name = request.POST['filename']
+        the_id = request.POST['userid']
+        the_student = StudentInfo.objects.get(id = the_id)
+        if request.POST['filename'][0] == '/':
+            file_name = request.POST['filename']
+        else :
+            file_name = '/home/ubuntu/team19/user/' + the_student.student_nickname + '/' + request.POST['filename']
+
         def file_iterator(file,chunk_size = 512):
             with open(file) as f:
                 while True:
