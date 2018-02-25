@@ -426,7 +426,7 @@ def GetFile(request):
                         yield c
                     else :
                         break
-        response = FileResponse(open(file_name))
+        response = FileResponse(open(file_name).read())
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename=' + file_name
         return response
