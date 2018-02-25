@@ -426,12 +426,13 @@ def GetFile(request):
                         yield c
                     else :
                         break
-        response = FileResponse(open(file_name).read())
+        response = FileResponse(open(file_name))
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename=' + file_name
         return response
     else:
         response = FileResponse(open('/home/ubuntu/team19/user/lyf/std.cpp'))
         response['Content-Type'] = 'application/octet-stream'
-        response['Content-Disposition'] = 'attachment;filename = std.cpp'
+        s = 'std.cpp'
+        response['Content-Disposition'] = 'attachment;filename = ' + s
         return response
