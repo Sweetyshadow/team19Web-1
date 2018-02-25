@@ -427,6 +427,8 @@ def GetFile(request):
                     else :
                         break
         response = StreamingHttpResponse(file_iterator(file_name))
+        response['Content-Type']='application/octet-stream'  
+        response['Content-Disposition']='attachment;filename=' + file_name 
         return response
     else:
-        return JsonResponse({'message':'you get nothing！'})
+        return JsonResponse({'message':'you get nothing!'})
