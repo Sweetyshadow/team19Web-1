@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, StreamingHttpResponse
 from django.urls import reverse
 from django.views import generic
 from django.db import models,connection
@@ -407,3 +407,20 @@ def GetHeadpic(request):
         #return JsonResponse({'url':image.name})
     elif request.method == 'GET':
         return HttpResponse(locals())
+
+@csrf_exempt
+def GetFile(request):
+    if request.method == 'POST':
+        file_name = request.POST['filename']
+        def file_iterator(file,chunk_size = 512):
+            with open(file) as f:
+                while True:
+                    c = f.read(chunk_size)
+                    if c:
+                        yield c
+                    else :
+                        break
+        response = StreamingHttpResponse(file_iterator(file_name))
+        return response
+    else:
+        return JsonResponse({message:'you get nothing！'})
