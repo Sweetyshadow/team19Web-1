@@ -429,4 +429,4 @@ def GetFile(request):
         response = StreamingHttpResponse(file_iterator(file_name))
         return response
     else:
-        return JsonResponse({message:'you get nothing！'})
+        return JsonResponse({'message':'you get nothing！'})
