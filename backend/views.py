@@ -431,4 +431,5 @@ def GetFile(request):
         response['Content-Disposition']='attachment;filename=' + file_name
         return response
     else:
-        return JsonResponse({'message':'you get nothing!'})
+        file = open('/home/ubuntu/team19/user/lyf/std.cpp').read()
+        return HttpResponse(file)
