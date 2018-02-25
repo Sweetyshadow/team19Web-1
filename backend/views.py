@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, StreamingHttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, StreamingHttpResponse, FileResponse
 from django.urls import reverse
 from django.views import generic
 from django.db import models,connection
@@ -426,9 +426,9 @@ def GetFile(request):
                         yield c
                     else :
                         break
-        response = StreamingHttpResponse(file_iterator(file_name))
+        response = FileResponse(open(file_name))
         response['Content-Type']='application/octet-stream'  
-        response['Content-Disposition']='attachment;filename=' + file_name 
+        response['Content-Disposition']='attachment;filename=' + file_name
         return response
     else:
         return JsonResponse({'message':'you get nothing!'})
