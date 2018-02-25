@@ -434,4 +434,4 @@ def GetFile(request):
         response = FileResponse(open('/home/ubuntu/team19/user/lyf/std.cpp'))
         response['Content-Type'] = 'application/octet-stream'
         response['Content-Disposition'] = 'attachment;filename = std.cpp'
-        return HttpResponse(file)
+        return response
