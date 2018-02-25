@@ -18,5 +18,6 @@ urlpatterns = [
     path('students/modify/',views.ModifyPwd),
     path('students/headpic/',views.GetHeadpic),
     path('upload/file/',views.UploadFile),
-    path('download/file/',views.GetFile)
+    path('download/code/',views.GetCode),
+    path('download/file',views.GetFile)
 ]

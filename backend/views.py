@@ -409,7 +409,7 @@ def GetHeadpic(request):
         return HttpResponse(locals())
 
 @csrf_exempt
-def GetFile(request):
+def GetCode(request):
     if request.method == 'POST':
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
@@ -436,3 +436,15 @@ def GetFile(request):
         s = 'std.cpp'
         response['Content-Disposition'] = 'attachment;filename = ' + s
         return response
+
+@csrf_exempt
+def GetFile(request):
+    if request.method == 'POST':
+        the_file_name = request.POST['filename']
+        file_path = os.path.join(settings.MEDIA_ROOT,the_file_name)
+        response = FileResponse(open(file_path,'rb'))
+        response['Content-Type']='application/octet-stream'  
+        response['Content-Disposition']='attachment;filename = ' + the_file_name
+        return response
+    else :
+        return JsonResponse({'message':'HAHA'})
