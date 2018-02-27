@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, Stream
 from django.urls import reverse
 from django.views import generic
 from django.db import models,connection
+from django.conf import settings
 from .models import TeamInfo, StudentInfo, RuleFile
 from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm, TeamAddForm
 from django.views.decorators.csrf import csrf_exempt
@@ -438,7 +439,7 @@ def GetCode(request):
         return response
 
 @csrf_exempt
-def GetFile(request):
+def GetFile(request,filename):
     if request.method == 'POST':
         the_file_name = request.POST['filename']
         file_path = os.path.join(settings.MEDIA_ROOT,the_file_name)
