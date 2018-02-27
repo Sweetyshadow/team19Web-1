@@ -116,7 +116,7 @@ def StudentActivate(request):
     if the_student.is_activate:
         pass
         return HttpResponseRedirect("/")
-    else if userkey == hashvalue(the_student.student_nickname,'team19'):
+    elif userkey == hashvalue(the_student.student_nickname,'team19'):
         the_student.is_activate = True
         return HttpResponseRedirect("/")
 
