@@ -489,7 +489,7 @@ def active_email(username,email):
     try:
         receiver = email  # 设置邮件接收人
         key = hashvalue(username,'team19')
-        path = os.join(settings.BASE_DIR,'backend/static/activemail.html')
+        path = os.path.join(settings.BASE_DIR,'backend/static/activemail.html')
         f = open(path,'rb')
         body = f.read()
         body = body.decode('utf-8')
