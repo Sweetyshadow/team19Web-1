@@ -62,7 +62,7 @@ def StudentReg(request):
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
                     salt = the_salt,
-                    password = hashlib.sha224((the_pwd + the_salt).encode('utf-8')).hexdigest(),
+                    password = hashvalue(the_pwd,the_salt),
                     thu_email = the_email
                 )
                 new_student.save()
@@ -87,7 +87,7 @@ def StudentLogin(request):
             the_name = form.cleaned_data['name']
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)
-                the_pwd = hashlib.sha224((form.cleaned_data['pwd'] + the_student.salt).encode('utf-8')).hexdigest()
+                the_pwd = hashvalue(form.cleaned_data['pwd'],the_student.salt)
                 if the_student.password == the_pwd:
                     success = True
                 else :
@@ -128,7 +128,8 @@ def ModifyPwd(request):
             the_id = form.cleaned_data['id']
             the_student = StudentInfo.objects.get(id = the_id)
             if the_student:
-                old_pwd = hashlib.sha224((form.cleaned_data['oldpwd'] + the_student.salt).encode('utf-8')).hexdigest()
+                old_pwd = hashvalue(form.cleaned_data['oldpwd'],the_student.salt)
+                #hashlib.sha224((form.cleaned_data['oldpwd'] + the_student.salt).encode('utf-8')).hexdigest()
                 if the_student.password == old_pwd:
                     new_pwd = form.cleaned_data['newpwd']
                     the_student.password = hashlib.sha224((new_pwd + the_student.salt).encode('utf-8')).hexdigest()
@@ -460,3 +461,9 @@ def GetIndex(request):
         return JsonResponse({'index':index})
     else :
         return JsonResponse({'message':'STUPID MAN!'})
+
+def hashvalue(value,salt):
+    value = (value + salt).encode('utf-8')
+    result = hashlib.sha224(value)
+    result = result.hexdigest()
+    return result
