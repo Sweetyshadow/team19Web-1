@@ -24,6 +24,7 @@ class TeamInfo(models.Model):
 class StudentInfo(models.Model):
     team_name = models.ForeignKey(TeamInfo, on_delete=models.CASCADE, null=True)
     is_leader = models.BooleanField(default=False)
+    is_active = models.BooleanField(default = False)
     student_id = models.CharField(max_length=20, null=True)
     student_nickname = models.CharField(max_length=50, null=True)
     password = models.CharField(max_length=100, default='000', null=True)

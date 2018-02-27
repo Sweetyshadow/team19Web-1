@@ -66,6 +66,7 @@ def StudentReg(request):
                     thu_email = the_email
                 )
                 new_student.save()
+                active_email(the_name,the_email)
                 message += "success!"
         else :
             success = False
@@ -103,6 +104,22 @@ def StudentLogin(request):
             return JsonResponse({'success':False,'message':form.errors})
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+
+
+def StudentActivate(request):
+    userid = request.GET.get('userid','')
+    userkey = request.GET.get('userkey','')
+    try:
+        the_student = StudentInfo.objects.get(id = userid)
+    except User.DoesNotExist:
+        return HttpResponse("激活失败1!请联系管理员")
+    if the_student.is_activate:
+        pass
+        return HttpResponseRedirect("/")
+    else if userkey == hashvalue(the_student.student_nickname,'team19'):
+        the_student.is_activate = True
+        return HttpResponseRedirect("/")
+
 
 
 @csrf_exempt
@@ -467,3 +484,22 @@ def hashvalue(value,salt):
     result = hashlib.sha224(value)
     result = result.hexdigest()
     return result
+
+def active_email(username,email):
+    try:
+        receiver = email  # 设置邮件接收人
+        key = hashvalue(username,'team19')
+        path = os.join(settings.BASE_DIR,'backend/static/activemail.html')
+        f = open(path,'rb')
+        body = f.read()
+        body = body.decode('utf-8')
+        user = StudentInfo.objects.get(student_nickname = username)
+        attach = "?userid=%s&&userkey=%s"%(user.id,key)
+        body = body%(attach,attach)
+
+        response = send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,
+         from_email = "13935047516@163.com", recipient_list = [receiver])
+        print(response)
+        return response
+    except Exception as e:
+        raise e
