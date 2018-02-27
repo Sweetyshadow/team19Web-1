@@ -66,7 +66,7 @@ def StudentReg(request):
                     password = hashvalue(the_pwd,the_salt),
                     thu_email = the_email
                 )
-                active_email(the_name,the_email)
+                #active_email(the_name,the_email)
                 new_student.save()              
                 message += "success!"
         else :
