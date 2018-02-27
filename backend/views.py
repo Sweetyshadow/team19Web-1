@@ -431,9 +431,9 @@ def GetCode(request):
         response['Content-Disposition']='attachment;filename=' + file_name
         return response
     else:
-        response = FileResponse(open('/home/ubuntu/team19/user/lyf/std.cpp'))
+        response = FileResponse(open('/home/ubuntu/team19/user/std.pdf'))
         response['Content-Type'] = 'application/octet-stream'
-        s = 'std.cpp'
+        s = 'std.pdf'
         response['Content-Disposition'] = 'attachment;filename = ' + s
         return response
 
