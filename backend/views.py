@@ -453,3 +453,10 @@ def GetFile(request,filename):
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename = ' + filename
         return response
+
+def GetIndex(request):
+    if request.method == 'GET':
+        index = os.listdir(settings.MEDIA_ROOT)
+        return index
+    else :
+        return JsonResponse({'message':'STUPID MAN!'})
