@@ -447,4 +447,8 @@ def GetFile(request):
         response['Content-Disposition']='attachment;filename = ' + the_file_name
         return response
     else :
-        return JsonResponse({'message':'HAHA'})
+        file_path = os.path.join(settings.MEDIA_ROOT,filename)
+        response = FileResponse(open(file_path,'rb'))
+        response['Content-Type']='application/octet-stream'  
+        response['Content-Disposition']='attachment;filename = ' + filename
+        return response
