@@ -457,6 +457,6 @@ def GetFile(request,filename):
 def GetIndex(request):
     if request.method == 'GET':
         index = os.listdir(settings.MEDIA_ROOT)
-        return index
+        return JsonResponse({'index':index})
     else :
         return JsonResponse({'message':'STUPID MAN!'})
