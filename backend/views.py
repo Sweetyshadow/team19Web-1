@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from django.db import models,connection
 from django.conf import settings
+from django.core.mail import send_mail, mail_admins, BadHeaderError
 from .models import TeamInfo, StudentInfo, RuleFile
 from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm, TeamAddForm
 from django.views.decorators.csrf import csrf_exempt
