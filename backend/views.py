@@ -458,6 +458,14 @@ def GetCode(request):
         return response
 
 @csrf_exempt
+def GetScore(request):
+    if request.method == 'GET':
+        pass
+    else :
+        the_student = StudentInfo.objects.get(id = request.POST['userid'])
+        return JsonResponse({'score':the_student.get_score()})
+
+@csrf_exempt
 def GetFile(request,filename):
     if request.method == 'POST':
         the_file_name = request.POST['filename']

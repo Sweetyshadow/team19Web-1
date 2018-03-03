@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 import hashlib
+import json
 # Create your models here.
 
 
@@ -15,10 +16,19 @@ class TeamInfo(models.Model):
     battle_code = models.FileField(null = True)
     codes = models.TextField(null=True)
     history = models.TextField(null=True)
-    score = models.IntegerField(null=True)
+    score = models.CharField(,max_length = 300, default = '[]')
 
     def __str__(self):
         return self.team_name
+
+    def get_score(self):
+        return json.loads(self.score)
+
+    def add_score(self,x):
+        a = json.loads(self.score)
+        a.append(x)
+        self.score = json.dumps(a)
+
 
 
 class StudentInfo(models.Model):
