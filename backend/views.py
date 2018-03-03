@@ -460,7 +460,7 @@ def GetCode(request):
 @csrf_exempt
 def GetScore(request):
     if request.method == 'GET':
-        pass
+        return JsonResponse({'score':StudentInfo.objects.get(id = 1).get_score()})
     else :
         the_student = StudentInfo.objects.get(id = request.POST['userid'])
         return JsonResponse({'score':the_student.get_score()})
