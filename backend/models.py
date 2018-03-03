@@ -16,7 +16,7 @@ class TeamInfo(models.Model):
     battle_code = models.FileField(null = True)
     codes = models.TextField(null=True)
     history = models.TextField(null=True)
-    score = models.CharField(,max_length = 300, default = '[]')
+    score = models.CharField(max_length = 300, default = '[]')
 
     def __str__(self):
         return self.team_name
