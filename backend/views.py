@@ -462,7 +462,8 @@ def GetScore(request):
     if request.method == 'GET':
         return JsonResponse({'score':TeamInfo.objects.get(id = 1).get_score()})
     else :
-        the_team = TeamInfo.objects.get(id = request.POST['teamid'])
+        the_student = StudentInfo.objects.get(id = request.POST['userid'])
+        the_team = the_student.team_name
         return JsonResponse({'score':the_team.get_score()})
 
 @csrf_exempt
