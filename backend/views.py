@@ -460,10 +460,10 @@ def GetCode(request):
 @csrf_exempt
 def GetScore(request):
     if request.method == 'GET':
-        return JsonResponse({'score':StudentInfo.objects.get(id = 1).get_score()})
+        return JsonResponse({'score':TeamInfo.objects.get(id = 1).get_score()})
     else :
-        the_student = StudentInfo.objects.get(id = request.POST['userid'])
-        return JsonResponse({'score':the_student.get_score()})
+        the_team = TeamInfo.objects.get(id = request.POST['teamid'])
+        return JsonResponse({'score':the_team.get_score()})
 
 @csrf_exempt
 def GetFile(request,filename):
