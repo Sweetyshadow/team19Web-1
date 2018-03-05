@@ -69,10 +69,11 @@ def StudentReg(request):
                 result = active_email(the_name,the_email)
                 new_student.save()              
                 message += "success!"
+                return JsonResponse({'success':success,'message':message,'email':result})
         else :
             success = False
             message = form.errors
-        return JsonResponse({'success':success,'message':message,'email':result})
+        return JsonResponse({'success':success,'message':message})
 
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
