@@ -394,7 +394,7 @@ def UploadFile(request):
                     '''cursor = connection.cursor()
                     cursor.execute("update backend_studentinfo set profile_photo = \'" + url + "\' where id = " + the_id)
                     cursor.close()'''
-                    the_student.profile_photo = '\'' + url + '\''
+                    the_student.profile_photo = url
                     the_student.save()
                     return JsonResponse({'success':'aaaaaa!'})
                 else :
