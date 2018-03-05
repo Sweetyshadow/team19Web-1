@@ -507,7 +507,7 @@ def active_email(username,email):
         attach = "?userid=%s&&userkey=%s"%(user.id,key)
         body = body%(attach,attach)
         try:
-            send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,from_email = "13935047516@163.com", recipient_list = [receiver])
+            send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,from_email = "13935047516@163.com", fail_silently = False, recipient_list = [receiver])
             return True
         #print(response)
         except:
