@@ -139,6 +139,6 @@ MEDIA_ROOT = '/home/ubuntu/team19/rulefile/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.tsinghua.edu.cn'
 EMAIL_PORT = 465
-EMAIL_USE_SSL
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'eesast@mail.tsinghua.edu.cn'
 EMAIL_HOST_PASSWORD = '321A@tsinghua'
