@@ -91,8 +91,10 @@ def StudentLogin(request):
             try:
                 the_student = StudentInfo.objects.get(student_nickname = the_name)
                 the_pwd = hashvalue(form.cleaned_data['pwd'],the_student.salt)
-                if the_student.password == the_pwd:
-                    success = True
+                if the_student.password == the_pwd :
+                    if the_student.is_active == True:
+                        success = True
+                    else :message += "你还不是正式用户！"
                 else :
                     message += "wrong password!"
             except:
