@@ -66,13 +66,13 @@ def StudentReg(request):
                     password = hashvalue(the_pwd,the_salt),
                     thu_email = the_email
                 )
-                #active_email(the_name,the_email)
+                result = active_email(the_name,the_email)
                 new_student.save()              
                 message += "success!"
         else :
             success = False
             message = form.errors
-        return JsonResponse({'success':success,'message':message})
+        return JsonResponse({'success':success,'message':message,'email':result})
 
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
@@ -506,10 +506,11 @@ def active_email(username,email):
         user = StudentInfo.objects.get(student_nickname = username)
         attach = "?userid=%s&&userkey=%s"%(user.id,key)
         body = body%(attach,attach)
-
-        response = send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,
-         from_email = "13935047516@163.com", recipient_list = [receiver])
-        print(response)
-        return response
+        try:
+            send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,from_email = "13935047516@163.com", recipient_list = [receiver])
+            return True
+        #print(response)
+        except:
+            return False
     except Exception as e:
         raise e
