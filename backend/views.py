@@ -120,6 +120,7 @@ def StudentActivate(request):
         return HttpResponseRedirect("/")
     elif userkey == hashvalue(the_student.student_nickname,'team19'):
         the_student.is_activate = True
+        the_student.save()
         return HttpResponseRedirect("/")
 
 
