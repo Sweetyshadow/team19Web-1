@@ -115,7 +115,7 @@ def StudentActivate(request):
         the_student = StudentInfo.objects.get(id = userid)
     except User.DoesNotExist:
         return HttpResponse("激活失败1!请联系管理员")
-    if the_student.is_activate:
+    if the_student.is_active:
         pass
         return HttpResponseRedirect("/")
     elif userkey == hashvalue(the_student.student_nickname,'team19'):
