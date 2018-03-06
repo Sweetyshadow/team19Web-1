@@ -403,7 +403,7 @@ def UploadFile(request):
                 if the_student:
                     if the_student.team_name:
                         the_team = TeamInfo.objects.get(team_name = the_student.team_name)
-                        the_team.battle_code = '\'' + url + '\''
+                        the_team.battle_code = url
                         the_team.save()
                         the_student.save()
                         return JsonResponse({'success':'bbbbbb!'})
