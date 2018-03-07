@@ -141,4 +141,4 @@ EMAIL_HOST = 'smtp.126.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'team19_eesast@126.com'
-EMAIL_HOST_PASSWORD = 'team19@eesast'
+EMAIL_HOST_PASSWORD = 'team19'
