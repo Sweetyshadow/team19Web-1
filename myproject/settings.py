@@ -137,8 +137,8 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = '/home/ubuntu/team19/rulefile/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.tsinghua.edu.cn'
+EMAIL_HOST = 'smtp.126.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'eesast@mail.tsinghua.edu.cn'
-EMAIL_HOST_PASSWORD = '321A@tsinghua'
+EMAIL_HOST_USER = 'team19_eesast@126.com'
+EMAIL_HOST_PASSWORD = 'team19@eesast'

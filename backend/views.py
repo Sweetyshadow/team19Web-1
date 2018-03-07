@@ -510,7 +510,7 @@ def active_email(username,email):
         user = StudentInfo.objects.get(student_nickname = username)
         attach = "?userid=%s&&userkey=%s"%(user.id,key)
         body = body%(attach,attach)
-        send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,from_email = "eesast@mail.tsinghua.edu.cn", fail_silently = False, recipient_list = [receiver])
+        send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,from_email = "team19_eesast@126.com", fail_silently = False, recipient_list = [receiver])
         return True
     except Exception as e:
         raise e
