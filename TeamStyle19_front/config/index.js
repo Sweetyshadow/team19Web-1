@@ -27,16 +27,16 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: process.env.PORT || 8080,
+    port: 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': {
-        target: '123.207.140.186:8002', // 服务域名
+      '/backend': {
+        target: 'http://123.207.140.186', // 服务域名
         changeOrigin: true,
         pathRewrite: {
-          '^/#/api': '/#'
+          '^/backend': '/backend'
         }
       }
     },
