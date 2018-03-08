@@ -26,7 +26,7 @@ export default {
           cb(context)
         }
       } else {
-        alert(response.body.message)
+        alert("注册失败")
         context.form.email = ''
         context.form.username = ''
         context.form.password = ''
