@@ -1,6 +1,6 @@
 <template>
   <div>
-      <upload></upload>
+      <upload v-bind:isProfile="isProfile" v-bind:icon="icon"></upload>
       <h1>{{teamname}}</h1>
         <el-table :data="team" :span-method="arraySpanMethod" stripe border>
             <el-table-column prop="leader" label="队长" align="center">
@@ -29,7 +29,9 @@ export default {
           team: [],
           //memberid: [],
           isleader: true,
-          teamname: null
+          teamname: null,
+          isProfile: true,
+          icon: "el-icon-plus"
       }
   },
   created(){
