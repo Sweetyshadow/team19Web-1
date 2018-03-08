@@ -4,7 +4,8 @@
         <el-menu-item index="1" route="/"> index </el-menu-item>
         <el-menu-item index="2" route="/home"> fakehome </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
-        <el-menu-item index="4" route="/ShowAllTeams"> team </el-menu-item>
+        <el-menu-item index="4" route="/ShowAllTeams"> 队伍 </el-menu-item>
+        <el-menu-item index="5" route="/battle"> 对战 </el-menu-item>
         <el-menu-item v-if="hasLogin" id="profile">
             <el-dropdown @command="handleJump" trigger="click"> 
                 <span> {{username}} </span>
@@ -15,7 +16,7 @@
                 </el-dropdown-menu>
             </el-dropdown>
         </el-menu-item>
-        <el-menu-item v-else index="5" id="log" route="/login"> 登录|注册 </el-menu-item>
+        <el-menu-item v-else index="6" id="log" route="/login"> 登录|注册 </el-menu-item>
     </el-menu>
     <el-menu router class="mobile" mode="horizontal">
         <el-menu-item  id="mobile-menu">
@@ -29,6 +30,7 @@
                     <li @click="handleClick"><router-link to="/home"> fakehome </router-link></li>
                     <li @click="handleClick"><router-link to="/file"> 文件 </router-link></li>
                     <li @click="handleClick"><router-link to="/ShowAllTeams"> 队伍 </router-link></li>
+                    <li @click="handleClick"><router-link to="/battle"> 对战 </router-link></li>
                     <li @click="handleClick"> <img src='/static/img/close.png'></li>
                 </ul>
             </transition>
