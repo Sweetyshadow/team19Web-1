@@ -4,7 +4,7 @@
     <template slot="clip-uploader-action">
       <div class="uploader-icon">
 				<img v-if="headurl" :src="headurl" class="dz-message">
-				<i v-else class="el-icon-plus dz-message"></i>
+				<i v-else :class="icon" class="dz-message"></i>
         <!--el-button class="dz-message">点击或拖拽到此处开始上传</el-button!-->
       </div>
     </template>
@@ -35,7 +35,7 @@
 	import authSrv from '@/api/auth.js'
   export default {
 		name: 'upload',
-
+		props: ['isProfile','icon'],
     data () {
       return {
 				options: {
@@ -51,16 +51,16 @@
 					}
 				},
 				files: null,
-				isProfile: true,
+				//isProfile: true,
 				headurl: null
       }
 		},
 		created(){
-			this.gethead()
+			if(this.isProfile) this.gethead()
 		},
 		methods: {
 			sending (file, xhr, formData) {
-				console.log(file.type)
+				console.log(this.isProfile)
 				formData.append('userid',localStorage.getItem('teamstyle_id'))
 				formData.append('headpic',this.isProfile)
 			},

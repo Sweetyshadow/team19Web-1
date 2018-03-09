@@ -1,3 +1,5 @@
 #忽略输出文件
 *.out
+#忽略debug.log
+*.log
 #

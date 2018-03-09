@@ -11,7 +11,7 @@
       <el-input v-model="form.password" type="password" placeholder="密码"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="register" size="medium">注册</el-button>
+      <el-button type="primary" @click="register" size="medium" :disabled="disabled">注册</el-button>
       <router-link to="/login"><p>已有账号？点击登录</p></router-link>
     </el-form-item>
   </el-form>
@@ -50,6 +50,11 @@ export default {
           {required: true, min: 8, max: 20, message: '请输入8-20位密码', trigger:'blur,change'}
         ]
       }
+    }
+  },
+  computed: {
+    disabled(){
+      return this.form.email===''||this.form.username===''||this.form.password===''
     }
   },
   methods: {
