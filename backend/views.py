@@ -382,18 +382,18 @@ def UploadFile(request):
             return JsonResponse({'success':False,'message':'no file found!'})
         else :
             the_id = request.POST['userid']
-            the_student  = StudentInfo.objects.get(id = the_id)
-            os.system('mkdir /home/ubuntu/team19/user/' + the_student.student_nickname)
-            url = '/home/ubuntu/team19/user/' + the_student.student_nickname + '/' + str(myfile.name)
-            destination = open(url,'wb+')
-            for chunk in myfile.chunks():
-                destination.write(chunk)
-            destination.close()
+            the_student  = StudentInfo.objects.get(id = the_id)                       
             if request.POST['headpic'] == 'true':                
                 if the_student:
                     '''cursor = connection.cursor()
                     cursor.execute("update backend_studentinfo set profile_photo = \'" + url + "\' where id = " + the_id)
                     cursor.close()'''
+                    os.system('mkdir /home/ubuntu/team19/user/' + the_student.student_nickname)
+                    url = '/home/ubuntu/team19/user/' + the_student.student_nickname + '/' + str(myfile.name)
+                    destination = open(url,'wb+')
+                    for chunk in myfile.chunks():
+                        destination.write(chunk)
+                    destination.close()
                     the_student.profile_photo = url
                     the_student.save()
                     return JsonResponse({'success':'aaaaaa!'})
@@ -402,6 +402,8 @@ def UploadFile(request):
             else:
                 if the_student:
                     if the_student.team_name:
+                        os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
+                        url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
                         the_team = TeamInfo.objects.get(team_name = the_student.team_name)
                         the_team.battle_code = url
                         the_team.save()
@@ -433,7 +435,7 @@ def GetHeadpic(request):
         return HttpResponse(locals())
 
 @csrf_exempt
-def GetCode(request):
+def GetCode(request):#用于代码下载
     if request.method == 'POST':
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
