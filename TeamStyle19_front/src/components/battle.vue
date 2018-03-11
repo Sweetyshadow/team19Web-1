@@ -30,18 +30,30 @@ export default {
       upload
   },
   created(){
+    teamSrv.getMyteamindex(this,this.jump)
     teamSrv.showAll(this)
   },
   data(){
       return {
           isProfile: false,
           icon: "el-icon-upload",
-          team: []
+          team: [],
+          teamid: []
       }
   },
   methods: {
+      jump (context) {
+          context.$router.push('/ShowAllTeams')
+      },
       handleBattle(index,row){
-
+          const data = {
+              team1: this.$store.state.teamindex,
+              team2: this.teamid[index]
+          }
+          if(this.$store.state.teamindex!=null){
+              console.log('start battle')
+              teamSrv.startBattle(this,data)
+          }
       }
   }
 }
