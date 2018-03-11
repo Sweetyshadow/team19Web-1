@@ -14,6 +14,7 @@ import re
 import hashlib
 import os
 import binascii
+import requests
 
 # Create your views here.
 
@@ -494,6 +495,23 @@ def GetIndex(request):
         return JsonResponse({'index':index})
     else :
         return JsonResponse({'message':'STUPID MAN!'})
+
+@csrf_exempt
+def Battle(request):
+    if request.method == 'POST':
+        team1 = request.POST['team1']
+        team2 = request.POST['team2']
+        code_url1 = TeamInfo.objects.get(team_name = team1).battle_code.split('/')
+        code_url2 = TeamInfo.objects.get(team_name = team2).battle_code.split('/')
+        code_name1 = code_url1[-2] + '/' + code_url1[-1]
+        code_name2 = code_url2[-2] + '/' + code_url2[-1]
+        battle_data = {'team1':code_name1,'team2':code_name2}
+        r = requests.post('http://123.207.140.186:8888/battle',data = battle_data)
+        return JsonResponse({'result':r.text})
+    elif request.method == 'GET':
+        return JsonResponseo({'message':'stupid MAN!'})
+        
+
 
 def hashvalue(value,salt):
     value = (value + salt).encode('utf-8')
