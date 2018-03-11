@@ -1,6 +1,6 @@
 <template>
   <div>
-    <upload v-bind:isProfile="isProfile" v-bind:icon="icon"></upload>
+    <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
     <el-table :data='team' stripe>
         <el-table-column type="index"></el-table-column>
         <el-table-column prop="teamname" label="队伍名称"></el-table-column>
@@ -37,6 +37,7 @@ export default {
       return {
           isProfile: false,
           icon: "el-icon-upload",
+          acceptedFormat: ['text/*'],
           team: [],
           teamid: []
       }
