@@ -15,6 +15,7 @@ import hashlib
 import os
 import binascii
 import requests
+import json
 
 # Create your views here.
 
@@ -514,13 +515,14 @@ def Battle(request):
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
         r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
-        team1_add = r.text['team1']
-        team2_add = r.text['team2']
+        response = json.loads(r.text)
+        team1_add = response['team1']
+        team2_add = response['team2']
         team1.history.append(team1_add)
         team1.save()
         team2.history.append(team2_add)
         team2.save()
-        return JsonResponse({'success':r.text['success'],'team1':team1.history[-1],'team2':team2.history[-1]})
+        return JsonResponse({'success':response['success'],'team1':team1.history[-1],'team2':team2.history[-1]})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
         return JsonResponse({'message':r.text})
