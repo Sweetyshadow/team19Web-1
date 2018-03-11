@@ -7,7 +7,7 @@ export default {
       url: FILE_URL+'allfiles',
       method: 'get'
     }).then(response => {
-      alert('success')
+      //alert('success')
       console.log(response.body["index"])
       context.files = []
       for (var i=0;i<response.body["index"].length;i++){
@@ -37,6 +37,22 @@ export default {
           address: 'fakeaddr1.xx'
         }
       ]
+    })
+  },
+  getAI (context) {
+    const data = {
+      userid: localStorage.getItem('teamstyle_id')
+      //userid: 1
+    }
+    context.$http({
+      url: FILE_URL+'code/',
+      method: 'post',
+      body: data
+    }).then(response=>{
+      console.log(response)
+      context.code = response.body
+    }, response => {
+      alert('gg')
     })
   }
 }

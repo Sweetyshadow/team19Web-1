@@ -1,6 +1,5 @@
 <template>
 <div>
-	<p>Submit Your Code and Start Combating Today!</p>
 	<vue-clip  :options="options" :on-sending="sending" :on-complete="complete">
     <template slot="clip-uploader-action">
       <div class="uploader-icon">
