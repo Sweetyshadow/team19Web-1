@@ -50,6 +50,7 @@ def StudentReg(request):
         form = StudentRegForm(request.POST)
         if form.is_valid():
             the_name = form.cleaned_data['name']
+            the_student_id = form.cleaned_data['studentID']
             the_pwd = form.cleaned_data['pwd']
             the_email = form.cleaned_data['email']
             try:
@@ -63,6 +64,7 @@ def StudentReg(request):
                 the_salt = binascii.hexlify(os.urandom(4)).decode()
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
+                    student_id = the_student_id,
                     salt = the_salt,
                     password = hashvalue(the_pwd,the_salt),
                     thu_email = the_email
