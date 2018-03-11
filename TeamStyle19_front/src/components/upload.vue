@@ -33,6 +33,7 @@
 
 <script>
 	import authSrv from '@/api/auth.js'
+	import fileSrv from '@/api/file.js'
   export default {
 		name: 'upload',
 		props: ['isProfile','icon','acceptedFormat'],
@@ -68,6 +69,8 @@
 				alert('上传成功')
 				if(this.isProfile){
 					this.gethead()
+				} else{
+					fileSrv.getAI(this.$parent)
 				}
 			},
 			gethead() {
