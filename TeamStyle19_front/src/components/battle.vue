@@ -42,7 +42,7 @@ export default {
       return {
           isProfile: false,
           icon: "el-icon-upload",
-          acceptedFormat: ['text/*'],
+          acceptedFormat: ['*/*'],
           team: [],
           teamid: [],
           code: "No sumbit available!"
