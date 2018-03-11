@@ -4,6 +4,9 @@
     <el-form-item prop="email">
       <el-input v-model="form.email" placeholder="邮箱"></el-input>
     </el-form-item>
+    <el-form-item prop="studentID">
+      <el-input v-model="form.studentID" placeholder="学号"></el-input>
+    </el-form-item>
     <el-form-item prop="username">
       <el-input v-model="form.username" placeholder="用户名"></el-input>
     </el-form-item>
@@ -30,17 +33,28 @@ export default {
         callback(new Error("请输入清华邮箱"));
       }
     }
+    var studentIDcheck = (rule, value, callback) => {
+      if(value.length === 10) {
+        callback();
+      } else {
+        callback(new Error("请输入10位学号"));
+      }
+    }
     return{
       form: {
         email:'',
         username:'',
-        password:''
+        password:'',
+        studentID:''
       },
       rules:{
         email: [
           //{required: true, message: '请输入邮箱', trigger:'blur'},
           //{ type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur,change' }
           {required: true, validator: mailcheck, trigger: 'blur,change'}
+        ],
+        studentID: [
+          {required: true, validator: studentIDcheck, trigger: 'blur,change'}
         ],
         username: [
           {required: true, message: '请输入用户名'},
