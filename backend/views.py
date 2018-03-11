@@ -407,6 +407,9 @@ def UploadFile(request):
                     if the_student.team_name:
                         os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
                         url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
+                        destination = open(url,'wb+')
+                        for chunk in myfile.chunks():
+                            destination.write(chunk)
                         the_team = TeamInfo.objects.get(team_name = the_student.team_name)
                         the_team.battle_code = url
                         the_team.save()
