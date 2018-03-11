@@ -43,6 +43,28 @@ export default {
     })
   },
 
+  getMyteamindex (context,cb) {
+    const data = {
+      userid: localStorage.getItem('teamstyle_id')
+    }
+    context.$http({
+      url: TEAM_URL+'oneteam/',
+      method: 'POST',
+      body: data // userid
+    }).then(response => {
+      if(response.body.success){
+        context.$store.commit('setTeamindex',response.body.teamid)
+      } else {
+        alert(response.body.message)
+        if (typeof cb === 'function'){
+          cb(context)
+        }
+      }
+    }, response => {
+      alert('gg')
+    })
+  },
+
   showMyteam (context) {
     const data = {
       userid: localStorage.getItem('teamstyle_id')
@@ -204,6 +226,17 @@ export default {
       console.log('reset code success')
     }, response => {
       console.log('gg')
+    })
+  },
+  startBattle (context, data){
+    context.$http({
+      url: TEAM_URL+'battle/',
+      method: 'post',
+      body: data
+    }).then(response => {
+      console.log(response)
+    }, response => {
+      alert('gg')
     })
   }
 }
