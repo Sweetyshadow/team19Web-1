@@ -25,7 +25,7 @@
                 <el-button type="primary" @click="onSubmit">确定</el-button>
             </el-form-item>
         </el-form>
-        <el-button @click="testLeader">testLeader</el-button>
+        <!--el-button @click="testLeader">testLeader</el-button!-->
         <router-link to="/ShowAllTeams"><a>查看所有队伍</a></router-link>
     </div>
 </template>
