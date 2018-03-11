@@ -15,6 +15,7 @@ import hashlib
 import os
 import binascii
 import requests
+import json
 
 # Create your views here.
 
@@ -504,15 +505,23 @@ def GetIndex(request):
 @csrf_exempt
 def Battle(request):
     if request.method == 'POST':
-        team1 = request.POST['team1']
-        team2 = request.POST['team2']
-        code_url1 = TeamInfo.objects.get(id = team1).battle_code.split('/')
-        code_url2 = TeamInfo.objects.get(id = team2).battle_code.split('/')
+        team1_id = request.POST['team1']
+        team2_id = request.POST['team2']
+        team1 = TeamInfo.objects.get(id = team1_id)
+        team2 = TeamInfo.objects.get(id = team2_id)
+        code_url1 = team1.battle_code.name.split('/')
+        code_url2 = team2.battle_code.name.split('/')
         code_name1 = code_url1[-2] + '/' + code_url1[-1]
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
         r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
-        return JsonResponse({'result':r.text})
+        try:
+            response = json.loads(r.text)
+        except:
+            return JsonResponse({'success':False,'message':'Something wrong with battle code!'})
+        team1.add_history(response['team1'])
+        team2.add_history(response['team2'])
+        return JsonResponse({'success':response['success'],'team1':team1.get_history()[-1],'team2':team2.get_history()[-1]})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
         return JsonResponse({'message':r.text})

@@ -15,7 +15,7 @@ class TeamInfo(models.Model):
     invite_code = models.CharField(max_length=20, null=True)
     battle_code = models.FileField(null = True)
     codes = models.TextField(null=True)
-    history = models.TextField(null=True)
+    history = models.CharField(max_length = 2000, default = '[]')
     score = models.CharField(max_length = 300, default = '[]')
 
     def __str__(self):
@@ -28,6 +28,15 @@ class TeamInfo(models.Model):
         a = json.loads(self.score)
         a.append(x)
         self.score = json.dumps(a)
+
+    def get_history(self):
+        return json.loads(self.history)
+
+    def add_history(self,x):
+        a = json.loads(self.history)
+        a.append(x)
+        self.history = json.dumps(a)
+        self.save()
 
 
 
