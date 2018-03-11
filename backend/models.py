@@ -29,6 +29,15 @@ class TeamInfo(models.Model):
         a.append(x)
         self.score = json.dumps(a)
 
+    def get_history(self):
+        return json.loads(self.history)
+
+    def add_history(self,x):
+        a = json.loads(self.history)
+        a.append(x)
+        self.history = json.dumps(a)
+        self.save()
+
 
 
 class StudentInfo(models.Model):
