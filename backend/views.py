@@ -504,14 +504,22 @@ def GetIndex(request):
 @csrf_exempt
 def Battle(request):
     if request.method == 'POST':
-        team1 = request.POST['team1']
-        team2 = request.POST['team2']
-        code_url1 = TeamInfo.objects.get(id = team1).battle_code.name.split('/')
-        code_url2 = TeamInfo.objects.get(id = team2).battle_code.name.split('/')
+        team1_id = request.POST['team1']
+        team2_id = request.POST['team2']
+        team1 = TeamInfo.objects.get(id = team1_id)
+        team2 = TeamInfo.objects.get(id = team2_id)
+        code_url1 = team1.battle_code.name.split('/')
+        code_url2 = team2.battle_code.name.split('/')
         code_name1 = code_url1[-2] + '/' + code_url1[-1]
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
         r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
+        team1_add = r.text['team1']
+        team2_add = r.text['team2']
+        team1.history.append(team1_add)
+        team1.save()
+        team2.history.append(team2_add)
+        team2.save()
         return JsonResponse({'result':r.text})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
