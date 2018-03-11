@@ -39,6 +39,7 @@ router.beforeEach((to,from,next) => {
   if (to.matched.some(record => record.meta.requireAuth)) {
     if(!localStorage.getItem('teamstyle_id')){
       //console.log('catch1')
+      alert("Please login first")
       next({
         path: '/login',
       })
