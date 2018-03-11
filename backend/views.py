@@ -501,8 +501,8 @@ def Battle(request):
     if request.method == 'POST':
         team1 = request.POST['team1']
         team2 = request.POST['team2']
-        code_url1 = TeamInfo.objects.get(team_name = team1).battle_code.split('/')
-        code_url2 = TeamInfo.objects.get(team_name = team2).battle_code.split('/')
+        code_url1 = TeamInfo.objects.get(id = team1).battle_code.split('/')
+        code_url2 = TeamInfo.objects.get(id = team2).battle_code.split('/')
         code_name1 = code_url1[-2] + '/' + code_url1[-1]
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
