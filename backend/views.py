@@ -515,7 +515,10 @@ def Battle(request):
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
         r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
-        response = json.loads(r.text)
+        try:
+            response = json.loads(r.text)
+        except:
+            return JsonResponse({'success':False,'message':'Something wrong with battle code!'})
         team1_add = response['team1']
         team2_add = response['team2']
         team1.history.append(team1_add)
