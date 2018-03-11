@@ -520,7 +520,7 @@ def Battle(request):
         team1.save()
         team2.history.append(team2_add)
         team2.save()
-        return JsonResponse({'result':r.text})
+        return JsonResponse({'success':r.text['success'],'team1':team1.history[-1],'team2':team2.history[-1]})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
         return JsonResponse({'message':r.text})
