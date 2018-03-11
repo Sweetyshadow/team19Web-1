@@ -407,6 +407,9 @@ def UploadFile(request):
                     if the_student.team_name:
                         os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
                         url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
+                        destination = open(url,'wb+')
+                        for chunk in myfile.chunks():
+                            destination.write(chunk)
                         the_team = TeamInfo.objects.get(team_name = the_student.team_name)
                         the_team.battle_code = url
                         the_team.save()
@@ -508,10 +511,11 @@ def Battle(request):
         code_name1 = code_url1[-2] + '/' + code_url1[-1]
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
-        r = requests.post('http://123.207.140.186:8888/battle',data = battle_data)
+        r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
         return JsonResponse({'result':r.text})
     elif request.method == 'GET':
-        return JsonResponseo({'message':'stupid MAN!'})
+        r = requests.get('http://123.207.140.186:8888/battle/')
+        return JsonResponse({'message':r.text})
         
 
 
