@@ -508,10 +508,11 @@ def Battle(request):
         code_name1 = code_url1[-2] + '/' + code_url1[-1]
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
-        r = requests.post('http://123.207.140.186:8888/battle',data = battle_data)
+        r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
         return JsonResponse({'result':r.text})
     elif request.method == 'GET':
-        return JsonResponseo({'message':'stupid MAN!'})
+        r = requests.get('http://123.207.140.186:8888/battle/')
+        return JsonResponse({'message':r.text})
         
 
 
