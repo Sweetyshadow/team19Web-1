@@ -5,6 +5,7 @@ export default {
   register (context,cb) {
     const data = {
       name: context.form.username,
+      studentID: context.form.studentID,
       pwd: context.form.password,
       email: context.form.email
     }
@@ -28,12 +29,14 @@ export default {
       } else {
         alert("注册失败")
         context.form.email = ''
+        context.form.studentID = ''
         context.form.username = ''
         context.form.password = ''
       }
     }, response => {
       alert(response.status)
       context.form.email = ''
+      context.form.studentID = ''
       context.form.username = ''
       context.form.password = ''
     })

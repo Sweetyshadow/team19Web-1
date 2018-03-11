@@ -29,9 +29,6 @@ export default new Router({
       path: '/home',
       name: 'MyHome',
       component: Home,
-      meta: {
-        requireAuth: true
-      }
     },
     {
       path: '/login',
@@ -79,6 +76,9 @@ export default new Router({
       path: '/MyTeam',
       name: 'MyTeam',
       component: MyTeam,
+      meta: {
+        requireAuth: true
+      },
       children: [
         {
           path: '',
@@ -98,7 +98,10 @@ export default new Router({
     {
       path: '/battle',
       name: 'battle',
-      component: battle
+      component: battle,
+      meta: {
+        requireAuth: true
+      }
     }
   ]
 })
