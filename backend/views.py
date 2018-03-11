@@ -446,19 +446,14 @@ def GetCode(request):#用于代码下载
     if request.method == 'POST':
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
-        if request.POST['filename'][0] == '/':
-            file_name = request.POST['filename']
+        if the_student.team_name:
+            the_team = the_student.team_name
+            if the_team.battle_code:
+                file_name = the_team.battle_code
+            else:
+                return JsonResponse({'success':False,'message':'no code'})
         else :
-            file_name = '/home/ubuntu/team19/user/' + the_student.student_nickname + '/' + request.POST['filename']
-
-        def file_iterator(file,chunk_size = 512):
-            with open(file) as f:
-                while True:
-                    c = f.read(chunk_size)
-                    if c:
-                        yield c
-                    else :
-                        break
+            return JsonResponse({'success':False,'message':'no team'})       
         response = FileResponse(open(file_name))
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename=' + file_name
@@ -509,8 +504,11 @@ def Battle(request):
         team2_id = request.POST['team2']
         team1 = TeamInfo.objects.get(id = team1_id)
         team2 = TeamInfo.objects.get(id = team2_id)
-        code_url1 = team1.battle_code.name.split('/')
-        code_url2 = team2.battle_code.name.split('/')
+        try:
+            code_url1 = team1.battle_code.name.split('/')
+            code_url2 = team2.battle_code.name.split('/')
+        except:
+            return JsonResponse({'success':False,'message':'not enough code!'})
         code_name1 = code_url1[-2] + '/' + code_url1[-1]
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
