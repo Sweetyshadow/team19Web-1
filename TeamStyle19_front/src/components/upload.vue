@@ -1,6 +1,7 @@
 <template>
 <div>
-	<vue-clip  :options="options" :on-sending="sending" :on-complete="gethead">
+	<p>Submit Your Code and Start Combating Today!</p>
+	<vue-clip  :options="options" :on-sending="sending" :on-complete="complete">
     <template slot="clip-uploader-action">
       <div class="uploader-icon">
 				<img v-if="headurl" :src="headurl" class="dz-message">
@@ -35,7 +36,7 @@
 	import authSrv from '@/api/auth.js'
   export default {
 		name: 'upload',
-		props: ['isProfile','icon'],
+		props: ['isProfile','icon','acceptedFormat'],
     data () {
       return {
 				options: {
@@ -46,7 +47,7 @@
     				message: 'Your file size is greater than the max file size'
   				},
 					acceptedFiles: {
-						extensions: ['image/*'],
+						extensions: this.acceptedFormat,
 						message: 'You are uploading an invalid file'
 					}
 				},
@@ -63,6 +64,12 @@
 				console.log(this.isProfile)
 				formData.append('userid',localStorage.getItem('teamstyle_id'))
 				formData.append('headpic',this.isProfile)
+			},
+			complete() {
+				alert('上传成功')
+				if(this.isProfile){
+					this.gethead()
+				}
 			},
 			gethead() {
 				console.log('click')
