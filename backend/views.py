@@ -449,7 +449,7 @@ def GetCode(request):#用于代码下载
         if the_student.team_name:
             the_team = the_student.team_name
             if the_team.battle_code:
-                file_name = the_team.battle_code
+                file_name = the_team.battle_code.name
             else:
                 return JsonResponse({'success':False,'message':'no code'})
         else :
