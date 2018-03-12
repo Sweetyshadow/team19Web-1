@@ -8,6 +8,7 @@ import File from '@/components/file'
 import Team from '@/components/team'
 import ShowAllTeams from '@/components/ShowAllTeams'
 import PwdChange from '@/components/PwdChange'
+import findPassword from '@/components/FindPassword'
 import upload from '@/components/upload'
 import MyTeam from '@/components/MyTeam'
 import teamProfile from '@/components/teamProfile'
@@ -22,14 +23,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Home',
+      component: Home
     },
-    {
+    /*{
       path: '/home',
       name: 'MyHome',
       component: Home,
-    },
+    },*/
     {
       path: '/login',
       name: 'Login',
@@ -65,6 +66,11 @@ export default new Router({
       meta: {
         requireAuth: true
       }
+    },
+    {
+      path: '/find_password',
+      name: 'findPassword',
+      component: findPassword
     },
     // for testing upload component
     /* {

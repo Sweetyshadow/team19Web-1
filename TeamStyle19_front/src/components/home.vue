@@ -29,12 +29,12 @@ export default {
   name: 'Home',
   data () {
     return {
-      message: 'Welcome to my first vue app'
+      //message: 'Welcome to my first vue app'
     }
   },
   components: {
-    DishMenu,
-    Login
+    //DishMenu,
+    //Login
   }
 }
 </script>
