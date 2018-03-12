@@ -59,7 +59,8 @@
 				},
 				files: null,
 				//isProfile: true,
-				headurl: null
+				headurl: null,
+				_icon: null
       }
 		},
 		created(){
@@ -68,10 +69,14 @@
 		methods: {
 			sending (file, xhr, formData) {
 				console.log(this.isProfile)
+				this._icon = this.icon
+				console.log(this._icon)
+				this.icon = "el-icon-loading"
 				formData.append('userid',localStorage.getItem('teamstyle_id'))
 				formData.append('headpic',this.isProfile)
 			},
 			complete(file,status,xhr) {
+				this.icon = this._icon
 				if(status === 'error')
 					alert(file.errorMessage)
 				else alert(status)
