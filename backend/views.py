@@ -557,6 +557,7 @@ def active_email(username,email):
         raise e
 
 
+@csrf_exempt
 def find_password(request):
     if request.method == 'POST':
         form = EmailValidation(request.POST)
