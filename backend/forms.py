@@ -24,3 +24,5 @@ class TeamAddForm(forms.Form):
     # TODO: Define form fields here
     
 
+class EmailValidation(forms.Form):
+    email = forms.EmailField()

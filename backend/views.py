@@ -555,3 +555,46 @@ def active_email(username,email):
         return True
     except Exception as e:
         raise e
+
+
+def find_password(request):
+    if request.method == 'POST':
+        form = EmailValidation(request.POST)
+        if form.is_valid():
+            user_email = form.cleaned_data['email']
+            try:
+                the_student = StudentInfo.objects.get(thu_email = user_email)
+            except User.DoesNotExist:
+                return HttpResponse("此邮箱未被注册！")
+            the_student.password = hashvalue('000000', the_student.salt)
+            the_student.save()
+            password_email(the_student.student_nickname, user_email)
+        else:
+            message = 'Problem'
+    else:
+        form = EmailValidation()
+        message = None
+    return render(request, 'backend/static/FindPassword.html', {'form': form}, {'message': message})
+
+
+def password_email(username, email):
+    try:
+        receiver = email  # 设置邮件接收人
+        path = os.path.join(settings.BASE_DIR, 'backend/static/PasswordMessage.html')
+        f = open(path, 'rb')
+        body = f.read()
+        body = body.decode('utf-8')
+        user = StudentInfo.objects.get(student_nickname=username)
+        attach1 = " %s " % username
+        attach2 = " 000000 "
+        body = body % (attach1, attach2)
+        send_mail(
+            subject="AI挑战赛队式19账号密码找回",
+            message="",
+            html_message=body,
+            from_email="team19_eesast@126.com",
+            fail_silently=False,
+            recipient_list=[receiver])
+        return True
+    except Exception as e:
+        raise e

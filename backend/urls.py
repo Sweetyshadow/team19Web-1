@@ -20,6 +20,7 @@ urlpatterns = [
     path('students/modify/',views.ModifyPwd),
     path('students/headpic/',views.GetHeadpic),
     path('students/activate/',views.StudentActivate),
+    path('students/find_password/',views.find_password),
     path('upload/file/',views.UploadFile),
     path('download/code/',views.GetCode),
     path('download/allfiles/',views.GetIndex),
