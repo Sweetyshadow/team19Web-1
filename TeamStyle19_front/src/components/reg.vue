@@ -40,6 +40,13 @@ export default {
         callback(new Error("请输入10位学号"));
       }
     }
+    var usernamecheck = (rule, value, callback) => {
+      if(value.match(/ /)||value.match(/\//)) {
+        callback(new Error("用户名不能包含空格或 \/"))
+      } else {
+        callback()
+      }
+    }
     return{
       form: {
         email:'',
@@ -58,7 +65,8 @@ export default {
         ],
         username: [
           {required: true, message: '请输入用户名'},
-          {max: 16, message:'用户名长度不能超过16位'}
+          {max: 16, message:'用户名长度不能超过16位'},
+          {validator: usernamecheck}
         ],
         password: [
           {required: true, min: 8, max: 20, message: '请输入8-20位密码', trigger:'blur,change'}
@@ -68,7 +76,7 @@ export default {
   },
   computed: {
     disabled(){
-      return this.form.email===''||this.form.username===''||this.form.password===''
+      return this.form.email===''||this.form.username===''||this.form.username.match(/ |\//)||this.form.password===''||this.form.studentID.length!=10
     }
   },
   methods: {

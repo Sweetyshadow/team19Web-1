@@ -124,5 +124,19 @@ export default {
     }, response => {
       alert('fail')
     })
+  },
+  findPassword (context) {
+    const data = {
+      email: context.form.email
+    }
+    context.$http({
+      url: API_URL+'find_password/',
+      method: 'post',
+      body: data
+    }).then(response => {
+      console.log(response)
+    }, response => {
+      alert('gg')
+    })
   }
 }
