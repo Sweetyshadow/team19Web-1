@@ -6,7 +6,7 @@ from django.db import models,connection
 from django.conf import settings
 from django.core.mail import send_mail, mail_admins, BadHeaderError
 from .models import TeamInfo, StudentInfo, RuleFile
-from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm, TeamAddForm
+from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm, TeamAddForm, EmailValidation
 from django.views.decorators.csrf import csrf_exempt
 
 from base64 import b64encode
