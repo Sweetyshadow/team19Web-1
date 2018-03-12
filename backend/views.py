@@ -429,7 +429,7 @@ def UploadFile(request):
                             os.chdir('/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_server')
                             execute = '/home/ubuntu/team19/team/' + the_team.team_name + '/' + the_team.team_name + '.exe'
                             os.system('g++ main.cpp player.cpp api_player.cpp communication.cpp -pthread -std=c++11 -o ' + execute)
-                            os.chdir(old_path)
+                            os.chdir(old_p)
                         return JsonResponse({'success':'bbbbbb!'})
                     else:
                         return JsonResponse({'success':False,'message':"the user does not have a team!"})
@@ -454,7 +454,7 @@ def GetHeadpic(request):
         return HttpResponse(response)
         #return JsonResponse({'url':image.name})
     elif request.method == 'GET':
-        return HttpResponse(locals())
+        return HttpResponse('STUPID MAN!!!!')
 
 @csrf_exempt
 def GetCode(request):#用于代码下载
