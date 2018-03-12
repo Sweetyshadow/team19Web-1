@@ -524,7 +524,7 @@ def Battle(request):
         try:
             response = json.loads(r.text)
         except:
-            return JsonResponse({'success':False,'message':'Something wrong with battle code!'})
+            return JsonResponse({'success':False,'message':'Something wrong with battle code!' + r.text})
         team1.add_history(response['team1'])
         team2.add_history(response['team2'])
         return JsonResponse({'success':response['success'],'team1':team1.get_history()[-1],'team2':team2.get_history()[-1]})
