@@ -455,6 +455,7 @@ def GetHeadpic(request):
         #return JsonResponse({'url':image.name})
     elif request.method == 'GET':
         return HttpResponse('STUPID MAN!!!!')
+        #vd
 
 @csrf_exempt
 def GetCode(request):#用于代码下载
