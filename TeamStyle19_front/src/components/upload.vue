@@ -38,18 +38,24 @@
 		name: 'upload',
 		props: ['isProfile','icon','acceptedFormat'],
     data () {
+			var sizeLimit = this.isProfile?{limit:0.8,message:'Your file size is greater than the max file size'}:{}
       return {
 				options: {
           url: '/backend/upload/file/',
 					paramName: 'file',
-					maxFilesize: {
-    				limit: 0.8,
-    				message: 'Your file size is greater than the max file size'
-  				},
+					maxFilesize: sizeLimit,
 					acceptedFiles: {
 						extensions: this.acceptedFormat,
 						message: 'You are uploading an invalid file'
-					}
+					},
+					accept: function (file, done) {
+    				if (file.name.match(/ |\//)) {
+      				done('文件名不能包含空格或\/')
+      				return
+    				}
+
+    				done()
+  				}
 				},
 				files: null,
 				//isProfile: true,
@@ -65,8 +71,10 @@
 				formData.append('userid',localStorage.getItem('teamstyle_id'))
 				formData.append('headpic',this.isProfile)
 			},
-			complete() {
-				alert('上传成功')
+			complete(file,status,xhr) {
+				if(status === 'error')
+					alert(file.errorMessage)
+				else alert(status)
 				if(this.isProfile){
 					this.gethead()
 				} else{
