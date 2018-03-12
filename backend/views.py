@@ -423,6 +423,11 @@ def UploadFile(request):
                         the_team.battle_code = url
                         the_team.save()
                         the_student.save()
+                        ai = True
+                        if ai :
+                            os.chdir('/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_server')
+                            execute = '/home/ubuntu/team19/team/' + the_team.team_name + '/' + the_team.team_name + '.exe'
+                            os.system('g++ main.cpp player.cpp api_player.cpp communication.cpp -pthread -std=c++11 -o ')
                         return JsonResponse({'success':'bbbbbb!'})
                     else:
                         return JsonResponse({'success':False,'message':"the user does not have a team!"})
@@ -551,7 +556,13 @@ def active_email(username,email):
         user = StudentInfo.objects.get(student_nickname = username)
         attach = "?userid=%s&&userkey=%s"%(user.id,key)
         body = body%(attach,attach)
-        send_mail(subject = "AI挑战赛队式19账号激活", message = "", html_message = body,from_email = "team19_eesast@126.com", fail_silently = False, recipient_list = [receiver])
+        send_mail(
+            subject = "AI挑战赛队式19账号激活", 
+            message = "", 
+            html_message = body,
+            from_email = "team19_eesast@126.com", 
+            fail_silently = False, 
+            recipient_list = [receiver])
         return True
     except Exception as e:
         raise e

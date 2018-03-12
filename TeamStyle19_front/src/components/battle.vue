@@ -16,7 +16,16 @@
         </el-table-column>
     </el-table>
     <p>View your submit</p>
+<<<<<<< HEAD
     <pre v-highlightjs><code class="content cpp">{{ code }}</code></pre>
+=======
+    <template v-if="code">
+        <pre v-highlightjs><code class="cpp">{{ code }}</code></pre>
+    </template>
+    <template v-else>
+        <p>No submit available</p>
+    </template>
+>>>>>>> bae53d27e7198d58effafa3309c1302721f80541
   </div>
 </template>
 <script>
@@ -37,10 +46,10 @@ export default {
       return {
           isProfile: false,
           icon: "el-icon-upload",
-          acceptedFormat: ['*/*'],
+          acceptedFormat: [],
           team: [],
           teamid: [],
-          code: "No sumbit available!"
+          code: null
       }
   },
   methods: {
