@@ -567,6 +567,7 @@ def active_email(username,email):
     except Exception as e:
         raise e
 
+
 @csrf_exempt
 def find_password(request):
     if request.method == 'POST':

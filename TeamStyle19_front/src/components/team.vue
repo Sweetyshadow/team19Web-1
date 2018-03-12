@@ -22,7 +22,7 @@
                 <el-input v-model="form.invitecode" placeholder="设置邀请码"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="onSubmit">确定</el-button>
+                <el-button type="primary" @click="onSubmit" :disabled="disabled">确定</el-button>
             </el-form-item>
         </el-form>
         <!--el-button @click="testLeader">testLeader</el-button!-->
@@ -35,6 +35,13 @@ import teamSrv from '@/api/team.js'
 export default {
   name: 'team',
   data(){
+      var teamnamecheck = (rule,value,callback) => {
+          if(value.match(/ /)||value.match(/\//)){
+              callback(new Error("队名不能包含空格或\/"))
+          } else {
+              callback()
+          }
+      }
       return{
           form: {
               isteamleader: false,
@@ -43,20 +50,29 @@ export default {
           },
           rules: {
               teamname: [
-                  {
+                {
                     required: true, 
                     message: '请输入队伍名称',
-                    trigger: 'blur'
-                    }
+                    trigger: 'blur,change'
+                },
+                {
+                    validator: teamnamecheck,
+                }
+
               ],
               invitecode: [
                   {
                     required: true,
                     message: '请输入邀请码',
-                    trigger: 'blur'
+                    trigger: 'blur,change'
                   }
               ]
           }
+      }
+  },
+  computed: {
+      disabled(){
+          return this.form.teamname === ''||this.form.invitecode === ''||this.form.teamname.match(/ |\//)
       }
   },
   created() {
