@@ -2,17 +2,12 @@
   <div>
     <p>Submit Your Code and Start Combating Today!</p>
     <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
-    <el-table :data='team' stripe>
-        <el-table-column type="index"></el-table-column>
-        <el-table-column prop="teamname" label="队伍名称"></el-table-column>
-        <el-table-column prop="teamleader" label="队长"></el-table-column>
-        <el-table-column prop="teammember" label="队员">
-            <template slot-scope="scope">
-                <span style="margin:2px" v-for="item in scope.row.teammember" :key="item">{{item}}</span>
-            </template>
-        </el-table-column>
-        <el-table-column prop="teamscore" label="得分"></el-table-column>
-        <el-table-column label="操作">
+    <el-table :data='team' :default-sort="{prop: 'teamscore', order: 'descending'}" stripe>
+        <el-table-column type="index" align="center"></el-table-column>
+        <el-table-column prop="teamname" label="队伍名称" align="center" sortable></el-table-column>
+        <el-table-column prop="teamleader" label="队长" align="center" sortable></el-table-column>
+        <el-table-column prop="teamscore" label="得分" align="center" sortable></el-table-column>
+        <el-table-column label="操作" align="center">
             <template slot-scope="scope">
                 <el-button
                 size="mini"
@@ -65,3 +60,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.el-table{
+    width: 640px;
+    margin: 20px auto;
+    border: 1px solid rgb(235,238,245);
+    border-bottom: none;
+}
+</style>
