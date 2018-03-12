@@ -392,7 +392,11 @@ def UploadFile(request):
                     '''cursor = connection.cursor()
                     cursor.execute("update backend_studentinfo set profile_photo = \'" + url + "\' where id = " + the_id)
                     cursor.close()'''
-                    os.system('mkdir /home/ubuntu/team19/user/' + the_student.student_nickname)
+                    index = os.listdir('/home/ubuntu/team19/user')
+                    if the_student.student_nickname in index:
+                        pass
+                    else :
+                        os.system('mkdir /home/ubuntu/team19/user/' + the_student.student_nickname)
                     url = '/home/ubuntu/team19/user/' + the_student.student_nickname + '/' + str(myfile.name)
                     destination = open(url,'wb+')
                     for chunk in myfile.chunks():
@@ -406,7 +410,11 @@ def UploadFile(request):
             else:
                 if the_student:
                     if the_student.team_name:
-                        os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
+                        index = os.listdir('/home/ubuntu/team19/team')
+                        if the_student.team_name.team_name in index:
+                            pass
+                        else :
+                            os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
                         url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
                         destination = open(url,'wb+')
                         for chunk in myfile.chunks():
