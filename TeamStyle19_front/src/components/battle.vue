@@ -16,7 +16,7 @@
         </el-table-column>
     </el-table>
     <p>View your submit</p>
-    <pre v-highlightjs><code class="cpp">{{code}}</code></pre>
+    <pre v-highlightjs><code class="content cpp">{{ code }}</code></pre>
   </div>
 </template>
 <script>
@@ -72,4 +72,11 @@ code {
     font-family: 'Source Code Pro';
     font-size: 14px;
 }
+.content {
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      border-radius: 5px;
+      padding: 10px;
+    }
 </style>
