@@ -427,7 +427,7 @@ def UploadFile(request):
                         if ai :
                             os.chdir('/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_server')
                             execute = '/home/ubuntu/team19/team/' + the_team.team_name + '/' + the_team.team_name + '.exe'
-                            os.system('g++ main.cpp player.cpp api_player.cpp communication.cpp -pthread -std=c++11 -o ')
+                            os.system('g++ main.cpp player.cpp api_player.cpp communication.cpp -pthread -std=c++11 -o ' + execute)
                         return JsonResponse({'success':'bbbbbb!'})
                     else:
                         return JsonResponse({'success':False,'message':"the user does not have a team!"})
