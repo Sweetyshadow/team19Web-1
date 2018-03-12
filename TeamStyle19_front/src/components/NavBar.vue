@@ -1,6 +1,6 @@
 <template>
 <div>
-    <el-menu :default-active="activeIndex" mode="horizontal" router class="PC">
+    <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu">
         <!--el-menu-item index="1" route="/"> index </el-menu-item!-->
         <el-menu-item index="2" route="/"> fakehome </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
@@ -114,6 +114,12 @@ img {
     height: 60px;
     width: 60px;
     overflow: hidden;
+}
+#menu {
+    li {
+        border: none;
+        font-family: '5efe7697695c42a99b24705c46f7ca0c';
+    }
 }
 a,a:active,a:link,a:hover,a:visited{
     text-decoration: none;

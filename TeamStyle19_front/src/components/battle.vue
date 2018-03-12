@@ -16,16 +16,12 @@
         </el-table-column>
     </el-table>
     <p>View your submit</p>
-<<<<<<< HEAD
-    <pre v-highlightjs><code class="content cpp">{{ code }}</code></pre>
-=======
     <template v-if="code">
         <pre v-highlightjs><code class="cpp">{{ code }}</code></pre>
     </template>
     <template v-else>
         <p>No submit available</p>
     </template>
->>>>>>> bae53d27e7198d58effafa3309c1302721f80541
   </div>
 </template>
 <script>
@@ -78,14 +74,14 @@ export default {
     border-bottom: none;
 }
 code {
-    font-family: 'Source Code Pro';
+    font-family: '5efe7697695c42a99b24705c46f7ca0c','Source Code Pro';
     font-size: 14px;
+    margin: 0 auto;
+    width: 640px;
+    
 }
-.content {
-      display: block;
-      width: 100%;
-      font-size: 14px;
-      border-radius: 5px;
-      padding: 10px;
-    }
+span {
+    font-family: inherit;
+    font-size: inherit;
+}
 </style>
