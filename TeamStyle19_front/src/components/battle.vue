@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>Submit Your Code and Start Combating Today!</p>
     <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
     <el-table :data='team' stripe>
         <el-table-column type="index"></el-table-column>
@@ -19,11 +20,14 @@
             </template>
         </el-table-column>
     </el-table>
+    <p>View your submit</p>
+    <textarea v-model="code" cols="100" rows="30"></textarea>
   </div>
 </template>
 <script>
 import upload from './upload'
 import teamSrv from '@/api/team.js'
+import fileSrv from '@/api/file.js'
 export default {
   name: 'battle',
   components: {
@@ -32,14 +36,16 @@ export default {
   created(){
     teamSrv.getMyteamindex(this,this.jump)
     teamSrv.showAll(this)
+    fileSrv.getAI(this)
   },
   data(){
       return {
           isProfile: false,
           icon: "el-icon-upload",
-          acceptedFormat: ['text/*'],
+          acceptedFormat: ['*/*'],
           team: [],
-          teamid: []
+          teamid: [],
+          code: "No sumbit available!"
       }
   },
   methods: {

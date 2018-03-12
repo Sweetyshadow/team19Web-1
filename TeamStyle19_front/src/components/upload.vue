@@ -1,6 +1,5 @@
 <template>
 <div>
-	<p>Submit Your Code and Start Combating Today!</p>
 	<vue-clip  :options="options" :on-sending="sending" :on-complete="complete">
     <template slot="clip-uploader-action">
       <div class="uploader-icon">
@@ -34,6 +33,7 @@
 
 <script>
 	import authSrv from '@/api/auth.js'
+	import fileSrv from '@/api/file.js'
   export default {
 		name: 'upload',
 		props: ['isProfile','icon','acceptedFormat'],
@@ -69,6 +69,8 @@
 				alert('上传成功')
 				if(this.isProfile){
 					this.gethead()
+				} else{
+					fileSrv.getAI(this.$parent)
 				}
 			},
 			gethead() {
