@@ -10,6 +10,7 @@
     <el-form-item>
       <el-button type="primary" @click="login" size="medium">登录</el-button>
       <router-link to="/reg"><p>没有账号？点击注册</p></router-link>
+      <router-link to="/find_password"><p>忘记密码？</p></router-link>
     </el-form-item>
   </el-form>
 </div>
@@ -43,7 +44,7 @@ export default {
   },
   methods: {
     jump (context) {
-      context.$router.push('/home')
+      context.$router.push('/')
     },
     login () {
       console.log('lg')
