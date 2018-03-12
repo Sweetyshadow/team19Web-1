@@ -16,7 +16,7 @@
         </el-table-column>
     </el-table>
     <p>View your submit</p>
-    <textarea v-model="code" cols="100" rows="30"></textarea>
+    <pre v-highlightjs><code class="cpp">{{code}}</code></pre>
   </div>
 </template>
 <script>
@@ -67,5 +67,9 @@ export default {
     margin: 20px auto;
     border: 1px solid rgb(235,238,245);
     border-bottom: none;
+}
+code {
+    font-family: 'Source Code Pro';
+    font-size: 14px;
 }
 </style>

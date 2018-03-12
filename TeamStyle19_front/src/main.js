@@ -9,17 +9,18 @@ import store from './vuex'
 import VueParticles from 'vue-particles'
 // 后端接口抽象成Resource
 import VueResource from 'vue-resource'
-
+import hljs from 'highlight.js'
 import VueCookies from 'vue-cookies'
 import VueClip from 'vue-clip'
+import VueHighlightJS from 'vue-highlightjs'
 
 Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(ElementUI)
 Vue.use(VueCookies)
 Vue.use(VueClip)
+Vue.use(VueHighlightJS, ['cpp'])
 Vue.use(VueParticles)
-
 Vue.http.options.emulateJSON = true
 Vue.http.options.headers = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -74,4 +75,30 @@ Vue.http.interceptors.push(function(request, next) {
     //request.headers.set('X-CSRFToken', 'qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwer')
   }
   next()
+})
+
+Vue.directive('highlightjs', {
+  deep: true,
+  bind: function (el, binding) {
+    // on first bind, highlight all targets
+    let targets = el.querySelectorAll('code')
+    targets.forEach((target) => {
+      // if a value is directly assigned to the directive, use this
+      // instead of the element content.
+      if (binding.value) {
+        target.textContent = binding.value
+      }
+      hljs.highlightBlock(target)
+    })
+  },
+  componentUpdated: function (el, binding) {
+    // after an update, re-fill the content and then highlight
+    let targets = el.querySelectorAll('code')
+    targets.forEach((target) => {
+      if (binding.value) {
+        target.textContent = binding.value
+        hljs.highlightBlock(target)
+      }
+    })
+  }
 })
