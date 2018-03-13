@@ -56,5 +56,6 @@ export default {
     text-align: center;
     font-family: 'Megrim', cursive;
     font-size: 64px;
+    cursor: default;
   }
 </style>
