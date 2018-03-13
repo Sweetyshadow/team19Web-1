@@ -593,22 +593,6 @@ def find_password(request):
     else:
         return HttpResponse("STUPID MAN!!!!")
 
-
-            '''if StudentInfo.objects.get(thu_email = user_email).exists():
-                the_student = StudentInfo.objects.get(thu_email = user_email)
-                the_student.password = hashvalue('000000', the_student.salt)
-                the_student.save()
-                password_email(the_student.student_nickname, user_email)
-            else:
-                return HttpResponse("此邮箱未被注册！")
-        else:
-            message = 'Problem'
-    else:
-        form = EmailValidation()
-        message = None
-    return render(request, 'backend/static/FindPassword.html', {'form': form}, {'message': message})'''
-
-
 def password_email(username, email, new_pwd):
     try:
         receiver = email  # 设置邮件接收人
