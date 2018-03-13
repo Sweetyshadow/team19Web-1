@@ -3,7 +3,7 @@
     <vue-particles 
         color="#999999"
         :particleOpacity="0.7"
-        :particlesNumber="200"
+        :particlesNumber="150"
         shapeType="circle"
         :particleSize="2"
         linesColor="#aaaaaa"
@@ -16,8 +16,9 @@
         hoverMode="grab"
         :clickEffect="true"
         clickMode="push"
-    ></vue-particles>
-    
+    >
+    </vue-particles>
+    <h1> Teamstyle19</h1>
   </div>
 </template>
 
@@ -41,13 +42,19 @@ export default {
 <style scoped>
   #particles{
     height: calc(100% - 70px);
+    position:absolute;
+    width: 100%;
   }
   #particles-js {
     height: 100%;
   }
   h1{ 
     position: absolute;
-    left: 50%;
-    top: 50;
+    margin: 0;
+    top: 20%;
+    left: calc(50% - 180.54px);
+    text-align: center;
+    font-family: 'Megrim', cursive;
+    font-size: 64px;
   }
 </style>

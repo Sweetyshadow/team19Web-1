@@ -77,11 +77,11 @@ code {
     font-family: '5efe7697695c42a99b24705c46f7ca0c','Source Code Pro';
     font-size: 14px;
     margin: 0 auto;
-    width: 640px;
-    
+    min-width: 640px;
+    max-width: 1200px;
 }
-span {
+/*span {
     font-family: inherit;
     font-size: inherit;
-}
+}*/
 </style>
