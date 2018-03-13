@@ -580,7 +580,7 @@ def find_password(request):
             user_email = form.cleaned_data['email']
             #user_id = form.cleaned_data['userid']
             #try:
-            the_student = StudentInfo.objects.get(id = user_email)
+            the_student = StudentInfo.objects.get(thu_email = user_email)
             #except:
                 #return JsonResponse({'success':False,'message':"invalid email!!!!!"})
             new_pwd = str(random.randint(10000000,99999999))
