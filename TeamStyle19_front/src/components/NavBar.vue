@@ -1,6 +1,6 @@
 <template>
 <div>
-    <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu">
+    <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu" @click="indexupdate(activeIndex)">
         <!--el-menu-item index="1" route="/"> index </el-menu-item!-->
         <el-menu-item index="2" route="/"> fakehome </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
@@ -57,11 +57,18 @@
     export default{
         name: 'NavBar',
         data(){
+            var _map = {
+                    "/":'2',
+                    "/file": '3',
+                    "/ShowAllTeams": '4',
+                    "/battle": '5',
+                    "/login": '6'
+                }
             return{
-                activeIndex:'1',
+                activeIndex: _map[this.$router.history.current.path],
                 router:Boolean(1),
                 profile: avatar,
-                show: false
+                show: false,                
             }
         },
         computed: {
@@ -70,7 +77,8 @@
             },
             username(){
                 return this.$store.state.username
-            }            
+            },
+                        
         },
         created () {
             this.hasLogin = Boolean(localStorage.getItem('teamstyle_id'))
@@ -84,6 +92,7 @@
             handleJump(command){
                 if(command === "a"){
                     this.$router.push('/PwdChange')
+                    console.log(this.$router.history.current)
                 } else if(command === "b"){
                     this.$router.push('/MyTeam')
                 } else if(command === "c"){
@@ -117,7 +126,7 @@ img {
 }
 #menu {
     li {
-        border: none;
+        //border: none;
         font-family: '5efe7697695c42a99b24705c46f7ca0c';
     }
 }

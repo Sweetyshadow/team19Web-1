@@ -14,7 +14,7 @@ export default new Vuex.Store({
   mutations: {
     // an example
     increment (state) {
-      state.count ++
+      state.count++
       console.log(state.count)
     },
     updateUserInfo (state, payload) {
