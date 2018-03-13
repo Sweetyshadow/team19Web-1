@@ -9,8 +9,10 @@
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="login" size="medium">登录</el-button>
+      <div class="foot">
       <router-link to="/reg"><p>没有账号？点击注册</p></router-link>
       <router-link to="/find_password"><p>忘记密码？</p></router-link>
+      </div>
     </el-form-item>
   </el-form>
 </div>
@@ -70,6 +72,19 @@ button {
 }
 p {
   font-size: 12px;
+}
+div.foot{
+  font-size: 0;
+}
+div.foot p{
+  display:inline-block;
+  width: 50%;
+}
+div.foot a:first-child p{
+  text-align: left;
+}
+div.foot a:last-child p{
+  text-align: right;
 }
 @media screen and (max-width: 720px) {
   #wrap{
