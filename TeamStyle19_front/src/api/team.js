@@ -18,15 +18,16 @@ export default {
         context.team.push({
           teamname: response.body[i].teamname,
           teamleader: response.body[i].leader,
+          teamid: response.body[i].teamid,
           teammember: []
         })
         for(var j=1;j<response.body[i].scale;j++){
           if(response.body[i]["member"+j]) context.team[i].teammember.push(response.body[i]["member"+j])
         }
-        context.teamid.push(response.body[i].teamid)
+        //context.teamid.push(response.body[i].teamid)
       }
-      console.log(context.teamid)
-      //console.log(context.team)
+      //console.log(context.teamid)
+      console.log(context.team)
       //console.log(response.body)
     }, response => {
       console.log('gg')
@@ -137,7 +138,7 @@ export default {
     }
   },
 
-  createTeam (context) {
+  createTeam (context,cb) {
     if(!localStorage.getItem('teamstyle_id')){
       alert('登录状态丢失，请先登录')
       context.$router.push('/login')
@@ -159,13 +160,16 @@ export default {
           alert(response.body.message)
         }
         //jump to my team
+        if(typeof cb==='function'){
+          cb(context)
+        }
       }, response => {
         alert('fail')
       })
     }
   },
   
-  checkCode (context, data) {
+  checkCode (context, cb) {
     if(!localStorage.getItem('teamstyle_id')){
       alert('请先登录再进行操作')
       context.$router.push('/login')
@@ -188,6 +192,9 @@ export default {
           alert(response.body.message)
         }
         //jump to my team
+        if(typeof cb==='function'){
+          cb(context)
+        }
       }, response => {
         console.log(response)
         // 校验失败

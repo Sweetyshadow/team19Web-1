@@ -44,7 +44,7 @@ export default {
           icon: "el-icon-upload",
           acceptedFormat: [],
           team: [],
-          teamid: [],
+          //teamid: [],
           code: null
       }
   },
@@ -55,11 +55,13 @@ export default {
       handleBattle(index,row){
           const data = {
               team1: this.$store.state.teamindex,
-              team2: this.teamid[index]
+              team2: row.teamid
           }
           if(this.$store.state.teamindex!=null){
               console.log('start battle')
               teamSrv.startBattle(this,data)
+          } else {
+              alert('获取队伍信息失败')
           }
       }
   }
