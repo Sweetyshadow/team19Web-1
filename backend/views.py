@@ -589,7 +589,7 @@ def find_password(request):
             password_email(the_student.student_nickname, user_email)
             return JsonResponse({'success':True,'name':the_student.student_nickname})
         else:
-                response JsonResponse({'success':False,'message':"invalid form!!!!!"})
+                return JsonResponse({'success':False,'message':"invalid form!!!!!"})
     else:
         return HttpResponse("STUPID MAN!!!!")
 
