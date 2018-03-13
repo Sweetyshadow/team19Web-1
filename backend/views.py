@@ -586,7 +586,7 @@ def find_password(request):
             new_pwd = str(random.randint(10000000,99999999))
             the_student.password = hashvalue(new_pwd, the_student.salt)
             the_student.save()
-            password_email(the_student.student_nickname, user_email)
+            password_email(the_student.student_nickname, user_email,new_pwd)
             return JsonResponse({'success':True,'name':the_student.student_nickname})
         else:
                 return JsonResponse({'success':False,'message':"invalid form!!!!!"})
