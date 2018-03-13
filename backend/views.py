@@ -582,15 +582,12 @@ def find_password(request):
             try:
                 the_student = StudentInfo.objects.get(id = user_email)
             except:
-                response JsonResponse({'success':False,'message':"invalid user!!!!!"})
-            if the_student.thu_email == user_email:
-                new_pwd = str(random.randint(10000000,99999999))
-                the_student.password = hashvalue(new_pwd, the_student.salt)
-                the_student.save()
-                password_email(the_student.student_nickname, user_email)
-                return JsonResponse({'success':True,'name':the_student.student_nickname})
-            else:
-                response JsonResponse({'success':False,'message':"invalid email!!!!!"})
+                return JsonResponse({'success':False,'message':"invalid email!!!!!"})
+            new_pwd = str(random.randint(10000000,99999999))
+            the_student.password = hashvalue(new_pwd, the_student.salt)
+            the_student.save()
+            password_email(the_student.student_nickname, user_email)
+            return JsonResponse({'success':True,'name':the_student.student_nickname})
         else:
                 response JsonResponse({'success':False,'message':"invalid form!!!!!"})
     else:
