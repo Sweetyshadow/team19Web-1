@@ -429,7 +429,7 @@ def UploadFile(request):
                             code = the_team.battle_code.name.split('/')
                             name = code[-2] + '/' + code[-1]
                             r = requests.post('http://123.207.140.186:8888/compile/',data = {'name':name})
-                            #old_path = os.getcwd()
+                            #old_path = os.getcwd()#
                             #os.chdir('/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_server')
                             #execute = '/home/ubuntu/team19/team/' + the_team.team_name + '/' + the_team.team_name + '.exe'
                             #os.system('g++ main.cpp player.cpp api_player.cpp communication.cpp -pthread -std=c++11 -o ' + execute)
