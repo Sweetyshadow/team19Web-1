@@ -16,6 +16,7 @@ import os
 import binascii
 import requests
 import json
+import random
 
 # Create your views here.
 
@@ -119,7 +120,7 @@ def StudentActivate(request):
     userkey = request.GET.get('userkey','')
     try:
         the_student = StudentInfo.objects.get(id = userid)
-    except not StudentInfo.objects.get(id = userid).exists():
+    except :
         return HttpResponse("激活失败1!请联系管理员")
     if the_student.is_active == True:
         pass
@@ -577,7 +578,26 @@ def find_password(request):
         form = EmailValidation(request.POST)
         if form.is_valid():
             user_email = form.cleaned_data['email']
-            if StudentInfo.objects.get(thu_email = user_email).exists():
+            user_id = form.cleaned_data['userid']
+            try:
+                the_student = StudentInfo.objects.get(id = user_id)
+            else:
+                response JsonResponse({'success':False,'message':"invalid user!!!!!"})
+            if the_student.thu_email == user_email:
+                new_pwd = str(random.randint(10000000,99999999))
+                the_student.password = hashvalue(new_pwd, the_student.salt)
+                the_student.save()
+                password_email(the_student.student_nickname, user_email)
+                return JsonResponse({'success':True,'name':the_student.student_nickname})
+            else:
+                response JsonResponse({'success':False,'message':"invalid email!!!!!"})
+        else:
+                response JsonResponse({'success':False,'message':"invalid form!!!!!"})
+    else:
+        return HttpResponse("STUPID MAN!!!!")
+
+
+            '''if StudentInfo.objects.get(thu_email = user_email).exists():
                 the_student = StudentInfo.objects.get(thu_email = user_email)
                 the_student.password = hashvalue('000000', the_student.salt)
                 the_student.save()
@@ -589,10 +609,10 @@ def find_password(request):
     else:
         form = EmailValidation()
         message = None
-    return render(request, 'backend/static/FindPassword.html', {'form': form}, {'message': message})
+    return render(request, 'backend/static/FindPassword.html', {'form': form}, {'message': message})'''
 
 
-def password_email(username, email):
+def password_email(username, email, new_pwd):
     try:
         receiver = email  # 设置邮件接收人
         path = os.path.join(settings.BASE_DIR, 'backend/static/PasswordMessage.html')
@@ -601,7 +621,7 @@ def password_email(username, email):
         body = body.decode('utf-8')
         user = StudentInfo.objects.get(student_nickname=username)
         attach1 = " %s " % username
-        attach2 = " 000000 "
+        attach2 = new_pwd
         body = body % (attach1, attach2)
         send_mail(
             subject="AI挑战赛队式19账号密码找回",

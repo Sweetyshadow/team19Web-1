@@ -25,4 +25,5 @@ class TeamAddForm(forms.Form):
     
 
 class EmailValidation(forms.Form):
+	userid = forms.CharField()
     email = forms.EmailField()
