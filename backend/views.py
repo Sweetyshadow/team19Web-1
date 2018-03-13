@@ -578,10 +578,10 @@ def find_password(request):
         form = EmailValidation(request.POST)
         if form.is_valid():
             user_email = form.cleaned_data['email']
-            user_id = form.cleaned_data['userid']
+            #user_id = form.cleaned_data['userid']
             try:
-                the_student = StudentInfo.objects.get(id = user_id)
-            else:
+                the_student = StudentInfo.objects.get(id = user_email)
+            except:
                 response JsonResponse({'success':False,'message':"invalid user!!!!!"})
             if the_student.thu_email == user_email:
                 new_pwd = str(random.randint(10000000,99999999))
