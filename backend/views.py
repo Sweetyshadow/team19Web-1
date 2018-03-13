@@ -119,7 +119,7 @@ def StudentActivate(request):
     userkey = request.GET.get('userkey','')
     try:
         the_student = StudentInfo.objects.get(id = userid)
-    except User.DoesNotExist:
+    except not StudentInfo.objects.get(id = userid).exists():
         return HttpResponse("激活失败1!请联系管理员")
     if the_student.is_active == True:
         pass
@@ -577,13 +577,13 @@ def find_password(request):
         form = EmailValidation(request.POST)
         if form.is_valid():
             user_email = form.cleaned_data['email']
-            try:
+            if StudentInfo.objects.get(thu_email = user_email).exists():
                 the_student = StudentInfo.objects.get(thu_email = user_email)
-            except User.DoesNotExist:
+                the_student.password = hashvalue('000000', the_student.salt)
+                the_student.save()
+                password_email(the_student.student_nickname, user_email)
+            else:
                 return HttpResponse("此邮箱未被注册！")
-            the_student.password = hashvalue('000000', the_student.salt)
-            the_student.save()
-            password_email(the_student.student_nickname, user_email)
         else:
             message = 'Problem'
     else:
