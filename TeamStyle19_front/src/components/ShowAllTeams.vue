@@ -37,7 +37,7 @@ export default {
   data(){
       return{
           team: [],
-          teamid: [],
+          //teamid: [],
           /*test: {
               id1: null,
               id2: null,
@@ -50,7 +50,9 @@ export default {
   },
   methods:{
       handleJoin (index,row) {
-          this.$store.commit('setTeamindex',this.teamid[index])
+          console.log(row)
+          //this.$store.commit('setTeamindex',this.teamid[index])
+          this.$store.commit('setTeamindex',row.teamid)
           this.$store.commit('setisLeader',false)
           this.$router.push('/team')
       },
