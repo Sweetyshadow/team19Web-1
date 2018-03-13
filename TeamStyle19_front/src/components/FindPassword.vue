@@ -4,7 +4,7 @@
       <el-form-item prop="email">
           <el-input v-model="form.email" placeholder="注册邮箱"></el-input>
       </el-form-item>
-      <el-button @click="onSubmit">提交</el-button>
+      <el-button @click="onSubmit" type="primary" :disabled="disabled">提交</el-button>
   </el-form>
 </div>
 </template>
@@ -16,8 +16,18 @@ export default {
       return {
           form: {
               email: ''
+          },
+          rules: {
+            email: [
+              {required: true, message: '请输入您的注册邮箱'}
+            ]
           }
       }
+  },
+  computed: {
+    disabled(){
+      return this.form.email === ''
+    }
   },
   methods: {
       onSubmit(){

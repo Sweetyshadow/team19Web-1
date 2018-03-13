@@ -134,7 +134,11 @@ export default {
       method: 'post',
       body: data
     }).then(response => {
-      console.log(response)
+      if(response.body.success){
+        alert('请前往邮箱获取您的密码')
+      } else {
+        alert(response.body.message)
+      }
     }, response => {
       alert('gg')
     })

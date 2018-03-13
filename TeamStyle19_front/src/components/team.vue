@@ -72,21 +72,24 @@ export default {
   },
   computed: {
       disabled(){
-          return this.form.teamname === ''||this.form.invitecode === ''||this.form.teamname.match(/ |\//)
+          return (this.form.isteamleader&&this.form.teamname === '')||this.form.invitecode === ''||this.form.teamname.match(/ |\//)
       }
   },
   created() {
       this.form.isteamleader = this.$store.state.isLeader
   },
   methods: {
+        jump(context) {
+            context.$router.push('/ShowAllTeams')
+        },
 	    onSubmit() {
             if(this.form.isteamleader) {
                 console.log('start create')
                 teamSrv
-                    .createTeam(this)
+                    .createTeam(this,this.jump)
             } else {
                 teamSrv
-                    .checkCode(this)
+                    .checkCode(this,this.jump)
             }
         },
         testLeader() {
