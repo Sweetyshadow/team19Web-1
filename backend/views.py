@@ -521,6 +521,7 @@ def GetIndex(request):
 @csrf_exempt
 def Battle(request):
     if request.method == 'POST':
+        #return HttpResponse(request.getHeader("Referer"))
         team1_id = request.POST['team1']
         team2_id = request.POST['team2']
         team1 = TeamInfo.objects.get(id = team1_id)
@@ -541,10 +542,12 @@ def Battle(request):
         try:
             response = json.loads(r.text)
         except:
-            return HttpResponse(r)
+            return JsonResponse({'success':False,'message':r.text})
+        battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
+        response['battle_time'] = battle_time
         team1.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
         team2.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
-        return JsonResponse({'success':response['success'],'team1':team1.get_history()[-1],'team2':team2.get_history()[-1]})
+        return JsonResponse(response)
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
         return JsonResponse({'message':r.text})
