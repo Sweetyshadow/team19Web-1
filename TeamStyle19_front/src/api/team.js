@@ -6,7 +6,7 @@ export default {
   notLogin () {
     return !localStorage.getItem('teamstyle_id')
   },
-  showAll (context) {
+  showAll (context,requireAI) {
     console.log('loading')
     context.$http({
       url: TEAM_URL+'allteam',
@@ -15,14 +15,16 @@ export default {
       context.team = []
       context.teamid = []
       for(var i in response.body){
-        context.team.push({
-          teamname: response.body[i].teamname,
-          teamleader: response.body[i].leader,
-          teamid: response.body[i].teamid,
-          teammember: []
-        })
-        for(var j=1;j<response.body[i].scale;j++){
-          if(response.body[i]["member"+j]) context.team[i].teammember.push(response.body[i]["member"+j])
+        if(!requireAI || (requireAI&&response.body[i].hasAI)){
+          context.team.push({
+            teamname: response.body[i].teamname,
+            teamleader: response.body[i].leader,
+            teamid: response.body[i].teamid,
+            teammember: []
+          })
+          for(var j=1;j<response.body[i].scale;j++){
+            if(response.body[i]["member"+j]) context.team[context.team.length-1].teammember.push(response.body[i]["member"+j])
+          }
         }
         //context.teamid.push(response.body[i].teamid)
       }
@@ -242,8 +244,13 @@ export default {
       body: data
     }).then(response => {
       console.log(response)
-      if(typeof cb==='function'){
-        cb(context,response.body.battleid)
+      if(response.body.success){
+        if(typeof cb==='function'){
+          console.log(response.body.battleid)
+          cb(context,response.body.battleid)
+        }
+      } else {
+        alert(response.body.message)
       }
     }, response => {
       alert('gg')

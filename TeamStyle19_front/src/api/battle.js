@@ -33,7 +33,7 @@ export default {
   }*/
   getBattleDetail(context,battleid){
     return context.$http({
-      url: ''+battleid,
+      url: '/backend/teams/inquire/'+battleid,
       method: 'get'
     })
   }

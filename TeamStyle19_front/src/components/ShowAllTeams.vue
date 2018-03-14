@@ -37,6 +37,7 @@ export default {
   data(){
       return{
           team: [],
+          requireAI: false
           //teamid: [],
           /*test: {
               id1: null,
@@ -46,7 +47,7 @@ export default {
       }
   },
   created () {
-      teamSrv.showAll(this)
+      teamSrv.showAll(this,this.requireAI)
   },
   methods:{
       handleJoin (index,row) {
