@@ -17,6 +17,7 @@ import binascii
 import requests
 import json
 import random
+import time 
 
 # Create your views here.
 
@@ -533,7 +534,9 @@ def Battle(request):
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
         d = requests.post('http://123.207.140.186:8888/enviroment/',data = {'team1':code_url1[-2],'team2':code_url2[-2]})
-        return JsonResponse({'result':d.text})
+        initial_time = time.time()
+        while time.time() - initial_time < 3:
+            pass
         r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
         try:
             response = json.loads(r.text)
