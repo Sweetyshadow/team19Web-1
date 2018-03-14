@@ -541,7 +541,7 @@ def Battle(request):
         try:
             response = json.loads(r.text)
         except:
-            return HttpResponse(r)
+            return JsonResponse({'success':False,'message':r})
         battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
         response['battle_time'] = battle_time
         team1.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
