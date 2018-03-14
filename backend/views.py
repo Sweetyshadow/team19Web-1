@@ -543,7 +543,7 @@ def Battle(request):
         except:
             return HttpResponse(r)
         team1.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
-        team2.add_history(r.text)
+        team2.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
         return JsonResponse({'success':response['success'],'team1':team1.get_history()[-1],'team2':team2.get_history()[-1]})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
