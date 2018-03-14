@@ -532,6 +532,7 @@ def Battle(request):
         code_name1 = code_url1[-2] + '/' + code_url1[-1]
         code_name2 = code_url2[-2] + '/' + code_url2[-1]
         battle_data = {'team1':code_name1,'team2':code_name2}
+        d = requests.post('http://123.207.140.186:8888/enviroment/',data = {'team1':code_url1[-2],'team2':code_url2[-2]})
         r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
         try:
             response = json.loads(r.text)
