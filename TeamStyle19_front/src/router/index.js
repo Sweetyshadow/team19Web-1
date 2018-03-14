@@ -111,7 +111,7 @@ export default new Router({
       }
     },
     {
-      path: '/submit/:id',
+      path: '/submit/:battleid',
       name: 'submit',
       component: submit,
       meta: {
