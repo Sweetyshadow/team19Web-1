@@ -542,8 +542,7 @@ def Battle(request):
             response = json.loads(r.text)
         except:
             return HttpResponse(r)
-        history1 = json.loads(response['team1'])
-        team1.add_history(history1['total_round'] + ' ' + history1['battle_time'] + ' ' + history1['result'])
+        team1.add_history(response['total_round'] + ' ' + response['battle_time'] + ' ' + response['result'])
         team2.add_history(r.text)
         return JsonResponse({'success':response['success'],'team1':team1.get_history()[-1],'team2':team2.get_history()[-1]})
     elif request.method == 'GET':
