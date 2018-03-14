@@ -540,7 +540,7 @@ def Battle(request):
         if response['success']:
             return JsonResponse({'success':True,'battleid':team1_id + '+' +team2_id})
         else:
-            return JsonResponse({'success':False,'message':r.text})
+            return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
         return JsonResponse({'message':r.text})
