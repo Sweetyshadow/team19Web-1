@@ -364,11 +364,16 @@ def AllTeam(request):
         response = []
         teams = TeamInfo.objects.all()
         for team in teams:
+            if team.battle_code:
+                hasAI = True
+            else:
+                hasAI = False
             response.append({
                 'teamid':team.id,
                 'teamname':team.team_name,
                 'scale':team.member_num,
                 'leader':team.leader,
+                'hasAI':hasAI,
                 'member1':team.member1,
                 'member2':team.member2,
                 'member3':team.member3
@@ -526,14 +531,8 @@ def Battle(request):
         team2_id = request.POST['team2']
         team1 = TeamInfo.objects.get(id = team1_id)
         team2 = TeamInfo.objects.get(id = team2_id)
-        try:
-            code_url1 = team1.battle_code.name.split('/')
-            code_url2 = team2.battle_code.name.split('/')
-        except:
-            return JsonResponse({'success':False,'message':'not enough code!'})
-        code_name1 = code_url1[-2] + '/' + code_url1[-1]
-        code_name2 = code_url2[-2] + '/' + code_url2[-1]
-        battle_data = {'team1':code_name1,'team2':code_name2}
+
+        battle_data = {'team1':team1.team_name,'team2':team2.team_name,'id1':team1_id,'id2':team2_id}
         #d = requests.post('http://123.207.140.186:8888/enviroment/',data = {'team1':code_url1[-2],'team2':code_url2[-2]})
         #initial_time = time.time()
         #while time.time() - initial_time < 3:
@@ -543,14 +542,34 @@ def Battle(request):
             response = json.loads(r.text)
         except:
             return JsonResponse({'success':False,'message':r.text})
-        battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-        response['battle_time'] = battle_time
-        team1.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
-        team2.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
-        return JsonResponse(response)
+        if response['success']:
+            return JsonResponse({'success':True,'battleid':team1_id + '+' +team2_id})
+        else:
+            return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
         return JsonResponse({'message':r.text})
+#
+@csrf_exempt
+def Inquire(request,id1,id2):
+    if request.method == 'POST':
+        return JsonResponse({'success':False})
+    elif request.method == 'GET':
+        team1 = TeamInfo.objects.get(id = id1)
+        team2 = TeamInfo.objects.get(id = id2)
+        r = requests.get('http://123.207.140.186:8888/inquire/' + str(id1) + '+' + str(id2) + '&*+' + team1.team_name + '&*+' + team2.team_name + '/')
+        try:
+            response = json.loads(r.text)
+        except:
+            return JsonResponse({'success':False,'message':r.text})
+        if response['success']:
+            battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
+            response['battle_time'] = battle_time
+            team1.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
+            team2.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
+            return JsonResponse(response)
+        elif response['success'] == False:
+            return JsonResponse({'success':False,'message':response['message']})
 #fsfsdlfakjsl        
 
 
