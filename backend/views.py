@@ -364,11 +364,16 @@ def AllTeam(request):
         response = []
         teams = TeamInfo.objects.all()
         for team in teams:
+            if team.battle_code:
+                hasAI = True
+            else:
+                hasAI = False
             response.append({
                 'teamid':team.id,
                 'teamname':team.team_name,
                 'scale':team.member_num,
                 'leader':team.leader,
+                'hasAI':hasAI,
                 'member1':team.member1,
                 'member2':team.member2,
                 'member3':team.member3
