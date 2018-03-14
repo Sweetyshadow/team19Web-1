@@ -1,6 +1,6 @@
 const TEAM_URL = '/backend/teams/'
 const USER_URL = '/backend/students/' // 后可再加子域名
-
+//import io from 'socket.io-client'
 export default {
   name: 'teamSrv',
   notLogin () {
@@ -235,13 +235,16 @@ export default {
       console.log('gg')
     })
   },
-  startBattle (context, data){
+  startBattle (context, data, cb){
     context.$http({
       url: TEAM_URL+'battle/',
       method: 'post',
       body: data
     }).then(response => {
       console.log(response)
+      if(typeof cb==='function'){
+        cb(context,response.body.battleid)
+      }
     }, response => {
       alert('gg')
     })

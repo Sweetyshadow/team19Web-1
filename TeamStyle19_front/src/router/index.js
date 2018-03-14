@@ -14,6 +14,7 @@ import MyTeam from '@/components/MyTeam'
 import teamProfile from '@/components/teamProfile'
 import teamPulse from '@/components/teamPulse'
 import battle from '@/components/battle'
+import submit from '@/components/submit'
 // import PhotoUpload from '@/components/PhotoUpload'
 
 Vue.use(Router)
@@ -105,6 +106,14 @@ export default new Router({
       path: '/battle',
       name: 'battle',
       component: battle,
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/submit/:id',
+      name: 'submit',
+      component: submit,
       meta: {
         requireAuth: true
       }
