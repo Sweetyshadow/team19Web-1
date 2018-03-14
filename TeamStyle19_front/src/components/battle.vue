@@ -51,6 +51,10 @@ export default {
   methods: {
       jump (context) {
           context.$router.push('/ShowAllTeams')
+          //context.$router.push(path)
+      },
+      jumpwithParam (context, param) {
+          context.$router.push({name: 'submit', params: {param}})
       },
       handleBattle(index,row){
           const data = {
@@ -59,7 +63,7 @@ export default {
           }
           if(this.$store.state.teamindex!=null){
               console.log('start battle')
-              teamSrv.startBattle(this,data)
+              teamSrv.startBattle(this,data,this.jumpwithParam)
           } else {
               alert('获取队伍信息失败')
           }
