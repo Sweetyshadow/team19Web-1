@@ -550,9 +550,9 @@ def Inquire(request,id1,id2):
     if request.method == 'POST':
         return JsonResponse({'success':False})
     elif request.method == 'GET':
-        team1 = TeamInfo.objects.get(id = id1).team_name
-        team2 = TeamInfo.objects.get(id = id2).team_name
-        r = requests.get('http://123.207.140.186:8888/inquire/' + str(id1) + '+' + str(id2) + '&*+' + team1 + '&*+' + team2 + '/')
+        team1 = TeamInfo.objects.get(id = id1)
+        team2 = TeamInfo.objects.get(id = id2)
+        r = requests.get('http://123.207.140.186:8888/inquire/' + str(id1) + '+' + str(id2) + '&*+' + team1.team_name + '&*+' + team2.team_name + '/')
         try:
             response = json.loads(r.text)
         except:
