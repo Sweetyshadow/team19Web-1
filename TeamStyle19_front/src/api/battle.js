@@ -19,7 +19,7 @@ export default {
       alert(response.msg)
     })
   },
-  battle (context, enemy) {
+  /*battle (context, enemy) {
     var socket = io.connect('')
     var send_data = {
       p1: context.$store.state.userInfo,
@@ -29,6 +29,12 @@ export default {
     socket.on('progressBattle', response => {
       // render progress in context
       console.log(response)
+    })
+  }*/
+  getBattleDetail(context,battleid){
+    return context.$http({
+      url: ''+battleid,
+      method: 'get'
     })
   }
 }
