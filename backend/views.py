@@ -521,7 +521,7 @@ def GetIndex(request):
 @csrf_exempt
 def Battle(request):
     if request.method == 'POST':
-        return HttpResponse(request.getHeader("Referer"))
+        #return HttpResponse(request.getHeader("Referer"))
         team1_id = request.POST['team1']
         team2_id = request.POST['team2']
         team1 = TeamInfo.objects.get(id = team1_id)
