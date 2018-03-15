@@ -56,22 +56,21 @@ def StudentReg(request):
             the_student_id = form.cleaned_data['studentID']
             the_pwd = form.cleaned_data['pwd']
             the_email = form.cleaned_data['email']
-            try:
-                check_username = StudentInfo.objects.get(student_nickname = the_name)
-                check_student_id = StudentInfo.objects.get(student_id=the_student_id)
-                check_email = StudentInfo.objects.get(thu_email=the_email)
-                if check_username:
-                    success = False
-                    message += "the name exist!"
-                elif check_student_id:
-                    success = False
-                    message += "the ID exist!"
-                elif check_email:
-                    success = False
-                    message += "the Email exist!"
-            except:
+            check_username = StudentInfo.objects.get(student_nickname = the_name)
+            check_student_id = StudentInfo.objects.get(student_id=the_student_id)
+            check_email = StudentInfo.objects.get(thu_email=the_email)
+            if check_username:
+                success = False
+                message += "the name exist!"
+            elif check_student_id:
+                success = False
+                message += "the ID exist!"
+            elif check_email:
+                success = False
+                message += "the Email exist!"
+            else:
                 success = True
-            if success == True:
+            if success is True:
                 the_salt = binascii.hexlify(os.urandom(4)).decode()
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
