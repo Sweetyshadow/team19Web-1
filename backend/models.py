@@ -4,6 +4,7 @@ import hashlib
 import json
 # Create your models here.
 
+HISTORY_LENGTH = 20
 
 class TeamInfo(models.Model):
     team_name = models.CharField(max_length=30, null=True)
@@ -35,6 +36,10 @@ class TeamInfo(models.Model):
     def add_history(self,x):
         a = json.loads(self.history)
         a.append(x)
+        if len(a) > HISTORY_LENGTH:
+            del a[0]
+        else:
+            pass
         self.history = json.dumps(a)
         self.save()
 
