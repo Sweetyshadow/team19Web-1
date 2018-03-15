@@ -553,7 +553,7 @@ def Battle(request):
             else:
                 pass
         if flag == False:
-            return JsonResponse({'success':False,'message':'服务器正忙，请稍后再试！'})
+            return JsonResponse({'success':False,'message':'服务器正忙，请稍后再试！' + r.text})
         #r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
         try:
             response = json.loads(r.text)
