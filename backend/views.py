@@ -632,20 +632,20 @@ def find_password(request):
         form = EmailValidation(request.POST)
         if form.is_valid():
             user_email = form.cleaned_data['email']
-            #user_id = form.cleaned_data['userid']
-            #try:
-            the_student = StudentInfo.objects.get(thu_email = user_email)
-            #except:
-                #return JsonResponse({'success':False,'message':"invalid email!!!!!"})
-            new_pwd = str(random.randint(10000000,99999999))
-            the_student.password = hashvalue(new_pwd, the_student.salt)
-            the_student.save()
-            password_email(the_student.student_nickname, user_email,new_pwd)
-            return JsonResponse({'success':True,'name':the_student.student_nickname})
+            if StudentInfo.objects.filter(thu_email=user_email).exists():
+                the_student = StudentInfo.objects.get(thu_email=user_email)
+                new_pwd = str(random.randint(10000000, 99999999))
+                the_student.password = hashvalue(new_pwd, the_student.salt)
+                the_student.save()
+                password_email(the_student.student_nickname, user_email, new_pwd)
+                return JsonResponse({'success':True,'name':the_student.student_nickname})
+            else:
+                return JsonResponse({'success': False, 'message': "invalid email!!!!!"})
         else:
-                return JsonResponse({'success':False,'message':"invalid form!!!!!"})
+            return JsonResponse({'success':False,'message':"invalid form!!!!!"})
     else:
         return HttpResponse("STUPID MAN!!!!")
+
 
 def password_email(username, email, new_pwd):
     try:
@@ -654,7 +654,6 @@ def password_email(username, email, new_pwd):
         f = open(path, 'rb')
         body = f.read()
         body = body.decode('utf-8')
-        user = StudentInfo.objects.get(student_nickname=username)
         attach1 = " %s " % username
         attach2 = new_pwd
         body = body % (attach1, attach2)
