@@ -566,7 +566,7 @@ def Battle(request):
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
         return JsonResponse({'message':r.text})
-#
+
 @csrf_exempt
 def Inquire(request,id1,id2):
     if request.method == 'POST':
