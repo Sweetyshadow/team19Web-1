@@ -545,6 +545,7 @@ def Battle(request):
         flag = False
         for server in servers:
             if server.is_busy == False:
+                print(server.port)
                 server.is_busy = True
                 server.battle_id = team1_id + '+' +team2_id
                 server.save()
