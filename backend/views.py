@@ -545,7 +545,7 @@ def Battle(request):
         flag = False
         for server in servers:
             if not server.is_busy:
-                r = requests.post('http://123.207.140.186:8888/%s/'%server.port,data = battle_data)
+                r = requests.post('http://123.207.140.186:%s/battle/'%server.port,data = battle_data)
                 server.is_busy = True
                 server.battle_id = team1_id + '+' +team2_id
                 server.save()
