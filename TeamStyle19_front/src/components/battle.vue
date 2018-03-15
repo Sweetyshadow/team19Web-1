@@ -2,6 +2,10 @@
   <div>
     <p>Submit Your Code and Start Combating Today!</p>
     <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
+    <div v-if="compileError" id="ErrorInfo">
+        <h1>Compile Error</h1>
+        <p> {{ ErrorDetail }}</p>
+    </div>
     <el-table :data='team' :default-sort="{prop: 'teamscore', order: 'descending'}" stripe>
         <el-table-column type="index" align="center"></el-table-column>
         <el-table-column prop="teamname" label="队伍名称" align="center" sortable></el-table-column>
@@ -45,6 +49,8 @@ export default {
           acceptedFormat: [],
           team: [],
           //teamid: [],
+          compileError: true,
+          ErrorDetail: null,
           code: null,
           requireAI: true
       }
@@ -74,6 +80,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#ErrorInfo{
+    background: #ffc;
+}
 .el-table{
     width: 640px;
     margin: 20px auto;
