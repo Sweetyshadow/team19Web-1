@@ -43,7 +43,7 @@ class TeamInfo(models.Model):
         self.history = json.dumps(a)
         self.save()
 
-
+#
 
 class StudentInfo(models.Model):
     team_name = models.ForeignKey(TeamInfo, on_delete=models.CASCADE, null=True)
