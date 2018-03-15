@@ -57,10 +57,18 @@ def StudentReg(request):
             the_pwd = form.cleaned_data['pwd']
             the_email = form.cleaned_data['email']
             try:
-                the_student = StudentInfo.objects.get(student_nickname = the_name)
-                if the_student:
+                check_username = StudentInfo.objects.get(student_nickname = the_name)
+                check_student_id = StudentInfo.objects.get(student_id=the_student_id)
+                check_email = StudentInfo.objects.get(thu_email=the_email)
+                if check_username:
                     success = False
                     message += "the name exist!"
+                elif check_student_id:
+                    success = False
+                    message += "the ID exist!"
+                elif check_email:
+                    success = False
+                    message += "the Email exist!"
             except:
                 success = True
             if success == True:
