@@ -545,10 +545,10 @@ def Battle(request):
         flag = False
         for server in servers:
             if server.is_busy == False:
-                r = requests.post('http://123.207.140.186:%s/battle/'%server.port,data = battle_data)
                 server.is_busy = True
                 server.battle_id = team1_id + '+' +team2_id
                 server.save()
+                r = requests.post('http://123.207.140.186:%s/battle/'%server.port,data = battle_data)               
                 flag = True
             else:
                 print(server.is_busy )
