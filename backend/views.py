@@ -575,7 +575,6 @@ def Inquire(request,id1,id2):
     if request.method == 'POST':
         return JsonResponse({'success':False})
     elif request.method == 'GET':
-        cursor = connection.cursor()
         team1 = TeamInfo.objects.get(id = id1)
         team2 = TeamInfo.objects.get(id = id2)
         the_battle_id = '%s+%s'%(id1,id2)
@@ -591,7 +590,7 @@ def Inquire(request,id1,id2):
             return JsonResponse({'success':False,'message':r.text})
         if response['success']:
             the_server.is_busy = False
-            cursor.execute("update backend_dockerserver set battle_id = null where id = " + str(the_server.id)) + ';'
+            the_server.battle_id = 'none'
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
