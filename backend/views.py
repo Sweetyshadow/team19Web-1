@@ -591,7 +591,7 @@ def Inquire(request,id1,id2):
             return JsonResponse({'success':False,'message':r.text})
         if response['success']:
             the_server.is_busy = False
-            cursor.execute("update backend_dockerserver set battle_id = null where id = " + str(the_server.id))
+            cursor.execute("update backend_dockerserver set battle_id = null where id = " + str(the_server.id)) + ';'
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
