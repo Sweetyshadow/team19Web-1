@@ -551,6 +551,7 @@ def Battle(request):
                 server.save()
                 flag = True
             else:
+                print(server.is_busy )
                 pass
         if flag == False:
             return JsonResponse({'success':False,'message':'服务器正忙，请稍后再试！' + r.text})
