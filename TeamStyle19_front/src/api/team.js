@@ -80,6 +80,7 @@ export default {
       //console.log(response.body)
       if(response.body.success == true){
         context.teamname = response.body.teamname
+        context.invitecode = response.body.invitecode
         context.team = []
         for(var i = 1;i<response.body.scale;i++){
           if(response.body["member"+i]!=null) 

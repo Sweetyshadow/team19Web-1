@@ -1,7 +1,12 @@
 <template>
-  <div>
-      <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
-      <h1>{{teamname}}</h1>
+  <div id="wrap">
+      <div class="column right">
+        <h1>{{teamname}}</h1>
+        <p v-if="isleader"> 邀请码： {{invitecode}}</p>
+      </div>
+      <div class="column left">
+        <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
+      </div>      
         <el-table :data="team" :span-method="arraySpanMethod" stripe border>
             <el-table-column prop="leader" label="队长" align="center">
             </el-table-column>
@@ -13,6 +18,20 @@
                 </template>
             </el-table-column>
         </el-table>
+        <div>
+            <h1>Battle History</h1>
+            <el-table :data="history">
+                <el-table-column type="index">
+                </el-table-column>
+                <el-table-column prop="time" label="对战时间" align="center">
+                </el-table-column>
+                <el-table-column label="回放文件">
+                    <template slot-scope="rpy">
+                        <el-button size="mini" type="primary" @click="handleDownload(rpy.$index, rpy.row)">下载</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </div>
   </div>
 </template>
 
@@ -30,6 +49,7 @@ export default {
           //memberid: [],
           isleader: true,
           teamname: null,
+          invitecode: null,
           isProfile: true,
           icon: "el-icon-plus",
           acceptedFormat: ['image/*']
@@ -62,10 +82,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div{
+div#wrap{
     max-width: 600px;
     min-width: 480px;
     margin: 40px auto;
+}
+div.column{
+    display: inline-block;
+    vertical-align: top;
+}
+div.left{
+    width: 30%;
+}
+div.right{
+    width: 60%;
 }
 h1{
     text-align: left;
