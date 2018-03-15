@@ -17,8 +17,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+            <state relative-caret-position="311">
+              <caret line="618" column="34" lean-forward="true" selection-start-line="618" selection-start-column="34" selection-end-line="618" selection-end-column="34" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
               </folding>
@@ -29,13 +29,9 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myproject/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1672">
+            <state relative-caret-position="19">
               <caret line="88" column="1" lean-forward="false" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
-              <folding>
-                <marker date="1521096828618" expanded="true" signature="3204:3304" ph="..." />
-                <marker date="1521096828618" expanded="true" signature="3410:3594" ph="..." />
-                <marker date="1521096828618" expanded="true" signature="3558:3593" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -362,11 +358,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1558">
           <caret line="82" column="26" lean-forward="true" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
-          <folding>
-            <marker date="1521096828618" expanded="true" signature="3204:3304" ph="..." />
-            <marker date="1521096828618" expanded="true" signature="3410:3594" ph="..." />
-            <marker date="1521096828618" expanded="true" signature="3558:3593" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -638,18 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myproject/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1672">
-          <caret line="88" column="1" lean-forward="false" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
-          <folding>
-            <marker date="1521096828618" expanded="true" signature="3204:3304" ph="..." />
-            <marker date="1521096828618" expanded="true" signature="3410:3594" ph="..." />
-            <marker date="1521096828618" expanded="true" signature="3558:3593" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/static/PasswordMessage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -674,10 +654,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myproject/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="88" column="1" lean-forward="false" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="51" column="20" lean-forward="true" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+        <state relative-caret-position="311">
+          <caret line="618" column="34" lean-forward="true" selection-start-line="618" selection-start-column="34" selection-end-line="618" selection-end-column="34" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
