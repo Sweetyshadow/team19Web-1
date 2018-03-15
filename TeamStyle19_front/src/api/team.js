@@ -256,5 +256,12 @@ export default {
     }, response => {
       alert('gg')
     })
+  },
+  getBattleHistory(context,teamID){
+    return context.$http({
+      url: '',
+      method: 'post',
+      body: {teamid: teamID}
+    })
   }
 }

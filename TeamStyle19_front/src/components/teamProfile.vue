@@ -46,6 +46,7 @@ export default {
   data() {
       return {
           team: [],
+          history: [],
           //memberid: [],
           isleader: true,
           teamname: null,
@@ -62,6 +63,7 @@ export default {
           teamSrv.isLeader(this)
       //}
       teamSrv.showMyteam(this)
+      this.renderBattleHistory(localStorage.getItem('teamstyle_id'))
   },
   methods: {
       handleDelete(index, row){          
@@ -77,6 +79,21 @@ export default {
             }
         }
       },
+      renderBattleHistory(userid){
+          if(!this.$store.state.teamindex){
+              teamSrv.getMyteamindex(this,this.jump)
+          }
+          teamSrv.getBattleHistory(this,this.$store.state.teamindex).then(response => {
+              console.log(response)
+              if(response.body.success){
+                  //bind data
+              } else {
+                  alert(response.body.message)
+              }
+          }, response => {
+              alert('fail to get battle history')
+          })
+      }
   }
 }
 </script>
