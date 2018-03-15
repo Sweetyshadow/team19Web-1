@@ -4,7 +4,7 @@ import hashlib
 import json
 # Create your models here.
 
-HISTORY_LENGTH = 20
+HISTORY_LENGTH = 20#
 
 class TeamInfo(models.Model):
     team_name = models.CharField(max_length=30, null=True)
