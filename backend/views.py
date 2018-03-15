@@ -58,13 +58,13 @@ def StudentReg(request):
             the_email = form.cleaned_data['email']
             if StudentInfo.objects.filter(student_nickname=the_name).exists():
                 success = False
-                message += "the name exist!"
+                message += "用户名已存在！"
             elif StudentInfo.objects.filter(student_id=the_student_id).exists():
                 success = False
-                message += "the ID exist!"
+                message += "学号已存在！"
             elif StudentInfo.objects.filter(thu_email=the_email).exists():
                 success = False
-                message += "the Email exist!"
+                message += "电子邮箱已存在！"
             else:
                 success = True
             if success is True:
@@ -106,9 +106,9 @@ def StudentLogin(request):
                         success = True
                     else :message += "你还不是正式用户！"
                 else :
-                    message += "wrong password!"
+                    message += "用户名或密码错误！"
             except:
-                message += "the user does not exist!"
+                message += "用户名或密码错误!"
 
             if success == True:
                 return JsonResponse({'success':success,'id':str(the_student.id),'message':message})            
@@ -169,10 +169,10 @@ def ModifyPwd(request):
                     success = True
                     return JsonResponse({'userid':the_id,'password':the_student.password})
                 else :
-                    message = "The old password is wrong!"
+                    message = "原密码错误！"
                     return JsonResponse({'success':success,'message':message})
             else :
-                message = "The student doesn't exist！"
+                message = "该用户不存在！"
                 return JsonResponse({'success':success,'message':message})
         else:
             return JsonResponse({'success':success,'message':form.errors})
@@ -196,15 +196,15 @@ def TeamAdd(request):
             for t in teams:
                 if t.team_name == the_name:
                     success = False
-                    message += "team name exist!"
+                    message += "队伍名称重复！"
                     return JsonResponse({'success':success,'message':message})
                 if t.invite_code == invite_code:
                     success = False
-                    message += "invite code exist!"
+                    message += "邀请码重复！"
                     return JsonResponse({'success':success,'message':message})
             if the_student.team_name :
                 success = False
-                message += " you've already have a team!"
+                message += "你已经加入了一支队伍！"
             if success == True:
                new_team = TeamInfo.objects.create(
                     team_name = the_name,
@@ -238,12 +238,12 @@ def TeamJoin(request):
         the_id = request.POST['userid']
         the_student = StudentInfo.objects.get(id = the_id)
         if the_student.team_name :
-            message += " you've already have a team!"
+            message += "您已经加入了一支队伍！"
             return JsonResponse({'success':success,'message':message,'name':the_student.student_nickname,'team':the_student.team_name.team_name})
         else :
             the_team = TeamInfo.objects.get(id = request.POST['teamid'])
             if the_team.invite_code != invite_code:
-                message = "the wrong invite code !"
+                message = "邀请码不存在！"
                 return JsonResponse({'success':success,'message':message})
             the_scale = the_team.member_num
             if the_scale < 4:
@@ -273,7 +273,7 @@ def TeamJoin(request):
                 response['success'] = success
                 return JsonResponse(response)
             else:
-                message += "the team is full!"
+                message += "队伍已满！"
                 member_num = 4
                 return JsonResponse({'success':success,'message':message})
         #except:
@@ -313,7 +313,7 @@ def TeamExit(request):
             del the_team.member3
             cursor.execute("update backend_teaminfo set member3 = null where id = " + str(the_team.id))
         else:
-            message = "the student is not in the team!"
+            message = "此人并不在您的队伍里！"
             success = False
             return JsonResponse({'success':success,'message':message})
         the_team.member_num -= 1
@@ -355,7 +355,7 @@ def MyTeam(request):
                 response['invitecode'] = the_team.invite_code
             return JsonResponse(response)
         else :
-            message += "You haven't joined a team!"
+            message += "你还没有加入一支队伍！"
             return JsonResponse({'success':success,'message':message})            
     elif request.method == 'GET':
         return HttpResponse(locals())
@@ -415,9 +415,9 @@ def UploadFile(request):
                     destination.close()
                     the_student.profile_photo = url
                     the_student.save()
-                    return JsonResponse({'success':'aaaaaa!'})
+                    return JsonResponse({'success':'头像上传成功！'})
                 else :
-                    return JsonResponse({'success':False,'message':"the user does not exist!"})  
+                    return JsonResponse({'success':False,'message':"该用户不存在！"})  
             else:
                 if the_student:
                     if the_student.team_name:
@@ -446,9 +446,9 @@ def UploadFile(request):
                             #os.chdir(old_p)
                         return JsonResponse({'success':r.text})
                     else:
-                        return JsonResponse({'success':False,'message':"the user does not have a team!"})
+                        return JsonResponse({'success':False,'message':"该用户还没有加入一支队伍！"})
                 else:
-                    return JsonResponse({'success':False,'message':"the user does not exist!"})
+                    return JsonResponse({'success':False,'message':"该用户不存在！"})
 
 
             return JsonResponse({'success':True,'message':'Upload!','post':str(request.POST)})
@@ -481,9 +481,9 @@ def GetCode(request):#用于代码下载
             if the_team.battle_code:
                 file_name = the_team.battle_code.name
             else:
-                return JsonResponse({'success':False,'message':'no code'})
+                return JsonResponse({'success':False,'message':'您的队伍还没有上传代码！'})
         else :
-            return JsonResponse({'success':False,'message':'no team'})       
+            return JsonResponse({'success':False,'message':'您还没有加入一支队伍！'})       
         response = FileResponse(open(file_name))
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename=' + file_name
