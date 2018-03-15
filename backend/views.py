@@ -5,7 +5,7 @@ from django.views import generic
 from django.db import models,connection
 from django.conf import settings
 from django.core.mail import send_mail, mail_admins, BadHeaderError
-from .models import TeamInfo, StudentInfo, RuleFile
+from .models import TeamInfo, StudentInfo, RuleFile, DockerServer
 from .forms import StudentRegForm, StudentLoginForm, PasswordModifyForm, TeamAddForm, EmailValidation
 from django.views.decorators.csrf import csrf_exempt
 
@@ -537,7 +537,20 @@ def Battle(request):
         #initial_time = time.time()
         #while time.time() - initial_time < 3:
         #    pass
-        r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
+        servers = DockerServer.objects.all()
+        flag = False
+        for server in servers:
+            if not server.is_busy:
+                r = requests.post('http://123.207.140.186:8888/%s/'%server.port,data = battle_data)
+                server.is_busy = True
+                server.battle_id = team1_id + '+' +team2_id
+                server.save()
+                flag = True
+            else:
+                pass
+        if flag == False:
+            return JsonResponse({'success':False,'message':'服务器正忙，请稍后再试！'})
+        #r = requests.post('http://123.207.140.186:8888/battle/',data = battle_data)
         try:
             response = json.loads(r.text)
         except:
@@ -557,12 +570,19 @@ def Inquire(request,id1,id2):
     elif request.method == 'GET':
         team1 = TeamInfo.objects.get(id = id1)
         team2 = TeamInfo.objects.get(id = id2)
-        r = requests.get('http://123.207.140.186:8888/inquire/' + str(id1) + '+' + str(id2) + '&*+' + team1.team_name + '&*+' + team2.team_name + '/')
+        the_battle_id = '%s+%s'%(id1 + id2)
+        if DockerServer.objects.filter(battle_id = the_battle_id).exists():
+            the_server = DockerServer.objects.get(battle_id = the_battle_id)            
+            r = requests.get('http://123.207.140.186:%s/inquire/%s&*+%s&*+/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name))
+        else:
+            return JsonResponse({'success':False,'message':'本场对战不存在！'})
         try:
             response = json.loads(r.text)
         except:
             return JsonResponse({'success':False,'message':r.text})
         if response['success']:
+            the_server.is_busy = False
+            the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
             team1.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
