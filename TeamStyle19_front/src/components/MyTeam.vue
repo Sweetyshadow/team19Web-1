@@ -18,10 +18,10 @@
 
 
 <script>
-/*import teamSrv from '@/api/team.js'
+//import teamSrv from '@/api/team.js'
 export default {
   name: 'MyTeam',
-  data() {
+  /*data() {
       return {
           team: [],
           //memberid: [],
@@ -51,8 +51,8 @@ export default {
             }
         }
       },
-  }
-}*/
+  }*/
+}
 </script>
 
 
