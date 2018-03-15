@@ -594,8 +594,8 @@ def Inquire(request,id1,id2):
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
-            team1.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
-            team2.add_history(str(response['total_round']) + ' ' + str(response['battle_time']) + ' ' + str(response['result']))
+            team1.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
+            team2.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
             return JsonResponse(response)
         elif response['success'] == False:
             return JsonResponse({'success':False,'message':response['message']})
