@@ -35,7 +35,7 @@ export default {
   },
   created(){
     teamSrv.getMyteamindex(this,this.jump)
-    teamSrv.showAll(this)
+    teamSrv.showAll(this,this.requireAI)
     fileSrv.getAI(this)
   },
   data(){
@@ -45,7 +45,8 @@ export default {
           acceptedFormat: [],
           team: [],
           //teamid: [],
-          code: null
+          code: null,
+          requireAI: true
       }
   },
   methods: {
@@ -53,8 +54,8 @@ export default {
           context.$router.push('/ShowAllTeams')
           //context.$router.push(path)
       },
-      jumpwithParam (context, param) {
-          context.$router.push({name: 'submit', params: {param}})
+      jumpwithParam (context, battleid) {
+          context.$router.push({name: 'submit', params: { battleid:battleid }})
       },
       handleBattle(index,row){
           const data = {

@@ -4,7 +4,7 @@
         miku here
       </div>
       <div v-else class="result">
-        <p>{{resultDetail}}</p>
+        <p>{{resultDetail}}</p>         
       </div>        
   </div>
 </template>
@@ -20,8 +20,8 @@ export default {
     }
   },
   created(){
-    var battleid = this.$route.params.id
-    getDetail(battleid)
+    var battleid = this.$route.params.battleid
+    this.getDetail(battleid)
   },
   methods: {
     getDetail(id){
@@ -39,7 +39,7 @@ export default {
       const duration = 3600 * 1000
       const endTime = Number(new Date()) + duration
       this.poll = setInterval(() => {
-        battleSrv.getBattleDetail(id).then(response => {
+        battleSrv.getBattleDetail(this,id).then(response => {
           if(response.body.success) {
             //bind data
             this.isWait = false
