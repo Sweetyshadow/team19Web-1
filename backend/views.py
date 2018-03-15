@@ -575,7 +575,7 @@ def Inquire(request,id1,id2):
     elif request.method == 'GET':
         team1 = TeamInfo.objects.get(id = id1)
         team2 = TeamInfo.objects.get(id = id2)
-        the_battle_id = '%s+%s'%(id1 + id2)
+        the_battle_id = '%s+%s'%(id1,id2)
         if DockerServer.objects.filter(battle_id = the_battle_id).exists():
             the_server = DockerServer.objects.get(battle_id = the_battle_id)            
             r = requests.get('http://123.207.140.186:%s/inquire/%s%s&*+%s&*+/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name))
