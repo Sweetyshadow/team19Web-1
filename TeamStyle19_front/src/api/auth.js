@@ -21,7 +21,7 @@ export default {
       emulateJSON: true
     }).then(response => {
       if(response.body.success == true){
-        alert('Congratulations! You have created your account.')
+        alert('请前往您的注册邮箱激活账号')
         console.log(response)
         if(typeof cb == 'function'){
           cb(context)
@@ -73,7 +73,7 @@ export default {
     }, response => {
       // fail call back
       this.logout(context)
-      alert('fail') // msg假设为错误提示
+      alert('login gg') // msg假设为错误提示
       context.form.username = ''
       context.form.password = ''
       console.log('更新')
