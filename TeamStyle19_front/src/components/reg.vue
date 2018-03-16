@@ -76,7 +76,8 @@ export default {
   },
   computed: {
     disabled(){
-      return this.form.email===''||this.form.username===''||this.form.username.match(/ |\//)||this.form.password===''||this.form.studentID.length!=10
+      return this.form.email===''||!this.form.email.match(/@mails.tsinghua.edu.cn$/)||
+             this.form.username===''||this.form.username.match(/ |\//)||this.form.password===''||this.form.studentID.length!=10
     }
   },
   methods: {
