@@ -430,6 +430,10 @@ def UploadFile(request):
                         destination = open(url,'wb+')
                         for chunk in myfile.chunks():
                             destination.write(chunk)
+                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/' + str(myfile.name)
+                        destination = open(url2,'wb+')
+                        for chunk in myfile.chunks():
+                            destination.write(chunk)
                         the_team = TeamInfo.objects.get(team_name = the_student.team_name)
                         the_team.battle_code = url
                         the_team.save()
