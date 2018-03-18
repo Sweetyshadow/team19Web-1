@@ -76,6 +76,7 @@
 				formData.append('headpic',this.isProfile)
 			},
 			complete(file,status,xhr) {
+				console.log(xhr.response.success)
 				this.icon = this._icon
 				if(status === 'error')
 					alert(file.errorMessage)
@@ -104,9 +105,12 @@
     overflow: hidden;
 		font-size: 84px;
     color: #8c939d;
-    width: 100px;
+    /*width: 100px;
     height: 100px;
-    line-height: 100px;
+    line-height: 100px;*/
+		width: 100%;
+		height: 100%;
+		line-height: inherit;
     text-align: center;
   }
   .uploader-icon:hover {

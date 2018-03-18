@@ -1,12 +1,17 @@
 <template>
   <div>
     <div class="title">
-        <p>Submit Your Code and Start Combating Today!</p>
+        <h2>Submit Your Code and Start Combating Today!</h2>
     </div>
     <div class="version">
         <p>当前平台版本：{{ version }}</p>
     </div>
-    <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>    
+    <div class="upload">
+        <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"
+            style="width: 150px; height: 100px; line-height: 100px;"></upload>    
+        <div><i class="el-icon-info">点击或拖拽上传</i></div>
+        <div><i class="el-icon-warning">Note: 系统仅保留最新上传文件</i></div>
+    </div>
     <div v-if="compileError" id="ErrorInfo">
         <h1>Compile Error</h1>
         <p> {{ ErrorDetail }}</p>
@@ -24,7 +29,7 @@
             </template>
         </el-table-column>
     </el-table>
-    <p>View your submit</p>
+    <h2>View your submit</h2>
     <template v-if="code">
         <pre v-highlightjs><code class="cpp">{{ code }}</code></pre>
     </template>
@@ -110,11 +115,19 @@ code {
     min-width: 640px;
     max-width: 1200px;
 }
-div.version{
-    text-align: right;
+.title,.version{
+    display: inline-block;
+}
+.version {
+    float: right;
+    margin-right: 12px;
 }
 /*span {
     font-family: inherit;
     font-size: inherit;
 }*/
+
+.upload div{
+    margin: 12px 0;
+}
 </style>

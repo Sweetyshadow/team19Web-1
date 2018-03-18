@@ -5,7 +5,7 @@
         <p v-if="isleader"> 邀请码： {{invitecode}}</p>
       </div>
       <div class="column left">
-        <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
+        <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat" style="width: 100px; height: 100px; line-height: 100px"></upload>
       </div>      
         <el-table :data="team" :span-method="arraySpanMethod" stripe border>
             <el-table-column prop="leader" label="队长" align="center">
