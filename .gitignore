@@ -3,3 +3,4 @@
 #忽略debug.log
 *.log
 #
+/static/
