@@ -430,7 +430,7 @@ def UploadFile(request):
                         destination = open(url,'wb+')
                         for chunk in myfile.chunks():
                             destination.write(chunk)
-                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/' + str(myfile.name)
+                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.team_namee.name)
                         destination = open(url2,'wb+')
                         for chunk in myfile.chunks():
                             destination.write(chunk)
