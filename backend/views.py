@@ -444,6 +444,14 @@ def UploadFile(request):
                             #execute = '/home/ubuntu/team19/team/' + the_team.team_name + '/' + the_team.team_name + '.exe'
                             #os.system('g++ main.cpp player.cpp api_player.cpp communication.cpp -pthread -std=c++11 -o ' + execute)
                             #os.chdir(old_p)
+                            try:
+                                response = json.loads(r.text)
+                            except:
+                                return JsonResponse({'success':False,'message':r.text})
+                            if response['success']:
+                                return JsonResponse({'success':True})
+                            else:
+                                return JsonResponse({'success':False,'message':response['message']})
                         return JsonResponse({'success':r.text})
                     else:
                         return JsonResponse({'success':False,'message':"该用户还没有加入一支队伍！"})
