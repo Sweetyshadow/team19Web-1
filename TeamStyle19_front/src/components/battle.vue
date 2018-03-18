@@ -1,7 +1,12 @@
 <template>
   <div>
-    <p>Submit Your Code and Start Combating Today!</p>
-    <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>
+    <div class="title">
+        <p>Submit Your Code and Start Combating Today!</p>
+    </div>
+    <div class="version">
+        <p>当前平台版本：{{ version }}</p>
+    </div>
+    <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"></upload>    
     <div v-if="compileError" id="ErrorInfo">
         <h1>Compile Error</h1>
         <p> {{ ErrorDetail }}</p>
@@ -32,6 +37,7 @@
 import upload from './upload'
 import teamSrv from '@/api/team.js'
 import fileSrv from '@/api/file.js'
+import battleSrv from '@/api/battle.js'
 export default {
   name: 'battle',
   components: {
@@ -41,15 +47,23 @@ export default {
     teamSrv.getMyteamindex(this,this.jump)
     teamSrv.showAll(this,this.requireAI)
     fileSrv.getAI(this)
+    battleSrv.getPlatformVersion(this).then(response => {
+        if(response.body.success) {
+            this.version = response.body.version
+        }
+    }, response => {
+        this.version = '暂无数据'
+    })
   },
   data(){
       return {
+          version: null,
           isProfile: false,
           icon: "el-icon-upload",
           acceptedFormat: [],
           team: [],
           //teamid: [],
-          compileError: true,
+          compileError: false,
           ErrorDetail: null,
           code: null,
           requireAI: true
@@ -95,6 +109,9 @@ code {
     margin: 0 auto;
     min-width: 640px;
     max-width: 1200px;
+}
+div.version{
+    text-align: right;
 }
 /*span {
     font-family: inherit;

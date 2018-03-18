@@ -31,6 +31,12 @@ export default {
       console.log(response)
     })
   }*/
+  getPlatformVersion( context ){
+    return context.$http({
+      url: '',
+      method: 'get'
+    })
+  },
   getBattleDetail(context,battleid){
     return context.$http({
       url: '/backend/teams/inquire/'+battleid,
