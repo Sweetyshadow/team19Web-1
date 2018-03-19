@@ -611,6 +611,16 @@ def Inquire(request,id1,id2):
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
+            score1 = team1.score
+            score2 = team2.score
+            E1 = 1/(1 + pow(10,(score2-score1)/400))
+            E2 = 1/(1 + pow(10,(score1-score2)/400))
+            if response['result']['winner'] == team1.team_name:
+                team1.score = team1.score + 32 * (1 - E1)
+                team2.score = team2.score + 32 * (0 - E2)
+            else:
+                team1.score = team1.score + 32 * (0 - E1)
+                team2.score = team2.score + 32 * (1 - E2)
             team1.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
             team2.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
             team1.battle_time += 1
