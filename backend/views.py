@@ -514,11 +514,11 @@ def GetCode(request):#用于代码下载
 @csrf_exempt
 def GetScore(request):
     if request.method == 'GET':
-        return JsonResponse({'score':TeamInfo.objects.get(id = 1).get_score()})
+        return JsonResponse({'score':TeamInfo.objects.get(id = 1).score})
     else :
         the_student = StudentInfo.objects.get(id = request.POST['userid'])
         the_team = the_student.team_name
-        return JsonResponse({'score':the_team.get_score()})
+        return JsonResponse({'score':the_team.score})
 
 @csrf_exempt
 def GetFile(request,filename):
