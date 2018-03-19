@@ -72,6 +72,6 @@ class RuleFile(models.Model):
         return self.title
 
 class DockerServer(models.Model):
-    port = models.IntegerField(max_length = 10,null = True)
+    port = models.IntegerField(null = True)
     is_busy = models.BooleanField(default = False)
     battle_id = models.CharField(max_length= 50,null = True)
