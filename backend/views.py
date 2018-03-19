@@ -17,7 +17,8 @@ import binascii
 import requests
 import json
 import random
-import time 
+import time
+import shutil
 
 # Create your views here.
 
@@ -429,13 +430,14 @@ def UploadFile(request):
                         url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
                         if myfile.name[-4:] != '.cpp':
                             return JsonResponse({'success':False,'message':'代码格式错误！'})
-                        destination = open(url,'wb+')
-                        for chunk in myfile.chunks():
-                            destination.write(chunk)
+                        with open(url,'wb') as destination:
+                            for chunk in myfile.chunks():
+                                destination.write(chunk)
                         url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.team_name
-                        destination = open(url2,'wb+')
-                        for chunk in myfile.chunks():
-                            destination.write(chunk)
+                        shutil.copyfile(url, url2)
+                        #destination = open(url2,'wb+')
+                        #for chunk in myfile.chunks():
+                        #    destination.write(chunk)
                         the_team = TeamInfo.objects.get(team_name = the_student.team_name)
                         the_team.battle_code = url
                         the_team.save()

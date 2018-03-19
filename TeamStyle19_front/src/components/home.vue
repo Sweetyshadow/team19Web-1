@@ -19,7 +19,7 @@
     >
     </vue-particles>
     <h1> Teamstyle19</h1>
-    <el-footer>
+    <el-footer style="position: absolute; bottom: 0" >
       <div class="column">
         <div class="left">
           <p>联系我们</p>

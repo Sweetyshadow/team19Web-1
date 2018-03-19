@@ -29,10 +29,10 @@ export default {
         //context.teamid.push(response.body[i].teamid)
       }
       //console.log(context.teamid)
-      console.log(context.team)
+      //console.log(context.team)
       //console.log(response.body)
     }, response => {
-      console.log('gg')
+      console.log('网络状态不佳')
       context.team = [{
         teamname: 'efsdgrfuioahfioasufhasui',
         teamleader: '张狗蛋',
@@ -64,7 +64,7 @@ export default {
         }
       }
     }, response => {
-      alert('gg')
+      alert('网络状态不佳')
     })
   },
 
@@ -112,11 +112,11 @@ export default {
       context.line.series[0].data = response.body.score.map(function (item) {
         return item[1];
     })
-      console.log(response)
+      //console.log(response)
     }, response => {
       context.line.xAxis.data = ['N/A','N/A','N/A','N/A','N/A']
       context.line.series[0].data = [0,0,0,0,0]
-      alert('fail')
+      alert('网络状态不佳')
     })
   },
 
@@ -132,11 +132,11 @@ export default {
           userid: localStorage.getItem('teamstyle_id')
         }
       }).then(response => {
-        console.log(response.body)
+        //console.log(response.body)
         context.isleader = response.body.isleader
         context.$store.commit('setisLeader',response.body.isleader)
       }, response => {
-        console.log(response.status)
+        //console.log(response.status)
       })
     }
   },
@@ -167,7 +167,7 @@ export default {
           cb(context)
         }
       }, response => {
-        alert('fail')
+        alert('网络状态不佳')
       })
     }
   },
@@ -211,19 +211,19 @@ export default {
     //if(context.test.id1!=null) membersid.push(context.test.id1)
     //if(context.test.id2!=null) membersid.push(context.test.id2)
     //if(context.test.id3!=null) membersid.push(context.test.id3)
-    console.log(data)
+    //console.log(data)
     context.$http({
       url: TEAM_URL+'exit/',
       method: 'post',
       body: {name:data}
     }).then(response => {
-      console.log(response)
+      //console.log(response)
       alert('success')
       if(typeof cb == 'function'){
         cb(context)
       }
     }, response => {
-      alert('fail')
+      alert('网络状态不佳')
     })
   },
   resetCode (context,data){
@@ -233,9 +233,9 @@ export default {
       params: data
     }).then(response => {
       //change context
-      console.log('reset code success')
+      //console.log('reset code success')
     }, response => {
-      console.log('gg')
+      //console.log('gg')
     })
   },
   startBattle (context, data, cb){
@@ -244,17 +244,17 @@ export default {
       method: 'post',
       body: data
     }).then(response => {
-      console.log(response)
+      //console.log(response)
       if(response.body.success){
         if(typeof cb==='function'){
-          console.log(response.body.battleid)
+          //console.log(response.body.battleid)
           cb(context,response.body.battleid)
         }
       } else {
         alert(response.body.message)
       }
     }, response => {
-      alert('gg')
+      alert('网络状态不佳')
     })
   },
   getBattleHistory(context,teamID){
