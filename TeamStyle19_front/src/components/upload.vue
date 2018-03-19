@@ -76,16 +76,27 @@
 				formData.append('headpic',this.isProfile)
 			},
 			complete(file,status,xhr) {
-				console.log(xhr.response.success)
+				console.log(xhr)
+				console.log(typeof(xhr))	
 				this.icon = this._icon
-				if(status === 'error')
+				if(status === 'error'){
 					alert(file.errorMessage)
-				else alert(status)
+				}	else {
+					alert(status)
+				}
+				if(eval('('+xhr.responseText+')').success === false) {					
+					this.$parent.compileError = true
+					this.$parent.ErrorDetail = eval('('+xhr.responseText+')').message
+				} else {
+					this.$parent.compileError = false
+					this.$parent.ErrorDetail = null
+				}
 				if(this.isProfile){
 					this.gethead()
 				} else{
 					fileSrv.getAI(this.$parent)
 				}
+				
 			},
 			gethead() {
 				console.log('click')
