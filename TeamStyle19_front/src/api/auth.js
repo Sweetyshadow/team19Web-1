@@ -60,11 +60,11 @@ export default {
         localStorage.setItem('teamstyle_pwd',data.pwd)
         alert('登录成功')
         if(typeof cb == 'function'){
-          console.log('回调')
+          //console.log('回调')
           cb(context)
         }
       } else {
-        console.log('f')
+        //console.log('f')
         this.logout(context)
         alert(response.body.message)
         context.form.username = ''
@@ -73,10 +73,10 @@ export default {
     }, response => {
       // fail call back
       this.logout(context)
-      alert('login gg') // msg假设为错误提示
+      alert('网络状态不佳，请稍后重试') // msg假设为错误提示
       context.form.username = ''
       context.form.password = ''
-      console.log('更新')
+      //console.log('更新')
     })
   },
 
@@ -98,11 +98,11 @@ export default {
       method: 'post',
       body: data
     }).then(response => {
-      console.log('success headpic')
+      //console.log('success headpic')
       context.headurl = "data:image/jpeg;base64,"+response.body
     }, response => {
-      console.log('fail')
-      alert('fail')
+      //console.log('fail')
+      alert('网络状态不佳，获取头像失败')
     })
   },
   modify (context, cb) {
@@ -116,13 +116,13 @@ export default {
       method: 'post',
       body: data
     }).then(response => {
-      console.log(response)
+      //console.log(response)
       this.logout(context)
       if(typeof cb == 'function'){
         cb(context)
       }
     }, response => {
-      alert('fail')
+      alert('网络状态不佳')
     })
   },
   findPassword (context) {
@@ -140,7 +140,7 @@ export default {
         alert(response.body.message)
       }
     }, response => {
-      alert('gg')
+      alert('网络状态不佳')
     })
   }
 }

@@ -2,7 +2,7 @@
 <div>
     <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu" @click="indexupdate(activeIndex)">
         <!--el-menu-item index="1" route="/"> index </el-menu-item!-->
-        <el-menu-item index="2" route="/"> fakehome </el-menu-item>
+        <el-menu-item index="2" route="/"> home </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
         <el-menu-item index="4" route="/ShowAllTeams"> 队伍 </el-menu-item>
         <el-menu-item index="5" route="/battle"> 对战 </el-menu-item>
@@ -27,7 +27,7 @@
                 leave-active-class = "animated slideOutUp">
                 <ul v-show="show" class="menu-dropdown">
                     <!--li @click="handleClick"><router-link to="/"> index </router-link></li!-->
-                    <li @click="handleClick"><router-link to="/"> fakehome </router-link></li>
+                    <li @click="handleClick"><router-link to="/"> home </router-link></li>
                     <li @click="handleClick"><router-link to="/file"> 文件 </router-link></li>
                     <li @click="handleClick"><router-link to="/ShowAllTeams"> 队伍 </router-link></li>
                     <li @click="handleClick"><router-link to="/battle"> 对战 </router-link></li>
