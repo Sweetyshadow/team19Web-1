@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div class="title">
-        <h2>Submit Your Code and Start Combating Today!</h2>
-    </div>
+  <div class="battle">
     <div class="version">
         <p>当前平台版本：{{ version }}</p>
     </div>
+    <div class="title1">
+        <h4>提交代码</h4>
+    </div>
     <div class="upload">
-        <upload v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat"
-            style="width: 150px; height: 100px; line-height: 100px;"></upload>    
+        <upload v-bind:isProfile="isProfile" v-bind:acceptedFormat="acceptedFormat"
+            style="width: 150px; height: 100px; line-height: 100px;" message="上传代码"></upload>    
         <div><i class="el-icon-info">点击或拖拽上传</i></div>
         <div><i class="el-icon-warning">Note: 系统仅保留最新上传文件</i></div>
     </div>
@@ -16,6 +16,7 @@
         <h1>Compile Error</h1>
         <p> {{ ErrorDetail }}</p>
     </div>
+    <h4> 进行对战 </h4>
     <el-table :data='team' :default-sort="{prop: 'teamscore', order: 'descending'}" stripe>
         <el-table-column type="index" align="center"></el-table-column>
         <el-table-column prop="teamname" label="队伍名称" align="center" sortable></el-table-column>
@@ -29,7 +30,7 @@
             </template>
         </el-table-column>
     </el-table>
-    <h2>View your submit</h2>
+    <h4>查看代码</h4>
     <template v-if="code">
         <pre v-highlightjs><code class="cpp">{{ code }}</code></pre>
     </template>
@@ -99,6 +100,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.battle {
+    width: 80%;
+    margin: 0 auto;
+}
+.version {
+    p {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}
 #ErrorInfo{
     background: #ffc;
 }
@@ -115,7 +126,11 @@ code {
     min-width: 640px;
     max-width: 1200px;
 }
-.title,.version{
+    h4{
+        margin-top: 24px;
+        margin-bottom: 6px;
+    }
+.title1,.version{
     display: inline-block;
 }
 .version {
@@ -126,8 +141,13 @@ code {
     font-family: inherit;
     font-size: inherit;
 }*/
-
-.upload div{
-    margin: 12px 0;
+.upload {
+    margin: 0;
+    div {
+        margin: 6px 0;
+    }
+}
+i {
+    font-size: 14px;
 }
 </style>

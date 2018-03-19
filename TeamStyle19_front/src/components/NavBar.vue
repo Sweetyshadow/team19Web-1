@@ -2,19 +2,25 @@
 <div>
     <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu" @click="indexupdate(activeIndex)">
         <!--el-menu-item index="1" route="/"> index </el-menu-item!-->
-        <el-menu-item index="2" route="/"> home </el-menu-item>
+        <el-menu-item index="2" route="/"> 主页 </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
         <el-menu-item index="4" route="/ShowAllTeams"> 队伍 </el-menu-item>
         <el-menu-item index="5" route="/battle"> 对战 </el-menu-item>
+        <el-submenu index="6" id="submenu" > 
+            <template slot="title">个人中心</template>
+            <el-menu-item route="/teamprofile">个人信息</el-menu-item>
+            <el-menu-item route="/teampulse">比分变化</el-menu-item>
+        </el-submenu>
         <el-menu-item v-if="hasLogin" id="profile">
-            <el-dropdown @command="handleJump" trigger="click"> 
-                <span> {{username}} </span>
+            <span> {{username}} </span>
+            <!--el-dropdown @command="handleJump" trigger="click"> 
+                
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item command="a">修改密码</el-dropdown-item>
                     <el-dropdown-item command="b">我的队伍</el-dropdown-item>
                     <el-dropdown-item command="c">退出</el-dropdown-item>
                 </el-dropdown-menu>
-            </el-dropdown>
+            </el-dropdown-->
         </el-menu-item>
         <el-menu-item v-else index="6" id="log" route="/login"> 登录|注册 </el-menu-item>
     </el-menu>
@@ -125,17 +131,24 @@ img {
     overflow: hidden;
 }
 #menu {
+    border: none;
     li {
-        //border: none;
         font-family: '5efe7697695c42a99b24705c46f7ca0c';
+        font-size: 1rem;
+        border-bottom-width: 4px;
+        border-color: #383838;
     }
 }
+
+
+
 a,a:active,a:link,a:hover,a:visited{
     text-decoration: none;
 }  
 span {
     margin-left:10px;
     color: black;
+    font-weight: 1rem;
 }
 @media screen and (max-width:720px) {
     .el-menu {
@@ -213,5 +226,10 @@ span {
             }
         }
     }
+}
+</style>
+<style lang="scss">
+div.el-submenu__title {
+    border-bottom: none!important;
 }
 </style>

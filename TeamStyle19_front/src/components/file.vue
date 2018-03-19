@@ -1,7 +1,7 @@
 <template>
   <ul>
     <el-card v-for="item in files" :key="item.id">
-      <h2> {{item.title}} </h2>
+      <h4> {{item.title}} </h4>
       <!--p> {{item.intro}} </p!-->
       <el-button type="primary"><a :href="item.address">download</a></el-button>
    </el-card>
@@ -32,5 +32,16 @@ export default {
 a,a:hover,a:link,a:active,a:visited {
   text-decoration: none;
   color: white;
+}
+ul {
+  margin-top: 10%;
+}
+
+.el-card {
+  width: 60%;
+  margin: 0 auto;
+  h4 {
+    margin-top: 0;
+  }
 }
 </style>

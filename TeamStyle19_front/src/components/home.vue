@@ -19,7 +19,7 @@
     >
     </vue-particles>
     <h1> Teamstyle19</h1>
-    <el-footer style="position: absolute; bottom: 0" >
+    <el-footer>
       <div class="column">
         <div class="left">
           <p>联系我们</p>
@@ -67,7 +67,7 @@ export default {
 </script>
 <style scoped>
   #particles{
-    height: calc(100% - 70px);
+    height: calc(100% - 60px);
     position:absolute;
     width: 100%;
   }

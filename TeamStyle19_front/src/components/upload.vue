@@ -2,11 +2,10 @@
 <div>
 	<vue-clip  :options="options" :on-sending="sending" :on-complete="complete">
     <template slot="clip-uploader-action">
-      <div class="uploader-icon">
+				<el-button type="primary" >{{message}}</el-button>
 				<img v-if="headurl" :src="headurl" class="dz-message">
 				<i v-else :class="icon" class="dz-message"></i>
         <!--el-button class="dz-message">点击或拖拽到此处开始上传</el-button!-->
-      </div>
     </template>
 
     <!--template slot="clip-uploader-body" slot-scope="props">
@@ -36,7 +35,7 @@
 	import fileSrv from '@/api/file.js'
   export default {
 		name: 'upload',
-		props: ['isProfile','icon','acceptedFormat'],
+		props: ['isProfile','icon','acceptedFormat', 'message'],
     data () {
 			var sizeLimit = this.isProfile?{limit:0.8,message:'Your file size is greater than the max file size'}:{}
       return {
@@ -98,8 +97,8 @@
 
 <style scoped>
   .uploader-icon{
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
+    /*border: 1px dashed #d9d9d9;
+    border-radius: 6px;*/
     cursor: pointer;
     position: relative;
     overflow: hidden;

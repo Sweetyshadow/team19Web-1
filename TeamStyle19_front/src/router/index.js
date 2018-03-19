@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+//import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/home'
 import Login from '@/components/login'
 import Reg from '@/components/reg'
@@ -10,7 +10,7 @@ import ShowAllTeams from '@/components/ShowAllTeams'
 import PwdChange from '@/components/PwdChange'
 import findPassword from '@/components/FindPassword'
 import upload from '@/components/upload'
-import MyTeam from '@/components/MyTeam'
+//import MyTeam from '@/components/MyTeam'
 import teamProfile from '@/components/teamProfile'
 import teamPulse from '@/components/teamPulse'
 import battle from '@/components/battle'
@@ -79,7 +79,7 @@ export default new Router({
       name: 'Upload',
       component: upload
     }, */
-    {
+    /*{
       path: '/MyTeam',
       name: 'MyTeam',
       component: MyTeam,
@@ -101,6 +101,16 @@ export default new Router({
         },
         
       ]
+    },*/
+    {
+      path: '/teamprofile',
+      name: 'teamprofile',
+      component: teamProfile
+    },
+    {
+      path: '/teampulse',
+      name: 'teamPulse',
+      component: teamPulse
     },
     {
       path: '/battle',
