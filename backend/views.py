@@ -427,6 +427,8 @@ def UploadFile(request):
                         else :
                             os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
                         url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
+                        if myfile.name[-4:] != '.cpp':
+                            return JsonResponse({'success':False,'message':'代码格式错误！'})
                         destination = open(url,'wb+')
                         for chunk in myfile.chunks():
                             destination.write(chunk)
