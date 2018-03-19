@@ -117,7 +117,8 @@ h1{
 button {
   width: 100%;
 }
-a {
+a,a:hover,a:visited, a:active,a:link {
+    text-decoration: none;
     font-size: 12px;
 }
 </style>
