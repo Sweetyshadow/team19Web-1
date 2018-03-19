@@ -15,20 +15,13 @@ class TeamInfo(models.Model):
     member_num = models.IntegerField(default = 1)
     invite_code = models.CharField(max_length=20, null=True)
     battle_code = models.FileField(null = True)
+    battle_time = models.IntegerField(default = 1)
     codes = models.TextField(null=True)
     history = models.CharField(max_length = 8000, default = '[]')
-    score = models.CharField(max_length = 300, default = '[]')
+    score = models.IntegerField(default = 0)
 
     def __str__(self):
         return self.team_name
-
-    def get_score(self):
-        return json.loads(self.score)
-
-    def add_score(self,x):
-        a = json.loads(self.score)
-        a.append(x)
-        self.score = json.dumps(a)
 
     def get_history(self):
         return json.loads(self.history)
@@ -71,6 +64,6 @@ class RuleFile(models.Model):
         return self.title
 
 class DockerServer(models.Model):
-    port = models.IntegerField(max_length = 10,null = True)
+    port = models.IntegerField(null = True)
     is_busy = models.BooleanField(default = False)
     battle_id = models.CharField(max_length= 50,null = True)
