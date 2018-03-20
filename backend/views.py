@@ -587,7 +587,7 @@ def Battle(request):
         r = requests.get('http://123.207.140.186:8888/battle/')
         team = TeamInfo.objects.get(id = 1)
         score1 = 90
-        ti = time.time()
+        ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
         team.add_score(str(["%s"%str(score1),"%s"%str(ti)]))
         return JsonResponse({'message':r.text})
 
