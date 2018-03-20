@@ -115,6 +115,9 @@
 
 <style lang="scss" scoped>
 @import "/static/css/animate.css";
+div {
+    background-color: transparent;
+}
 #log,#profile{
     border:none;
     position: absolute;

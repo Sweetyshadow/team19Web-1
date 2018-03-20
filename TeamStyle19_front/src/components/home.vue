@@ -67,8 +67,9 @@ export default {
 </script>
 <style scoped>
   #particles{
-    height: calc(100% - 60px);
+    height: 100vh;
     position:absolute;
+    top: 0;
     width: 100%;
   }
   #particles-js {
