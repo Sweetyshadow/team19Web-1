@@ -587,8 +587,8 @@ def Battle(request):
         r = requests.get('http://123.207.140.186:8888/battle/')
         team = TeamInfo.objects.get(id = 1)
         score1 = 90
-        time = time.time()
-        team.add_score(["%s"%score1,"%s"%time])
+        ti = time.time()
+        team.add_score(["%s"%score1,"%s"%ti])
         return JsonResponse({'message':r.text})
 #
 @csrf_exempt
