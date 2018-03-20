@@ -146,7 +146,10 @@ img {
     }
 }
 
-
+.PC{
+    z-index: 1000;
+    background-color: transparent;
+}
 
 a,a:active,a:link,a:hover,a:visited{
     text-decoration: none;
