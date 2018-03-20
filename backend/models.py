@@ -18,7 +18,7 @@ class TeamInfo(models.Model):
     battle_time = models.IntegerField(default = 1)
     codes = models.TextField(null=True)
     history = models.CharField(max_length = 8000, default = '[]')
-    score = models.IntegerField(default = 0)
+    score = models.CharField(max_length = 800, default = '[]')
 
     def __str__(self):
         return self.team_name
@@ -34,6 +34,19 @@ class TeamInfo(models.Model):
         else:
             pass
         self.history = json.dumps(a)
+        self.save()
+
+    def get_score(self):
+        return json.loads(self.score)
+
+    def add_score(self,x):
+        a = json.loads(self.score)
+        a.append(x)
+        if len(a) > HISTORY_LENGTH:
+            del a[0]
+        else:
+            pass
+        self.score = json.dumps(a)
         self.save()
 
 #
