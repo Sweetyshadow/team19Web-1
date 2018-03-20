@@ -138,6 +138,9 @@ img {
         border-bottom-width: 4px;
         border-color: #383838;
     }
+    li:first-child {
+        margin-left: 100px;
+    }
 }
 
 
