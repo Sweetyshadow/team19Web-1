@@ -588,7 +588,7 @@ def Battle(request):
         team = TeamInfo.objects.get(id = 1)
         score1 = 90
         ti = time.time()
-        team.add_score(["%s"%str(score1),"%s"%str(ti)])
+        team.add_score(str(["%s"%str(score1),"%s"%str(ti)]))
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
@@ -625,8 +625,8 @@ def Inquire(request,id1,id2):
             else:
                 score1 = score1 + 32 * (0 - E1)
                 score1 = score2 + 32 * (1 - E2)
-            team1.add_score(["%s"%str(score1),"%s"%str(response['battle_time'])])
-            team2.add_score(["%s"%str(score2),"%s"%str(response['battle_time'])])
+            team1.add_score(str(["%s"%str(score1),"%s"%str(response['battle_time'])]))
+            team2.add_score(str(["%s"%str(score2),"%s"%str(response['battle_time'])]))
             team1.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
             team2.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
             team1.battle_time += 1
