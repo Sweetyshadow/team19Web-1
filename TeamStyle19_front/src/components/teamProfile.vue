@@ -5,8 +5,9 @@
         <p v-if="isleader"> 邀请码： {{invitecode}}</p>
       </div>
       <div class="column left">
+          <img><!--头像在这里显示--> </img>
+      </div>
         <upload message="上传头像" v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat" style="width: 100px; height: 100px; line-height: 100px"></upload>
-      </div>      
         <el-table :data="team" :span-method="arraySpanMethod" stripe border>
             <el-table-column prop="leader" label="队长" align="center">
             </el-table-column>
@@ -103,7 +104,6 @@ div#wrap{
     max-width: 600px;
     min-width: 480px;
     margin: 40px auto;
-    float:d
 }
 div.column{
     display: inline-block;
@@ -111,9 +111,14 @@ div.column{
 }
 div.left{
     width: 30%;
+    float:right;
 }
-div.right{
-    width: 60%;
+div.right {
+    width: 30%;
+
+}
+p {
+    margin-bottom: 0;
 }
 h1{
     text-align: left;
