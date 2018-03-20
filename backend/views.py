@@ -551,8 +551,8 @@ def Battle(request):
         team2_id = request.POST['team2']
         team1 = TeamInfo.objects.get(id = team1_id)
         team2 = TeamInfo.objects.get(id = team2_id)
-        #if team1.battle_time >= 30:
-        #    return JsonResponse({'success':False,'message':'您的对战次数已达上限，不能再次主动发起对战！'})
+        if team1.battle_time >= 30:
+            return JsonResponse({'success':False,'message':'您的对战次数已达上限，不能再次主动发起对战！'})
         battle_data = {'team1':team1.team_name,'team2':team2.team_name,'id1':team1_id,'id2':team2_id}
         #d = requests.post('http://123.207.140.186:8888/enviroment/',data = {'team1':code_url1[-2],'team2':code_url2[-2]})
         #initial_time = time.time()
@@ -585,6 +585,10 @@ def Battle(request):
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
+        team = TeamInfo.objects.get(id = 1)
+        score1 = 90
+        time = time.time()
+        team.add_score(["%s"%score1,"%s"%time])
         return JsonResponse({'message':r.text})
 #
 @csrf_exempt
@@ -616,14 +620,16 @@ def Inquire(request,id1,id2):
             E1 = 1/(1 + pow(10,(score2-score1)/400))
             E2 = 1/(1 + pow(10,(score1-score2)/400))
             if response['result']['winner'] == team1.team_name:
-                team1.score = team1.score + 32 * (1 - E1)
-                team2.score = team2.score + 32 * (0 - E2)
+                score1 = score1 + 32 * (1 - E1)
+                score2 = score2 + 32 * (0 - E2)
             else:
-                team1.score = team1.score + 32 * (0 - E1)
-                team2.score = team2.score + 32 * (1 - E2)
+                score1 = score1 + 32 * (0 - E1)
+                score1 = score2 + 32 * (1 - E2)
+            team1.add_score(["%s"%score1,"%s"%str(response['battle_time'])])
+            team2.add_score(["%s"%score1,"%s"%str(response['battle_time'])])
             team1.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
             team2.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
-            #team1.battle_time += 1
+            team1.battle_time += 1
             team1.save()
             return JsonResponse(response)
         elif response['success'] == False:
