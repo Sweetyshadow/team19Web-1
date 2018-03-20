@@ -97,12 +97,6 @@ export default {
       url: API_URL+'headpic/',
       method: 'post',
       body: data
-    }).then(response => {
-      //console.log('success headpic')
-      context.headurl = "data:image/jpeg;base64,"+response.body
-    }, response => {
-      //console.log('fail')
-      alert('网络状态不佳，获取头像失败')
     })
   },
   modify (context, cb) {

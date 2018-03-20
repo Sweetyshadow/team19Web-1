@@ -5,7 +5,7 @@
         <p v-if="isleader"> 邀请码： {{invitecode}}</p>
       </div>
       <div class="column left">
-          <img><!--头像在这里显示--> </img>
+          <img v-if="headurl" :src="headurl"><!--头像在这里显示--> 
       </div>
         <upload message="上传头像" v-bind:isProfile="isProfile" v-bind:icon="icon" v-bind:acceptedFormat="acceptedFormat" style="width: 100px; height: 100px; line-height: 100px"></upload>
         <el-table :data="team" :span-method="arraySpanMethod" stripe border>
@@ -38,6 +38,7 @@
 
 <script>
 import upload from './upload'
+import authSrv from '@/api/auth.js'
 import teamSrv from '@/api/team.js'
 export default {
   name: 'teamProfile',
@@ -54,17 +55,21 @@ export default {
           invitecode: null,
           isProfile: true,
           icon: "el-icon-plus",
-          acceptedFormat: ['image/*']
+          acceptedFormat: ['image/*'],
+          headurl: null,
       }
   },
   created(){
       //if(this.$store.state.isLeader!=null){
       //    this.isleader = this.$store.state.isLeader
       //} else {
-          teamSrv.isLeader(this)
+    authSrv.getHeadpic(this).then(response => {
+        this.headurl = "data:image/jpeg;base64,"+response.body
+    })
+    teamSrv.isLeader(this)
       //}
-      teamSrv.showMyteam(this)
-      this.renderBattleHistory(localStorage.getItem('teamstyle_id'))
+    teamSrv.showMyteam(this)
+    this.renderBattleHistory(localStorage.getItem('teamstyle_id'))
   },
   methods: {
       handleDelete(index, row){          
@@ -123,5 +128,9 @@ p {
 h1{
     text-align: left;
     font-size: 24px;
+}
+img {
+    width: 100%;
+    height: 100%;
 }
 </style>

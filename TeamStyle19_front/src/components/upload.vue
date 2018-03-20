@@ -3,9 +3,7 @@
 	<vue-clip  :options="options" :on-sending="sending" :on-complete="complete">
     <template slot="clip-uploader-action">
 				<el-button type="primary" >{{message}}</el-button>
-				<img v-if="headurl" :src="headurl" class="dz-message">
-				<i v-else :class="icon" class="dz-message"></i>
-        <!--el-button class="dz-message">点击或拖拽到此处开始上传</el-button!-->
+				<i :class="icon" class="dz-message"></i>
     </template>
 
     <!--template slot="clip-uploader-body" slot-scope="props">
@@ -58,13 +56,13 @@
 				},
 				files: null,
 				//isProfile: true,
-				headurl: null,
+				//headurl: null,
 				_icon: null
       }
 		},
-		created(){
-			if(this.isProfile) this.gethead()
-		},
+		//created(){
+		//	if(this.isProfile) this.gethead()
+		//},
 		methods: {
 			sending (file, xhr, formData) {
 				console.log(this.isProfile)
@@ -74,32 +72,35 @@
 				formData.append('userid',localStorage.getItem('teamstyle_id'))
 				formData.append('headpic',this.isProfile)
 			},
-			complete(file,status,xhr) {
-				console.log(xhr)
-				console.log(typeof(xhr))	
+			complete(file,status,xhr) {	
 				this.icon = this._icon
 				if(status === 'error'){
 					alert(file.errorMessage)
 				}	else {
 					alert(status)
 				}
-				if(eval('('+xhr.responseText+')').success === false) {					
-					this.$parent.compileError = true
-					this.$parent.ErrorDetail = eval('('+xhr.responseText+')').message
-				} else {
-					this.$parent.compileError = false
-					this.$parent.ErrorDetail = null
-				}
-				if(this.isProfile){
-					this.gethead()
-				} else{
+				if(!this.isProfile){
+					if(eval('('+xhr.responseText+')').success === false) {					
+						this.$parent.compileError = true
+						this.$parent.ErrorDetail = eval('('+xhr.responseText+')').message
+					} else {
+						this.$parent.compileError = false
+						this.$parent.ErrorDetail = null
+					}
 					fileSrv.getAI(this.$parent)
-				}
-				
+				}	else{
+					this.gethead()
+				} 
 			},
 			gethead() {
 				console.log('click')
-				authSrv.getHeadpic(this)
+				authSrv.getHeadpic(this).then(response => {
+					//console.log('success headpic')
+					this.$parent.headurl = "data:image/jpeg;base64,"+response.body
+				}, response => {
+					//console.log('fail')
+					alert('网络状态不佳，获取头像失败')
+				})
 			}
 		}
 
