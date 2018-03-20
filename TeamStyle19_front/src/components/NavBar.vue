@@ -115,6 +115,9 @@
 
 <style lang="scss" scoped>
 @import "/static/css/animate.css";
+div {
+    background-color: transparent;
+}
 #log,#profile{
     border:none;
     position: absolute;
@@ -137,6 +140,9 @@ img {
         font-size: 1rem;
         border-bottom-width: 4px;
         border-color: #383838;
+    }
+    li:first-child {
+        margin-left: 100px;
     }
 }
 
