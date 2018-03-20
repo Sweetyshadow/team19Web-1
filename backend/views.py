@@ -590,7 +590,7 @@ def Battle(request):
         ti = time.time()
         team.add_score(["%s"%score1,"%s"%ti])
         return JsonResponse({'message':r.text})
-#
+
 @csrf_exempt
 def Inquire(request,id1,id2):
     if request.method == 'POST':
