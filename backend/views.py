@@ -588,7 +588,7 @@ def Battle(request):
         team = TeamInfo.objects.get(id = 1)
         score1 = 90
         ti = time.time()
-        team.add_score(str(score1))
+        team.add_score(str(["%s"%str(score1),"%s"%str(ti)]))
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
