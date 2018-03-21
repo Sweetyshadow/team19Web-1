@@ -600,6 +600,13 @@ def Battle(request):
         score1 = 90
         ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
         team.add_score(str(["%s"%str(score1),"%s"%str(ti)]))
+        result = str({
+                "round":str(123),
+                "time":str(ti),
+                "winner": 'test',
+                "loser": 'faketeam',
+                })
+        team.add_history(result)
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
@@ -638,8 +645,14 @@ def Inquire(request,id1,id2):
                 score1 = score2 + 32 * (1 - E2)
             team1.add_score(str(["%s"%str(score1),"%s"%str(response['battle_time'])]))
             team2.add_score(str(["%s"%str(score2),"%s"%str(response['battle_time'])]))
-            team1.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
-            team2.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
+            result = str({
+                "round":str(response['total_round']),
+                "time":str(response['battle_time']),
+                "winner": str(response['result']['winner']),
+                "loser":str(response['result']['loser'])
+                })
+            team1.add_history(result)
+            team2.add_history(result)
             team1.battle_time += 1
             team1.save()
             return JsonResponse(response)
