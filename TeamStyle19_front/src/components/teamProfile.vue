@@ -109,7 +109,8 @@ export default {
                     })
                 })
             }, response => {
-                alert('fail to get battle history')
+                this.history = []
+                //alert('fail to get battle history')
             })
         }
       }
