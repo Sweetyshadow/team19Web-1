@@ -26,6 +26,12 @@
                 </el-table-column>
                 <el-table-column prop="time" label="对战时间" align="center">
                 </el-table-column>
+                <el-table-column prop="round" label="回合数" align="center">
+                </el-table-column>
+                <el-table-column prop="winner" label="winner" align="center">
+                </el-table-column>
+                <el-table-column prop="loser" label="loser" align="center">
+                </el-table-column>
                 <el-table-column label="回放文件">
                     <template slot-scope="rpy">
                         <el-button size="mini" type="primary" @click="handleDownload(rpy.$index, rpy.row)">下载</el-button>
@@ -70,6 +76,7 @@ export default {
       //}
     teamSrv.showMyteam(this)
     this.renderBattleHistory(localStorage.getItem('teamstyle_id'))
+    //this.renderBattleHistory(35)
   },
   methods: {
       handleDelete(index, row){          
@@ -86,19 +93,25 @@ export default {
         }
       },
       renderBattleHistory(userid){
-          if(!this.$store.state.teamindex){
-              teamSrv.getMyteamindex(this,this.jump)
-          }
-          teamSrv.getBattleHistory(this,this.$store.state.teamindex).then(response => {
-              console.log(response)
-              if(response.body.success){
-                  //bind data
-              } else {
-                  alert(response.body.message)
-              }
-          }, response => {
-              alert('fail to get battle history')
-          })
+          if(!userid){
+              alert("请先登录")
+              this.$router.push('/login')
+          } else{
+            teamSrv.getBattleHistory(this,userid).then(response => {
+                console.log(response.body)
+                this.history = []
+                response.body.history.forEach(element=>{
+                    this.history.push({
+                        time: element.time,
+                        round: element.round,
+                        winner: element.winner,
+                        loser: element.loser
+                    })
+                })
+            }, response => {
+                alert('fail to get battle history')
+            })
+        }
       }
   }
 }
