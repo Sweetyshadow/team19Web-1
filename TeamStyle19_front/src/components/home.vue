@@ -19,7 +19,15 @@
     >
     </vue-particles>
     <h1> Teamstyle19</h1>
-    <el-footer>
+    <footer>
+      <div class="col left">
+      </div>
+      <div class="col mid">
+      </div>
+      <div class="col right">
+      </div>
+    </footer>
+    <!--el-footer>
       <div class="column">
         <div class="left">
           <p>联系我们</p>
@@ -44,13 +52,13 @@
       <div class="column">
         <img id="logo" src="../../static/img/logo.jpg">
       </div>
-    </el-footer>
+    </el-footer-->
+    <foot></foot>
   </div>
 </template>
 
 <script src="particles.js"></script>
 <script>
-import DishMenu from './menu'
 import Login from './login'
 export default {
   name: 'Home',
