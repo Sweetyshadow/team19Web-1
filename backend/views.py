@@ -390,6 +390,7 @@ def UploadHeadpic(request):
     if request.method == 'POST':
         myfile = request.FILES.get("myfile",None)
 '''
+
 @csrf_exempt
 def UploadFile(request):
     if request.method == 'POST':
@@ -404,12 +405,13 @@ def UploadFile(request):
                     '''cursor = connection.cursor()
                     cursor.execute("update backend_studentinfo set profile_photo = \'" + url + "\' where id = " + the_id)
                     cursor.close()'''
-                    index = os.listdir('/home/ubuntu/team19/user')
+                    index = os.listdir('/home/hyb/web/user')
                     if the_student.student_nickname in index:
                         pass
                     else :
-                        os.system('mkdir /home/ubuntu/team19/user/' + the_student.student_nickname)
-                    url = '/home/ubuntu/team19/user/' + the_student.student_nickname + '/' + str(myfile.name)
+                        os.mkdir('/home/hyb/web/user/%s'%(the_student.student_nickname))
+                        #os.system('mkdir /home/hyb/web/user/' + the_student.student_nickname)
+                    url = '/home/hyb/web/user/' + the_student.student_nickname + '/' + str(myfile.name)
                     destination = open(url,'wb+')
                     for chunk in myfile.chunks():
                         destination.write(chunk)
@@ -422,18 +424,18 @@ def UploadFile(request):
             else:
                 if the_student:
                     if the_student.team_name:
-                        index = os.listdir('/home/ubuntu/team19/team')
+                        index = os.listdir('/home/hyb/web/team')
                         if the_student.team_name.team_name in index:
                             pass
                         else :
-                            os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
-                        url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
+                            os.system('mkdir /home/hyb/web/team/' + the_student.team_name.team_name)
+                        url = '/home/hyb/web/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
                         if myfile.name[-4:] != '.cpp':
                             return JsonResponse({'success':False,'message':'代码格式错误！'})
                         with open(url,'wb') as destination:
                             for chunk in myfile.chunks():
                                 destination.write(chunk)
-                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.team_name
+                        url2 = '/home/hyb/web/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.team_name
                         shutil.copyfile(url, url2)
                         #destination = open(url2,'wb+')
                         #for chunk in myfile.chunks():
@@ -505,7 +507,7 @@ def GetCode(request):#用于代码下载
         response['Content-Disposition']='attachment;filename=' + file_name
         return response
     else:
-        response = FileResponse(open('/home/ubuntu/team19/user/std.pdf'))
+        response = FileResponse(open('/home/hyb/web/user/std.pdf'))
         response['Content-Type'] = 'application/octet-stream'
         s = 'std.pdf'
         response['Content-Disposition'] = 'attachment;filename = ' + s
@@ -658,7 +660,8 @@ def active_email(username,email):
             subject = "AI挑战赛队式19账号激活", 
             message = "", 
             html_message = body,
-            from_email = "team19_eesast@126.com", 
+#            from_email = "team19_eesast@126.com", 
+            from_email = "eesast@mail.tsinghua.edu.cn",
             fail_silently = False, 
             recipient_list = [receiver])
         return True
@@ -701,7 +704,8 @@ def password_email(username, email, new_pwd):
             subject="AI挑战赛队式19账号密码找回",
             message="",
             html_message=body,
-            from_email="team19_eesast@126.com",
+#            from_email="team19_eesast@126.com",
+            from_email = "eesast@mail.tsinghua.edu.cn",
             fail_silently=False,
             recipient_list=[receiver])
         return True
