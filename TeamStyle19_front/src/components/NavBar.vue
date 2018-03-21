@@ -2,6 +2,7 @@
 <div>
     <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu" @click="indexupdate(activeIndex)">
         <!--el-menu-item index="1" route="/"> index </el-menu-item!-->
+        <el-menu-item index="1"><img src="/static/img/EESAST.PNG"/></el-menu-item>
         <el-menu-item index="2" route="/"> 主页 </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
         <el-menu-item index="4" route="/ShowAllTeams"> 队伍 </el-menu-item>
@@ -128,11 +129,7 @@ div {
         color:#909399;
     }
 }
-img {
-    height: 60px;
-    width: 60px;
-    overflow: hidden;
-}
+
 #menu {
     border: none;
     li {
@@ -140,9 +137,13 @@ img {
         font-size: 1rem;
         border-bottom-width: 4px;
         border-color: #383838;
+        img {
+            width: 40px;
+            height: 40px;
+        }
     }
     li:first-child {
-        margin-left: 100px;
+        margin: 0;
     }
 }
 

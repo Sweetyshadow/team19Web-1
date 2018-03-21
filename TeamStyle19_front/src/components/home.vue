@@ -101,7 +101,7 @@ export default {
     position:absolute;
     top: 0;
     width: 100%;
-    border-bottom: solid #f1f1f1 2px;
+    //border-bottom: solid #f1f1f1 2px;
   }
   #particles-js {
     height: 100%;
@@ -125,15 +125,26 @@ export default {
   .col{
     margin: 0;
     vertical-align: middle;
+    box-sizing: content-box;
+
   }
   .left{
     order: 1;
-    width: 35%;
+    width: 25%;
+    padding: 0 70px;
     vertical-align: middle;
     text-align: center;
     align-items: flex-start;
+    p {
+      margin: 10px;
+    }
     a {
       font-size: 14px;
+    }
+    h4 {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: solid #f0f0f0 1px;
     }
   }
   .mid{
@@ -149,7 +160,8 @@ export default {
   }
   .right {
     order: 3;
-    width: 35%;
+    width: 25%;
+    padding: 0 70px;
     text-align: center;
     align-items: flex-start;
     img {
@@ -157,7 +169,9 @@ export default {
       height: 30px;
     }
     h4 {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: solid #f0f0f0 1px;
     }
   }
 
