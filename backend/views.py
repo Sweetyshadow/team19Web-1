@@ -599,14 +599,17 @@ def Battle(request):
         team = TeamInfo.objects.get(id = 6)
         score1 = 90
         ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-        team.add_score(["%s"%str(score1),"%s"%str(ti)])
+        score = {"score":score1,"time":ti}
         result = {
                 "round":str(123),
                 "time":str(ti),
                 "winner": 'test',
                 "loser": 'faketeam',
                 }
-        team.add_history(result)
+        for team in TeamInfo.objects.all():
+            team.add_history(result)
+            team.add_score(score)
+        
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
