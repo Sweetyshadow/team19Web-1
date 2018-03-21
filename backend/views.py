@@ -518,7 +518,7 @@ def GetScore(request):
     else :
         the_student = StudentInfo.objects.get(id = request.POST['userid'])
         the_team = the_student.team_name
-        return JsonResponse({'score':the_team.score})
+        return JsonResponse({'score':the_team.get_score()})
 
 @csrf_exempt
 def GetFile(request,filename):
@@ -599,7 +599,7 @@ def Battle(request):
         team = TeamInfo.objects.get(id = 6)
         score1 = 90
         ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-        score = {"score":score1,"time":ti}
+        score = {"score":str(score1),"time":ti}
         result = {
                 "round":str(123),
                 "time":str(ti),
@@ -646,14 +646,8 @@ def Inquire(request,id1,id2):
             else:
                 score1 = score1 + 32 * (0 - E1)
                 score1 = score2 + 32 * (1 - E2)
-            team1.add_score([
-                "%s"%str(score1),
-                "%s"%str(response['battle_time'])
-                ])
-            team2.add_score([
-                "%s"%str(score2),
-                "%s"%str(response['battle_time'])
-                ])
+            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
+            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
             result = {
                 "round":str(response['total_round']),
                 "time":str(response['battle_time']),
