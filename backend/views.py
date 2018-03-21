@@ -544,6 +544,17 @@ def GetIndex(request):
         return JsonResponse({'message':'STUPID MAN!'})
 
 @csrf_exempt
+def GetHistory(request):
+    if request.method == 'POST':
+        the_student = StudentInfo.objects.get(id=request.POST['user'])
+        the_team = the_student.team_name
+        response = the_team.get_history()
+        return JsonResponse({'history': response})
+        # return response
+    else:
+        return JsonResponse({'history': TeamInfo.objects.get(id=1).get_history()})
+
+@csrf_exempt
 def Battle(request):
     if request.method == 'POST':
         #return HttpResponse(request.getHeader("Referer"))
@@ -709,13 +720,4 @@ def password_email(username, email, new_pwd):
         raise e
 
 
-@csrf_exempt
-def get_history(request):
-    if request.method == 'Post':
-        the_student = StudentInfo.objects.get(id=request.Post['user'])
-        the_team = the_student.team_name
-        response = the_team.get_history()
-        return JsonResponse({'history': response})
-        # return response
-    else:
-        return JsonResponse({'history': TeamInfo.objects.get(id=1).history()})
+
