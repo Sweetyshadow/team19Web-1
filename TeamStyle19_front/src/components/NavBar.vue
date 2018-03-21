@@ -11,6 +11,7 @@
             <template slot="title">个人中心</template>
             <el-menu-item route="/teamprofile">个人信息</el-menu-item>
             <el-menu-item route="/teampulse">比分变化</el-menu-item>
+            <el-menu-item route="/" @click="logout">退出登录</el-menu-item>
         </el-submenu>
         <el-menu-item v-if="hasLogin" id="profile">
             <span> {{username}} </span>
