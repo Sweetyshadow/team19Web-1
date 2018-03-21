@@ -24,7 +24,25 @@ export default {
     },
     created(){
         //load data
-        teamSrv.getTeamPulse(this)
+        teamSrv.getTeamPulse(this,{userid: localStorage.getItem('teamstyle_id')}).then(response => {
+            //context.line.xAxis.data = response.body.score.map(function (item) {
+            // return item[0];
+            //})
+            //context.line.series[0].data = response.body.score.map(function (item) {
+                //return item[1];
+            //})
+            console.log(response)
+            var scores = response.body.score
+            scores.forEach(element => {
+                this.line.xAxis.data.push(element.time)
+                this.line.series[0].data.push(parseFloat(element.score))
+            })
+        }, response => {
+            context.line.xAxis.data = ['N/A','N/A','N/A','N/A','N/A']
+            context.line.series[0].data = [0,0,0,0,0]
+            alert('网络状态不佳')
+        })
+        teamSrv.get
     },
     data () {
         return {

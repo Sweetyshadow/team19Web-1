@@ -57,6 +57,7 @@ def StudentReg(request):
             the_student_id = form.cleaned_data['studentID']
             the_pwd = form.cleaned_data['pwd']
             the_email = form.cleaned_data['email']
+            the_realname = form.cleaned_data['realname']
             if StudentInfo.objects.filter(student_nickname=the_name).exists():
                 success = False
                 message += "用户名已存在！"
@@ -66,12 +67,16 @@ def StudentReg(request):
             elif StudentInfo.objects.filter(thu_email=the_email).exists():
                 success = False
                 message += "电子邮箱已存在！"
+            elif StudentInfo.objects.filter(student_realname = the_realname).exists():
+                success = False
+                message += "您已经注册了账号！"
             else:
                 success = True
             if success is True:
                 the_salt = binascii.hexlify(os.urandom(4)).decode()
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
+                    student_realname = the_realname,
                     student_id = the_student_id,
                     salt = the_salt,
                     password = hashvalue(the_pwd,the_salt),
@@ -520,7 +525,7 @@ def GetScore(request):
     else :
         the_student = StudentInfo.objects.get(id = request.POST['userid'])
         the_team = the_student.team_name
-        return JsonResponse({'score':the_team.score})
+        return JsonResponse({'score':the_team.get_score()})
 
 @csrf_exempt
 def GetFile(request,filename):
@@ -601,7 +606,17 @@ def Battle(request):
         team = TeamInfo.objects.get(id = 1)
         score1 = 90
         ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-        team.add_score(str(["%s"%str(score1),"%s"%str(ti)]))
+        score = {"score":str(score1),"time":ti}
+        result = {
+                "round":str(123),
+                "time":str(ti),
+                "winner": 'test',
+                "loser": 'faketeam',
+                }
+        for team in TeamInfo.objects.all():
+            team.add_history(result)
+            team.add_score(score)
+        
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
@@ -638,10 +653,16 @@ def Inquire(request,id1,id2):
             else:
                 score1 = score1 + 32 * (0 - E1)
                 score1 = score2 + 32 * (1 - E2)
-            team1.add_score(str(["%s"%str(score1),"%s"%str(response['battle_time'])]))
-            team2.add_score(str(["%s"%str(score2),"%s"%str(response['battle_time'])]))
-            team1.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
-            team2.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
+            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
+            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
+            result = {
+                "round":str(response['total_round']),
+                "time":str(response['battle_time']),
+                "winner": str(response['result']['winner']),
+                "loser":str(response['result']['loser'])
+                }
+            team1.add_history(result)
+            team2.add_history(result)
             team1.battle_time += 1
             team1.save()
             return JsonResponse(response)

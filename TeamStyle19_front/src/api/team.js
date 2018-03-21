@@ -97,26 +97,11 @@ export default {
     })
   },
 
-  getTeamPulse (context) {
-    const data = {
-      userid: localStorage.getItem('teamstyle_id')
-    }
-    context.$http({
+  getTeamPulse (context,data) {
+    return context.$http({
       url: TEAM_URL+'score/',
       method: 'post',
       body: data
-    }).then(response => {
-      context.line.xAxis.data = response.body.score.map(function (item) {
-        return item[0];
-    })
-      context.line.series[0].data = response.body.score.map(function (item) {
-        return item[1];
-    })
-      //console.log(response)
-    }, response => {
-      context.line.xAxis.data = ['N/A','N/A','N/A','N/A','N/A']
-      context.line.series[0].data = [0,0,0,0,0]
-      alert('网络状态不佳')
     })
   },
 
@@ -257,11 +242,11 @@ export default {
       alert('网络状态不佳')
     })
   },
-  getBattleHistory(context,teamID){
+  getBattleHistory(context,userID){
     return context.$http({
-      url: '',
+      url: TEAM_URL+'history/',
       method: 'post',
-      body: {teamid: teamID}
+      body: {user:userID}
     })
   }
 }
