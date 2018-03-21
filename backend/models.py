@@ -57,6 +57,7 @@ class StudentInfo(models.Model):
     is_active = models.BooleanField(default = False)
     student_id = models.CharField(max_length=20, null=True)
     student_nickname = models.CharField(max_length=50, null=True)
+    student_realname = models.CharField(max_length=20,null = True)
     password = models.CharField(max_length=100, default='000', null=True)
     salt = models.CharField(max_length = 8, null = True)
     thu_email = models.CharField(max_length=50, null=True)

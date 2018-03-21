@@ -57,6 +57,7 @@ def StudentReg(request):
             the_student_id = form.cleaned_data['studentID']
             the_pwd = form.cleaned_data['pwd']
             the_email = form.cleaned_data['email']
+            the_realname = form.cleaned_data['realname']
             if StudentInfo.objects.filter(student_nickname=the_name).exists():
                 success = False
                 message += "用户名已存在！"
@@ -66,12 +67,16 @@ def StudentReg(request):
             elif StudentInfo.objects.filter(thu_email=the_email).exists():
                 success = False
                 message += "电子邮箱已存在！"
+            elif StudentInfo.objects.filter(student_realname = the_realname).exists():
+                success = False
+                message += "您已经注册了账号！"
             else:
                 success = True
             if success is True:
                 the_salt = binascii.hexlify(os.urandom(4)).decode()
                 new_student = StudentInfo.objects.create(
                     student_nickname = the_name,
+                    student_realname = the_realname,
                     student_id = the_student_id,
                     salt = the_salt,
                     password = hashvalue(the_pwd,the_salt),
