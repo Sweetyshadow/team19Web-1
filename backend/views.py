@@ -518,7 +518,7 @@ def GetScore(request):
     else :
         the_student = StudentInfo.objects.get(id = request.POST['userid'])
         the_team = the_student.team_name
-        return JsonResponse({'score':the_team.score})
+        return JsonResponse({'score':the_team.get_score()})
 
 @csrf_exempt
 def GetFile(request,filename):
@@ -542,6 +542,17 @@ def GetIndex(request):
         return JsonResponse({'index':index})
     else :
         return JsonResponse({'message':'STUPID MAN!'})
+
+@csrf_exempt
+def GetHistory(request):
+    if request.method == 'POST':
+        the_student = StudentInfo.objects.get(id=request.POST['user'])
+        the_team = the_student.team_name
+        response = the_team.get_history()
+        return JsonResponse({'history': response})
+        # return response
+    else:
+        return JsonResponse({'history': TeamInfo.objects.get(id=1).get_history()})
 
 @csrf_exempt
 def Battle(request):
@@ -585,10 +596,20 @@ def Battle(request):
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
         r = requests.get('http://123.207.140.186:8888/battle/')
-        team = TeamInfo.objects.get(id = 1)
+        team = TeamInfo.objects.get(id = 6)
         score1 = 90
         ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-        team.add_score(str(["%s"%str(score1),"%s"%str(ti)]))
+        score = {"score":str(score1),"time":ti}
+        result = {
+                "round":str(123),
+                "time":str(ti),
+                "winner": 'test',
+                "loser": 'faketeam',
+                }
+        for team in TeamInfo.objects.all():
+            team.add_history(result)
+            team.add_score(score)
+        
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
@@ -625,10 +646,16 @@ def Inquire(request,id1,id2):
             else:
                 score1 = score1 + 32 * (0 - E1)
                 score1 = score2 + 32 * (1 - E2)
-            team1.add_score(str(["%s"%str(score1),"%s"%str(response['battle_time'])]))
-            team2.add_score(str(["%s"%str(score2),"%s"%str(response['battle_time'])]))
-            team1.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
-            team2.add_history(str(response['total_round']) + str(response['battle_time']) + 'w:%sl:%s'%(str(response['result']['winner']),str(response['result']['loser'])))
+            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
+            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
+            result = {
+                "round":str(response['total_round']),
+                "time":str(response['battle_time']),
+                "winner": str(response['result']['winner']),
+                "loser":str(response['result']['loser'])
+                }
+            team1.add_history(result)
+            team2.add_history(result)
             team1.battle_time += 1
             team1.save()
             return JsonResponse(response)
@@ -709,13 +736,4 @@ def password_email(username, email, new_pwd):
         raise e
 
 
-@csrf_exempt
-def get_history(request):
-    if request.method == 'Post':
-        the_student = StudentInfo.objects.get(id=request.Post['user'])
-        the_team = the_student.team_name
-        response = the_team.get_history()
-        return JsonResponse({'history': response})
-        # return response
-    else:
-        return JsonResponse({'history': TeamInfo.objects.get(id=1).history()})
+
