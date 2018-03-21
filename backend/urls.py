@@ -10,6 +10,7 @@ urlpatterns = [
     path('teams/oneteam/',views.MyTeam),
     path('teams/allteam/',views.AllTeam),
     path('teams/score/',views.GetScore),
+    path('teams/history/',views.get_history),
     path('teams/battle/',views.Battle),
     path('teams/inquire/<int:id1>+<int:id2>/',views.Inquire),
     path('team_id=<int:pk>/', views.GroupDetail.as_view(), name='GroupDetail'),

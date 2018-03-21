@@ -707,3 +707,15 @@ def password_email(username, email, new_pwd):
         return True
     except Exception as e:
         raise e
+
+
+@csrf_exempt
+def get_history(request):
+    if request.method == 'Post':
+        the_student = StudentInfo.objects.get(id=request.Post['user'])
+        the_team = the_student.team_name
+        response = the_team.get_history()
+        return JsonResponse({'history': response})
+        # return response
+    else:
+        return JsonResponse({'history': TeamInfo.objects.get(id=1).history()})
