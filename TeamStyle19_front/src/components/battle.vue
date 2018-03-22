@@ -140,10 +140,11 @@ code {
     float: right;
     margin-right: 12px;
 }
-/*span {
-    font-family: inherit;
-    font-size: inherit;
-}*/
+.footer {
+    position: absolute;
+    margin-top: 60px;
+    left: 0;
+}
 .upload {
     margin: 0;
     div {
