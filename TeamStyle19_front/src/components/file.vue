@@ -48,4 +48,7 @@ ul {
     margin-top: 0;
   }
 }
+.footer {
+  margin-top: 60px;
+}
 </style>
