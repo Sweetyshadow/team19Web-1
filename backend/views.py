@@ -641,8 +641,8 @@ def Inquire(request,id1,id2):
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
-            score1 = float(team1.score)
-            score2 = float(team2.score)
+            score1 = float(team1.get_score()[-1]['score'])
+            score2 = float(team2.get_score()[-1]['score'])
             E1 = 1/(1 + pow(10,(score2-score1)/400))
             E2 = 1/(1 + pow(10,(score1-score2)/400))
             if response['result']['winner'] == team1.team_name:
