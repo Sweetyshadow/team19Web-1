@@ -9,13 +9,11 @@ import Team from '@/components/team'
 import ShowAllTeams from '@/components/ShowAllTeams'
 import PwdChange from '@/components/PwdChange'
 import findPassword from '@/components/FindPassword'
-import upload from '@/components/upload'
 //import MyTeam from '@/components/MyTeam'
 import teamProfile from '@/components/teamProfile'
 import teamPulse from '@/components/teamPulse'
 import battle from '@/components/battle'
 import submit from '@/components/submit'
-// import PhotoUpload from '@/components/PhotoUpload'
 
 Vue.use(Router)
 

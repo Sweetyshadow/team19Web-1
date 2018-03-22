@@ -6,6 +6,7 @@ export default {
     const data = {
       name: context.form.username,
       studentID: context.form.studentID,
+      realname: this.form.realname,
       pwd: context.form.password,
       email: context.form.email
     }
@@ -30,6 +31,7 @@ export default {
         alert("注册失败")
         context.form.email = ''
         context.form.studentID = ''
+        context.form.realname = ''
         context.form.username = ''
         context.form.password = ''
       }
@@ -37,6 +39,7 @@ export default {
       alert(response.status)
       context.form.email = ''
       context.form.studentID = ''
+      context.form.realname = ''
       context.form.username = ''
       context.form.password = ''
     })
