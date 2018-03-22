@@ -105,9 +105,20 @@ template {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 #wrap {
-  width: 50%;
-  margin: 40px auto;
-  max-width: 400px;
+  width: 60%;
+  margin: 60px auto;
+  max-width: 440px;
+}
+.el-form {
+  padding-top: 40px;
+  box-sizing: border-box;
+  border: solid #f4f4f4 1px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 10px 2px rgba(211, 211, 211, 0.829);
+}
+.el-form-item {
+  margin: 16px auto;
+  width: 70%;
 }
 button {
   width: 100%;
