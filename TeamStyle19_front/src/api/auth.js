@@ -6,7 +6,7 @@ export default {
     const data = {
       name: context.form.username,
       studentID: context.form.studentID,
-      realname: this.form.realname,
+      realname: context.form.realname,
       pwd: context.form.password,
       email: context.form.email
     }
