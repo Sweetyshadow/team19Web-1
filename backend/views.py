@@ -667,42 +667,27 @@ def Inquire(request,battleid):
             score2 = float(team2.get_score()[-1]['score'])
             E1 = 1/(1 + pow(10,(score2-score1)/400))
             E2 = 1/(1 + pow(10,(score1-score2)/400))
-            if response['result']['winner'] == team1.team_name:
+            if response['result'] == 0:
                 score1 = score1 + 32 * (1 - E1)
                 score2 = score2 + 32 * (0 - E2)
-            else:
+                winner = team1.team_name
+                loser = team2.team_name
+            elif response['result'] == 1:
                 score1 = score1 + 32 * (0 - E1)
                 score2 = score2 + 32 * (1 - E2)
+                winner = team2.team_name
+                loser = team1.team_name
+            elif response['result'] == 2:
+                winner = 'none'
+                loser = 'none'
             team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
             team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
             result = {
                 "round":str(response['total_round']),
                 "time":str(response['battle_time']),
-                "winner": str(response['result']['winner']),
-                "loser":str(response['result']['loser']),
+                "winner": winner,
+                "loser":loser,
                 "battleid":the_battle_id
-                }
-            team1.add_history(result)
-            team2.add_history(result)
-            team1.battle_time += 1
-            team1.save()
-            return JsonResponse(response)
-        elif response['success'] == 2:
-            the_server.is_busy = False
-            the_server.battle_id = 'none'
-            the_server.save()
-            battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-            response['battle_time'] = battle_time
-            score1 = float(team1.get_score()[-1]['score'])
-            score2 = float(team2.get_score()[-1]['score'])
-            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
-            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
-            result = {
-                "round":str(response['total_round']),
-                "time":str(response['battle_time']),
-                "winner": 'none',
-                "loser":  'none',
-                "battleid": the_battle_id
                 }
             team1.add_history(result)
             team2.add_history(result)
