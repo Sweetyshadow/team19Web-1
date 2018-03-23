@@ -76,7 +76,7 @@
             return{
                 activeIndex: _map[this.$router.history.current.path],
                 router:Boolean(1),
-                profile: avatar,
+                //profile: avatar,
                 show: false,                
             }
         },
