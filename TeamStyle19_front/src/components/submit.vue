@@ -21,8 +21,9 @@ export default {
     }
   },
   created(){
-    var battleid = this.$route.params.battleid
-    this.getDetail(battleid)
+    var battleid = this.$store.state.battleid
+    if(battleid!=null)  this.getDetail(battleid)
+    else this.isWait = false
   },
   methods: {
     getDetail(id){
@@ -31,7 +32,7 @@ export default {
         that.pollDetail(id)
         resolve()
       }).then(()=>{
-
+        that.$store.commit('setBattleid',null)
       }).catch(error=>{
         reject(error)
       })  
