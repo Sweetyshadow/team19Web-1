@@ -21,7 +21,7 @@ import time
 import shutil
 
 # Create your views here.
-
+SAVE_PATH = '/home/ubuntu/team19/battle/'
 
 class StartView(generic.ListView):
     template_name = 'backend/groups.html'
@@ -560,6 +560,18 @@ def GetHistory(request):
         return JsonResponse({'history': TeamInfo.objects.get(id=1).get_history()})
 
 @csrf_exempt
+def GetRecord(request):
+    if request.method == 'GET':
+        return JsonResponse({'success': False,'message':'wrong'})
+    elif request.method == 'POST':
+        the_battle_id = request.POST['battleid']
+        file_path = SAVE_PATH + the_battle_id + '.zip'
+        response = FileResponse(open(file_path,'rb'))
+        response['Content-Type']='application/octet-stream'  
+        response['Content-Disposition']='attachment;filename = ' + the_file_name
+        return response
+
+@csrf_exempt
 def Battle(request):
     if request.method == 'POST':
         #return HttpResponse(request.getHeader("Referer"))
@@ -580,8 +592,12 @@ def Battle(request):
             if server.is_busy == False:
                 print(server.port)
                 server.is_busy = True
-                server.battle_id = team1_id + '+' +team2_id
+                the_battle_id = hashvalue(team1_id + team2_id)
+                server.battle_id = the_battle_id
+                server.team1 = team1_id
+                server.team2 = team2_id
                 server.save()
+                battle_data['battleid'] = the_battle_id
                 r = requests.post('http://123.207.140.186:%s/battle/'%server.port,data = battle_data)               
                 flag = True
                 break
@@ -596,7 +612,7 @@ def Battle(request):
         except:
             return JsonResponse({'success':False,'message':r.text})
         if response['success']:
-            return JsonResponse({'success':True,'battleid':team1_id + '+' +team2_id})
+            return JsonResponse({'success':True,'battleid':the_battle_id})
         else:
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
@@ -618,16 +634,17 @@ def Battle(request):
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
-def Inquire(request,id1,id2):
+def Inquire(request,battleid):
     if request.method == 'POST':
         return JsonResponse({'success':False})
     elif request.method == 'GET':
-        team1 = TeamInfo.objects.get(id = id1)
-        team2 = TeamInfo.objects.get(id = id2)
-        the_battle_id = '%s+%s'%(id1,id2)
+        #team1 = TeamInfo.objects.get(id = id1)
+        #team2 = TeamInfo.objects.get(id = id2)
+        the_battle_id = battleid
         if DockerServer.objects.filter(battle_id = the_battle_id).exists():
-            the_server = DockerServer.objects.get(battle_id = the_battle_id)            
-            r = requests.get('http://123.207.140.186:%s/inquire/%s&*+%s&*+%s/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name))
+            the_server = DockerServer.objects.get(battle_id = the_battle_id)
+            inquire_data = {'battleid':the_battle_id}            
+            r = requests.post('http://123.207.140.186:%s/inquire/'%(the_server.port),data = inquire_data)
             #print('http://123.207.140.186:%s/inquire/%s&*+%s&*+%s/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name) )
         else:
             return JsonResponse({'success':False,'message':'本场对战不存在！'})
@@ -637,8 +654,12 @@ def Inquire(request,id1,id2):
             return JsonResponse({'success':False,'message':r.text})
         #print(response)
         if response['success'] == True:
+            team1 = TeamInfo.objects.get(id = the_server.team1)
+            team2 = TeamInfo.objects.get(id = the_server.team2)
             the_server.is_busy = False
             the_server.battle_id = 'none'
+            the_server.team1 = 'none'
+            the_server.team2 = 'none'
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
@@ -658,7 +679,8 @@ def Inquire(request,id1,id2):
                 "round":str(response['total_round']),
                 "time":str(response['battle_time']),
                 "winner": str(response['result']['winner']),
-                "loser":str(response['result']['loser'])
+                "loser":str(response['result']['loser']),
+                "battleid":the_battle_id
                 }
             team1.add_history(result)
             team2.add_history(result)
@@ -680,6 +702,7 @@ def Inquire(request,id1,id2):
                 "time":str(response['battle_time']),
                 "winner": 'none',
                 "loser":  'none'
+                "battleid": the_battle_id
                 }
             team1.add_history(result)
             team2.add_history(result)
