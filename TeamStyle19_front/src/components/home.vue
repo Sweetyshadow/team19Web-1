@@ -34,6 +34,7 @@ export default {
   }
 }
 </script>
+<script src="particles.js"></script>
 
 <style lang="scss" scoped>
   #particles{
