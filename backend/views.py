@@ -19,6 +19,7 @@ import json
 import random
 import time
 import shutil
+import django
 
 # Create your views here.
 
@@ -584,7 +585,7 @@ def Battle(request):
                 server.is_busy = True
                 server.battle_id = team1_id + '+' +team2_id
                 server.save()
-                r = requests.post('http://172.19.0.2:%s/battle/'%server.port,data = battle_data)               
+                r = requests.post('http://172.%s.0.2:8002/battle/'%server.port,data = battle_data)               
                 flag = True
                 break
             else:
@@ -598,7 +599,7 @@ def Battle(request):
         except:
             return JsonResponse({'success':False,'message':r.text})
         if response['success']:
-            return JsonResponse({'success':True,'battleid':team1_id + '+' +team2_id})
+            return JsonResponse({'success':True,'battleid':team1_id + '+' +team2_id,'version':django.get_version()})
         else:
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
@@ -629,7 +630,7 @@ def Inquire(request,id1,id2):
         the_battle_id = '%s+%s'%(id1,id2)
         if DockerServer.objects.filter(battle_id = the_battle_id).exists():
             the_server = DockerServer.objects.get(battle_id = the_battle_id)            
-            r = requests.get('http://172.19.0.2:%s/inquire/%s&*+%s&*+%s/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name))
+            r = requests.get('http://172.%s.0.2:8002/inquire/%s&*+%s&*+%s/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name))
             #print('http://123.207.140.186:%s/inquire/%s&*+%s&*+%s/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name) )
         else:
             return JsonResponse({'success':False,'message':'本场对战不存在！'})
