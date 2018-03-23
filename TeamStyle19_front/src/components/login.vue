@@ -65,11 +65,11 @@ template {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 #wrap {
-  width: 60%;
   margin: 60px auto;
-  max-width: 440px;
 }
 .el-form {
+  width: 60%;
+  margin: 0 auto 7%;
   padding-top: 40px;
   box-sizing: border-box;
   border: solid #f4f4f4 1px;
