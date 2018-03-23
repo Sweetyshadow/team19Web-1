@@ -54,7 +54,7 @@
                     </el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
-            <el-menu-item index="7" route="\login" v-if="!hasLogin" @click="handleClick"> 登陆/注册 </el-menu-item>
+            <el-menu-item index="7" route="/login" v-if="!hasLogin" @click="handleClick"> 登陆/注册 </el-menu-item>
             <el-menu-item index="8" v-else class="usrname" >{{username}}</el-menu-item>
         </el-menu>
     </transition>

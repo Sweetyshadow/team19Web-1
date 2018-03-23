@@ -109,6 +109,9 @@ a,a:active,a:link,a:hover,a:visited{
     width: 100vw;
     box-sizing: border-box;
   }
+  .left {
+    margin-top: 50px;
+  }
   .mid{
     height: 100px;
     img {

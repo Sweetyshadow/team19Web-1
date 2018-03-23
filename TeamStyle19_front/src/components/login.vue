@@ -15,11 +15,13 @@
       </div>
     </el-form-item>
   </el-form>
+  <foot></foot>
 </div>
 </template>
 
 <script>
 import authSrv from '@/api/auth.js'
+import foot from './foot'
 export default {
   name: 'Login',
   data() {
@@ -38,7 +40,7 @@ export default {
     }
     }
   },
-  components: {},
+  components: {foot},
   computed: {
     count () {
       return this.$store.state.count
@@ -103,7 +105,8 @@ div.foot a:last-child p{
     width: 100%;
   }
   form{
-    margin: 0 10%;
+    margin: 0 5%;
+    margin-bottom: 40%;
   }
 }
 </style>
