@@ -1,7 +1,7 @@
 <template>
   <div>
       <div v-if="isWait" class="waiting">
-        miku here
+        <img src="/static/kotori.gif"/>
       </div>
       <div v-else class="result">
         <p>{{resultDetail}}</p>         

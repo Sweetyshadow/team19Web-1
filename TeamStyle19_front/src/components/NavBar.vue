@@ -63,7 +63,6 @@
 
 <script>
     import authSrv from '@/api/auth.js'
-    import avatar from '../../static/img/AC.png'
     export default{
         name: 'NavBar',
         data(){

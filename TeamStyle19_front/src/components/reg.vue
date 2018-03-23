@@ -111,7 +111,8 @@ template {
   padding-top: 40px;
 }
 .el-form {
-  width: 60%;
+  width: 35%;
+  min-width: 400px;
   margin: 0 auto 10%;
   padding-top: 40px;
   box-sizing: border-box;
@@ -136,7 +137,9 @@ p {
     width: 100%;
   }
   .el-form{
-    margin: 0 5% 8%;
+    width: 95%;
+    margin: 0 auto 8%;
+    min-width: 0;
   }
   .el-form-item{
     margin-left: 40px;
