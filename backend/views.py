@@ -701,7 +701,7 @@ def Inquire(request,battleid):
                 "round":str(response['total_round']),
                 "time":str(response['battle_time']),
                 "winner": 'none',
-                "loser":  'none'
+                "loser":  'none',
                 "battleid": the_battle_id
                 }
             team1.add_history(result)
