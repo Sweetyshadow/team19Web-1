@@ -63,12 +63,11 @@ export default {
 
 <style lang="scss" scoped>
 .waiting {
-  margin-top:10%;
   width: 100%;
   text-align: center;
 }
 img {
-  margin: 0 auto;
+  margin: 2% auto;
   display: block;
 }
 a{
