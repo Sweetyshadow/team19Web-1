@@ -2,18 +2,18 @@
 <div>
     <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu" @click="indexupdate(activeIndex)">
         <!--el-menu-item index="1" route="/"> index </el-menu-item!-->
-        <el-menu-item><a href="https://eesast.com"><img src="/static/img/EESAST.PNG"/></a></el-menu-item>
+        <el-menu-item index="1"><a href="https://eesast.com"><img src="/static/img/EESAST.PNG"/></a></el-menu-item>
         <el-menu-item index="2" route="/"> 主页 </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
         <el-menu-item index="4" route="/ShowAllTeams"> 队伍 </el-menu-item>
         <el-menu-item index="5" route="/battle"> 对战 </el-menu-item>
         <el-submenu index="6" id="submenu" > 
             <template slot="title">个人中心</template>
-            <el-menu-item route="/teamprofile">个人信息</el-menu-item>
-            <el-menu-item route="/teampulse">比分变化</el-menu-item>
-            <el-menu-item route="/" @click="logout">退出登录</el-menu-item>
+            <el-menu-item index="6-1" route="/teamprofile">个人信息</el-menu-item>
+            <el-menu-item index="6-2" route="/teampulse">比分变化</el-menu-item>
+            <el-menu-item index="6-3" route="/" @click="logout" v-if="hasLogin">退出登录</el-menu-item>
         </el-submenu>
-        <el-menu-item v-if="hasLogin" id="profile">
+        <el-menu-item index="7" v-if="hasLogin" id="profile">
             <span> {{username}} </span>
             <!--el-dropdown @command="handleJump" trigger="click"> 
                 
@@ -24,9 +24,9 @@
                 </el-dropdown-menu>
             </el-dropdown-->
         </el-menu-item>
-        <el-menu-item v-else index="6" id="log" route="/login"> 登录|注册 </el-menu-item>
+        <el-menu-item index="8" v-else id="log" route="/login"> 登录|注册 </el-menu-item>
     </el-menu>
-    <el-menu router class="mobile" mode="horizontal">
+    <!--el-menu router class="mobile" mode="horizontal">
         <el-menu-item  id="mobile-menu">
             <img src ='/static/img/menu.png' class="close" @click="handleClick">
             <transition
@@ -34,7 +34,7 @@
                 enter-active-class = "animated slideInDown"
                 leave-active-class = "animated slideOutUp">
                 <ul v-show="show" class="menu-dropdown">
-                    <!--li @click="handleClick"><router-link to="/"> index </router-link></li!-->
+                    <li @click="handleClick"><router-link to="/"> index </router-link></li!>
                     <li @click="handleClick"><router-link to="/"> home </router-link></li>
                     <li @click="handleClick"><router-link to="/file"> 文件 </router-link></li>
                     <li @click="handleClick"><router-link to="/ShowAllTeams"> 队伍 </router-link></li>
@@ -52,10 +52,51 @@
                     <el-dropdown-item command="c">退出</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
-            <!--router-link to="/"><span @click = "logout"> 退出 </span></router-link-->
+            <router-link to="/"><span @click = "logout"> 退出 </span></router-link>
         </el-menu-item>  
         <el-menu-item v-else index="5" id="log" route="/login"> 登录|注册 </el-menu-item>  
-    </el-menu>
+    </el-menu-->
+    <div class="navbar">
+        <img src ='/static/img/menu.png' class="close" @click="handleClick">
+    </div>
+    <transition
+                name="dropdown-animate"
+                enter-active-class = "animated slideInLeft"
+                leave-active-class = "animated slideOutLeft">
+        <el-menu
+        default-active="2"
+        v-show="show"
+        router>
+            <el-menu-item index="2" route="/" @click="handleClick">
+                <span slot="title">主页</span>
+            </el-menu-item>
+            <el-menu-item index="3" route="/file" @click="handleClick">
+                <span slot="title">文件</span>
+            </el-menu-item>
+            <el-menu-item index="4" route="/showAllTeams" @click="handleClick">
+                <span slot="title">队伍</span>
+            </el-menu-item>
+            <el-menu-item index="5" route="/battle" @click="handleClick">
+                <span slot="title">对战</span>
+            </el-menu-item>
+            <el-submenu index="6">
+                <template slot="title"><span>个人中心</span></template>
+                <el-menu-item-group>
+                    <el-menu-item index="6-1" route="/teamprofile" @click="handleClick">
+                    <span slot="title">我的队伍</span>
+                </el-menu-item>
+                    <el-menu-item index="6-2" route="/teampulse" @click="handleClick"> 
+                        <span slot="title">比分变化</span>
+                    </el-menu-item>
+                    <el-menu-item index="6-3" v-if="hasLogin" @click="logout(); handleClick();">
+                        <span slot="title">退出登录</span>
+                    </el-menu-item>
+                </el-menu-item-group>
+            </el-submenu>
+            <el-menu-item index="7" route="\login" v-if="!hasLogin" @click="handleClick"> 登陆/注册 </el-menu-item>
+            <el-menu-item index="8" v-else class="usrname" >{{username}}</el-menu-item>
+        </el-menu>
+    </transition>
 </div>
 </template>
 
@@ -96,6 +137,7 @@
                 console.log('trigger logout')
                 this.hasLogin = false
                 authSrv.logout(this)
+                this.$router.push('/')
             },
             handleJump(command){
                 if(command === "a"){
@@ -156,7 +198,9 @@ div {
     z-index: 1000;
     background-color: transparent;
 }
-
+.navbar {
+    display: none;
+}
 a,a:active,a:link,a:hover,a:visited{
     text-decoration: none;
 }  
@@ -167,10 +211,34 @@ span {
 }
 @media screen and (max-width:720px) {
     .el-menu {
-        height: 40px;
+        position: fixed;
+        top: 40px;
+        height: 100vh;
+        width: 200px!important;
+        z-index: 2000;
+        background-color: #f0f0f0;
+        border: none;
+        border-right: solid 1px #fefefe;
     }
-    
+    .navbar {
+        display: block;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 2010;
+        background-color: rgba(250, 250, 250, 0.9);
+    }
+    .el-menu-item-group{
+        background-color: #f4f4f4;
+        width: 200px;
+    }
+    .usrname {
+        text-align: center;
+    }
     img {
+        position: fied;
+        top:0;
+        z-index: 1990;
         height: 30px;
         width: 30px;
         display: block;
@@ -185,7 +253,7 @@ span {
         height: 100%;
         span {
         display:block;
-        margin: auto 10px;
+        margin: auto;
         line-height: 40px;
     }
     }
@@ -247,4 +315,7 @@ span {
 div.el-submenu__title {
     border-bottom: none!important;
 }
+li.el-menu-item.is-active {
+        width: 200px;
+    }
 </style>

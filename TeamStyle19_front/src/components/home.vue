@@ -48,12 +48,12 @@ export default {
   }
   h1{ 
     position: absolute;
+    font-size: 64px;
     margin: 0;
     top: 20%;
     left: calc(50% - 180.54px);
     text-align: center;
     font-family: 'Megrim', cursive;
-    font-size: 64px;
     cursor: default;
   }
   a,a:hover,a:visited,a:link,a:active{
@@ -66,5 +66,12 @@ export default {
   .footer {
     position: absolute;
     top: 100vh;
+  }
+  @media screen and (max-width:720px) {
+    h1 {
+      font-size: 56px;
+      top: 30%;
+      left: calc(50% - 157.97px);
+    }
   }
 </style>
