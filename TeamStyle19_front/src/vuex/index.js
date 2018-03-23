@@ -6,7 +6,8 @@ export default new Vuex.Store({
     userid: localStorage.getItem('teamstyle_id'),
     username: localStorage.getItem('teamstyle_name'),
     teamindex: null,
-    isLeader: null
+    isLeader: null,
+    battleid: null
   },
   getters: {
 
@@ -34,6 +35,10 @@ export default new Vuex.Store({
     setisLeader (state, payload) {
       state.isLeader = payload
       console.log('isLeader: '+state.isLeader)
+    },
+    setBattleid (state,payload) {
+      state.battleid = payload
+      console.log('battleid: '+state.battleid)
     }
   }
 })
