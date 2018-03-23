@@ -687,7 +687,7 @@ def Inquire(request,id1,id2):
             return JsonResponse(response)
         elif response['success'] == False:
             return JsonResponse({'success':False,'message':response['message']})
-  #    
+    
 
 
 def hashvalue(value,salt):
