@@ -39,6 +39,7 @@ a,a:hover,a:link,a:active,a:visited {
 }
 ul {
   margin-top: 10%;
+  padding: 30px 0;
 }
 
 .el-card {
@@ -50,5 +51,11 @@ ul {
 }
 .footer {
   margin-top: 60px;
+}
+@media screen and(max-width: 720px){
+  .el-card {
+    width: 85%;
+  }
+
 }
 </style>

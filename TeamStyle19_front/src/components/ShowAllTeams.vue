@@ -87,7 +87,11 @@ export default {
 @media screen and (max-width: 720px){
 #wrap {
     width: 80%;
-    min-width: 400px;
+    margin: 20% 5% 0;
+
+}
+.leader .member{
+    display: none;
 }
 }
 </style>

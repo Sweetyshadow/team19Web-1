@@ -1,19 +1,19 @@
 <template>
   <div id="wrap">
-  <el-form :model="form" :rules="rules" ref="form">
-    <el-form-item prop="email">
+  <el-form :model="form" :rules="rules" ref="form" label-width="80px" label-position="left">
+    <el-form-item prop="email" label="邮箱">
       <el-input v-model="form.email" placeholder="邮箱"></el-input>
     </el-form-item>
-    <el-form-item prop="studentID">
+    <el-form-item prop="studentID" label="学号">
       <el-input v-model="form.studentID" placeholder="学号"></el-input>
     </el-form-item>
-    <el-form-item prop="realname">
+    <el-form-item prop="realname" label="真实姓名">
       <el-input v-model="form.realname" placeholder="真实姓名"></el-input>
     </el-form-item>
-    <el-form-item prop="username">
+    <el-form-item prop="username" label="用户名">
       <el-input v-model="form.username" placeholder="用户名"></el-input>
     </el-form-item>
-    <el-form-item prop="password">
+    <el-form-item prop="password" label="密码">
       <el-input v-model="form.password" type="password" placeholder="密码"></el-input>
     </el-form-item>
     <el-form-item>
@@ -21,13 +21,16 @@
       <router-link to="/login"><p>已有账号？点击登录</p></router-link>
     </el-form-item>
   </el-form>
+  <foot></foot>
 </div>
 </template>
 
 <script>
 import authSrv from '@/api/auth.js'
+import foot from './foot'
 export default {
   name: 'Reg',
+  components: {foot},
   data(){
     var mailcheck = (rule, value, callback) => {
       if (value.match(/@mails.tsinghua.edu.cn$/)) {
@@ -118,6 +121,7 @@ template {
 }
 .el-form-item {
   margin: 16px auto;
+  margin-left: 60px;
   width: 70%;
 }
 button {
@@ -128,11 +132,14 @@ p {
 }
 @media screen and (max-width: 720px) {
   #wrap{
-    margin: 40% auto;
+    margin: 30% auto;
     width: 100%;
   }
-  form{
-    margin: 0 10%;
+  .el-form{
+    margin: 0 5% 8%;
+  }
+  .el-form-item{
+    margin-left: 40px;
   }
 }
 </style>

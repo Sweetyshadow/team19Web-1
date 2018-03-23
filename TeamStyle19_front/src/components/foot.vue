@@ -100,4 +100,27 @@ a,a:active,a:link,a:hover,a:visited{
       border-bottom: solid #f0f0f0 1px;
     }
   }
+@media screen and(max-width:720px) {
+  .footer{
+    flex-direction: column;
+    height:auto;
+  }
+  .col {
+    width: 100vw;
+    box-sizing: border-box;
+  }
+  .left {
+    margin-top: 50px;
+  }
+  .mid{
+    height: 100px;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .right{
+    margin-bottom: 30px;
+  }
+}
 </style>

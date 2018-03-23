@@ -155,4 +155,11 @@ img {
     width: 100%;
     height: 100%;
 }
+@media screen  and (max-width:720px){
+    #wrap {
+    width: 80%;
+    margin: 20% 5% 0 !important;
+
+}
+}
 </style>
