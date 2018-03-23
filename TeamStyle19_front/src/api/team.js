@@ -107,7 +107,7 @@ export default {
 
   isLeader (context) {
     if(!localStorage.getItem('teamstyle_id')){
-      alert('请先登录再进行操作')
+      //alert('请先登录再进行操作')
       context.$router.push('/login')
     } else {
       context.$http({
