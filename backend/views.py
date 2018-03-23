@@ -670,22 +670,24 @@ def Inquire(request,battleid):
             if response['result'] == '0':
                 score1 = score1 + 32 * (1 - E1)
                 score2 = score2 + 32 * (0 - E2)
-                score1 = round(score1,2)
-                score2 = round(score2,2)
+                score_1 = round(score1,2)
+                score_2 = round(score2,2)
                 winner = team1.team_name
                 loser = team2.team_name
             elif response['result'] == '1':
                 score1 = score1 + 32 * (0 - E1)
                 score2 = score2 + 32 * (1 - E2)
-                score1 = round(score1,2)
-                score2 = round(score2,2)
+                score_1 = round(score1,2)
+                score_2 = round(score2,2)
                 winner = team2.team_name
                 loser = team1.team_name
             elif response['result'] == '2':
+                score_1 = round(score1,2)
+                score_2 = round(score2,2)
                 winner = 'none'
                 loser = 'none'
-            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
-            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
+            team1.add_score({"score":str(score_1),"time":str(response['battle_time'])})
+            team2.add_score({"score":str(score_2),"time":str(response['battle_time'])})
             result = {
                 "round":str(response['total_round']),
                 "time":str(response['battle_time']),
