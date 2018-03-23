@@ -650,7 +650,7 @@ def Inquire(request,id1,id2):
                 score2 = score2 + 32 * (0 - E2)
             else:
                 score1 = score1 + 32 * (0 - E1)
-                score1 = score2 + 32 * (1 - E2)
+                score2 = score2 + 32 * (1 - E2)
             team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
             team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
             result = {
