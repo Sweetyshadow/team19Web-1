@@ -107,12 +107,13 @@ export default {
 template {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
-#wrap {
-  width: 60%;
-  margin: 60px auto;
-  max-width: 440px;
+#wrap{
+  padding-top: 40px;
 }
 .el-form {
+  width: 35%;
+  min-width: 400px;
+  margin: 0 auto 10%;
   padding-top: 40px;
   box-sizing: border-box;
   border: solid #f4f4f4 1px;
@@ -136,7 +137,9 @@ p {
     width: 100%;
   }
   .el-form{
-    margin: 0 5% 8%;
+    width: 95%;
+    margin: 0 auto 8%;
+    min-width: 0;
   }
   .el-form-item{
     margin-left: 40px;

@@ -69,7 +69,7 @@ export default {
       } else {
         //console.log('f')
         this.logout(context)
-        alert(response.body.message)
+        alert('登录失败')
         context.form.username = ''
         context.form.password = ''
       }

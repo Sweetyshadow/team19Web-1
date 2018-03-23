@@ -1,7 +1,8 @@
 <template>
   <div>
       <div v-if="isWait" class="waiting">
-        miku here
+        <img src="/static/img/kotori.gif"/>
+        <p><a>对战进行中...</a></p>
       </div>
       <div v-else class="result">
         <p>{{resultDetail}}</p>         
@@ -59,3 +60,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.waiting {
+  width: 100%;
+  text-align: center;
+}
+img {
+  margin: 2% auto;
+  display: block;
+}
+a{
+  font-size: 24px;
+}
+</style>
