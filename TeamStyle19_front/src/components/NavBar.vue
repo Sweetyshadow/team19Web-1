@@ -12,13 +12,13 @@
             <el-menu-item index="6-2" route="/teampulse">比分变化</el-menu-item>
             <el-menu-item index="6-3" route="/" @click="logout" v-if="hasLogin">退出登录</el-menu-item>
         </el-submenu>
-        <el-menu-item index="7" v-if="hasLogin" id="profile">
+        <el-menu-item index="7" v-if="hasLogin" id="profile" disabled class="login">
             <span> {{username}} </span>
         </el-menu-item>
         <el-menu-item index="8" v-else id="log" route="/login"> 登录|注册 </el-menu-item>
     </el-menu>
-    <div class="navbar">
-        <img src ='/static/img/menu.png' class="close" @click="handleClick">
+    <div class="navbar" @click="handleClick">
+        <img src ='/static/img/menu.png' class="close" >
     </div>
     <transition
                 name="dropdown-animate"
@@ -76,7 +76,6 @@
             return{
                 activeIndex: _map[this.$router.history.current.path],
                 router:Boolean(1),
-                //profile: avatar,
                 show: false,                
             }
         },
@@ -99,17 +98,17 @@
                 authSrv.logout(this)
                 this.$router.push('/')
             },
-            handleJump(command){
+            /*handleJump(command){
                 if(command === "a"){
                     this.$router.push('/PwdChange')
                     console.log(this.$router.history.current)
                 } else if(command === "b"){
                     this.$router.push('/MyTeam')
                 } else if(command === "c"){
-                    this.logout();
+                    this.logout()
                     this.$router.push('/')
                 }
-            },
+            },*/
             handleClick(){
                 this.show=!this.show
             }
@@ -161,6 +160,9 @@ div {
 .navbar {
     display: none;
 }
+.login{
+    cursor:default;
+}
 a,a:active,a:link,a:hover,a:visited{
     text-decoration: none;
 }  
@@ -196,9 +198,9 @@ span {
         text-align: center;
     }
     img {
-        position: fied;
+        position: relative;
         top:0;
-        z-index: 1990;
+        z-index: 2018;
         height: 30px;
         width: 30px;
         display: block;
