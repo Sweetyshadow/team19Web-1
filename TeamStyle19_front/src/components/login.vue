@@ -104,8 +104,9 @@ div.foot a:last-child p{
     margin: 40% auto;
     width: 100%;
   }
-  form{
-    margin: 0 5%;
+  .el-form{
+    width: 95%;
+    margin: 0 auto;
     margin-bottom: 40%;
   }
 }
