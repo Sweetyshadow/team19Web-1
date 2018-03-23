@@ -43,7 +43,7 @@ a,a:active,a:link,a:hover,a:visited{
     color: black;
 }  
   .footer{
-    width: 100vw;
+    width: 100%;
     height: 150px;
     display: flex;
     flex-direction: row;
