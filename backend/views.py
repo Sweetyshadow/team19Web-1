@@ -658,8 +658,8 @@ def Inquire(request,battleid):
             team2 = TeamInfo.objects.get(id = the_server.team2)
             the_server.is_busy = False
             the_server.battle_id = 'none'
-            the_server.team1 = 'none'
-            the_server.team2 = 'none'
+            the_server.team1 = -1
+            the_server.team2 = -1
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
