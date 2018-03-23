@@ -1,7 +1,6 @@
 <template>
 <div>
     <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu" @click="indexupdate(activeIndex)">
-        <!--el-menu-item index="1" route="/"> index </el-menu-item!-->
         <el-menu-item index="1"><a href="https://eesast.com"><img src="/static/img/EESAST.PNG"/></a></el-menu-item>
         <el-menu-item index="2" route="/"> 主页 </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
@@ -15,47 +14,9 @@
         </el-submenu>
         <el-menu-item index="7" v-if="hasLogin" id="profile">
             <span> {{username}} </span>
-            <!--el-dropdown @command="handleJump" trigger="click"> 
-                
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item command="a">修改密码</el-dropdown-item>
-                    <el-dropdown-item command="b">我的队伍</el-dropdown-item>
-                    <el-dropdown-item command="c">退出</el-dropdown-item>
-                </el-dropdown-menu>
-            </el-dropdown-->
         </el-menu-item>
         <el-menu-item index="8" v-else id="log" route="/login"> 登录|注册 </el-menu-item>
     </el-menu>
-    <!--el-menu router class="mobile" mode="horizontal">
-        <el-menu-item  id="mobile-menu">
-            <img src ='/static/img/menu.png' class="close" @click="handleClick">
-            <transition
-                name="dropdown-animate"
-                enter-active-class = "animated slideInDown"
-                leave-active-class = "animated slideOutUp">
-                <ul v-show="show" class="menu-dropdown">
-                    <li @click="handleClick"><router-link to="/"> index </router-link></li!>
-                    <li @click="handleClick"><router-link to="/"> home </router-link></li>
-                    <li @click="handleClick"><router-link to="/file"> 文件 </router-link></li>
-                    <li @click="handleClick"><router-link to="/ShowAllTeams"> 队伍 </router-link></li>
-                    <li @click="handleClick"><router-link to="/battle"> 对战 </router-link></li>
-                    <li @click="handleClick"> <img src='/static/img/close.png'></li>
-                </ul>
-            </transition>
-        </el-menu-item>
-        <el-menu-item v-if="hasLogin" id="profile">
-            <el-dropdown @command="handleJump" class="user-dropdown" trigger="click"> 
-                <span> {{username}} </span>
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item command="a">修改密码</el-dropdown-item>
-                    <el-dropdown-item command="b">我的队伍</el-dropdown-item>
-                    <el-dropdown-item command="c">退出</el-dropdown-item>
-                </el-dropdown-menu>
-            </el-dropdown>
-            <router-link to="/"><span @click = "logout"> 退出 </span></router-link>
-        </el-menu-item>  
-        <el-menu-item v-else index="5" id="log" route="/login"> 登录|注册 </el-menu-item>  
-    </el-menu-->
     <div class="navbar">
         <img src ='/static/img/menu.png' class="close" @click="handleClick">
     </div>
@@ -243,71 +204,6 @@ span {
         width: 30px;
         display: block;
         margin: 5px 5px;
-    }
-    #log {
-        line-height: 40px;
-    }
-    #profile, .user-dropdown {
-        position: absolute;
-        right: 0;
-        height: 100%;
-        span {
-        display:block;
-        margin: auto;
-        line-height: 40px;
-    }
-    }
-    .el-dropdown{
-        position: absolute;
-        top: 0;
-    }
-    #mobile-menu {
-        height: 10%;
-        border: none;
-        .close{
-            position: absolute;
-            left: 0;
-        }
-    }
-    .mobile {
-        li:nth-last-child(1) {
-            padding-right: 5px;
-        }
-    }
-    .menu-dropdown {
-        height: 100vh;
-        width: 100vw;
-        padding: 0;
-        color: white;
-        background-color: hsla(0,0,0,0.85);
-        z-index: 2000;
-        position: absolute;
-        top: 0;
-        left:0;
-        list-style-type: none;
-        li:first-child {
-            margin: 20% 0 0 0;
-        }
-        li:nth-last-child(1),li:nth-last-child(2) {
-            border: none;
-        }
-        li:nth-last-child(1){
-            padding: 10% 0 0 0;
-        }
-        li{
-            padding: 0;
-            height: 100px;
-            line-height: 100px;
-            text-align: center;
-            border-bottom: {
-                color: white;
-                width: 1px !important;
-                style: solid;
-            }
-            img {
-                margin: 0 auto;
-            }
-        }
     }
 }
 </style>
