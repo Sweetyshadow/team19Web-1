@@ -592,7 +592,7 @@ def Battle(request):
             if server.is_busy == False:
                 print(server.port)
                 server.is_busy = True
-                the_battle_id = str(hashvalue(team1_id + team2_id,'eesast'))
+                the_battle_id = str(hashvalue(team1_id + team2_id,time.time())[:8])
                 server.battle_id = the_battle_id
                 server.team1 = team1_id
                 server.team2 = team2_id
