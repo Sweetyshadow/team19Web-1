@@ -56,17 +56,17 @@ export default {
     teamSrv.getMyteamindex(this,this.jump)
     teamSrv.showAll(this,this.requireAI)
     fileSrv.getAI(this)
-    battleSrv.getPlatformVersion(this).then(response => {
+    /*battleSrv.getPlatformVersion(this).then(response => {
         if(response.body.success) {
             this.version = response.body.version
         }
     }, response => {
         this.version = '暂无数据'
-    })
+    })*/
   },
   data(){
       return {
-          version: null,
+          version: 'latest',
           isProfile: false,
           icon: "el-icon-upload",
           acceptedFormat: [],
@@ -84,6 +84,7 @@ export default {
           //context.$router.push(path)
       },
       jumpwithParam (context, battleid) {
+          context.$store.commit('setBattleid',battleid)
           context.$router.push({name: 'submit', params: { battleid:battleid }})
       },
       handleBattle(index,row){
