@@ -635,6 +635,7 @@ def Inquire(request,id1,id2):
             response = json.loads(r.text)
         except:
             return JsonResponse({'success':False,'message':r.text})
+        print(response)
         if response['success']:
             the_server.is_busy = False
             the_server.battle_id = 'none'
