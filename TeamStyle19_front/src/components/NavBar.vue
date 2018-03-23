@@ -211,7 +211,4 @@ span {
 div.el-submenu__title {
     border-bottom: none!important;
 }
-li.el-menu-item.is-active {
-        width: 200px;
-    }
 </style>
