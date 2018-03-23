@@ -667,9 +667,30 @@ def Inquire(request,id1,id2):
             team1.battle_time += 1
             team1.save()
             return JsonResponse(response)
+        elif response['success'] == 2:
+            the_server.is_busy = False
+            the_server.battle_id = 'none'
+            the_server.save()
+            battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
+            response['battle_time'] = battle_time
+            score1 = float(team1.get_score()[-1]['score'])
+            score2 = float(team2.get_score()[-1]['score'])
+            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
+            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
+            result = {
+                "round":str(response['total_round']),
+                "time":str(response['battle_time']),
+                "winner": 'none',
+                "loser":  'none'
+                }
+            team1.add_history(result)
+            team2.add_history(result)
+            team1.battle_time += 1
+            team1.save()
+            return JsonResponse(response)
         elif response['success'] == False:
             return JsonResponse({'success':False,'message':response['message']})
-  #    
+    
 
 
 def hashvalue(value,salt):

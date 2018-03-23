@@ -1,7 +1,7 @@
 <template>
 <div>
     <el-menu :default-active="activeIndex" mode="horizontal" router class="PC" id="menu" @click="indexupdate(activeIndex)">
-        <el-menu-item index="1"><a href="https://eesast.com"><img src="/static/img/EESAST.PNG"/></a></el-menu-item>
+        <el-menu-item index="1"><a href="https://eesast.com"><img src="/static/img/EESAST.png"/></a></el-menu-item>
         <el-menu-item index="2" route="/"> 主页 </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
         <el-menu-item index="4" route="/ShowAllTeams"> 队伍 </el-menu-item>
@@ -54,7 +54,7 @@
                     </el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
-            <el-menu-item index="7" route="\login" v-if="!hasLogin" @click="handleClick"> 登陆/注册 </el-menu-item>
+            <el-menu-item index="7" route="/login" v-if="!hasLogin" @click="handleClick"> 登陆/注册 </el-menu-item>
             <el-menu-item index="8" v-else class="usrname" >{{username}}</el-menu-item>
         </el-menu>
     </transition>
@@ -211,7 +211,4 @@ span {
 div.el-submenu__title {
     border-bottom: none!important;
 }
-li.el-menu-item.is-active {
-        width: 200px;
-    }
 </style>
