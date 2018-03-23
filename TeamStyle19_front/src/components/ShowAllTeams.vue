@@ -21,6 +21,7 @@
       </template>
     </el-table-column>
   </el-table>
+  <foot></foot>
   <!--div :model="test">
       <input v-model="test.id1">
       <input v-model="test.id2">
@@ -32,8 +33,12 @@
 
 <script>
 import teamSrv from '@/api/team.js'
+import foot from './foot'
 export default {
   name:'ShowAllTeams',
+  components: {
+      foot
+  },
   data(){
       return{
           team: [],
@@ -74,10 +79,19 @@ export default {
     min-width: 480px;
     margin: 40px auto;
 }
+.footer {
+    position: absolute;
+    margin-top: 60px;
+    left: 0;
+}
 @media screen and (max-width: 720px){
 #wrap {
     width: 80%;
-    min-width: 400px;
+    margin: 20% 5% 0;
+
+}
+.leader .member{
+    display: none;
 }
 }
 </style>

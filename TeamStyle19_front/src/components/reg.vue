@@ -7,6 +7,9 @@
     <el-form-item prop="studentID">
       <el-input v-model="form.studentID" placeholder="学号"></el-input>
     </el-form-item>
+    <el-form-item prop="realname">
+      <el-input v-model="form.realname" placeholder="真实姓名"></el-input>
+    </el-form-item>
     <el-form-item prop="username">
       <el-input v-model="form.username" placeholder="用户名"></el-input>
     </el-form-item>
@@ -51,6 +54,7 @@ export default {
       form: {
         email:'',
         username:'',
+        realname: '',
         password:'',
         studentID:''
       },
@@ -62,6 +66,9 @@ export default {
         ],
         studentID: [
           {required: true, validator: studentIDcheck, trigger: 'blur,change'}
+        ],
+        realname: [
+          {required: true, trigger: 'blur,change'}
         ],
         username: [
           {required: true, message: '请输入用户名'},
@@ -76,7 +83,7 @@ export default {
   },
   computed: {
     disabled(){
-      return this.form.email===''||!this.form.email.match(/@mails.tsinghua.edu.cn$/)||
+      return this.form.email===''||!this.form.email.match(/@mails.tsinghua.edu.cn$/)||this.form.realname===''||
              this.form.username===''||this.form.username.match(/ |\//)||this.form.password===''||this.form.studentID.length!=10
     }
   },
@@ -98,9 +105,20 @@ template {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 #wrap {
-  width: 50%;
-  margin: 40px auto;
-  max-width: 400px;
+  width: 60%;
+  margin: 60px auto;
+  max-width: 440px;
+}
+.el-form {
+  padding-top: 40px;
+  box-sizing: border-box;
+  border: solid #f4f4f4 1px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 10px 2px rgba(211, 211, 211, 0.829);
+}
+.el-form-item {
+  margin: 16px auto;
+  width: 70%;
 }
 button {
   width: 100%;

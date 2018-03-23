@@ -27,13 +27,18 @@
         </el-form>
         <!--el-button @click="testLeader">testLeader</el-button!-->
         <router-link to="/ShowAllTeams"><a>查看所有队伍</a></router-link>
+        <foot></foot>
     </div>
 </template>
 
 <script>
 import teamSrv from '@/api/team.js'
+import foot from './foot'
 export default {
   name: 'team',
+  components: {
+      foot
+  },
   data(){
       var teamnamecheck = (rule,value,callback) => {
           if(value.match(/ /)||value.match(/\//)){

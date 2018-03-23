@@ -39,17 +39,20 @@
                 </el-table-column>
             </el-table>
         </div>
+        <foot></foot>
   </div>
 </template>
 
 <script>
 import upload from './upload'
+import foot from './foot'
 import authSrv from '@/api/auth.js'
 import teamSrv from '@/api/team.js'
 export default {
   name: 'teamProfile',
   components: {
-      upload
+      upload,
+      foot
   },
   data() {
       return {
@@ -109,7 +112,8 @@ export default {
                     })
                 })
             }, response => {
-                alert('fail to get battle history')
+                this.history = []
+                //alert('fail to get battle history')
             })
         }
       }
@@ -122,6 +126,11 @@ div#wrap{
     max-width: 600px;
     min-width: 480px;
     margin: 40px auto;
+}
+.footer {
+    position: absolute;
+    margin-top: 60px;
+    left: 0;
 }
 div.column{
     display: inline-block;
@@ -145,5 +154,12 @@ h1{
 img {
     width: 100%;
     height: 100%;
+}
+@media screen  and (max-width:720px){
+    #wrap {
+    width: 80%;
+    margin: 20% 5% 0 !important;
+
+}
 }
 </style>

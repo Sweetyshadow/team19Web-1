@@ -1,4 +1,5 @@
 <template>
+<div>
   <ul>
     <el-card v-for="item in files" :key="item.id">
       <h4> {{item.title}} </h4>
@@ -6,9 +7,12 @@
       <el-button type="primary"><a :href="item.address">download</a></el-button>
    </el-card>
   </ul>
+  <foot></foot>
+</div>
 </template>
 <script>
 import fileSrv from '@/api/file.js'
+import foot from './foot'
 export default {
   name: 'File',
   data () {
@@ -21,7 +25,7 @@ export default {
       .loadFile(this)
   },
   components: {
-
+    foot
   },
   methods: {
 
@@ -35,6 +39,7 @@ a,a:hover,a:link,a:active,a:visited {
 }
 ul {
   margin-top: 10%;
+  padding: 30px 0;
 }
 
 .el-card {
@@ -43,5 +48,14 @@ ul {
   h4 {
     margin-top: 0;
   }
+}
+.footer {
+  margin-top: 60px;
+}
+@media screen and(max-width: 720px){
+  .el-card {
+    width: 85%;
+  }
+
 }
 </style>
