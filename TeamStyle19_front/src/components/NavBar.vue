@@ -10,7 +10,8 @@
             <template slot="title">个人中心</template>
             <el-menu-item index="6-1" route="/teamprofile">个人信息</el-menu-item>
             <el-menu-item index="6-2" route="/teampulse">比分变化</el-menu-item>
-            <el-menu-item index="6-3" route="/" @click="logout" v-if="hasLogin">退出登录</el-menu-item>
+            <el-menu-item index="6-3" route="/PwdChange" v-if="hasLogin">修改密码</el-menu-item>
+            <el-menu-item index="6-4" route="/" @click="logout" v-if="hasLogin">退出登录</el-menu-item>
         </el-submenu>
         <el-menu-item index="7" v-if="hasLogin" id="profile" disabled class="login">
             <span> {{username}} </span>
@@ -44,12 +45,14 @@
                 <template slot="title"><span>个人中心</span></template>
                 <el-menu-item-group>
                     <el-menu-item index="6-1" route="/teamprofile" @click="handleClick">
-                    <span slot="title">我的队伍</span>
-                </el-menu-item>
+                        <span slot="title">我的队伍</span>
+                    </el-menu-item>
                     <el-menu-item index="6-2" route="/teampulse" @click="handleClick"> 
                         <span slot="title">比分变化</span>
                     </el-menu-item>
-                    <el-menu-item index="6-3" v-if="hasLogin" @click="logout(); handleClick();">
+                    <el-menu-item index="6-3" v-if="hasLogin" route="/PwdChange" @click="handleClick">
+                        <span slot="title">修改密码</span>
+                    <el-menu-item index="6-4" v-if="hasLogin" @click="logout(); handleClick();">
                         <span slot="title">退出登录</span>
                     </el-menu-item>
                 </el-menu-item-group>
