@@ -82,8 +82,10 @@ def StudentReg(request):
                     password = hashvalue(the_pwd,the_salt),
                     thu_email = the_email
                 )
-                result = active_email(the_name,the_email)
-                new_student.save()              
+                new_student.save()
+                print("save")
+                result = active_email(the_name,the_email)   
+                print("send")           
                 message += "success!"
                 return JsonResponse({'success':success,'message':message,'email':result})
         else :
