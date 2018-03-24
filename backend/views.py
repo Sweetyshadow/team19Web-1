@@ -562,7 +562,7 @@ def GetHistory(request):
 @csrf_exempt
 def GetRecord(request):
     if request.method == 'GET':
-        return JsonResponse({'success':False,'message':wrong})
+        return JsonResponse({'success':False,'message':'wrong'})
     elif request.method == 'POST':
         the_battle_id = request.POST['battleid']
         file_path = SAVE_PATH + the_battle_id + '.zip'
