@@ -805,7 +805,7 @@ def get_version():
         else:
             pass
     file = [x[:-4] for x in file ]
-    file = [x.split('_')]
+    file = [x.split('_') for x in file]
     result = {}
     for i in range(0,len(file)):
         if file[i][1] == 'win':
