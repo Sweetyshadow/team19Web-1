@@ -382,6 +382,7 @@ def AllTeam(request):
                 'teamid':team.id,
                 'teamname':team.team_name,
                 'scale':team.member_num,
+                'score':team.get_score()[-1]['score'],
                 'leader':team.leader,
                 'hasAI':hasAI,
                 'member1':team.member1,
@@ -389,7 +390,7 @@ def AllTeam(request):
                 'member3':team.member3
                 })
         return JsonResponse(response, safe = False)
-
+#
 '''@csrf_exempt
 def UploadHeadpic(request):
     if request.method == 'POST':
@@ -701,6 +702,8 @@ def Inquire(request,battleid):
                 winner = team2.team_name
                 loser = team1.team_name
             elif response['result'] == '2':
+                score1 = score1 + 32 * (0.5 - E1)
+                score2 = score2 + 32 * (0.5 - E2)
                 score_1 = round(score1,2)
                 score_2 = round(score2,2)
                 winner = 'none'
