@@ -560,22 +560,22 @@ def GetHistory(request):
         return JsonResponse({'history': TeamInfo.objects.get(id=1).get_history()})
 
 @csrf_exempt
-def GetRecord(request,battleid):
+def GetRecord(request):
     if request.method == 'GET':
-        file_path = SAVE_PATH + battleid + '.zip'
-        response = FileResponse(open(file_path,'r'))
-        response['Content-Type'] = 'application/zip'  
-        response['Content-Disposition'] ='attachment;filename = ' + 'record.zip'
-        return response
+        return JsonResponse({'success':False,'message':wrong})
     elif request.method == 'POST':
         the_battle_id = request.POST['battleid']
         file_path = SAVE_PATH + the_battle_id + '.zip'
         response = FileResponse(open(file_path,'rb'))
         #response = StreamingHttpResponse(file_iterator(file_path))
-        response['Content-Type']='application/zip'  
+        response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename = record.zip'
         return response
-
+'''        
+def GetVersion(request):
+    if request.method == 'GET':
+        VERSION_PATH = 
+'''
 @csrf_exempt
 def Battle(request):
     if request.method == 'POST':

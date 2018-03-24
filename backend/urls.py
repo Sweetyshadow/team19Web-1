@@ -12,7 +12,7 @@ urlpatterns = [
     path('teams/score/',views.GetScore),
     path('teams/history/',views.GetHistory),
     path('teams/battle/',views.Battle),
-    path('teams/record/<str:battleid>/',views.GetRecord),
+    path('teams/record/',views.GetRecord),
     path('teams/inquire/<str:battleid>/',views.Inquire),
     path('team_id=<int:pk>/', views.GroupDetail.as_view(), name='GroupDetail'),
     path('user_id=<int:pk>/', views.StudentDetail.as_view(), name='StudentDetail'),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('students/activate/',views.StudentActivate),
     path('students/find_password/',views.find_password),
     path('upload/file/',views.UploadFile),
+    path('version',views.GetVersion),
     path('download/code/',views.GetCode),
     path('download/allfiles/',views.GetIndex),
     path('download/file/<str:filename>',views.GetFile)
