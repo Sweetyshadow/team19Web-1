@@ -26,16 +26,6 @@ Vue.http.options.headers = {
   'Content-Type': 'application/x-www-form-urlencoded'
 }
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  render: h => h(App),
-  store,
-  router,
-  template: '<App/>',
-  components: { App }
-})
-
 router.beforeEach((to,from,next) => {
   if (to.matched.some(record => record.meta.requireAuth)) {
     if(!localStorage.getItem('teamstyle_id')){
@@ -102,3 +92,14 @@ Vue.directive('highlightjs', {
     })
   }
 })
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  render: h => h(App),
+  store,
+  router,
+  template: '<App/>',
+  components: { App }
+})
+
