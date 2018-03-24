@@ -574,7 +574,7 @@ def GetRecord(request):
 
 def GetRecordAlias(request,battleid):
     if request.method == 'GET':
-        file_path = SAVE_PATH + the_battle_id + '.zip'
+        file_path = SAVE_PATH + battleid + '.zip'
         response = FileResponse(open(file_path,'rb'))
         response['Content-Type']='application/zip'  
         response['Content-Disposition']='attachment;filename = record.zip'
