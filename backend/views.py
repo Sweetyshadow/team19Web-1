@@ -581,22 +581,14 @@ def GetRecordAlias(request,battleid):
         return response
     else:
         return JsonResponse({'success':False})
-'''
+
 def GetVersion(request):
     if request.method == 'GET':
-        VERSION_PATH = '/home/ubuntu/team19/rulefile/'
-        index = os.listdir(os.getcwd())
-        file = []
-        for i in index:
-            if 'playerfile' in i:
-                file.append(i)
-            else:
-                pass
-        file = [x[:-4] for x in file ]
-        file = [x.split('_')]
-        result = {}
-        result['mac' = ]
-'''
+        result = get_version()
+        return JsonResponse(result)
+    elif request.method == 'POST':
+        return JsonResponse({'success':False})
+
 
 @csrf_exempt
 def Battle(request):
@@ -802,6 +794,25 @@ def password_email(username, email, new_pwd):
         return True
     except Exception as e:
         raise e
+
+def get_version():
+    VERSION_PATH = '/home/ubuntu/team19/rulefile/'
+    index = os.listdir(VERSION_PATH)
+    file = []
+    for i in index:
+        if 'playerfile' in i:
+            file.append(i)
+        else:
+            pass
+    file = [x[:-4] for x in file ]
+    file = [x.split('_')]
+    result = {}
+    for i in range(0,len(file)):
+        if file[i][1] == 'win':
+            result['win'] = file[i][2] + '_' + file[i][3]
+        elif file[i][1] == 'mac':
+            result['mac'] = file[i][2] + '_' + file[i][3]
+    return result
 
 
 
