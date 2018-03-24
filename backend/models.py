@@ -18,7 +18,7 @@ class TeamInfo(models.Model):
     battle_time = models.IntegerField(default = 1)
     codes = models.TextField(null=True)
     history = models.CharField(max_length = 8000, default = '[]')
-    score = models.CharField(max_length = 8000, default = '[{"score":50}]')
+    score = models.CharField(max_length = 8000, default = '[{"score":1000}]')
 
     def __str__(self):
         return self.team_name
