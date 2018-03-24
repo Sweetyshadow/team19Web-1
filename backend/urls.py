@@ -13,6 +13,7 @@ urlpatterns = [
     path('teams/history/',views.GetHistory),
     path('teams/battle/',views.Battle),
     path('teams/record/',views.GetRecord),
+    path('teams/record/<str:battleid>/',views.GetRecordAlias),
     path('teams/inquire/<str:battleid>/',views.Inquire),
     path('team_id=<int:pk>/', views.GroupDetail.as_view(), name='GroupDetail'),
     path('user_id=<int:pk>/', views.StudentDetail.as_view(), name='StudentDetail'),

@@ -568,10 +568,20 @@ def GetRecord(request):
         file_path = SAVE_PATH + the_battle_id + '.zip'
         response = FileResponse(open(file_path,'rb'))
         #response = StreamingHttpResponse(file_iterator(file_path))
-        response['Content-Type']='application/octet-stream'  
+        response['Content-Type']='application/zip'  
         response['Content-Disposition']='attachment;filename = record.zip'
         return response
-'''       
+
+def GetRecordAlias(request,battleid):
+    if request.method == 'GET':
+        file_path = SAVE_PATH + the_battle_id + '.zip'
+        response = FileResponse(open(file_path,'rb'))
+        response['Content-Type']='application/zip'  
+        response['Content-Disposition']='attachment;filename = record.zip'
+        return response
+    else:
+        return JsonResponse({'success':False})
+
 def GetVersion(request):
     if request.method == 'GET':
         VERSION_PATH = '/home/ubuntu/team19/rulefile/'
@@ -582,7 +592,11 @@ def GetVersion(request):
                 file.append(i)
             else:
                 pass
-'''
+        file = [x[:-4] for x in file ]
+        file = [x.split('_')]
+        result = {}
+        result['mac' = ]
+
 
 @csrf_exempt
 def Battle(request):
