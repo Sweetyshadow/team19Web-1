@@ -21,7 +21,7 @@ import time
 import shutil
 
 # Create your views here.
-
+SAVE_PATH = '/home/ubuntu/team19/battle/'
 
 class StartView(generic.ListView):
     template_name = 'backend/groups.html'
@@ -82,8 +82,10 @@ def StudentReg(request):
                     password = hashvalue(the_pwd,the_salt),
                     thu_email = the_email
                 )
-                result = active_email(the_name,the_email)
-                new_student.save()              
+                new_student.save()
+                print("save")
+                result = active_email(the_name,the_email)   
+                print("send")           
                 message += "success!"
                 return JsonResponse({'success':success,'message':message,'email':result})
         else :
@@ -382,6 +384,7 @@ def AllTeam(request):
                 'teamid':team.id,
                 'teamname':team.team_name,
                 'scale':team.member_num,
+                'score':team.get_score()[-1]['score'],
                 'leader':team.leader,
                 'hasAI':hasAI,
                 'member1':team.member1,
@@ -389,7 +392,7 @@ def AllTeam(request):
                 'member3':team.member3
                 })
         return JsonResponse(response, safe = False)
-
+#
 '''@csrf_exempt
 def UploadHeadpic(request):
     if request.method == 'POST':
@@ -557,7 +560,38 @@ def GetHistory(request):
         return JsonResponse({'history': response})
         # return response
     else:
-        return JsonResponse({'history': TeamInfo.objects.get(id=1).get_history()})
+        return JsonResponse({'success':False})
+
+@csrf_exempt
+def GetRecord(request):
+    if request.method == 'GET':
+        return JsonResponse({'success':False,'message':'wrong'})
+    elif request.method == 'POST':
+        the_battle_id = request.POST['battleid']
+        file_path = SAVE_PATH + the_battle_id + '.zip'
+        response = FileResponse(open(file_path,'rb'))
+        #response = StreamingHttpResponse(file_iterator(file_path))
+        response['Content-Type']='application/octet-stream'  
+        response['Content-Disposition']='attachment;filename = record.zip'
+        return response
+
+def GetRecordAlias(request,battleid):
+    if request.method == 'GET':
+        file_path = SAVE_PATH + battleid + '.zip'
+        response = FileResponse(open(file_path,'rb'))
+        response['Content-Type']='application/zip'  
+        response['Content-Disposition']='attachment;filename = record.zip'
+        return response
+    else:
+        return JsonResponse({'success':False})
+
+def GetVersion(request):
+    if request.method == 'GET':
+        result = get_version()
+        return JsonResponse(result)
+    elif request.method == 'POST':
+        return JsonResponse({'success':False})
+
 
 @csrf_exempt
 def Battle(request):
@@ -580,8 +614,12 @@ def Battle(request):
             if server.is_busy == False:
                 print(server.port)
                 server.is_busy = True
-                server.battle_id = team1_id + '+' +team2_id
+                the_battle_id = hashvalue(str(team1_id + team2_id),str(time.time()))[:8]
+                server.battle_id = the_battle_id
+                server.team1 = team1_id
+                server.team2 = team2_id
                 server.save()
+                battle_data['battleid'] = the_battle_id
                 r = requests.post('http://123.207.140.186:%s/battle/'%server.port,data = battle_data)               
                 flag = True
                 break
@@ -596,7 +634,7 @@ def Battle(request):
         except:
             return JsonResponse({'success':False,'message':r.text})
         if response['success']:
-            return JsonResponse({'success':True,'battleid':team1_id + '+' +team2_id})
+            return JsonResponse({'success':True,'battleid':the_battle_id})
         else:
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
@@ -618,16 +656,17 @@ def Battle(request):
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
-def Inquire(request,id1,id2):
+def Inquire(request,battleid):
     if request.method == 'POST':
         return JsonResponse({'success':False})
     elif request.method == 'GET':
-        team1 = TeamInfo.objects.get(id = id1)
-        team2 = TeamInfo.objects.get(id = id2)
-        the_battle_id = '%s+%s'%(id1,id2)
+        #team1 = TeamInfo.objects.get(id = id1)
+        #team2 = TeamInfo.objects.get(id = id2)
+        the_battle_id = battleid
         if DockerServer.objects.filter(battle_id = the_battle_id).exists():
-            the_server = DockerServer.objects.get(battle_id = the_battle_id)            
-            r = requests.get('http://123.207.140.186:%s/inquire/%s&*+%s&*+%s/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name))
+            the_server = DockerServer.objects.get(battle_id = the_battle_id)
+            inquire_data = {'battleid':the_battle_id}            
+            r = requests.post('http://123.207.140.186:%s/inquire/'%(the_server.port),data = inquire_data)
             #print('http://123.207.140.186:%s/inquire/%s&*+%s&*+%s/'%(the_server.port,the_battle_id,team1.team_name,team2.team_name) )
         else:
             return JsonResponse({'success':False,'message':'本场对战不存在！'})
@@ -637,8 +676,12 @@ def Inquire(request,id1,id2):
             return JsonResponse({'success':False,'message':r.text})
         #print(response)
         if response['success'] == True:
+            team1 = TeamInfo.objects.get(id = the_server.team1)
+            team2 = TeamInfo.objects.get(id = the_server.team2)
             the_server.is_busy = False
             the_server.battle_id = 'none'
+            the_server.team1 = -1
+            the_server.team2 = -1
             the_server.save()
             battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
             response['battle_time'] = battle_time
@@ -646,40 +689,35 @@ def Inquire(request,id1,id2):
             score2 = float(team2.get_score()[-1]['score'])
             E1 = 1/(1 + pow(10,(score2-score1)/400))
             E2 = 1/(1 + pow(10,(score1-score2)/400))
-            if response['result']['winner'] == team1.team_name:
+            if response['result'] == '0':
                 score1 = score1 + 32 * (1 - E1)
                 score2 = score2 + 32 * (0 - E2)
-            else:
+                score_1 = round(score1,2)
+                score_2 = round(score2,2)
+                winner = team1.team_name
+                loser = team2.team_name
+            elif response['result'] == '1':
                 score1 = score1 + 32 * (0 - E1)
                 score2 = score2 + 32 * (1 - E2)
-            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
-            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
+                score_1 = round(score1,2)
+                score_2 = round(score2,2)
+                winner = team2.team_name
+                loser = team1.team_name
+            elif response['result'] == '2':
+                score1 = score1 + 32 * (0.5 - E1)
+                score2 = score2 + 32 * (0.5 - E2)
+                score_1 = round(score1,2)
+                score_2 = round(score2,2)
+                winner = 'none'
+                loser = 'none'
+            team1.add_score({"score":str(score_1),"time":str(response['battle_time'])})
+            team2.add_score({"score":str(score_2),"time":str(response['battle_time'])})
             result = {
                 "round":str(response['total_round']),
                 "time":str(response['battle_time']),
-                "winner": str(response['result']['winner']),
-                "loser":str(response['result']['loser'])
-                }
-            team1.add_history(result)
-            team2.add_history(result)
-            team1.battle_time += 1
-            team1.save()
-            return JsonResponse(response)
-        elif response['success'] == 2:
-            the_server.is_busy = False
-            the_server.battle_id = 'none'
-            the_server.save()
-            battle_time = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-            response['battle_time'] = battle_time
-            score1 = float(team1.get_score()[-1]['score'])
-            score2 = float(team2.get_score()[-1]['score'])
-            team1.add_score({"score":str(score1),"time":str(response['battle_time'])})
-            team2.add_score({"score":str(score2),"time":str(response['battle_time'])})
-            result = {
-                "round":str(response['total_round']),
-                "time":str(response['battle_time']),
-                "winner": 'none',
-                "loser":  'none'
+                "winner": winner,
+                "loser":loser,
+                "battleid":the_battle_id
                 }
             team1.add_history(result)
             team2.add_history(result)
@@ -761,6 +799,25 @@ def password_email(username, email, new_pwd):
         return True
     except Exception as e:
         raise e
+
+def get_version():
+    VERSION_PATH = '/home/ubuntu/team19/rulefile/'
+    index = os.listdir(VERSION_PATH)
+    file = []
+    for i in index:
+        if 'playerfile' in i:
+            file.append(i)
+        else:
+            pass
+    file = [x[:-4] for x in file ]
+    file = [x.split('_') for x in file]
+    result = {}
+    for i in range(0,len(file)):
+        if file[i][1] == 'win':
+            result['win'] = file[i][2] + '_' + file[i][3]
+        elif file[i][1] == 'mac':
+            result['mac'] = file[i][2] + '_' + file[i][3]
+    return result
 
 
 

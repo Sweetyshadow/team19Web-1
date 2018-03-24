@@ -20,6 +20,7 @@ export default {
             teamname: response.body[i].teamname,
             teamleader: response.body[i].leader,
             teamid: response.body[i].teamid,
+            teamscore: parseFloat(response.body[i].score),
             teammember: []
           })
           for(var j=1;j<response.body[i].scale;j++){
@@ -247,6 +248,13 @@ export default {
       url: TEAM_URL+'history/',
       method: 'post',
       body: {user:userID}
+    })
+  },
+  getRpy(context,battleid) {
+    return context.$http({
+      url: TEAM_URL+'record/',
+      method: 'post',
+      body: {battleid: battleid}
     })
   }
 }
