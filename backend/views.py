@@ -564,9 +564,18 @@ def GetRecord(request):
     if request.method == 'GET':
         return JsonResponse({'success': False,'message':'wrong'})
     elif request.method == 'POST':
+        def file_iterator(file,chunk_size = 512):
+            with open(file) as f:
+                while True:
+                    c = f.read(chunk_size)
+                    if c:
+                        yield c
+                    else:
+                        break
         the_battle_id = request.POST['battleid']
         file_path = SAVE_PATH + the_battle_id + '.zip'
-        response = FileResponse(open(file_path,'rb'))
+        #response = FileResponse(open(file_path,'rb'))
+        response = StreamingHttpResponse(file_iterator(file_path))
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename = ' + file_path
         return response
