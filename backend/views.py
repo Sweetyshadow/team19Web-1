@@ -568,7 +568,7 @@ def GetRecord(request):
         file_path = SAVE_PATH + the_battle_id + '.zip'
         response = FileResponse(open(file_path,'rb'))
         response['Content-Type']='application/octet-stream'  
-        response['Content-Disposition']='attachment;filename = ' + the_file_name
+        response['Content-Disposition']='attachment;filename = ' + file_path
         return response
 
 @csrf_exempt
