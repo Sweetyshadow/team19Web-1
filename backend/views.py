@@ -94,6 +94,8 @@ def StudentReg(request):
 
     elif request.method == 'GET':      
         return JsonResponse({'success':str(request.body),'POST':str(request.POST),'GET':str(request.GET)})
+    else:
+        return JsonResponse({'success':False})
 
 @csrf_exempt
 def StudentLogin(request):
@@ -639,7 +641,7 @@ def Battle(request):
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
         r = requests.get('http://172.19.0.2:8002/battle/')
-'''        team = TeamInfo.objects.get(id = 1)
+        team = TeamInfo.objects.get(id = 1)
         score1 = 90
         ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
         score = {"score":str(score1),"time":ti}
@@ -652,7 +654,7 @@ def Battle(request):
         for team in TeamInfo.objects.all():
             team.add_history(result)
             team.add_score(score)
-'''        
+        
         return JsonResponse({'message':r.text})
 
 @csrf_exempt
