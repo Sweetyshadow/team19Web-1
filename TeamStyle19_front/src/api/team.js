@@ -248,5 +248,12 @@ export default {
       method: 'post',
       body: {user:userID}
     })
+  },
+  getRpy(context,battleid) {
+    return context.$http({
+      url: TEAM_URL+'record/',
+      method: 'post',
+      body: {battleid: battleid}
+    })
   }
 }

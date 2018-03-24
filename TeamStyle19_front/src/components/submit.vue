@@ -5,7 +5,12 @@
         <p><a>对战进行中...</a></p>
       </div>
       <div v-else class="result">
-        <p>{{resultDetail}}</p>         
+        <p>{{resultDetail}}</p>
+        <el-table :data="resultDetail">
+          <el-table-column prop="result" label="结果"></el-table-column>
+          <el-table-column prop="time" label="对战时间"></el-table-column>
+          <el-table-column prop="round" label="回合数"></el-table-column>
+        </el-table>         
       </div>        
   </div>
 </template>
@@ -45,7 +50,13 @@ export default {
           if(response.body.success) {
             //bind data
             this.isWait = false
-            this.resultDetail = response.body
+            var detail = response.body
+            console.log(detail)
+            this.resultDetail = [{
+              result: this.mapResult(detail.result),
+              time: detail.battle_time,
+              round: detail.total_round
+            }]
             clearInterval(this.poll)
             
           }
@@ -57,6 +68,13 @@ export default {
           clearInterval(this.poll)
         })
       }, 1000)
+    },
+    mapResult(result){
+      switch(result){
+        case "0": return "You are victorious!"
+        case "1": return "You lose."
+        case "2": return "Draw!"
+      }
     }
   }
 }

@@ -108,7 +108,8 @@ export default {
                         time: element.time,
                         round: element.round,
                         winner: element.winner,
-                        loser: element.loser
+                        loser: element.loser,
+                        battleid: element.battleid
                     })
                 })
             }, response => {
@@ -116,6 +117,41 @@ export default {
                 //alert('fail to get battle history')
             })
         }
+      },
+      handleDownload(index, row){
+          let that = this
+          var ajax = new XMLHttpRequest()
+          ajax.responseType = 'blob'
+          ajax.open("post","/backend/teams/record/",true)
+          ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+          ajax.onreadystatechange = function(){
+            if(this.readyState == 4) {
+                if(this.status == 200) {
+                    console.log(this.response) // should be a blob
+                    if(this.response.type == "application/octet-stream"){
+                        that._downloadHandler(this.response)
+                    }
+                }
+            } else if(this.readyState == 2) {
+                if(this.status == 200) {
+                    this.responseType = "blob"
+                } else {
+                    this.responseType = "text"
+                }
+            }
+            }
+          ajax.send("battleid="+row.battleid)
+      },
+      _downloadHandler(content) {
+        console.log('download')
+        var _link = document.createElement('a')
+        _link.download = 'record.zip'
+        _link.style.display = 'none'
+        var blob = new Blob([content], {type:'application/octet-stream'})
+        _link.href = URL.createObjectURL(blob)
+        document.body.appendChild(_link)
+        _link.click()
+        document.body.removeChild(_link)
       }
   }
 }

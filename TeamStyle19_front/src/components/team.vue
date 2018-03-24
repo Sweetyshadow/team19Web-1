@@ -24,9 +24,11 @@
             <el-form-item>
                 <el-button type="primary" @click="onSubmit" :disabled="disabled">确定</el-button>
             </el-form-item>
+            <el-form-item>
+                <router-link to="/ShowAllTeams"><a>查看所有队伍</a></router-link>
+            </el-form-item>
         </el-form>
         <!--el-button @click="testLeader">testLeader</el-button!-->
-        <router-link to="/ShowAllTeams"><a>查看所有队伍</a></router-link>
         <foot></foot>
     </div>
 </template>
@@ -115,9 +117,12 @@ h1{
     text-align:center;
 }
 #wrap {
-  width: 50%;
-  margin: 40px auto;
-  max-width: 400px;
+  margin: 60px auto;
+}
+form {
+    width: 35%;
+    max-width: 400px;
+    margin: 0 auto 90px;
 }
 button {
   width: 100%;
@@ -125,5 +130,12 @@ button {
 a,a:hover,a:visited, a:active,a:link {
     text-decoration: none;
     font-size: 12px;
+}
+@media screen and (max-width:720px){
+    form{
+        margin-top: 20%;
+        margin-bottom: 20%;
+        width: 90%;
+    }
 }
 </style>
