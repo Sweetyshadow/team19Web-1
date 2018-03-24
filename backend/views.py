@@ -564,8 +564,8 @@ def GetRecord(request,battleid):
     if request.method == 'GET':
         file_path = SAVE_PATH + battleid + '.zip'
         response = FileResponse(open(file_path,'r'))
-        response['Content-Type']='application/octet-stream'  
-        response['Content-Disposition']='attachment;filename = ' + 'record.zip'
+        response['Content-Type'] = 'application/zip'  
+        response['Content-Disposition'] ='attachment;filename = ' + 'record.zip'
         return response
     elif request.method == 'POST':
         def file_iterator(file,chunk_size = 512):
