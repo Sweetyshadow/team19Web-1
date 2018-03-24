@@ -568,7 +568,7 @@ def GetRecord(request):
         file_path = SAVE_PATH + the_battle_id + '.zip'
         response = FileResponse(open(file_path,'rb'))
         #response = StreamingHttpResponse(file_iterator(file_path))
-        response['Content-Type']='application/zip'  
+        response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename = record.zip'
         return response
 
