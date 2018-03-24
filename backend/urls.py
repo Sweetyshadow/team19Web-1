@@ -25,7 +25,7 @@ urlpatterns = [
     path('students/activate/',views.StudentActivate),
     path('students/find_password/',views.find_password),
     path('upload/file/',views.UploadFile),
-    path('version',views.GetVersion),
+    #path('version',views.GetVersion),
     path('download/code/',views.GetCode),
     path('download/allfiles/',views.GetIndex),
     path('download/file/<str:filename>',views.GetFile)

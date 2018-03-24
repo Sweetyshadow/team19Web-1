@@ -571,11 +571,19 @@ def GetRecord(request):
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename = record.zip'
         return response
-'''        
+'''       
 def GetVersion(request):
     if request.method == 'GET':
-        VERSION_PATH = 
+        VERSION_PATH = '/home/ubuntu/team19/rulefile/'
+        index = os.listdir(os.getcwd())
+        file = []
+        for i in index:
+            if 'playerfile' in i:
+                file.append(i)
+            else:
+                pass
 '''
+
 @csrf_exempt
 def Battle(request):
     if request.method == 'POST':
