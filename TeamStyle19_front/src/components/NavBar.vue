@@ -52,6 +52,7 @@
                     </el-menu-item>
                     <el-menu-item index="6-3" v-if="hasLogin" route="/PwdChange" @click="handleClick">
                         <span slot="title">修改密码</span>
+                    </el-menu-item>
                     <el-menu-item index="6-4" v-if="hasLogin" @click="logout(); handleClick();">
                         <span slot="title">退出登录</span>
                     </el-menu-item>
