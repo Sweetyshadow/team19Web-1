@@ -93,6 +93,10 @@ export default {
               team2: row.teamid
           }
           if(this.$store.state.teamindex!=null){
+              if(data.team1===data.team2){
+                  alert('您不能和自己的队伍对战')
+                  return
+              }
               console.log('start battle')
               teamSrv.startBattle(this,data,this.jumpwithParam)
           } else {

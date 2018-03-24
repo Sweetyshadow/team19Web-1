@@ -20,6 +20,7 @@ export default {
             teamname: response.body[i].teamname,
             teamleader: response.body[i].leader,
             teamid: response.body[i].teamid,
+            teamscore: parseFloat(response.body[i].score),
             teammember: []
           })
           for(var j=1;j<response.body[i].scale;j++){
