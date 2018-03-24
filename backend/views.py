@@ -560,9 +560,13 @@ def GetHistory(request):
         return JsonResponse({'history': TeamInfo.objects.get(id=1).get_history()})
 
 @csrf_exempt
-def GetRecord(request):
+def GetRecord(request,battleid):
     if request.method == 'GET':
-        return JsonResponse({'success': False,'message':'wrong'})
+        file_path = SAVE_PATH + the_battle_id + '.zip'
+        response = FileResponse(open(file_path,'r'))
+        response['Content-Type']='application/octet-stream'  
+        response['Content-Disposition']='attachment;filename = ' + file_path
+        return response
     elif request.method == 'POST':
         def file_iterator(file,chunk_size = 512):
             with open(file) as f:
