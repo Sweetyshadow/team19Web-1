@@ -707,6 +707,8 @@ def Inquire(request,battleid):
                 winner = team2.team_name
                 loser = team1.team_name
             elif response['result'] == '2':
+                score1 = score1 + 32 * (0.5 - E1)
+                score2 = score2 + 32 * (0.5 - E2)
                 score_1 = round(score1,2)
                 score_2 = round(score2,2)
                 winner = 'none'
