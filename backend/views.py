@@ -382,6 +382,7 @@ def AllTeam(request):
                 'teamid':team.id,
                 'teamname':team.team_name,
                 'scale':team.member_num,
+                'score':team.get_score()[-1]['score']
                 'leader':team.leader,
                 'hasAI':hasAI,
                 'member1':team.member1,
