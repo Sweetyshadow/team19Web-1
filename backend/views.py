@@ -562,7 +562,7 @@ def GetHistory(request):
 @csrf_exempt
 def GetRecord(request,battleid):
     if request.method == 'GET':
-        file_path = SAVE_PATH + the_battle_id + '.zip'
+        file_path = SAVE_PATH + battleid + '.zip'
         response = FileResponse(open(file_path,'r'))
         response['Content-Type']='application/octet-stream'  
         response['Content-Disposition']='attachment;filename = ' + file_path
