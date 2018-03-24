@@ -581,7 +581,7 @@ def GetRecordAlias(request,battleid):
         return response
     else:
         return JsonResponse({'success':False})
-
+'''
 def GetVersion(request):
     if request.method == 'GET':
         VERSION_PATH = '/home/ubuntu/team19/rulefile/'
@@ -596,7 +596,7 @@ def GetVersion(request):
         file = [x.split('_')]
         result = {}
         result['mac' = ]
-
+'''
 
 @csrf_exempt
 def Battle(request):
