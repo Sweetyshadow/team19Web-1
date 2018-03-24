@@ -641,22 +641,21 @@ def Battle(request):
         else:
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
-        r = requests.get('http://172.19.0.2:8002/battle/')
-        team = TeamInfo.objects.get(id = 1)
-        score1 = 90
-        ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-        score = {"score":str(score1),"time":ti}
-        result = {
-                "round":str(123),
-                "time":str(ti),
-                "winner": 'test',
-                "loser": 'faketeam',
-                }
-        for team in TeamInfo.objects.all():
-            team.add_history(result)
-            team.add_score(score)
+        return JsonResponse({'success':False})
+        #r = requests.get('http://172.19.0.2:8002/battle/')
+        #score1 = 1000 
+        #ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
+        #score = {"score":str(score1),"time":ti}
+        #result = {
+        #        "round":str(123),
+        #        "time":str(ti),
+        #        "winner": 'test',
+        #        "loser": 'faketeam',
+        #        }
+        #for team in TeamInfo.objects.all():
+        #    team.add_score(score)
         
-        return JsonResponse({'message':r.text})
+        #return JsonResponse({'message':r.text})
 
 @csrf_exempt
 def Inquire(request,battleid):
