@@ -390,7 +390,7 @@ def AllTeam(request):
                 'member3':team.member3
                 })
         return JsonResponse(response, safe = False)
-
+#
 '''@csrf_exempt
 def UploadHeadpic(request):
     if request.method == 'POST':
