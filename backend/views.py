@@ -565,7 +565,7 @@ def GetHistory(request):
         return JsonResponse({'history': response})
         # return response
     else:
-        return JsonResponse({'history': TeamInfo.objects.get(id=1).get_history()})
+        return JsonResponse({'success':False})
 
 @csrf_exempt
 def GetRecord(request):
