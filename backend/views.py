@@ -434,14 +434,14 @@ def UploadFile(request):
                         if the_student.team_name.id in index:
                             pass
                         else :
-                            os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.id)
-                        url = '/home/ubuntu/team19/team/' + the_student.team_name.id + '/' + str(myfile.name)
+                            os.system('mkdir /home/ubuntu/team19/team/' + str(the_student.team_name.id))
+                        url = '/home/ubuntu/team19/team/' + str(the_student.team_name.id) + '/' + str(myfile.name)
                         if myfile.name[-4:] != '.cpp':
                             return JsonResponse({'success':False,'message':'代码格式错误！'})
                         with open(url,'wb') as destination:
                             for chunk in myfile.chunks():
                                 destination.write(chunk)
-                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.id
+                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%str(the_student.team_name.id)
                         shutil.copyfile(url, url2)
                         #destination = open(url2,'wb+')
                         #for chunk in myfile.chunks():
@@ -454,7 +454,7 @@ def UploadFile(request):
                         if ai :
                             code = the_team.battle_code.name.split('/')
                             name = code[-2] + '/' + code[-1]
-                            teamid = the_team.id
+                            teamid = str(the_team.id)
                             r = requests.post('http://123.207.140.186:8888/compile/',data = {'name':name,'id':teamid})
                             #old_path = os.getcwd()#
                             #os.chdir('/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_server')
@@ -482,7 +482,7 @@ def UploadFile(request):
         image = s.profile_photo
         end = re.findall(r'\.(\w+)',str(image.name))
         return HttpResponse(image,content_type = "image/" + end[0])
-
+#
 @csrf_exempt
 def GetHeadpic(request):
     if request.method == 'POST':
