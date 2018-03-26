@@ -431,22 +431,22 @@ def UploadFile(request):
                 if the_student:
                     if the_student.team_name:
                         index = os.listdir('/home/ubuntu/team19/team')
-                        if the_student.team_name.team_name in index:
+                        if the_student.team_name.id in index:
                             pass
                         else :
-                            os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.team_name)
-                        url = '/home/ubuntu/team19/team/' + the_student.team_name.team_name + '/' + str(myfile.name)
+                            os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.id)
+                        url = '/home/ubuntu/team19/team/' + the_student.team_name.id + '/' + str(myfile.name)
                         if myfile.name[-4:] != '.cpp':
                             return JsonResponse({'success':False,'message':'代码格式错误！'})
                         with open(url,'wb') as destination:
                             for chunk in myfile.chunks():
                                 destination.write(chunk)
-                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.team_name
+                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.id
                         shutil.copyfile(url, url2)
                         #destination = open(url2,'wb+')
                         #for chunk in myfile.chunks():
                         #    destination.write(chunk)
-                        the_team = TeamInfo.objects.get(team_name = the_student.team_name)
+                        the_team = TeamInfo.objects.get(id = the_student.team_name.id)
                         the_team.battle_code = url
                         the_team.save()
                         the_student.save()
@@ -454,7 +454,8 @@ def UploadFile(request):
                         if ai :
                             code = the_team.battle_code.name.split('/')
                             name = code[-2] + '/' + code[-1]
-                            r = requests.post('http://123.207.140.186:8888/compile/',data = {'name':name})
+                            teamid = the_team.id
+                            r = requests.post('http://123.207.140.186:8888/compile/',data = {'name':name,'id':teamid})
                             #old_path = os.getcwd()#
                             #os.chdir('/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_server')
                             #execute = '/home/ubuntu/team19/team/' + the_team.team_name + '/' + the_team.team_name + '.exe'
