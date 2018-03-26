@@ -549,6 +549,24 @@ def GetFile(request,filename):
         response['Content-Disposition']='attachment;filename = ' + filename
         return response
 
+@csrf_exempt
+def GetRule(request):
+    if request.method == 'POST':
+        the_file_name = request.POST['filename']
+        file_path = os.path.join('/home/hyb/web/rule/',the_file_name)
+        response = FileResponse(open(file_path,'rb'))
+        response['Content-Type']='application/octet-stream'
+        response['Content-Disposition']='attachment;filename = ' + the_file_name
+        return response
+    else:
+        the_file_name = '1.txt'
+        file_path = os.path.join('/home/hyb/web/rule/','1.txt')
+        response = FileResponse(open(file_path,'rb'))
+        response['Content-Type']='application/octet-stream'
+        response['Content-Disposition']='attachment;filename = ' + the_file_name
+        return response
+        return JsonResponse({'success':False})
+
 def GetIndex(request):
     if request.method == 'GET':
         index = os.listdir(settings.MEDIA_ROOT)

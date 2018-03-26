@@ -29,6 +29,7 @@ urlpatterns = [
     path('version',views.GetVersion),
     path('download/code/',views.GetCode),
     path('download/allfiles/',views.GetIndex),
-    path('download/file/<str:filename>',views.GetFile)
+    path('download/file/<str:filename>/',views.GetFile),
+    path('download/rulefile/',views.GetRule)
 ]    
 
