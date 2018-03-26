@@ -49,8 +49,10 @@ export default {
       method: 'post',
       body: data
     }).then(response=>{
-      console.log(response)
-      context.code = response.body
+      //console.log(response)
+      if(response.body.success){
+        context.code = response.body
+      }
     }, response => {
       alert('gg')
     })
