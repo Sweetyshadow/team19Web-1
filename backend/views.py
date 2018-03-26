@@ -482,7 +482,7 @@ def UploadFile(request):
         image = s.profile_photo
         end = re.findall(r'\.(\w+)',str(image.name))
         return HttpResponse(image,content_type = "image/" + end[0])
-
+#
 @csrf_exempt
 def GetHeadpic(request):
     if request.method == 'POST':
