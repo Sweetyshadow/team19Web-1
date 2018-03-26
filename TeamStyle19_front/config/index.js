@@ -33,7 +33,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/backend': {
-        target: 'http://123.207.140.186', // 服务域名
+        target: 'https://ts19.eesast.com', // 服务域名
         changeOrigin: true,
         pathRewrite: {
           '^/backend': '/backend'
