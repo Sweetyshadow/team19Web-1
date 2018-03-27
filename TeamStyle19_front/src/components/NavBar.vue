@@ -143,7 +143,6 @@ div {
         border: none;
     }
     li {
-        font-family: '5efe7697695c42a99b24705c46f7ca0c';
         font-size: 1rem;
         border-bottom-width: 4px;
         border-color: #383838;
