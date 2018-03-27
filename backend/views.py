@@ -146,6 +146,18 @@ def StudentActivate(request):
         the_student.save()
         return HttpResponseRedirect("/")
 
+def SendEmails(request):
+    if request.method == 'GET':
+        students = StudentInfo.objects.all()
+        result = []
+        for s in students:
+            if s.id <= 110 and s.id >= 45 and s.is_active == False:
+                active_email(s.student_nickname,s.thu_email)
+                result.append(s.student_realname)
+                the_time = time.time()
+                while time.time() - the_time < 1:
+                    pass
+        return JsonResponse({'result':str(result)})
 
 
 @csrf_exempt
@@ -435,18 +447,18 @@ def UploadFile(request):
             else:
                 if the_student:
                     if the_student.team_name:
-                        index = os.listdir('/home/ubuntu/team19/team')
+                        index = os.listdir('/home/hyb/web/team')
                         if the_student.team_name.id in index:
                             pass
                         else :
-                            os.system('mkdir /home/ubuntu/team19/team/' + the_student.team_name.id)
-                        url = '/home/ubuntu/team19/team/' + the_student.team_name.id + '/' + str(myfile.name)
+                            os.system('mkdir /home/hyb/web/team/' + str(the_student.team_name.id))
+                        url = '/home/hyb/web/team/' + str(the_student.team_name.id) + '/' + str(myfile.name)
                         if myfile.name[-4:] != '.cpp':
                             return JsonResponse({'success':False,'message':'代码格式错误！'})
                         with open(url,'wb') as destination:
                             for chunk in myfile.chunks():
                                 destination.write(chunk)
-                        url2 = '/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%the_student.team_name.id
+                        url2 = '/home/hyb/web/game/teamstyle19new/player_file_linux_for_player/%s.cpp'%str(the_student.team_name.id)
                         shutil.copyfile(url, url2)
                         #destination = open(url2,'wb+')
                         #for chunk in myfile.chunks():
@@ -459,7 +471,7 @@ def UploadFile(request):
                         if ai :
                             code = the_team.battle_code.name.split('/')
                             name = code[-2] + '/' + code[-1]
-                            teamid = the_team.id
+                            teamid = str(the_team.id)
                             r = requests.post('http://172.19.0.2:8002/compile/',data = {'name':name,'id':teamid})
                             #old_path = os.getcwd()#
                             #os.chdir('/home/ubuntu/team19/game/teamstyle19new/player_file_linux_for_server')
@@ -487,7 +499,7 @@ def UploadFile(request):
         image = s.profile_photo
         end = re.findall(r'\.(\w+)',str(image.name))
         return HttpResponse(image,content_type = "image/" + end[0])
-
+#
 @csrf_exempt
 def GetHeadpic(request):
     if request.method == 'POST':
