@@ -21,16 +21,13 @@
       <router-link to="/login"><p>已有账号？点击登录</p></router-link>
     </el-form-item>
   </el-form>
-  <foot></foot>
 </div>
 </template>
 
 <script>
 import authSrv from '@/api/auth.js'
-import foot from './foot'
 export default {
   name: 'Reg',
-  components: {foot},
   data(){
     var mailcheck = (rule, value, callback) => {
       if (value.match(/@mails.tsinghua.edu.cn$/)) {

@@ -15,7 +15,6 @@
       </div>
     </el-form-item>
   </el-form>
-  <foot></foot>
 </div>
 </template>
 
@@ -40,7 +39,6 @@ export default {
     }
     }
   },
-  components: {foot},
   computed: {
     count () {
       return this.$store.state.count
