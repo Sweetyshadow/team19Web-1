@@ -37,12 +37,10 @@
     <template v-else>
         <p>No submit available</p>
     </template>
-    <foot> </foot>
   </div>
 </template>
 <script>
 import upload from './upload'
-import foot from './foot'
 import teamSrv from '@/api/team.js'
 import fileSrv from '@/api/file.js'
 import battleSrv from '@/api/battle.js'
@@ -50,7 +48,6 @@ export default {
   name: 'battle',
   components: {
       upload,
-      foot
   },
   created(){
     teamSrv.getMyteamindex(this,this.jump)

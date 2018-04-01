@@ -39,20 +39,17 @@
                 </el-table-column>
             </el-table>
         </div>
-        <foot></foot>
   </div>
 </template>
 
 <script>
 import upload from './upload'
-import foot from './foot'
 import authSrv from '@/api/auth.js'
 import teamSrv from '@/api/team.js'
 export default {
   name: 'teamProfile',
   components: {
-      upload,
-      foot
+      upload
   },
   data() {
       return {

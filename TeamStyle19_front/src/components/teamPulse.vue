@@ -9,13 +9,11 @@
       resizable
     />
   </div>
-  <foot></foot>
 </div>
 </template>
 
 <script>
 import IEcharts from 'vue-echarts-v3/src/lite.js'
-import foot from './foot'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/tooltip'
@@ -24,8 +22,7 @@ import teamSrv from '@/api/team.js'
 export default {
     name: 'teamPulse',
     components: {
-        IEcharts,
-        foot
+        IEcharts
     },
     created(){
         //load data

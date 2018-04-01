@@ -1,10 +1,10 @@
 <template>
-<div>
+<div id="wrap">
   <div id="particles">
     <vue-particles 
         color="#999999"
         :particleOpacity="0.7"
-        :particlesNumber="100"
+        :particlesNumber="50"
         shapeType="circle"
         :particleSize="3"
         linesColor="#aaaaaa"
@@ -21,22 +21,21 @@
     </vue-particles>
     <h1> Teamstyle19</h1>
   </div>
-  <foot></foot>
 </div>
 </template>
 
 <script>
-import foot from './foot'
 export default {
   name: 'Home',
-  components: {
-    foot
-  }
 }
 </script>
 <script src="particles.js"></script>
 
 <style lang="scss" scoped>
+#wrap {
+  height: 100%;
+  width: 100%;
+}
   #particles{
     height: 100vh;
     position:absolute;
