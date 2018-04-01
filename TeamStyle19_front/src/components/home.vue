@@ -21,15 +21,17 @@
     </vue-particles>
     <h1> Teamstyle19</h1>
   </div>
+  <foot></foot>
 </div>
 </template>
 
 <script>
+import foot from './foot.vue'
 export default {
   name: 'Home',
+  components: { foot },
 }
 </script>
-<script src="particles.js"></script>
 
 <style lang="scss" scoped>
 #wrap {

@@ -7,12 +7,15 @@
       <el-button type="primary"><a :href="item.address">download</a></el-button>
    </el-card>
   </ul>
+  <foot></foot>
 </div>
 </template>
 <script>
 import fileSrv from '@/api/file.js'
+import foot from './foot'
 export default {
   name: 'File',
+  components:{foot},
   data () {
     return{
       files: []
