@@ -6,12 +6,15 @@
       </el-form-item>
       <el-button @click="onSubmit" type="primary" :disabled="disabled">提交</el-button>
   </el-form>
+  <foot></foot>
 </div>
 </template>
 <script>
 import authSrv from '@/api/auth.js'
+import foot from './foot'
 export default {
   name: 'findPassword',
+  components:{foot},
   data(){
       return {
           form: {
