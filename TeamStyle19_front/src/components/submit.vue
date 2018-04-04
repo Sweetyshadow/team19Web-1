@@ -11,13 +11,16 @@
           <el-table-column prop="time" label="对战时间"></el-table-column>
           <el-table-column prop="round" label="回合数"></el-table-column>
         </el-table>         
-      </div>        
+      </div>  
+      <foot></foot>      
   </div>
 </template>
 <script>
 import battleSrv from '@/api/battle.js'
+import foot from './foot'
 export default {
   name: 'submit',
+  components: { foot },
   data(){
     return {
       poll: null,

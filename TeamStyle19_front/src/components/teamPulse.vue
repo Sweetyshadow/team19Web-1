@@ -9,6 +9,7 @@
       resizable
     />
   </div>
+  <foot></foot>
 </div>
 </template>
 
@@ -18,11 +19,13 @@ import 'echarts/lib/chart/line'
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
+import foot from './foot'
 import teamSrv from '@/api/team.js'
 export default {
     name: 'teamPulse',
     components: {
-        IEcharts
+        IEcharts,
+        foot
     },
     created(){
         //load data

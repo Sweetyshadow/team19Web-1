@@ -15,6 +15,7 @@
       </div>
     </el-form-item>
   </el-form>
+  <foot></foot>
 </div>
 </template>
 
@@ -23,6 +24,7 @@ import authSrv from '@/api/auth.js'
 import foot from './foot'
 export default {
   name: 'Login',
+  components: { foot },
   data() {
     return{
       form:{

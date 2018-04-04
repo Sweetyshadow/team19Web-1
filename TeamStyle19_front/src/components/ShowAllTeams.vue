@@ -27,13 +27,16 @@
       <input v-model="test.id3">
   </div>
   <el-button @click="handleClear">delete</el-button!-->
+  <foot></foot>
 </div>
 </template>
 
 <script>
 import teamSrv from '@/api/team.js'
+import foot from './foot.vue'
 export default {
   name:'ShowAllTeams',
+  components: { foot },
   data(){
       return{
           team: [],
