@@ -22,13 +22,20 @@ export default {
       emulateJSON: true
     }).then(response => {
       if(response.body.success == true){
-        alert('请前往您的注册邮箱激活账号')
+        //alert('请前往您的注册邮箱激活账号')
+        context.$notify({
+          message: '请前往您的注册邮箱激活账号',
+          type: 'success'
+        })
         console.log(response)
         if(typeof cb == 'function'){
           cb(context)
         }
       } else {
-        alert("注册失败")
+        //alert("注册失败")
+        context.$notify.er({
+          message: '注册失败',
+        })
         context.form.email = ''
         context.form.studentID = ''
         context.form.realname = ''
@@ -36,7 +43,10 @@ export default {
         context.form.password = ''
       }
     }, response => {
-      alert(response.status)
+      //alert(response.status)
+      context.$notify.error({
+        message: '网络状态不佳，请稍后重试'
+      })
       context.form.email = ''
       context.form.studentID = ''
       context.form.realname = ''
@@ -61,7 +71,11 @@ export default {
         localStorage.setItem('teamstyle_id',response.body.id) //最好改成id
         localStorage.setItem('teamstyle_name',data.name)
         localStorage.setItem('teamstyle_pwd',data.pwd)
-        alert('登录成功')
+        //alert('登录成功')
+        context.$notify({
+          message: '登录成功',
+          type: 'success'
+        })
         if(typeof cb == 'function'){
           //console.log('回调')
           cb(context)
@@ -69,14 +83,20 @@ export default {
       } else {
         //console.log('f')
         this.logout(context)
-        alert('登录失败')
+        //alert('登录失败')
+        context.$notify.error({
+          message: response,
+        })
         context.form.username = ''
         context.form.password = ''
       }
     }, response => {
       // fail call back
       this.logout(context)
-      alert('网络状态不佳，请稍后重试') // msg假设为错误提示
+      //alert('网络状态不佳，请稍后重试')
+      context.$notify.error({
+        message: '网络状态不佳，请稍后重试'
+      })
       context.form.username = ''
       context.form.password = ''
       //console.log('更新')
@@ -119,7 +139,10 @@ export default {
         cb(context)
       }
     }, response => {
-      alert('网络状态不佳')
+      //alert('网络状态不佳')
+      context.$notify.error({
+        message: '网络状态不佳'
+      })
     })
   },
   findPassword (context) {
@@ -132,12 +155,22 @@ export default {
       body: data
     }).then(response => {
       if(response.body.success){
-        alert('请前往邮箱获取您的密码')
+        //alert('请前往邮箱获取您的密码')
+        context.$notify({
+          message: '请前往邮箱获取您的密码',
+          type: 'success'
+        })
       } else {
-        alert(response.body.message)
+        //alert(response.body.message)
+        context.$notify.error({
+          message: response.body.message
+        })
       }
     }, response => {
-      alert('网络状态不佳')
+      //alert('网络状态不佳')
+      context.$notify.error({
+        message: '网络状态不佳，请稍后重试'
+      })
     })
   }
 }

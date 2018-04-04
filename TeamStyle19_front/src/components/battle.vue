@@ -91,13 +91,20 @@ export default {
           }
           if(this.$store.state.teamindex!=null){
               if(data.team1===data.team2){
-                  alert('您不能和自己的队伍对战')
+                  //alert('您不能和自己的队伍对战')
+                  this.$notify({
+                      message: '您不能和自己的队伍对战',
+                      type: 'warning'
+                  })
                   return
               }
               console.log('start battle')
               teamSrv.startBattle(this,data,this.jumpwithParam)
           } else {
-              alert('获取队伍信息失败')
+              //alert('获取队伍信息失败')
+              this.$notify.error({
+                  message: '获取队伍信息失败'
+              })
           }
       }
   }

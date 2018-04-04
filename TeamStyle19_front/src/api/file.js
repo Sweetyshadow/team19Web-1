@@ -57,7 +57,7 @@ export default {
         }
       }
     }, response => {
-      alert('gg')
+      //alert('gg')
     })
   }
 }

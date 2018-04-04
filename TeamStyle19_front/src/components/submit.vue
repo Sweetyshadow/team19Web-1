@@ -5,7 +5,7 @@
         <p><a>对战进行中...</a></p>
       </div>
       <div v-else class="result">
-        <p>{{resultDetail}}</p>
+        <!--p>{{resultDetail}}</p!-->
         <el-table :data="resultDetail">
           <el-table-column prop="result" label="结果"></el-table-column>
           <el-table-column prop="time" label="对战时间"></el-table-column>

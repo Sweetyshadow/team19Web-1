@@ -94,7 +94,11 @@ export default {
       },
       renderBattleHistory(userid){
           if(!userid){
-              alert("请先登录")
+              //alert("请先登录")
+              this.$notify({
+                  message: '请先登录',
+                  type: 'warning'
+              })
               this.$router.push('/login')
           } else{
             teamSrv.getBattleHistory(this,userid).then(response => {
