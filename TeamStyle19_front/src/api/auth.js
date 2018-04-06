@@ -85,7 +85,7 @@ export default {
         this.logout(context)
         //alert('登录失败')
         context.$notify.error({
-          message: response,
+          message: response.body.message,
         })
         context.form.username = ''
         context.form.password = ''
