@@ -17,6 +17,7 @@
       </div>
       <p>初赛代码提交截至 4/25 23:59</p>
       <p>初赛天梯赛时间 4/23 0:00 ~ 4/27 23:59</p>
+      <p>初赛结果公布 4/28上午科展现场</p>
     </div>
     <div v-if="compileError" id="ErrorInfo">
       <h1>Compile Error</h1>
@@ -186,5 +187,7 @@
 p {
   font-size: 14px;
   color: rgb(255, 122, 144);
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 </style>
