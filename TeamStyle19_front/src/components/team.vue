@@ -38,9 +38,7 @@ import teamSrv from '@/api/team.js'
 import foot from './foot'
 export default {
   name: 'team',
-  components: {
-      foot
-  },
+  components: { foot },
   data(){
       var teamnamecheck = (rule,value,callback) => {
           if(value.match(/ /)||value.match(/\//)){

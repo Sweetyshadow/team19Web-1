@@ -50,11 +50,14 @@ export default {
       body: data
     }).then(response=>{
       //console.log(response)
-      if(response.body.success){
+      if(response.body){        
         context.code = response.body
+        if(response.body.success===false){
+          context.code = response.body.message
+        }
       }
     }, response => {
-      alert('gg')
+      //alert('gg')
     })
   }
 }

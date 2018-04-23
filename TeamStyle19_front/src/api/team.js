@@ -59,13 +59,19 @@ export default {
       if(response.body.success){
         context.$store.commit('setTeamindex',response.body.teamid)
       } else {
-        alert(response.body.message)
+        //alert(response.body.message)
+        context.$notify.error({
+          message: response.body.message
+        })
         if (typeof cb === 'function'){
           cb(context)
         }
       }
     }, response => {
-      alert('网络状态不佳')
+      //alert('网络状态不佳')
+      context.$notify.error({
+        message: '网络状态不佳'
+      })
     })
   },
 
@@ -87,9 +93,12 @@ export default {
           if(response.body["member"+i]!=null) 
             context.team.push({member:response.body["member"+i]})
         }
-        context.team[0].leader = response.body.leader
+          context.team[0].leader = response.body.leader
       } else{
-        alert(response.body.message)
+        //alert(response.body.message)
+        context.$notify.error({
+          message: response.body.message
+        })
       }
       console.log(context.team)
     }, response => {
@@ -129,7 +138,11 @@ export default {
 
   createTeam (context,cb) {
     if(!localStorage.getItem('teamstyle_id')){
-      alert('登录状态丢失，请先登录')
+      //alert('登录状态丢失，请先登录')
+      context.$notify({
+        message: '登录状态丢失，请先登录',
+        type: 'warning'
+      })
       context.$router.push('/login')
     } else{
       const data = {
@@ -144,23 +157,37 @@ export default {
         //timeout: 1000
       }).then(response => {
         if(response.body.success == true){
-          alert('success')
+          //alert('success')
+          context.$notify({
+            message: 'success',
+            type: 'success'
+          })
         } else {
-          alert(response.body.message)
+          //alert(response.body.message)
+          context.$notify.error({
+            message: response.body.message
+          })
         }
         //jump to my team
         if(typeof cb==='function'){
           cb(context)
         }
       }, response => {
-        alert('网络状态不佳')
+        //alert('网络状态不佳')
+        context.$notify.error({
+          message: '网络状态不佳'
+        })
       })
     }
   },
   
   checkCode (context, cb) {
     if(!localStorage.getItem('teamstyle_id')){
-      alert('请先登录再进行操作')
+      //alert('请先登录再进行操作')
+      context.$notify({
+        message: '请先登录再进行操作',
+        type: 'warning'
+      })
       context.$router.push('/login')
     } else{
       const data = {
@@ -176,9 +203,16 @@ export default {
         timeout: 1000
       }).then(response => {
         if(response.body.success == true){
-          alert('success')
+          //alert('success')
+          context.$notify({
+            message: 'success',
+            type: 'success'
+          })
         } else{
-          alert(response.body.message)
+          //alert(response.body.message)
+          context.$notify.error({
+            message: response.body.success
+          })
         }
         //jump to my team
         if(typeof cb==='function'){
@@ -187,7 +221,10 @@ export default {
       }, response => {
         console.log(response)
         // 校验失败
-        alert('fail')
+        //alert('fail')
+        context.$notify.error({
+          message: '网络状态不佳'
+        })
       })
     }
   },
@@ -204,12 +241,19 @@ export default {
       body: {name:data}
     }).then(response => {
       //console.log(response)
-      alert('success')
+      //alert('success')
+      context.$notify({
+        message: 'success',
+        type: 'success'
+      })
       if(typeof cb == 'function'){
         cb(context)
       }
     }, response => {
-      alert('网络状态不佳')
+      //alert('网络状态不佳')
+      context.$notify.error({
+        message: '网络状态不佳',
+      })
     })
   },
   resetCode (context,data){
@@ -237,10 +281,16 @@ export default {
           cb(context,response.body.battleid)
         }
       } else {
-        alert(response.body.message)
+        //alert(response.body.message)
+        context.$notify.error({
+          message: response.body.message,
+        })
       }
     }, response => {
-      alert('网络状态不佳')
+      //alert('网络状态不佳')
+      context.$notify.error({
+        message: '网络状态不佳'
+      })
     })
   },
   getBattleHistory(context,userID){

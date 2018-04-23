@@ -24,6 +24,7 @@ import authSrv from '@/api/auth.js'
 import foot from './foot'
 export default {
   name: 'Login',
+  components: { foot },
   data() {
     return{
       form:{
@@ -40,7 +41,6 @@ export default {
     }
     }
   },
-  components: {foot},
   computed: {
     count () {
       return this.$store.state.count

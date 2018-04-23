@@ -21,24 +21,22 @@
       </template>
     </el-table-column>
   </el-table>
-  <foot></foot>
   <!--div :model="test">
       <input v-model="test.id1">
       <input v-model="test.id2">
       <input v-model="test.id3">
   </div>
   <el-button @click="handleClear">delete</el-button!-->
+  <foot></foot>
 </div>
 </template>
 
 <script>
 import teamSrv from '@/api/team.js'
-import foot from './foot'
+import foot from './foot.vue'
 export default {
   name:'ShowAllTeams',
-  components: {
-      foot
-  },
+  components: { foot },
   data(){
       return{
           team: [],
@@ -77,7 +75,7 @@ export default {
 #wrap {
     max-width: 600px;
     min-width: 480px;
-    margin: 40px auto;
+    margin: 40px auto 120px;
 }
 .footer {
     position: absolute;

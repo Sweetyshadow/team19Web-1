@@ -15,11 +15,11 @@
 
 <script>
 import IEcharts from 'vue-echarts-v3/src/lite.js'
-import foot from './foot'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
+import foot from './foot'
 import teamSrv from '@/api/team.js'
 export default {
     name: 'teamPulse',
@@ -43,11 +43,14 @@ export default {
                 this.line.series[0].data.push(parseFloat(element.score))
             })
         }, response => {
-            context.line.xAxis.data = ['N/A','N/A','N/A','N/A','N/A']
-            context.line.series[0].data = [0,0,0,0,0]
-            alert('网络状态不佳')
+            this.line.xAxis.data = ['N/A','N/A','N/A','N/A','N/A']
+            this.line.series[0].data = [0,0,0,0,0]
+            //alert('网络状态不佳')
+            this.$notify.error({
+                message: '网络状态不佳'
+            })
         })
-        teamSrv.get
+        //teamSrv.get
     },
     data () {
         return {

@@ -75,9 +75,16 @@
 			complete(file,status,xhr) {	
 				this.icon = this._icon
 				if(status === 'error'){
-					alert(file.errorMessage)
+					//alert(file.errorMessage)
+					this.$notify.error({
+						message: file.errorMessage
+					})
 				}	else {
-					alert(status)
+					//alert(status)
+					this.$notify({
+						message: status,
+						type: 'success'
+					})
 				}
 				if(!this.isProfile){
 					if(eval('('+xhr.responseText+')').success === false) {					
@@ -99,7 +106,10 @@
 					this.$parent.headurl = "data:image/jpeg;base64,"+response.body
 				}, response => {
 					//console.log('fail')
-					alert('网络状态不佳，获取头像失败')
+					//alert('网络状态不佳，获取头像失败')
+					this.$notify.error({
+						message: '网络状态不佳，获取头像失败'
+					})
 				})
 			}
 		}

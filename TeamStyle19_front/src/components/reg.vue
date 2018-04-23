@@ -30,7 +30,7 @@ import authSrv from '@/api/auth.js'
 import foot from './foot'
 export default {
   name: 'Reg',
-  components: {foot},
+  components: { foot },
   data(){
     var mailcheck = (rule, value, callback) => {
       if (value.match(/@mails.tsinghua.edu.cn$/)) {

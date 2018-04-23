@@ -13,6 +13,7 @@
             <el-menu-item index="6-3" route="/PwdChange" v-if="hasLogin">修改密码</el-menu-item>
             <el-menu-item index="6-4" route="/" @click="logout" v-if="hasLogin">退出登录</el-menu-item>
         </el-submenu>
+        <el-menu-item index="9" route="/qr">选手群</el-menu-item>
         <el-menu-item index="7" v-if="hasLogin" id="profile" disabled class="login">
             <span> {{username}} </span>
         </el-menu-item>
@@ -143,7 +144,6 @@ div {
         border: none;
     }
     li {
-        font-family: '5efe7697695c42a99b24705c46f7ca0c';
         font-size: 1rem;
         border-bottom-width: 4px;
         border-color: #383838;

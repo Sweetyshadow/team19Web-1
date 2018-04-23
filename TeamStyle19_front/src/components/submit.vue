@@ -5,19 +5,22 @@
         <p><a>对战进行中...</a></p>
       </div>
       <div v-else class="result">
-        <p>{{resultDetail}}</p>
+        <!--p>{{resultDetail}}</p!-->
         <el-table :data="resultDetail">
           <el-table-column prop="result" label="结果"></el-table-column>
           <el-table-column prop="time" label="对战时间"></el-table-column>
           <el-table-column prop="round" label="回合数"></el-table-column>
         </el-table>         
-      </div>        
+      </div>  
+      <foot></foot>      
   </div>
 </template>
 <script>
 import battleSrv from '@/api/battle.js'
+import foot from './foot'
 export default {
   name: 'submit',
+  components: { foot },
   data(){
     return {
       poll: null,

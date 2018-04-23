@@ -55,7 +55,7 @@ a,a:active,a:link,a:hover,a:visited{
 
   }
   .left{
-    order: 1;
+    order: 2;
     width: 25%;
     padding: 0 70px;
     vertical-align: middle;
@@ -74,7 +74,7 @@ a,a:active,a:link,a:hover,a:visited{
     }
   }
   .mid{
-    order: 2;
+    order: 3;
     width: 30%;
     vertical-align: middle;
     display: flex;
@@ -85,7 +85,7 @@ a,a:active,a:link,a:hover,a:visited{
     }
   }
   .right {
-    order: 3;
+    order: 4;
     width: 25%;
     padding: 0 70px;
     text-align: center;

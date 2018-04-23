@@ -15,6 +15,7 @@ import fileSrv from '@/api/file.js'
 import foot from './foot'
 export default {
   name: 'File',
+  components:{foot},
   data () {
     return{
       files: []
@@ -23,9 +24,6 @@ export default {
   created () {
     fileSrv
       .loadFile(this)
-  },
-  components: {
-    foot
   },
   methods: {
 

@@ -14,6 +14,7 @@ import teamProfile from '@/components/teamProfile'
 import teamPulse from '@/components/teamPulse'
 import battle from '@/components/battle'
 import submit from '@/components/submit'
+import qr from '@/components/qr'
 
 Vue.use(Router)
 
@@ -125,6 +126,11 @@ export default new Router({
       meta: {
         requireAuth: true
       }
+    },
+    {
+      path: '/qr',
+      name: 'qr',
+      component: qr
     }
   ]
 })
