@@ -15,6 +15,9 @@
       <div>
         <i class="el-icon-warning">Note: 系统仅保留最新上传文件</i>
       </div>
+      <p>初赛代码提交截至 4/25 23:59</p>
+      <p>初赛天梯赛时间 4/23 0:00 ~ 4/27 23:59</p>
+      <p>初赛结果公布 4/28上午科展现场</p>
     </div>
     <div v-if="compileError" id="ErrorInfo">
       <h1>Compile Error</h1>
@@ -101,13 +104,16 @@
         }
         if (this.$store.state.teamindex != null) {
           if (data.team1 === data.team2) {
-            alert('您不能和自己的队伍对战')
+            //alert('您不能和自己的队伍对战')
+            this.$notify.error({
+              message: '您不能和自己的队伍对战'
+            })
             return
           }
           console.log('start battle')
           teamSrv.startBattle(this, data, this.jumpwithParam)
         } else {
-          alert('获取队伍信息失败')
+          //alert('获取队伍信息失败')
         }
       }
     }
@@ -178,5 +184,10 @@
   i {
     font-size: 14px;
   }
-
+p {
+  font-size: 14px;
+  color: rgb(255, 122, 144);
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
 </style>

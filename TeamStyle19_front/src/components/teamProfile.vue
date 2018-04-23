@@ -101,27 +101,31 @@
           }
         }
       },
-      renderBattleHistory(userid) {
-        if (!userid) {
-          alert("请先登录")
-          this.$router.push('/login')
-        } else {
-          teamSrv.getBattleHistory(this, userid).then(response => {
-            console.log(response.body)
-            this.history = []
-            response.body.history.forEach(element => {
-              this.history.push({
-                time: element.time,
-                round: element.round,
-                winner: element.winner,
-                loser: element.loser,
-                battleid: element.battleid
+      renderBattleHistory(userid){
+          if(!userid){
+              //alert("请先登录")
+              this.$notify({
+                  message: '请先登录',
+                  type: 'warning'
               })
+              this.$router.push('/login')
+          } else{
+            teamSrv.getBattleHistory(this,userid).then(response => {
+                console.log(response.body)
+                this.history = []
+                response.body.history.forEach(element=>{
+                    this.history.push({
+                        time: element.time,
+                        round: element.round,
+                        winner: element.winner,
+                        loser: element.loser,
+                        battleid: element.battleid
+                    })
+                })
+            }, response => {
+                this.history = []
+                //alert('fail to get battle history')
             })
-          }, response => {
-            this.history = []
-            //alert('fail to get battle history')
-          })
         }
       },
       handleDownload(index, row) {
