@@ -18,7 +18,7 @@ urlpatterns = [
     path('team_id=<int:pk>/', views.GroupDetail.as_view(), name='GroupDetail'),
     path('user_id=<int:pk>/', views.StudentDetail.as_view(), name='StudentDetail'),
     path('RuleFile_id=<int:pk>', views.RuleFileView.as_view(), name='RuleFile'),
-    path('students/reg/',views.StudentReg),
+    #path('students/reg/',views.StudentReg),
     path('students/login/',views.StudentLogin),
     path('students/leader/',views.StudentLeader),
     path('students/modify/',views.ModifyPwd),
@@ -31,6 +31,6 @@ urlpatterns = [
     path('download/allfiles/',views.GetIndex),
     path('download/file/<str:filename>/',views.GetFile),
     path('download/rulefile/',views.GetRule),
-   # path('debug/mails/f4d5sa4g98g',views.SendEmails)
+    #path('debug/mails/f4d5sa4g98g',views.SendEmails)
 ]    
 

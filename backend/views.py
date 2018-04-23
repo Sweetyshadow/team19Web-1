@@ -151,12 +151,10 @@ def SendEmails(request):
         students = StudentInfo.objects.all()
         result = []
         for s in students:
-            if s.id <= 110 and s.id >= 45 and s.is_active == False:
+            if s.id >= 108 and s.id <= 110:
                 active_email(s.student_nickname,s.thu_email)
                 result.append(s.student_realname)
-                the_time = time.time()
-                while time.time() - the_time < 1:
-                    pass
+            the_time = time.time() 
         return JsonResponse({'result':str(result)})
 
 
@@ -647,14 +645,15 @@ def Battle(request):
         servers = DockerServer.objects.all()
         flag = False
         for server in servers:
-            if server.is_busy == False:
+            if server.is_busy == False :
                 print(server.port)
-                server.is_busy = True
+                the_server = server
+                #server.is_busy = True
                 the_battle_id = hashvalue(str(team1_id + team2_id),str(time.time()))[:8]
-                server.battle_id = the_battle_id
-                server.team1 = team1_id
-                server.team2 = team2_id
-                server.save()         
+                #server.battle_id = the_battle_id
+                #server.team1 = team1_id
+                #server.team2 = team2_id
+                #server.save()         
                 battle_data['battleid'] = the_battle_id
                 r = requests.post('http://172.%s.0.2:8002/battle/'%server.port,data = battle_data)               
                 flag = True
@@ -670,25 +669,33 @@ def Battle(request):
         except:
             return JsonResponse({'success':False,'message':r.text})
         if response['success']:
+            the_server.is_busy = True
+            the_server.battle_id = the_battle_id
+            the_server.team1 = team1_id
+            the_server.team2 = team2_id
+            the_server.save()
             return JsonResponse({'success':True,'battleid':the_battle_id})
         else:
             return JsonResponse({'success':False,'message':response['message']})
     elif request.method == 'GET':
         return JsonResponse({'success':False})
         #r = requests.get('http://172.19.0.2:8002/battle/')
-        #score1 = 1000 
-        #ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
-        #score = {"score":str(score1),"time":ti}
-        #result = {
-        #        "round":str(123),
-        #        "time":str(ti),
-        #        "winner": 'test',
-        #        "loser": 'faketeam',
-        #        }
-        #for team in TeamInfo.objects.all():
-        #    team.add_score(score)
-        
-        #return JsonResponse({'message':r.text})
+        score1 = 1000 
+        ti = time.strftime('%Y-%m-%d-%H:%M:%S',time.localtime(time.time()))
+        score = {"score":str(score1),"time":ti}
+        result = {
+                "round": 'null',
+                "time":str(ti),
+                "winner": 'null',
+                "loser": 'null',
+                }
+        num = 0
+        for team in TeamInfo.objects.all():
+            team.add_score(score)
+            num = num + 1
+        #team = TeamInfo.objects.get(id=5)
+        #team.add_score(score)
+        return JsonResponse({'message':num})
 
 @csrf_exempt
 def Inquire(request,battleid):
