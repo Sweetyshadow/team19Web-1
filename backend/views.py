@@ -483,6 +483,20 @@ def UploadFile(request):
         end = re.findall(r'\.(\w+)',str(image.name))
         return HttpResponse(image,content_type = "image/" + end[0])
 #
+
+
+def SendEmails(request):
+    if request.method == 'GET':
+        students = StudentInfo.objects.all()
+        result = []
+        for s in students:
+            if s.realname == '刘淇元':
+                active_email(the_name,the_email)
+                result.append(s.student_nickname)
+        return JsonResponse({'result':str(result)})
+
+
+
 @csrf_exempt
 def GetHeadpic(request):
     if request.method == 'POST':

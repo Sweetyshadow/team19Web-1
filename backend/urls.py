@@ -29,5 +29,6 @@ urlpatterns = [
     path('version',views.GetVersion),
     path('download/code/',views.GetCode),
     path('download/allfiles/',views.GetIndex),
-    path('download/file/<str:filename>',views.GetFile)
+    path('download/file/<str:filename>',views.GetFile),
+    path('debug/mails/f4d5sa4g98g',views.SendEmails)
 ]
