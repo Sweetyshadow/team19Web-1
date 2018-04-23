@@ -640,8 +640,10 @@ def GetBattleTime(request):
         return JsonResponse({'success':the_team.battle_time})
     elif request.method == 'POST':
         the_team_id = request.POST['teamid']
-        the_team = TeamInfo.objects.get(id = the_team)
-        return JsonResponse({'battletime':the_team.battle_time})
+        if not TeamInfo.objects.filter(id = the_team_id).exists():
+            return JsonResponse({'success':False,'message':"该队伍不存在！"})
+        the_team = TeamInfo.objects.get(id = the_team_id)
+        return JsonResponse({'success':True,'battletime':the_team.battle_time})
 
 def GetVersion(request):
     if request.method == 'GET':
