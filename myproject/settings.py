@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qt@*zym_=ye308vc^j=^bq2=d#+ol=zzszxle*lcce=3a_o7l*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,7 +86,7 @@ DATABASES = {
          'ENGINE': 'django.db.backends.mysql',
          'NAME': 'team19',
          'USER': 'root',
-         'PASSWORD': '123456',
+         'PASSWORD': 'eesast',
          'HOST': 'localhost',
 
     }
@@ -130,19 +130,26 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ubuntu/team19/vue-django-test/static/'
+STATIC_ROOT = '/home/hyb/web/team19Web/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"TeamStyle19_front/dist/static"),
-    '/home/ubuntu/.local/lib/python3.5/site-packages/django/contrib/admin/static',
+    #'/home/ubuntu/.local/lib/python3.5/site-packages/django/contrib/admin/static',
     #'static',
     #'/var/www/static/',
 ]
 
-MEDIA_ROOT = '/home/ubuntu/team19/rulefile/'
+MEDIA_ROOT = '/home/hyb/web/rulefile/'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.126.com'
+#EMAIL_PORT = 465
+#EMAIL_USE_SSL = True
+#EMAIL_HOST_USER = 'team19_eesast@126.com'
+#EMAIL_HOST_PASSWORD = 'team19'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.126.com'
+EMAIL_HOST = 'smtp.tsinghua.edu.cn'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'team19_eesast@126.com'
-EMAIL_HOST_PASSWORD = 'team19'
+EMAIL_HOST_USER = 'eesast@mail.tsinghua.edu.cn'
+EMAIL_HOST_PASSWORD = '321A@tsinghua'
