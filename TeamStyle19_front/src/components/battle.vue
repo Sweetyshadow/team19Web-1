@@ -21,6 +21,8 @@
       <p> {{ ErrorDetail }}</p>
     </div>
     <h4> 进行对战 </h4>
+    <p> 今日已对战： {{challengeTime}} 次</p>
+    <p> 剩余挑战次数： {{30-challengeTime}} 次</p>
     <el-table :data='team' :default-sort="{prop: 'teamscore', order: 'descending'}" stripe>
       <el-table-column type="index" align="center"></el-table-column>
       <el-table-column prop="teamname" label="队伍名称" align="center" sortable></el-table-column>
@@ -55,7 +57,31 @@
       foot
     },
     created() {
-      teamSrv.getMyteamindex(this, this.jump)
+      //teamSrv.getMyteamindex(this, this.jump)
+      teamSrv.queryteamindex(this,localStorage.getItem('teamstyle_id')).then(response => {
+        if(response.body.success){
+          this.$store.commit('setTeamindex',response.body.teamid)
+          teamSrv.getChallengeTimes(this,response.body.teamid).then(response1 => {
+            if(response1.body.success){
+              this.challengeTime = parseInt(response1.body.battletime)
+            }
+          }, response1 => {
+            this.$notify.error({
+              message: '网络状态不佳'
+            })            
+          })
+        } else {
+          //alert(response.body.message)
+          this.$notify.error({
+            message: response.body.message
+          })
+        }
+      }, response => {
+        this.$notify.error({
+          message: '网络状态不佳'
+        })
+      })
+      
       teamSrv.showAll(this, this.requireAI)
       fileSrv.getAI(this)
       /*battleSrv.getPlatformVersion(this).then(response => {
@@ -77,7 +103,8 @@
         compileError: false,
         ErrorDetail: null,
         code: null,
-        requireAI: true
+        requireAI: true,
+        challengeTime: null
       }
     },
     methods: {

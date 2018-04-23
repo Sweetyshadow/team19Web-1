@@ -75,6 +75,14 @@ export default {
     })
   },
 
+  queryteamindex (context, userid) {
+    return context.$http({
+      url: TEAM_URL+'oneteam/',
+      method: 'POST',
+      body: {userid: userid} // userid 
+    })
+  },
+
   showMyteam (context) {
     const data = {
       userid: localStorage.getItem('teamstyle_id')
@@ -305,6 +313,13 @@ export default {
       url: TEAM_URL+'record/',
       method: 'post',
       body: {battleid: battleid}
+    })
+  },
+  getChallengeTimes(context,teamid) {
+    return context.$http({
+      url: TEAM_URL+'battletime/',
+      method: 'post',
+      body: {teamid: teamid}
     })
   }
 }
