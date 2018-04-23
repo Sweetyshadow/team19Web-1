@@ -585,7 +585,7 @@ def GetRule(request):
         return response
     else:
         the_file_name = '1.txt'
-        file_path = os.path.join('/home/hyb/web/rule/','1.txt')
+        file_path = os.path.join('/home/hyb/web /rule/','1.txt')
         response = FileResponse(open(file_path,'rb'))
         response['Content-Type']='application/octet-stream'
         response['Content-Disposition']='attachment;filename = ' + the_file_name
@@ -634,8 +634,8 @@ def GetRecordAlias(request,battleid):
         return JsonResponse({'success':False})
 
 @csrf_exempt
-def GetBattleTime(requests):
-    if request.method = 'GET':
+def GetBattleTime(request):
+    if request.method == 'GET':
         the_team = TeamInfo.objects.get(id = 5)
         return JsonResponse({'success':the_team.battle_time})
     elif request.method == 'POST':
