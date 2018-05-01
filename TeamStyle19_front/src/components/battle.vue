@@ -15,7 +15,7 @@
       <div>
         <i class="el-icon-warning">Note: 系统仅保留最新上传文件</i>
       </div>
-      <p>决赛代码提交截止时间：5/24 24:00</p>
+      <p>决赛代码提交截止时间：5/9 24:00</p>
     </div>
     <div v-if="compileError" id="ErrorInfo">
       <h1>Compile Error</h1>
