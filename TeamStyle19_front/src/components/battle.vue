@@ -15,9 +15,7 @@
       <div>
         <i class="el-icon-warning">Note: 系统仅保留最新上传文件</i>
       </div>
-      <p>初赛代码提交截至 4/25 23:59</p>
-      <p>初赛天梯赛时间 4/23 0:00 ~ 4/27 23:59</p>
-      <p>初赛结果公布 4/28上午科展现场</p>
+      <p>决赛代码提交截止时间：5/24 24:00</p>
     </div>
     <div v-if="compileError" id="ErrorInfo">
       <h1>Compile Error</h1>

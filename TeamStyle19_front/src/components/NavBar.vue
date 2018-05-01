@@ -4,7 +4,7 @@
         <el-menu-item index="1"><a href="https://eesast.com"><img src="/static/img/EESAST.png"/></a></el-menu-item>
         <el-menu-item index="2" route="/"> 主页 </el-menu-item>
         <el-menu-item index="3" route="/file"> 文件 </el-menu-item>
-        <el-menu-item index="4" route="/ShowAllTeams"> 队伍 </el-menu-item>
+        <el-menu-item index="4" route="/ShowAllTeams"> 决赛入围队伍 </el-menu-item>
         <el-menu-item index="5" route="/battle"> 对战 </el-menu-item>
         <el-submenu index="6" id="submenu" > 
             <template slot="title">个人中心</template>

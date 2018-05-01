@@ -1,6 +1,10 @@
 <template>
 <div id="wrap">
-    <el-button icon="el-icon-plus" type="primary" size="medium" @click="handleCreate">创建队伍</el-button>
+    <el-table :data='dalaoteam' stripe>
+        <el-table-column type="index" label="名次" align="center" header-align="center" width="100"></el-table-column>
+        <el-table-column prop="name" label="队伍名称" align="center" header-align="center"></el-table-column>
+    </el-table>
+    <!--el-button icon="el-icon-plus" type="primary" size="medium" @click="handleCreate">创建队伍</el-button>
   <el-table :data='team' stripe>
       <el-table-column type="index" align="center" header-align="center">
       </el-table-column>
@@ -21,7 +25,7 @@
       </template>
     </el-table-column>
   </el-table>
-  <!--div :model="test">
+  <div :model="test">
       <input v-model="test.id1">
       <input v-model="test.id2">
       <input v-model="test.id3">
@@ -40,13 +44,63 @@ export default {
   data(){
       return{
           team: [],
-          requireAI: false
+          requireAI: false,
           //teamid: [],
           /*test: {
               id1: null,
               id2: null,
               id3: null
           }*/
+          dalaoteam:[
+              {
+                name: '萌新观光团'
+              },
+              {
+                  name: '摸鱼兄弟'
+              },
+              {
+                  name: 'SoulKnight'
+              },
+              {
+                  name: '给图图双击666'
+              },
+              {
+                  name: 'ChenThree'
+              },
+              {
+                  name: '打手团'
+              },
+              {
+                  name: 'TAN90°'
+              },
+              {
+                  name: '时空枢纽'
+              },
+              {
+                  name: '三巨一渣'
+              },
+              {
+                  name: 'teamloser'
+              },
+              {
+                  name: 'AD钙'
+              },
+              {
+                  name: '人工智障'
+              },
+              {
+                  name: '系强我弱'
+              },
+              {
+                  name: '从报名到退赛'
+              },
+              {
+                  name: '嘀。。。老人卡'
+              },
+              {
+                  name: '235A'
+              }
+          ]
       }
   },
   created () {
